@@ -1,0 +1,1067 @@
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2d6>=5 성공"
+output = "(2D6>=5) ＞ 5[2,3] ＞ 5 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2d6>=5 실패"
+output = "(2D6>=5) ＞ 4[3,1] ＞ 4 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2d6+1>=5 수정치 적용되어 성공"
+output = "(2D6+1>=5) ＞ 4[3,1]+1 ＞ 5 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2d6-1>=5 수정치 적용되어 실패"
+output = "(2D6-1>=5) ＞ 5[4,1]-1 ＞ 4 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2d6-1>=13 스페셜"
+output = "(2D6-1>=13) ＞ 12[6,6]-1 ＞ 11 ＞ 스페셜(【성명력】을 1D6점 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2d6+1>=5 스폐셜의 경계값"
+output = "(2D6+1>=5) ＞ 11[5,6]+1 ＞ 12 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2d6+1>=2 펌블"
+output = "(2D6+1>=2) ＞ 2[1,1]+1 ＞ 3 ＞ 펌블(랜덤한 사인이【식】으로 변화)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2d6-1>=5 펌블의 경계값"
+output = "(2D6-1>=5) ＞ 3[2,1]-1 ＞ 2 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2d6+100>=? 목표치가 ?인 경우"
+output = "(2D6+100>=?) ＞ 11[5,6]+100 ＞ 111"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2d6+1>=? 목표치가 ?인 경우, 펌블"
+output = "(2D6+1>=?) ＞ 2[1,1]+1 ＞ 3 ＞ 펌블(랜덤한 사인이【식】으로 변화)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2d6-1>=? 목표치가 ?인 경우, 스페셜"
+output = "(2D6-1>=?) ＞ 12[6,6]-1 ＞ 11 ＞ 스페셜(【성명력】을 1D6점 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2D6@11>=12 스페셜치 변동"
+output = "(2D6@11>=12) ＞ 11[6,5] ＞ 11 ＞ 스페셜(【성명력】을 1D6점 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2D6@2>=2 스페셜치가 펌블치 이하"
+output = "(2D6@3>=2) ＞ 2[1,1] ＞ 2 ＞ 펌블(랜덤한 사인이【식】으로 변화)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2D6+1>=5 수정치는 펌블에 영향 없음"
+output = "(2D6+1>=5) ＞ 2[1,1]+1 ＞ 3 ＞ 펌블(랜덤한 사인이【식】으로 변화)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2D6-1>=5 수정치는 스페셜에 영향 없음"
+output = "(2D6-1>=5) ＞ 12[6,6]-1 ＞ 11 ＞ 스페셜(【성명력】을 1D6점 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2D6@11-1>=5 @가 수정치 앞에 위치한 경우"
+output = "(2D6-1@11>=5) ＞ 11[6,5]-1 ＞ 10 ＞ 스페셜(【성명력】을 1D6점 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2D6-1@11>=5 @가 수정치 뒤에 위치한 경우"
+output = "(2D6-1@11>=5) ＞ 11[6,5]-1 ＞ 10 ＞ 스페셜(【성명력】을 1D6점 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2D6@11>=7"
+output = "(2D6@11>=7) ＞ 6[3,3] ＞ 6 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2D6@11>=7"
+output = "(2D6@11>=7) ＞ 7[4,3] ＞ 7 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "1D6>=7"
+output = "(1D6>=7) ＞ 2[2] ＞ 2 ＞ 펌블(랜덤한 사인이【식】으로 변화)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "3D6+1>=7 주사위 개수 증가"
+output = "(3D6+1>=7) ＞ 6[1,3,2]+1 ＞ 7 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "3D6+1>=7"
+output = "(3D6+1>=7) ＞ 5[1,3,1]+1 ＞ 6 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "3D6-1>=7"
+output = "(3D6-1>=7) ＞ 12[4,3,5]-1 ＞ 11 ＞ 스페셜(【성명력】을 1D6점 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "10D6-10@10>=100"
+output = "(10D6-10@10>=100) ＞ 10[1,1,1,1,1,1,1,1,1,1]-10 ＞ 0 ＞ 스페셜(【성명력】을 1D6점 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2D>=5 nD으로 판정"
+output = "(2D6>=5) ＞ 5[2,3] ＞ 5 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2D-1>=5 nD으로 판정"
+output = "(2D6-1>=5) ＞ 5[2,3]-1 ＞ 4 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "2D+1>=2 nD으로 판정"
+output = "(2D6+1>=2) ＞ 2[1,1]+1 ＞ 3 ＞ 펌블(랜덤한 사인이【식】으로 변화)"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "4D-1>=13 nD으로 판정"
+output = "(4D6-1>=13) ＞ 12[1,4,5,2]-1 ＞ 11 ＞ 스페셜(【성명력】을 1D6점 회복)"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "0D6>=7"
+output = "(0D6>=7) ＞ 0 ＞ 실패"
+failure = true
+rands = []
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "D66 오름차순 정렬"
+output = "(D66) ＞ 16"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RTT"
+output = "랜덤 특기 결정표(1,2) ＞ 《창조／소원2》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RTT"
+output = "랜덤 특기 결정표(2,5) ＞ 《물／원소5》"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RTT"
+output = "랜덤 특기 결정표(6,12) ＞ 《이성／인간성12》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RTT1"
+output = "지정특기(소원)표(2) ＞ 《창조／소원2》"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RTT5"
+output = "지정특기(소환)표(4) ＞ 《*물고기자리／소환4》"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RTT6"
+output = "지정특기(인간성)표(12) ＞ 《이성／인간성12》"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RCT"
+output = "랜덤 분야표(1) ＞ 소원"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RCT"
+output = "랜덤 분야표(6) ＞ 인간성"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "HORA"
+output = "랜덤 별자리표A(1) ＞ 양자리"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "HORA"
+output = "랜덤 별자리표A(6) ＞ 처녀자리"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "HORB"
+output = "랜덤 별자리표B(1) ＞ 천칭자리"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "HORB"
+output = "랜덤 별자리표B(6) ＞ 물고기자리"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "HOR"
+output = "랜덤 별자리표(3) ＞ 랜덤 별자리표A(6) ＞ 처녀자리"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "HOR"
+output = "랜덤 별자리표(4) ＞ 랜덤 별자리표B(1) ＞ 천칭자리"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "MRT"
+output = "주인 관계표(1) ＞ 부모"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "MRT"
+output = "주인 관계표(6) ＞ 애인"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAT"
+output = "관계 속성표(1) ＞ 존경 / 우월감"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAT"
+output = "관계 속성표(6) ＞ 비호 / 열등감"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "MIR"
+output = "기적표(1) ＞ 하늘에서 내리는 한 줄기 빛이 별인형의 몸을 감싸고, 신기한 힘을 준다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "MIR"
+output = "기적표(6) ＞ 온몸에 성명력이 넘쳐나고, 한계를 넘어선 대규모 성술을 다룰 수 있게 된다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "BRT"
+output = "전과표(1) ＞ 소지하고 있는 아이템에서 하나를 선택하여 동일한 것을 하나 더 획득한다. 소지하지 않은 경우 다시 한 번 전과 표를 굴린다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "BRT"
+output = "전과표(6) ＞ 자유롭게 아이템을 하나 획득한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TRO"
+output = "사건표(2) ＞ 〈변정체〉를 손에 쥐자마자 인형 병사의 군대에게 들켜 쫒긴다…어떻게든 뿌리치자!"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TRO"
+output = "사건표(7) ＞ 무고한 사람들이〈변정체〉를 가진 적에게 사로잡혀 있다. 동료들과 함께사람들을 구해내고〈변정체〉를 정화하자."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TRO"
+output = "사건표(12) ＞ 〈변정체〉는 깊은 물 속에 잠겨 있는 것 같다. 정화할 방법이 없을까……."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "ENC"
+output = "조우표(1) ＞ 『변사』귀뚜라미의 필란테\n지정특기: 《조화／인간성5》\n효과: 플라네타리 카드 룰 비채용 시 이 세션 중【성명력】을 1점 상승시킨다. 플라네타리 카드 룰 채용 시 베네픽을 1매 획득한다"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "ENC"
+output = "조우표(6) ＞ 『소녀』염소의 카프레티나\n지정특기: 《애정／인간성7》\n효과: 묵주를 하나 획득한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "FWT"
+output = "치명상 표(1) ＞ 적의 공격은 별인형의 눈동자를 직격하고 보석은 선혈처럼 부서졌다. PC는 형해화된다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "FWT"
+output = "치명상 표(6) ＞ 이런 데서 쓰러질 수는 없다. 별인형은【성명력】1점으로 전투에 복귀한다. 다시【성명력】이 0이 될 경우 PC는 치명상 표를 사용하지 않고 전투에서 탈락한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "CAT"
+output = "카타스트로피 표(1) ＞ 〈극장〉 전체가 크게 흔들리고, 공간에 균열이 생긴다. 현실은 새롭게 칠해져…〈변용구〉로 변했다. 가장 두려워했던 사태에 별인형들은 멍하니 서 있을 수밖에 없었다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "CAT"
+output = "카타스트로피 표(6) ＞ 〈구형〉의 몸은 팽창하는〈악몽의 안개〉의 압력을 견디지 못하고, 안쪽으로부터 보석이 파괴되었다.〈구형〉에 남겨진 생명은 앞으로 얼마 남지 않았다. 별인형은〈구형〉의 최후를 지켜보게 된다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "JDSRT"
+output = "〈마술사의 정원〉 회상표(1) ＞ 일에 필요한 도구가 부족하여 급히 장보기로. 짐이 무거워서 키 NPC도 도와주게 되었다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "JDSRT"
+output = "〈마술사의 정원〉 회상표(6) ＞ 방을 지나던 중 어떤 것이 눈에 들어온다. 그것은 키 NPC에게 있어 추억 깊은 물건인 모양이다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "SHRT"
+output = "〈세븐스 헤븐〉 회상표(1) ＞ 청소를 하고 있다 집의 물건에 걸려 넘어져 부숴버렸다! 거기에 키 NPC가 찾아와서……."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "SHRT"
+output = "〈세븐스 헤븐〉 회상표(6) ＞ 오늘은 세븐스 헤븐 팬 감사 이벤트. 행사장에는 간식을 든 키 NPC의 모습도 있다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "BCRT"
+output = "〈축복의 종〉 회상표(1) ＞ 종연 후 입구에서 인사를 하다보면 키 NPC가 누군가와 이야기하고 있다. 상황을 보러 갈까."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "BCRT"
+output = "〈축복의 종〉 회상표(6) ＞ 철수 작업도 막바지에 가까워지는 스테이지 위. 아무도 없는 객석을 키 NPC가 바라보고 있다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "ODRT"
+output = "〈오메가 탐정사〉 회상표(1) ＞ 사건 조사를 위해 키 NPC에게 탐문. 정보가 나올 수 있을까? 잡담이 되어버릴지도 모른다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "ODRT"
+output = "〈오메가 탐정사〉 회상표(6) ＞ 화려한 사건! 주인의 추리를 많이 도와주었다. 키 NPC도 당신에게 경의를 표한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TRS"
+output = "종자 트러블표(2) ＞ 〈변정체〉를 발견한 종자는 혼자서 「좁은 장소 / 높은 장소」에 가서 돌아올 수 없게 되어 버렸다. 도와주자."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TRS"
+output = "종자 트러블표(7) ＞ 종자가〈변정체〉에 홀려 「날뛰기 시작했다/도망쳤다」. 어떻게든 제압해 정화하자!"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TRS"
+output = "종자 트러블표(12) ＞ 주민이 종자를 탐내 억지로 「컬렉션 / 상품」에 추가하려 한다. 끌려가기 전에 구해내자."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "SRT"
+output = "종자 관계표(1) ＞ 악우"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "SRT"
+output = "종자 관계표(6) ＞ 쌍둥이"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAL"
+output = "리액션표 - 충성(1) ＞ 분부대로"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAL"
+output = "리액션표 - 충성(6) ＞ (종자의 모습)의 기사로서 주인의 명을 다하겠습니다"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAC"
+output = "리액션표 - 냉정(1) ＞ 기분 나쁜 예감이 드는군"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAC"
+output = "리액션표 - 냉정(6) ＞ 나는 (종자의 모습)이지만……너는 진정한 친구야"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAM"
+output = "리액션표 - 모성(1) ＞ 어머나, 무슨 일일까"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAM"
+output = "리액션표 - 모성(6) ＞ (종자의 모습)인 나라도 좋다면 많이 의지해줘요"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAO"
+output = "리액션표 - 연장자(1) ＞ 괜찮아, 걱정하지 않아도 돼"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAO"
+output = "리액션표 - 연장자(6) ＞ (종자의 모습)인 나를 친구로 선택해주어서, 자랑스러워"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAI"
+output = "리액션표 - 천진난만(1) ＞ 해치울까~?"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAI"
+output = "리액션표 - 천진난만(6) ＞ 그런 말을 들어도……나, (종자의 모습)이니까"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAE"
+output = "리액션표 - 장로(1) ＞ 허허, 기운이 좋군"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "RAE"
+output = "리액션표 - 장로(6) ＞ 나도 오랫동안 (종자의 모습)을 하고 있지만, 이런 일은 처음이로다"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "JDSBT"
+output = "〈마술사의 정원〉 출장표(1) ＞ 정기 점검을 위해 다니던 조직에 일손이 부족해져 협조를 요청받았다. 당신은 주인의 부탁을 받아 도움을 주러 가게 되었다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "JDSBT"
+output = "〈마술사의 정원〉 출장표(6) ＞ 〈마술사의 정원〉의 업무에 지루해져 버린 당신은 다른 직장을 체험해 보기로 했다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "SHBT"
+output = "〈세븐스 헤븐〉 출장표(1) ＞ 이전의 클라이언트가 일손 부족으로 협력을 요청받았다. 당신은 주인의 부탁을 받아 도움을 주러 가게 되었다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "SHBT"
+output = "〈세븐스 헤븐〉 출장표(6) ＞ 업무 능력 향상을 하고 싶었던 당신은 혼자 출장을 떠나 다른 주인 밑에서 집안일을 담당하게 되었다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "BCBT"
+output = "〈축복의 종〉 출장표(1) ＞ 언제나 응원해주던 조직이 일손 부족이 되어 협력을 요청받았다. 당신은 주인의 부탁을 받아 도움을 주러 가게 되었다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "BCBT"
+output = "〈축복의 종〉 출장표(6) ＞ 다음 공연까지 장기 휴가를 받은 당신은 기분 전환으로 다른 주인의 곁에서 생활하게 되었다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "ODBT"
+output = "〈오메가 탐정사〉 출장표(1) ＞ 이전에 수사 협력해 준 조직이 일손 부족이 되어 협력을 요청받았다. 당신은 주인의 부탁을 받아 도움을 주러 가게 되었다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "ODBT"
+output = "〈오메가 탐정사〉 출장표(6) ＞ 의뢰가 오지 않아⋯⋯! 따분해하는 당신을 배려하여 주인은 당신을 다른 주인의 곁에서 도와주도록 했다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "ASBT"
+output = "〈은하수 상점가〉 출장표(1) ＞ 가게의 단골이 일손 부족이 되어 협력을 요청받았다. 당신은 주인의 부탁을 받아 도움을 주러 가게 되었다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "ASBT"
+output = "〈은하수 상점가〉 출장표(6) ＞ 가게 단골과 친해진 당신은 주인의 주선으로 출장을 가게 되었다. 즐거운 추억을 잔뜩 만들자."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "PABT"
+output = "〈폴라리스 성학원〉 출장표(1) ＞ 학급의 시간 강사가 일손 부족이 되어 협력을 요청받았다. 당신은 선생님의 부탁을 받아 도움을 주러 가게 되었다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "PABT"
+output = "〈폴라리스 성학원〉 출장표(6) ＞ 당신은 국내 유학으로 다른 학원에 일시적으로 전입하게 되었다. 새로운 만남에 부풀어 오른 기대를 안고 당신은 출장을 떠난다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "SCBT"
+output = "〈인형 기사단〉 출장표(1) ＞ 아는 주인이 일손 부족이 되어 당신은 정체를 숨긴 채 도움을 주러 가게 되었다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "SCBT"
+output = "〈인형 기사단〉 출장표(6) ＞ 주인은 「자신이 지키고 있는 것을 잘 아는 것도 중요하다」며 당신에게 출장을 권유했다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TOSCBT"
+output = "〈인형 기사단〉으로의 출장표(1) ＞ 당신의 직장이〈구형〉에게 습격당했다. 주인은 부상으로 인해 입원, 당신은 습격 당시 가세하러 온 〈인형 기사단〉에 몸을 숨기게 되었다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TOSCBT"
+output = "〈인형 기사단〉으로의 출장표(6) ＞ 일찍이 당신은 〈인형 기사단〉과 공투를 벌였고 언제든 다시 협력하겠다고 약속했었다. 그 약속을 이행할 때가 온 것 같다. 당신은 주인에게 요청했다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROF"
+output = "숲 사건표(2) ＞ <변정체>에 홀린 식충 식물이 동료를 삼켜버렸다. 빨리 도와야 해!"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROF"
+output = "숲 사건표(12) ＞ 절벽에 걸린 너덜너덜한 현수교 중앙에서 <변정체>를 발견했다. 함정일까. 그냥 가지러 간다면 다리가 떨어져 버릴 것 같은데…."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROG"
+output = "정원 사건표(2) ＞ 신사의 수집가가 가방 속에 <변정체>를 넣어서 다니는 것 같다. 어떻게든 상대를 해치지 않고 손에 넣고 싶은데, 어떻게 할까."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROG"
+output = "정원 사건표(7) ＞ 「침입자다!」 <변정체>에 홀린 인형병들이 무기를 들고 당신을 덮친다!"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROG"
+output = "정원 사건표(12) ＞ 소각로 안에서 <변정체>가 활활 타오르며, 주변에 <악몽의 안개>를 흩뿌리고 있다. 이 거센 불길을 멈추지 않으면 정화는 가능할 것 같지 않다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROC"
+output = "성내 사건표(2) ＞ 「당신은 왕(또는 공주)을 구할 수 있습니까?」 여자가 당신에게 묻는다. 당신이 힘을 보여주면 <변정체>의 위치를 알려줄 것 같다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROC"
+output = "성내 사건표(7) ＞ 통로에 장식되어 있던 갑옷이 갑자기 움직이기 시작하며 덮쳐왔다! <변정체>에 조종당하고 있는 것처럼 보인다."
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROC"
+output = "성내 사건표(12) ＞ 「도와준다면, <변정체>의 있는 곳을 가르쳐 줄게」 수갑과 족쇄를 찬 별인형이 당신에게 호소한다. 인형병과 달리 분명히 의식이 있는 것 같다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROT"
+output = "도시 사건표(2) ＞ 신호가 갑자기 엉망이 되어 혼란이 일어나고 있다. 신호등에 <변정체>가 빙의하고 있는 것 같다. 폭주하는 차를 헤치고 신호등에 도달하자."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROT"
+output = "도시 사건표(7) ＞ 엄중한 열쇠가 달린 쇼케이스 속에서 <변정체>를 발견했다. 뭔가 여는 방법은 없을까…?"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROT"
+output = "도시 사건표(12) ＞ 길거리에서 남자들끼리 싸우고 있는데, 상태가 이상하다. 때리려는 남자의 손에는 <변정체>가! 싸움을 중재해서 <변정체>를 손에 넣자."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROL"
+output = "도서관 사건표(2) ＞ 책장에 누군가의 일기가 섞여 있는 것을 발견했다. 안에는 「사악한 검은 보석을 입수했다」라고 적혀 있다. 주인을 찾으면, <변정체>를 손에 넣을 수 있을지도 모른다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROL"
+output = "도서관 사건표(7) ＞ <변정체>를 발견한 직후, 거대한 책장이 쓰러졌다. 이대로라면 <변정체>를 손에 넣기 전에 모두 깔려 버린다…!"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROL"
+output = "도서관 사건표(12) ＞ 「책 좀 읽어주시겠어요?」 소녀는 <악몽의 안개>에서 검게 녹은 책을 끌어안고 말한다. 부탁을 들어주지 못하면 <변정체>가 숨어든 책은 놓아주지 않을 것 같다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROS"
+output = "역 사건표(2) ＞ 「여행 캠페인 신청자에게는 <변정체>를 선물!」이라고 적힌 벽보를 발견한다. 누군가의 손에 넘어가기 전에 회수하자!"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROS"
+output = "역 사건표(7) ＞ 선로 위에 <변정체>가 떨어져 있지만, 이제 곧 열차가 온다! 열차가 통과한 후, 제자리에 있을지는 알 수 없다…!"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "StarryDolls:Korean"
+input = "TROS"
+output = "역 사건표(12) ＞ 길거리 콘서트 관객들의 모습이 이상하다. 자세히 보니 연주자의 악기에 <변정체>가 박혀 있다! 빨리 정화해서 모두의 눈을 뜨게 만들자."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
