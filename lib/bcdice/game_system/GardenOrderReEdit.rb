@@ -37,9 +37,9 @@ module BCDice
       INFO_MESSAGE_TEXT
 
       register_prefix(
-        '^GO',
-        '^DC(SL|BL|IM|BR|RF|EL).+',
-        '^SD(SL|BL|IM|BR|RF|EL).+'
+        'GO',
+        'DC(SL|BL|IM|BR|RF|EL)',
+        'SD(SL|BL|IM|BR|RF|EL)'
       )
 
       def eval_game_system_specific_command(command)
