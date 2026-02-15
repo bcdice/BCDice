@@ -1,0 +1,128 @@
+[[test]]
+game_system = "NeonUnderRealm"
+input = "4NU"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 },
+]
+success = true
+failure = false
+output = "(4NU) ＞ 4B10<=5[1,5,6,10] ＞ 達成値：2（成功数：2） / 効果値：2 / 気合：0"
+
+[[test]]
+game_system = "NeonUnderRealm"
+input = "4NU5+2@1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+success = true
+failure = false
+output = "(4NU5+2@1) ＞ 4B10<=5+2@1[1,6,10,10] ＞ 達成値：3（成功数：1） / 効果値：3 / 気合：1"
+
+[[test]]
+game_system = "NeonUnderRealm"
+input = "2NU5-3"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+]
+success = false
+failure = true
+output = "(2NU5-3) ＞ 2B10<=5-3[2,3] ＞ 達成値：0（成功数：2） / 効果値：0 / 気合：0 / 失敗"
+
+[[test]]
+game_system = "NeonUnderRealm"
+input = "5NU5@1+1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+success = true
+failure = false
+output = "(5NU5@1+1) ＞ 5B10<=5+1@1[1,2,3,8,9] ＞ 達成値：4（成功数：3） / 効果値：2 / 気合：1"
+
+[[test]]
+game_system = "NeonUnderRealm"
+input = "5NU5+2+1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+success = true
+failure = false
+output = "(5NU5+2+1) ＞ 5B10<=5+2[1,2,3,8,9] ＞ 達成値：5（成功数：3） / 効果値：2 / 気合：0"
+
+[[test]]
+game_system = "NeonUnderRealm"
+input = "5NU5+2@1+1"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+]
+success = true
+failure = false
+output = "(5NU5+2@1+1) ＞ 5B10<=5+2@1[1,2,3,8,9] ＞ 達成値：5（成功数：3） / 効果値：2 / 気合：1"
+
+[[test]]
+game_system = "NeonUnderRealm"
+input = "3NU5@2"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 10 },
+]
+success = false
+failure = true
+output = "(3NU5@2) ＞ 3B10<=5@2[6,7,10] ＞ 達成値：0（成功数：0） / 効果値：3 / 気合：0 / 失敗"
+
+[[test]]
+game_system = "NeonUnderRealm"
+input = "4nu"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 10 },
+]
+success = true
+failure = false
+output = "(4NU) ＞ 4B10<=5[1,5,6,10] ＞ 達成値：2（成功数：2） / 効果値：2 / 気合：0"
+
+[[test]]
+game_system = "NeonUnderRealm"
+input = "10+5+3-2NU"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+success = true
+failure = false
+output = "(10+5+3-2NU) ＞ 16B10<=5[1,2,3,4,5,6,7,8,9,10,10,10,10,10,10,10] ＞ 達成値：5（成功数：5） / 効果値：11 / 気合：0"
