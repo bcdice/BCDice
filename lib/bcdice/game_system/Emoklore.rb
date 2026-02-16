@@ -17,10 +17,15 @@ module BCDice
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
-        ・技能値判定（xDM<=y）
+        ・技能値判定（xDM<=y / xDM<=yEz）
           "(個数)DM<=(判定値)"で指定します。
           ダイスの個数は省略可能で、省略した場合1個になります。
-          例）2DM<=5 DM<=8
+          個数や判定値には四則演算（+-*/）を使用できます。
+          末尾にEzを付けるとダイス数にzを加算します。E-zで減算も可能です。
+          例）2DM<=5 DM<=8 2+2DM<=5 → 4個で判定値5
+              2DM<=5E2 → 4個で判定値5 / 3DM<=5E-1 → 2個で判定値5
+          ※ダイス数が0以下になる場合は確定失敗
+
         ・技能値判定（sDAa+z)
           "(技能レベル)DA(能力値)+(ダイスボーナス)"で指定します。
           ダイスボーナスの個数は省略可能で、省略した場合0になります。
@@ -30,7 +35,7 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('\d*DM<=', '(B|\d*)DA')
+      register_prefix('[-+*/\d]*DM<=', '(B|\d*)DA')
 
       CRITICAL_VALUE = 1
       FUMBLE_VALUE = 10
@@ -41,7 +46,7 @@ module BCDice
       # @return [nil] 無効なコマンドだった場合
       def eval_game_system_specific_command(command)
         case command
-        when /^\d*DM<=\d/
+        when %r{^[-+*/\d]*DM<=[-+*/\d]+}
           roll_dm(command)
         when /^(B|\d*)DA\d+(\+)?\d*/
           roll_da(command)
@@ -93,21 +98,37 @@ module BCDice
       # @param [String] command コマンド
       # @return [Result, nil] コマンドの結果
       def roll_dm(command)
-        m = /^(\d+)?DM<=(\d+)$/.match(command)
+        m = %r{^([-+*/\d]+)?DM<=([-+*/\d]+)(E(-?\d+))?$}.match(command)
         unless m
           return nil
         end
 
-        num_dice = m[1]&.to_i || 1
-        success_threshold = m[2].to_i
+        base_dice_str = m[1]
+        threshold_str = m[2]
+        modifier = m[4]&.to_i
+
+        base_dice = base_dice_str ? Arithmetic.eval(base_dice_str, RoundType::FLOOR) : 1
+        success_threshold = Arithmetic.eval(threshold_str, RoundType::FLOOR)
+        return nil unless base_dice && success_threshold
+
+        num_dice = modifier ? base_dice + modifier : base_dice
+
+        # ダイス数が0以下の場合は確定失敗
         if num_dice <= 0
-          return nil
+          return Result.fumble("(#{command}) ＞ ダイス数が0以下 ＞ 確定失敗")
         end
 
         # ダイスロール本体
         result = dice_roll(num_dice, success_threshold)
 
-        result.text = "(#{num_dice}DM<=#{success_threshold}) ＞ #{result.text}"
+        # 出力フォーマット：算術式やダイスボーナスがある場合は展開形を表示
+        has_arithmetic = base_dice_str&.match?(%r{[-+*/]}) || threshold_str.match?(%r{[-+*/]})
+        values_changed = (base_dice_str && base_dice_str != base_dice.to_s) || threshold_str != success_threshold.to_s
+        if modifier || (has_arithmetic && values_changed)
+          result.text = "(#{command}) ＞ (#{num_dice}DM<=#{success_threshold}) ＞ #{result.text}"
+        else
+          result.text = "(#{num_dice}DM<=#{success_threshold}) ＞ #{result.text}"
+        end
         return result
       end
 
@@ -123,6 +144,10 @@ module BCDice
         bonus = m[3].to_i
         num_dice = (m[1] == "B" ? 1 : (m[1]&.to_i || 1)) + bonus
         success_threshold = m[1].to_i + m[2].to_i
+
+        if num_dice <= 0
+          return Result.fumble("(#{command}) ＞ ダイス数が0以下 ＞ 確定失敗")
+        end
 
         result = dice_roll(num_dice, success_threshold)
 

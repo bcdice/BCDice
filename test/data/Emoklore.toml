@@ -308,3 +308,114 @@ rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
 ]
+
+# 算術式テスト: ダイス数に加算
+[[ test ]]
+game_system = "Emoklore"
+input = "2+2DM<=5"
+output = "(2+2DM<=5) ＞ (4DM<=5) ＞ [3, 4, 6, 7] ＞ 2 ＞ 成功数2 ダブル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+# 算術式テスト: ダイス数に乗算
+[[ test ]]
+game_system = "Emoklore"
+input = "2*3DM<=5"
+output = "(2*3DM<=5) ＞ (6DM<=5) ＞ [1, 2, 3, 6, 7, 8] ＞ 4 ＞ 成功数4 ミラクル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+# 算術式テスト: 判定値に算術式
+[[ test ]]
+game_system = "Emoklore"
+input = "2DM<=3+2"
+output = "(2DM<=3+2) ＞ (2DM<=5) ＞ [3, 6] ＞ 1 ＞ 成功数1 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+]
+
+# 算術式テスト: ダイス数と判定値の両方に算術式
+[[ test ]]
+game_system = "Emoklore"
+input = "1+2DM<=3+2"
+output = "(1+2DM<=3+2) ＞ (3DM<=5) ＞ [3, 6, 7] ＞ 1 ＞ 成功数1 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+# 算術式テスト: ダイス数が0以下で確定失敗
+[[ test ]]
+game_system = "Emoklore"
+input = "3-5DM<=5"
+output = "(3-5DM<=5) ＞ ダイス数が0以下 ＞ 確定失敗"
+failure = true
+fumble = true
+rands = []
+
+# ダイスボーナス: Ez で加算
+[[ test ]]
+game_system = "Emoklore"
+input = "2DM<=5E2"
+output = "(2DM<=5E2) ＞ (4DM<=5) ＞ [3, 4, 6, 7] ＞ 2 ＞ 成功数2 ダブル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
+# ダイスボーナス: E-z で減算
+[[ test ]]
+game_system = "Emoklore"
+input = "3DM<=5E-1"
+output = "(3DM<=5E-1) ＞ (2DM<=5) ＞ [3, 6] ＞ 1 ＞ 成功数1 成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+]
+
+# ダイスボーナス: E-zでダイス数0以下で確定失敗
+[[ test ]]
+game_system = "Emoklore"
+input = "1DM<=5E-2"
+output = "(1DM<=5E-2) ＞ ダイス数が0以下 ＞ 確定失敗"
+failure = true
+fumble = true
+rands = []
+
+# 算術式とダイスボーナスの併用
+[[ test ]]
+game_system = "Emoklore"
+input = "1+1DM<=5E2"
+output = "(1+1DM<=5E2) ＞ (4DM<=5) ＞ [3, 4, 6, 7] ＞ 2 ＞ 成功数2 ダブル"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+]
+
