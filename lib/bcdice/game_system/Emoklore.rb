@@ -35,7 +35,7 @@ module BCDice
       MESSAGETEXT
 
       # ダイスボットで使用するコマンドを配列で列挙する
-      register_prefix('[-+*/\d()]*DM<=', '(B|\d*)DA')
+      register_prefix('[-+*/\d]*DM<=', '(B|\d*)DA')
 
       CRITICAL_VALUE = 1
       FUMBLE_VALUE = 10
@@ -46,21 +46,11 @@ module BCDice
       # @return [nil] 無効なコマンドだった場合
       def eval_game_system_specific_command(command)
         case command
-        when %r{^[-+*/\d()]*DM<=[-+*/\d()]+}
+        when %r{^[-+*/\d]*DM<=[-+*/\d]+}
           roll_dm(command)
         when /^(B|\d*)DA\d+(\+)?\d*/
           roll_da(command)
         end
-      end
-
-      # 入力の正規化（表記揺れ吸収）
-      # @param string [String]
-      # @return [String]
-      def change_text(string)
-        string
-          .tr('０-９', '0-9') # 全角数字→半角
-          .tr('Ａ-Ｚａ-ｚ', 'A-Za-z') # 全角英字→半角
-          .tr('＋＊／＜＝－', '+*/<=-') # 全角記号→半角（ハイフンは末尾に）
       end
 
       private
@@ -108,7 +98,7 @@ module BCDice
       # @param [String] command コマンド
       # @return [Result, nil] コマンドの結果
       def roll_dm(command)
-        m = %r{^([-+*/\d()]+)?DM<=([-+*/\d()]+)(E(-?\d+))?$}.match(command)
+        m = %r{^([-+*/\d]+)?DM<=([-+*/\d]+)(E(-?\d+))?$}.match(command)
         unless m
           return nil
         end
@@ -132,8 +122,9 @@ module BCDice
         result = dice_roll(num_dice, success_threshold)
 
         # 出力フォーマット：算術式やダイスボーナスがある場合は展開形を表示
-        has_arithmetic = base_dice_str&.match?(%r{[-+*/()]}) || threshold_str.match?(%r{[-+*/()]})
-        if modifier || has_arithmetic
+        has_arithmetic = base_dice_str&.match?(%r{[-+*/]}) || threshold_str.match?(%r{[-+*/]})
+        values_changed = (base_dice_str && base_dice_str != base_dice.to_s) || threshold_str != success_threshold.to_s
+        if modifier || (has_arithmetic && values_changed)
           result.text = "(#{command}) ＞ (#{num_dice}DM<=#{success_threshold}) ＞ #{result.text}"
         else
           result.text = "(#{num_dice}DM<=#{success_threshold}) ＞ #{result.text}"
