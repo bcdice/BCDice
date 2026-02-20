@@ -605,6 +605,26 @@ rands = [
   { sides = 10, value = 1 },
 ]
 
+
+##### 複数ボーナス・ペナルティのテスト #####
+[[ test ]]
+game_system = "Aionia"
+input = "AB1+1+2>=6 ダイスへの複数ボーナス クリファンなし"
+output = "(AB1+1+2>=6) ＞ 5[5]+1+2 ＞ 8 ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB1>=6+1+2 難易度への複数ボーナス クリファンなし"
+output = "(AB1>=6+1+2) ＞ 8[8] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 8 },
+]
+
 ##### 段階的な技能判定のテスト（クリファンあり）#####
 [[ test ]]
 game_system = "Aionia"
@@ -741,6 +761,63 @@ rands = [
   { sides = 10, value = 9 },
 ]
 
+##### 段階的な技能判定のボーナス・ペナルティのテスト#####
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=14/18/22+10-2 段階的な難易度への複数ボーナス 失敗 クリファンなし"
+output = "(AB3>=14/18/22+10-2) ＞ 11[3,4,4] ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=14/18/22+10-2 段階的な難易度への複数ボーナス 1段階成功 クリファンなし"
+output = "(AB3>=14/18/22+10-2) ＞ 23[3,10,10] ＞ 1段階成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "AB3>=4/8/12+10-2 段階的な難易度への複数ボーナス 全成功 クリファンなし"
+output = "(AB3>=4/8/12+10-2) ＞ 23[3,10,10] ＞ 全成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3+1-2>=14/18/22+10-2 段階的な難易度への複数ボーナス 両方にボーナス 1段階成功 クリファンあり"
+output = "(ABT3+1-2>=14/18/22+10-2) ＞ 23[3,10,10]+1-2 ＞ 22 ＞ 1段階成功"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "ABT3+1-2>=14/18/22+10-2 段階的な難易度への複数ボーナス 両方にボーナス 2段階成功 クリファンあり"
+output = "(ABT3+1-2>=14/18/22+10-2) ＞ 27[7,10,10]+1-2 ＞ 26 ＞ 2段階成功"
+success = true
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+
 ##### クリティカル>自動成功、ファンブル>自動失敗の優先度テスト #####
 [[ test ]]
 game_system = "Aionia"
@@ -788,4 +865,70 @@ rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
   { sides = 10, value = 1 },
+]
+
+##### DMGコマンドのテスト #####
+[[ test ]]
+game_system = "Aionia"
+input = "DMG>=50 DMGコマンドの成功"
+output = "(DMG>=50) ＞ 50 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "DMG>=40+10 DMGコマンドの成功（計算式あり）"
+output = "(DMG>=40+10) ＞ 90 ＞ 成功"
+success = true
+rands = [
+  { sides = 100, value = 90 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "DMG>=50 DMGコマンドの失敗 > 戦闘不能状態"
+output = "(DMG>=50) ＞ 49 ＞ 失敗 > 戦闘不能状態"
+failure = true
+rands = [
+  { sides = 100, value = 49 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "DMG>=50 DMGコマンドの失敗 > 弱点追加 > 戦闘不能状態"
+output = "(DMG>=50) ＞ 24 ＞ 失敗 > 弱点追加 > 戦闘不能状態"
+failure = true
+rands = [
+  { sides = 100, value = 24 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "DMG>=50 DMGコマンドの失敗 > 弱点追加 ＞ 死亡状態"
+output = "(DMG>=50) ＞ 9 ＞ 失敗 > 弱点追加 ＞ 49 ＞ 死亡状態"
+failure = true
+rands = [
+  { sides = 100, value = 9 },
+  { sides = 100, value = 49 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "DMG>=50 DMGコマンドの失敗 > 弱点追加 ＞ 戦闘不能状態(再判定成功)"
+output = "(DMG>=50) ＞ 9 ＞ 失敗 > 弱点追加 ＞ 50 ＞ 戦闘不能状態"
+failure = true
+rands = [
+  { sides = 100, value = 9 },
+  { sides = 100, value = 50 },
+]
+
+[[ test ]]
+game_system = "Aionia"
+input = "DMG>=30*2-10 DMGコマンドの計算式による失敗検証"
+output = "(DMG>=30*2-10) ＞ 24 ＞ 失敗 > 弱点追加 > 戦闘不能状態"
+failure = true
+rands = [
+  { sides = 100, value = 24 },
 ]
