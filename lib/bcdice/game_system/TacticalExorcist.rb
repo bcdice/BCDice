@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'bcdice/game_system/NinjaSlayer2'
+
 module BCDice
   module GameSystem
     class TacticalExorcist < NinjaSlayer2

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'bcdice/game_system/GardenOrder'
+
 module BCDice
   module GameSystem
     class GardenOrder_Korean < GardenOrder

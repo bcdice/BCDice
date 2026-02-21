@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'bcdice/game_system/ZombiLine'
+
 module BCDice
   module GameSystem
     class ZombiLine_Korean < ZombiLine
