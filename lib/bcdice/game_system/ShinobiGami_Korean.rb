@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bcdice/dice_table/table'
+require 'bcdice/game_system/ShinobiGami'
 
 module BCDice
   module GameSystem

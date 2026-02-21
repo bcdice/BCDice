@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'bcdice/game_system/Emoklore'
+
 module BCDice
   module GameSystem
     class Emoklore_Korean < Emoklore
