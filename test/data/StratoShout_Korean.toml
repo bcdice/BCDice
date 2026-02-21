@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout:Korean"
 input = "RCT"
-output = "ランダム分野表(5) ＞ 행동"
+output = "랜덤 분야표(5) ＞ 행동"
 rands = [
   { sides = 6, value = 5 },
 ]

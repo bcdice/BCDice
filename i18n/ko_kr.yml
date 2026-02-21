@@ -6,3 +6,4 @@ ko_kr:
   RTT:
     rtt_format: '랜덤 특기 결정표(%<category_dice>d,%<row_dice>d) ＞ %<text>s'
     rttn_format: '지정특기(%<category_name>s)표(%<row_dice>d) ＞ %<text>s'
+    rct_format: '랜덤 분야표(%<category_dice>d) ＞ %<category_name>s'

@@ -352,7 +352,7 @@ rands = [
 [[ test ]]
 game_system = "Insane:Korean"
 input = "RCT"
-output = "ランダム分野表(2) ＞ 정서"
+output = "랜덤 분야표(2) ＞ 정서"
 rands = [
   { sides = 6, value = 2 },
 ]
