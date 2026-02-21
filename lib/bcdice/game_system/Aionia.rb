@@ -31,14 +31,10 @@ module BCDice
         例:DMG>=20+50      （難易度20+50の判定。）
       INFO_MESSAGE_TEXT
 
-      register_prefix('ABT?\d+.*', 'DMG.*')
+      register_prefix('ABT?', 'DMG')
 
       def eval_game_system_specific_command(command)
-        if command.start_with?('DMG')
-          return roll_damage_check(command)
-        end
-
-        return roll_skills(command)
+        return roll_skills(command) || roll_damage_check(command)
       end
 
       def roll_skills(command)
@@ -50,11 +46,11 @@ module BCDice
         times = m[2].to_i
 
         # 値の計算
-        bonus = Arithmetic.eval(m[3] == '' ? '0' : m[3], RoundType::FLOOR)
+        bonus = m[3] != '' ? Arithmetic.eval(m[3], RoundType::FLOOR) : 0
         return nil unless bonus
 
         base_targets = m[4].split('/').map(&:to_i)
-        target_bonus = Arithmetic.eval(m[5] == '' ? '0' : m[5], RoundType::FLOOR)
+        target_bonus = m[5] != '' ? Arithmetic.eval(m[5], RoundType::FLOOR) : 0
         return nil unless target_bonus
 
         targets = base_targets.map { |t| t + target_bonus }
@@ -139,11 +135,12 @@ module BCDice
       end
 
       def roll_damage_check(command)
-        m = /^DMG>=(.+)$/.match(command)
-        return nil unless m
+        parser = Command::Parser.new("DMG", round_type: BCDice::RoundType::FLOOR)
+        parsed = parser.parse(command)
+        return nil unless parsed
 
         # 値の計算
-        dif = Arithmetic.eval(m[1], RoundType::FLOOR)
+        dif = parsed.target_number
         return nil unless dif
 
         # ダイスロール
