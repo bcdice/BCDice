@@ -73,6 +73,9 @@ module BCDice
         ・超越判定用に2d6ロールに 2D6@10 書式でクリティカル値付与が可能に。
         　例）2D6@10　2D6@10+11>=30
 
+        ・ビブリオマンサーの応急行使判定用に2d6ロールに 2D6F7 書式で特殊失敗値付与が可能に。
+        　例) 2D6F7　2D6F5+10>=15
+
         ・成長　(Gr)
         　末尾に数字を付加することで、複数回の成長をまとめて行えます。
         　例）Gr3
@@ -88,9 +91,12 @@ module BCDice
 
         ・アビスカース表　(ABT)
         　アビスカース表を出すことができます。
+
+        ・追加アビスカース表(AABT)
+        　追加アビスカース表を出すことができます。
       INFO_MESSAGE_TEXT
 
-      register_prefix('H?K', 'OHK', 'Gr', '2D6?@\d+', 'FT', 'TT', 'Dru', 'ABT')
+      register_prefix('H?K', 'OHK', 'Gr', '2D6?@\d+', '2D6?F\d+', 'FT', 'TT', 'Dru', 'ABT', 'AABT')
 
       def eval_game_system_specific_command(command)
         case command
@@ -104,8 +110,24 @@ module BCDice
           end
 
           druid_dice(cmd, power_list)
+
+        when /^2D6?F\d+/i
+          biblio_parser = Command::Parser.new(/2D6?F/i, round_type: BCDice::RoundType::CEIL).enable_suffix_number
+          cmd = biblio_parser.parse(command)
+          failure_num = cmd.suffix_number
+
+          if !cmd || !failure_num
+            return nil
+          end
+
+          biblio_emergency_dice(cmd, failure_num)
+
         when 'ABT'
           get_abyss_curse_table
+
+        when 'AABT'
+          get_additional_abyss_curse_table
+
         else
           super(command)
         end
@@ -139,6 +161,31 @@ module BCDice
         return sequence.join(" ＞ ")
       end
 
+      def biblio_emergency_dice(command, failure_num)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        dice_total = dice_list.sum()
+        total = dice_total + command.modify_number
+
+        result =
+          if dice_total == failure_num
+            Result.fumble(translate('SwordWorld2_5.special_failure'))
+          else
+            result_2d6(total, dice_total, dice_list, command.cmp_op, command.target_number)
+          end
+
+        result ||= Result.new
+
+        sequence = [
+          "(2D6F#{failure_num}#{Format.modifier(command.modify_number)}#{command.cmp_op}#{command.target_number})",
+          "#{dice_total}[#{dice_list.join(',')}]#{Format.modifier(command.modify_number)}",
+          total,
+          result.text
+        ]
+
+        result.text = sequence.compact.join(" ＞ ")
+        return result
+      end
+
       def get_abyss_curse_table
         table_result = DiceTable::D66GridTable.from_i18n('SwordWorld2_5.AbyssCurseTable', @locale).roll(@randomizer)
         additional =
@@ -154,6 +201,10 @@ module BCDice
         ].compact
 
         return final_result.join("\n")
+      end
+
+      def get_additional_abyss_curse_table
+        return DiceTable::D66GridTable.from_i18n('SwordWorld2_5.AdditionalAbyssCurseTable', @locale).roll(@randomizer).to_s
       end
     end
   end

@@ -1227,3 +1227,92 @@ rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
 ]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "2dF5+6>=13 成功"
+output = "(2D6F5+6>=13) ＞ 7[4,3]+6 ＞ 13 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 4},
+  { sides = 6, value = 3},
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "2D6F3-1>=19 失敗"
+output = "(2D6F3-1>=19) ＞ 4[1,3]-1 ＞ 3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 1},
+  { sides = 6, value = 3},
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "2D6F8+6>=6 自動的失敗"
+output = "(2D6F8+6>=6) ＞ 2[1,1]+6 ＞ 8 ＞ 自動的失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1},
+  { sides = 6, value = 1},
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "2D6F6>=13 自動的成功"
+output = "(2D6F6>=13) ＞ 12[6,6] ＞ 12 ＞ 自動的成功"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6},
+  { sides = 6, value = 6},
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "2dF7 特殊失敗"
+output = "(2D6F7) ＞ 7[3,4] ＞ 7 ＞ 特殊失敗"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 3},
+  { sides = 6, value = 4},
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "2dF9+10"
+output = "(2D6F9+10) ＞ 8[3,5]+10 ＞ 18"
+rands = [
+  { sides = 6, value = 3},
+  { sides = 6, value = 5},
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "AABT"
+output = "追加アビスカース表(45) ＞ 「昏睡の」　携行時　このキャラクターの睡眠は達成値20の「精神効果」として扱い、6時間経過しなければ解除されない(弱ではない)。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "AABT"
+output = "追加アビスカース表(33) ＞ 「信頼しきれない」　携行時　手番開始時に「1d」し、出目が「1」なら、10秒 (1ラウンド)の間、自身の騎獣の行為判定に-2のペナルティ修正を受ける。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "AABT"
+output = "追加アビスカース表(65) ＞ 「手加減する」　装備時　戦闘中、HPが最大値の半分以下の敵キャラクターに対する行動判定に-2のペナルティ修正を受ける。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
