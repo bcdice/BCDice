@@ -128,12 +128,14 @@ module BCDice
       private
 
       def roll_pd(command)
-        parser = Command::Parser.new(/\d*PD/, round_type: round_type)
+        parser = Command::Parser.new("PD", round_type: round_type)
+                                .enable_prefix_number
                                 .restrict_cmp_op_to(:>=, nil)
         cmd = parser.parse(command)
         return nil unless cmd
 
-        times = cmd.command.start_with?(/\d/) ? cmd.command.to_i : 2
+        times = cmd.prefix_number
+        times ||= 2
         return nil if times <= 0
 
         dice_list = @randomizer.roll_barabara(times, 6).sort.reverse
