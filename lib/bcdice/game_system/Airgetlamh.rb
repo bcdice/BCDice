@@ -51,64 +51,87 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        # AA/ALコマンド：調査判定, 成功判定
-        if command =~ /(\d+)?A(A|L)(\d+)?((x|\*)(\d+)(\+(\d+))?)?(C(\d+))?$/i
-          diceCount = (Regexp.last_match(1) || 2).to_i
-          target = (Regexp.last_match(3) || 6).to_i
-          damage = (Regexp.last_match(6) || 0).to_i
-
-          if Regexp.last_match(2) == 'L' # 旧Ver対応
-            criticalTrigger = 0
-            criticalNumber = 0
-          else
-            criticalTrigger = (Regexp.last_match(8) || 0).to_i
-            criticalNumber = (Regexp.last_match(10) || 1).to_i
-          end
-          criticalNumber = 3 if criticalNumber > 4
-
-          return checkRoll(diceCount, target, damage, criticalTrigger, criticalNumber)
-        end
-
-        return nil
+        check_roll(command)
       end
 
-      def checkRoll(diceCount, target, damage, criticalTrigger, criticalNumber)
-        totalSuccessCount = 0
-        totalCriticalCount = 0
+      private
+
+      def parse_check_roll(command)
+        m = /(\d+)?A(A|L)(\d+)?(?:[X*](\d+)(?:\+(\d+))?)?(?:C(\d+))?$/i.match(command)
+        unless m
+          return nil
+        end
+
+        dice_count = m[1]&.to_i || 2
+        target = m[3]&.to_i || 6
+        damage = m[4].to_i
+        critical_trigger = m[5].to_i
+        critical_number = m[6]&.to_i || 1
+
+        if m[2] == "L"
+          critical_trigger = 0
+          critical_number = 0
+        elsif critical_number > 4
+          critical_number = 3
+        end
+
+        return {
+          dice_count: dice_count,
+          target: target,
+          damage: damage,
+          critical_trigger: critical_trigger,
+          critical_number: critical_number,
+        }
+      end
+
+      def check_roll(command)
+        parsed = parse_check_roll(command)
+        unless parsed
+          return nil
+        end
+
+        dice_count = parsed[:dice_count]
+        target = parsed[:target]
+        damage = parsed[:damage]
+        critical_trigger = parsed[:critical_trigger]
+        critical_number = parsed[:critical_number]
+
+        total_success_count = 0
+        total_critical_count = 0
         text = ""
 
-        rollCount = diceCount
+        roll_count = dice_count
 
-        while rollCount > 0
-          diceArray = @randomizer.roll_barabara(rollCount, 10).sort
-          diceText = diceArray.join(",")
+        while roll_count > 0
+          dice_array = @randomizer.roll_barabara(roll_count, 10).sort
+          dice_text = dice_array.join(",")
 
-          successCount = diceArray.count { |i| i <= target }
-          criticalCount = diceArray.count { |i| i <= criticalNumber }
+          success_count = dice_array.count { |i| i <= target }
+          critical_count = dice_array.count { |i| i <= critical_number }
 
-          totalSuccessCount += successCount
-          totalCriticalCount += criticalCount
+          total_success_count += success_count
+          total_critical_count += critical_count
 
           text += "+" unless text.empty?
-          text += "#{successCount}[#{diceText}]"
+          text += "#{success_count}[#{dice_text}]"
 
-          rollCount = criticalCount
+          roll_count = critical_count
         end
 
         result = ""
-        isDamage = (damage != 0)
+        is_damage = (damage != 0)
 
-        if isDamage
-          totalDamage = totalSuccessCount * damage + totalCriticalCount * criticalTrigger
+        if is_damage
+          total_damage = total_success_count * damage + total_critical_count * critical_trigger
 
-          result += "(#{diceCount}D10\<\=#{target}) ＞ #{text} ＞ Hits：#{totalSuccessCount}*#{damage}"
-          result += " + Trigger：#{totalCriticalCount}*#{criticalTrigger}" if criticalTrigger > 0
-          result += " ＞ #{totalDamage}ダメージ"
+          result += "(#{dice_count}D10\<\=#{target}) ＞ #{text} ＞ Hits：#{total_success_count}*#{damage}"
+          result += " + Trigger：#{total_critical_count}*#{critical_trigger}" if critical_trigger > 0
+          result += " ＞ #{total_damage}ダメージ"
         else
-          result += "(#{diceCount}D10\<\=#{target}) ＞ #{text} ＞ 成功数：#{totalSuccessCount}"
+          result += "(#{dice_count}D10\<\=#{target}) ＞ #{text} ＞ 成功数：#{total_success_count}"
         end
 
-        result += " / #{totalCriticalCount}クリティカル" if totalCriticalCount > 0
+        result += " / #{total_critical_count}クリティカル" if total_critical_count > 0
 
         return result
       end
