@@ -91,7 +91,6 @@ Naming/MethodName:
   Exclude:
     - 'lib/bcdice/base.rb'
     - 'lib/bcdice/deprecated/*.rb'
-    - 'lib/bcdice/game_system/Airgetlamh.rb'
     - 'lib/bcdice/game_system/Alsetto.rb'
     - 'lib/bcdice/game_system/AlterRaise.rb'
     - 'lib/bcdice/game_system/Avandner.rb'
@@ -172,7 +171,6 @@ Naming/MethodParameterName:
   MinNameLength: 1
   Exclude:
     - 'lib/bcdice/base.rb'
-    - 'lib/bcdice/game_system/Airgetlamh.rb'
     - 'lib/bcdice/game_system/Alsetto.rb'
     - 'lib/bcdice/game_system/Avandner.rb'
     - 'lib/bcdice/game_system/BadLife.rb'
@@ -214,7 +212,6 @@ Naming/MethodParameterName:
 Naming/VariableName:
   Exclude:
     - 'lib/bcdice/base.rb'
-    - 'lib/bcdice/game_system/Airgetlamh.rb'
     - 'lib/bcdice/game_system/Alsetto.rb'
     - 'lib/bcdice/game_system/AlterRaise.rb'
     - 'lib/bcdice/game_system/Avandner.rb'
