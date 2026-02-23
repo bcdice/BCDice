@@ -1,0 +1,201 @@
+# frozen_string_literal: true
+
+require 'bcdice/game_system/Ryutama'
+
+module BCDice
+  module GameSystem
+    class Ryutama_Korean < Ryutama
+      # ゲームシステムの識別子
+      ID = 'Ryutama:Korean'
+
+      # ゲームシステム名
+      NAME = '류타마'
+
+      # ゲームシステム名の読みがな
+      SORT_KEY = '国際化:Korean:류타마'
+
+      # ダイスボットの使い方
+      HELP_MESSAGE = <<~INFO_MESSAGE_TEXT
+       ・판정
+     　　Rx,y>=t（x,y：사용할 능력치、t：목표값）
+     　　1의 눈(펌블)、크리티컬을 포함하여 판정 결과를 표시합니다
+     　　능력치 1개로만 하는 판정은 Rx>=t 로 할 수 있습니다
+     　　예）R8,6>=13
+      INFO_MESSAGE_TEXT
+
+      register_prefix('R')
+
+      def initialize(command)
+        super(command)
+        @validDiceTypes = [20, 12, 10, 8, 6, 4, 2]
+      end
+
+      def eval_game_system_specific_command(command)
+        debug('eval_game_system_specific_command begin')
+
+        unless command =~ /^R(\d+)(,(\d+))?([+\-\d]+)?(>=(\d+))?/
+          debug('unmatched!')
+          return ''
+        end
+        debug('matched')
+
+        dice1 = Regexp.last_match(1).to_i
+        dice2 = Regexp.last_match(3).to_i
+        modifyString = Regexp.last_match(4)
+        difficulty = Regexp.last_match(6)
+
+        dice1, dice2 = getDiceType(dice1, dice2)
+        if dice1 == 0
+          return ''
+        end
+
+        modifyString ||= ''
+        modify = ArithmeticEvaluator.eval(modifyString)
+        difficulty = getDiffculty(difficulty)
+
+        value1 = getRollValue(dice1)
+        value2 = getRollValue(dice2)
+        total = value1 + value2 + modify
+
+        result = getResultText(value1, value2, dice1, dice2, difficulty, total)
+        unless result.empty?
+          result = " ＞ #{result}"
+        end
+
+        value1Text = "#{value1}(#{dice1})"
+        value2Text = (value2 == 0 ? "" : "+#{value2}(#{dice2})")
+        modifyText = getModifyString(modify)
+
+        baseText = getBaseText(dice1, dice2, modify, difficulty)
+        output = "(#{baseText}) ＞ #{value1Text}#{value2Text}#{modifyText} ＞ #{total}#{result}"
+        return output
+      end
+
+      def getDiceType(dice1, dice2)
+        debug('getDiceType begin')
+
+        if dice2 != 0
+          if isValidDiceOne(dice1)
+            return dice1, dice2
+          else
+            return 0, 0
+          end
+        end
+
+        if isValidDice(dice1, dice2)
+          return dice1, dice2
+        end
+
+        diceBase = dice1
+
+        dice1 = diceBase / 10
+        dice2 = diceBase % 10
+
+        if isValidDice(dice1, dice2)
+          return dice1, dice2
+        end
+
+        dice1 = diceBase / 100
+        dice2 = diceBase % 100
+
+        if isValidDice(dice1, dice2)
+          return dice1, dice2
+        end
+
+        if isValidDiceOne(diceBase)
+          return diceBase, 0
+        end
+
+        return 0, 0
+      end
+
+      def isValidDice(dice1, dice2)
+        return isValidDiceOne(dice1) &&
+               isValidDiceOne(dice2)
+      end
+
+      def isValidDiceOne(dice)
+        @validDiceTypes.include?(dice)
+      end
+
+      def getDiffculty(difficulty)
+        unless difficulty.nil?
+          difficulty = difficulty.to_i
+        end
+
+        return difficulty
+      end
+
+      def getRollValue(dice)
+        return 0 if dice == 0
+
+        value = @randomizer.roll_once(dice)
+        return value
+      end
+
+      def getResultText(value1, value2, dice1, dice2, difficulty, total)
+        if isFamble(value1, value2)
+          return "１펌블【１펌블 포인트＋１】"
+        end
+
+        if isCritical(value1, value2, dice1, dice2)
+          return "크리티컬 성공"
+        end
+
+        if difficulty.nil?
+          return ''
+        end
+
+        if total >= difficulty
+          return "성공"
+        end
+
+        return "실패"
+      end
+
+      def isFamble(value1, value2)
+        return (value1 == 1) && (value2 == 1)
+      end
+
+      def isCritical(value1, value2, dice1, dice2)
+        return false if value2 == 0
+
+        if (value1 == 6) && (value2 == 6)
+          return true
+        end
+
+        if (value1 == dice1) && (value2 == dice2)
+          return true
+        end
+
+        return false
+      end
+
+      def getBaseText(dice1, dice2, modify, difficulty)
+        baseText = "R#{dice1}"
+
+        if dice2 != 0
+          baseText += ",#{dice2}"
+        end
+
+        baseText += getModifyString(modify)
+
+        unless difficulty.nil?
+          baseText += ">=#{difficulty}"
+        end
+
+        return baseText
+      end
+
+      def getModifyString(modify)
+        if modify > 0
+          return "+" + modify.to_s
+        elsif modify < 0
+          return modify.to_s
+        end
+
+        return ''
+      end
+    end
+  end
+end
