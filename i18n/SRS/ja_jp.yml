@@ -1,0 +1,4 @@
+ja_jp:
+  SRS:
+    auto_success: "自動成功"
+    auto_failure: "自動失敗"
