@@ -41,7 +41,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6>=13"
-output = "(2D6>=13[12,2]) ＞ 12[6,6] ＞ 12 ＞ 자동성공"
+output = "(2D6>=13[12,2]) ＞ 12[6,6] ＞ 12 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -52,7 +52,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6>=2"
-output = "(2D6>=2[12,2]) ＞ 2[1,1] ＞ 2 ＞ 자동실패"
+output = "(2D6>=2[12,2]) ＞ 2[1,1] ＞ 2 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -103,7 +103,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6-1>=12"
-output = "(2D6-1>=12[12,2]) ＞ 12[6,6]-1 ＞ 11 ＞ 자동성공"
+output = "(2D6-1>=12[12,2]) ＞ 12[6,6]-1 ＞ 11 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -114,7 +114,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1>=3"
-output = "(2D6+1>=3[12,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 자동실패"
+output = "(2D6+1>=3[12,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -155,7 +155,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6-1>=12[11,3]"
-output = "(2D6-1>=12[11,3]) ＞ 11[5,6]-1 ＞ 10 ＞ 자동성공"
+output = "(2D6-1>=12[11,3]) ＞ 11[5,6]-1 ＞ 10 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -166,7 +166,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1>=3[11,3]"
-output = "(2D6+1>=3[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동실패"
+output = "(2D6+1>=3[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -197,7 +197,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6-1>=12[11]"
-output = "(2D6-1>=12[11,2]) ＞ 11[5,6]-1 ＞ 10 ＞ 자동성공"
+output = "(2D6-1>=12[11,2]) ＞ 11[5,6]-1 ＞ 10 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -208,7 +208,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1>=3[11]"
-output = "(2D6+1>=3[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 자동실패"
+output = "(2D6+1>=3[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -239,7 +239,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6-1>=12[,3]"
-output = "(2D6-1>=12[12,3]) ＞ 12[6,6]-1 ＞ 11 ＞ 자동성공"
+output = "(2D6-1>=12[12,3]) ＞ 12[6,6]-1 ＞ 11 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -250,7 +250,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1>=3[,3]"
-output = "(2D6+1>=3[12,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동실패"
+output = "(2D6+1>=3[12,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -279,7 +279,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6[]"
-output = "(2D6[12,2]) ＞ 12[6,6] ＞ 12 ＞ 자동성공"
+output = "(2D6[12,2]) ＞ 12[6,6] ＞ 12 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -290,7 +290,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6[]"
-output = "(2D6[12,2]) ＞ 2[1,1] ＞ 2 ＞ 자동실패"
+output = "(2D6[12,2]) ＞ 2[1,1] ＞ 2 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -319,7 +319,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6[11,3]"
-output = "(2D6[11,3]) ＞ 11[5,6] ＞ 11 ＞ 자동성공"
+output = "(2D6[11,3]) ＞ 11[5,6] ＞ 11 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -330,7 +330,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6[11,3]"
-output = "(2D6[11,3]) ＞ 3[1,2] ＞ 3 ＞ 자동실패"
+output = "(2D6[11,3]) ＞ 3[1,2] ＞ 3 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -359,7 +359,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1[11,3]"
-output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동성공"
+output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -370,7 +370,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1[11,3]"
-output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동실패"
+output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -408,7 +408,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6[11]"
-output = "(2D6[11,2]) ＞ 11[5,6] ＞ 11 ＞ 자동성공"
+output = "(2D6[11,2]) ＞ 11[5,6] ＞ 11 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -437,7 +437,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1[11]"
-output = "(2D6+1[11,2]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동성공"
+output = "(2D6+1[11,2]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -448,7 +448,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1[11]"
-output = "(2D6+1[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 자동실패"
+output = "(2D6+1[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -497,7 +497,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6-1@11#3>=12"
-output = "(2D6-1>=12[11,3]) ＞ 11[5,6]-1 ＞ 10 ＞ 자동성공"
+output = "(2D6-1>=12[11,3]) ＞ 11[5,6]-1 ＞ 10 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -508,7 +508,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1@11#3>=3"
-output = "(2D6+1>=3[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동실패"
+output = "(2D6+1>=3[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -539,7 +539,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6-1@11>=12"
-output = "(2D6-1>=12[11,2]) ＞ 11[5,6]-1 ＞ 10 ＞ 자동성공"
+output = "(2D6-1>=12[11,2]) ＞ 11[5,6]-1 ＞ 10 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -550,7 +550,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1@11>=3"
-output = "(2D6+1>=3[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 자동실패"
+output = "(2D6+1>=3[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -570,7 +570,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6@11#3"
-output = "(2D6[11,3]) ＞ 11[5,6] ＞ 11 ＞ 자동성공"
+output = "(2D6[11,3]) ＞ 11[5,6] ＞ 11 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -581,7 +581,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6@11#3"
-output = "(2D6[11,3]) ＞ 3[1,2] ＞ 3 ＞ 자동실패"
+output = "(2D6[11,3]) ＞ 3[1,2] ＞ 3 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -610,7 +610,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1@11#3"
-output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동성공"
+output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -621,7 +621,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1@11#3"
-output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동실패"
+output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -659,7 +659,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6@11"
-output = "(2D6[11,2]) ＞ 11[5,6] ＞ 11 ＞ 자동성공"
+output = "(2D6[11,2]) ＞ 11[5,6] ＞ 11 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -688,7 +688,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1@11"
-output = "(2D6+1[11,2]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동성공"
+output = "(2D6+1[11,2]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -699,7 +699,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1@11"
-output = "(2D6+1[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 자동실패"
+output = "(2D6+1[11,2]) ＞ 2[1,1]+1 ＞ 3 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
@@ -730,7 +730,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6-1#3>=12"
-output = "(2D6-1>=12[12,3]) ＞ 12[6,6]-1 ＞ 11 ＞ 자동성공"
+output = "(2D6-1>=12[12,3]) ＞ 12[6,6]-1 ＞ 11 ＞ 자동 성공"
 success = true
 critical = true
 rands = [
@@ -741,7 +741,7 @@ rands = [
 [[ test ]]
 game_system = "SRS:Korean"
 input = "2D6+1#3>=3"
-output = "(2D6+1>=3[12,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동실패"
+output = "(2D6+1>=3[12,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동 실패"
 failure = true
 fumble = true
 rands = [
