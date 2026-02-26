@@ -190,7 +190,7 @@ module BCDice
           nmt_pretext = I18n.translate("ShinobiGami.table.NMT.pretext", locale: locale)
           mt_items    = I18n.translate("ShinobiGami.table.MT.items",    locale: locale)
           nmt_items   = I18n.translate("ShinobiGami.table.NMT.items",   locale: locale)
-          
+
           dsa = DiceTable::Table.from_i18n("ShinobiGami.table.DSA", locale)
           dsb = DiceTable::Table.from_i18n("ShinobiGami.table.DSB", locale)
           dsc = DiceTable::Table.from_i18n("ShinobiGami.table.DSC", locale)
@@ -212,7 +212,7 @@ module BCDice
                 mt_items[5],
               ]
             ),
-            'MTR'  => DiceTable::Table.from_i18n("ShinobiGami.table.MTR",  locale),
+            'MTR' => DiceTable::Table.from_i18n("ShinobiGami.table.MTR", locale),
             'NMT' => DiceTable::ChainTable.new(
               I18n.translate("ShinobiGami.table.NMT.name", locale: locale),
               '1D6',
@@ -226,23 +226,23 @@ module BCDice
               ]
             ),
             'NMTR' => DiceTable::Table.from_i18n("ShinobiGami.table.NMTR", locale),
-            'FT'   => DiceTable::Table.from_i18n("ShinobiGami.table.FT",   locale),
-            'OFT'  => DiceTable::Table.from_i18n("ShinobiGami.table.OFT",  locale),
-            'KFT'  => DiceTable::Table.from_i18n("ShinobiGami.table.KFT",  locale),
-            'ET'   => DiceTable::Table.from_i18n("ShinobiGami.table.ET",   locale),
-            'WT'   => DiceTable::Table.from_i18n("ShinobiGami.table.WT",   locale),
-            'OWT'  => DiceTable::Table.from_i18n("ShinobiGami.table.OWT",  locale),
-            'KWT'  => DiceTable::Table.from_i18n("ShinobiGami.table.KWT",  locale),
-            'GWT'  => DiceTable::Table.from_i18n("ShinobiGami.table.GWT",  locale),
-            'OBT'  => DiceTable::Table.from_i18n("ShinobiGami.table.OBT",  locale),
-            'BT'   => DiceTable::Table.from_i18n("ShinobiGami.table.BT",   locale),
-            'PT'   => DiceTable::Table.from_i18n("ShinobiGami.table.PT",   locale),
+            'FT' => DiceTable::Table.from_i18n("ShinobiGami.table.FT", locale),
+            'OFT' => DiceTable::Table.from_i18n("ShinobiGami.table.OFT",  locale),
+            'KFT' => DiceTable::Table.from_i18n("ShinobiGami.table.KFT",  locale),
+            'ET' => DiceTable::Table.from_i18n("ShinobiGami.table.ET",   locale),
+            'WT' => DiceTable::Table.from_i18n("ShinobiGami.table.WT",   locale),
+            'OWT' => DiceTable::Table.from_i18n("ShinobiGami.table.OWT",  locale),
+            'KWT' => DiceTable::Table.from_i18n("ShinobiGami.table.KWT",  locale),
+            'GWT' => DiceTable::Table.from_i18n("ShinobiGami.table.GWT",  locale),
+            'OBT' => DiceTable::Table.from_i18n("ShinobiGami.table.OBT",  locale),
+            'BT' => DiceTable::Table.from_i18n("ShinobiGami.table.BT",   locale),
+            'PT' => DiceTable::Table.from_i18n("ShinobiGami.table.PT",   locale),
             ## 以下流派ブック
-            'BNT'  => DiceTable::Table.from_i18n("ShinobiGami.table.BNT",  locale),
-            'YWT'  => DiceTable::Table.from_i18n("ShinobiGami.table.YWT",  locale),
+            'BNT' => DiceTable::Table.from_i18n("ShinobiGami.table.BNT",  locale),
+            'YWT' => DiceTable::Table.from_i18n("ShinobiGami.table.YWT",  locale),
             'YWT1' => DiceTable::Table.from_i18n("ShinobiGami.table.YWT1", locale),
             'YWT2' => DiceTable::Table.from_i18n("ShinobiGami.table.YWT2", locale),
-            'OTS'  => DiceTable::Table.from_i18n("ShinobiGami.table.OTS",  locale),
+            'OTS' => DiceTable::Table.from_i18n("ShinobiGami.table.OTS", locale),
             'HRPT' => DiceTable::Table.from_i18n("ShinobiGami.table.HRPT", locale),
             'OTAT' => DiceTable::Table.from_i18n("ShinobiGami.table.OTAT", locale),
             'ONDT' => DiceTable::Table.from_i18n("ShinobiGami.table.ONDT", locale),
@@ -256,41 +256,41 @@ module BCDice
         def translate_scene_tables(locale)
           {
             ## 以下シーン表
-            'ST'   => DiceTable::Table.from_i18n("ShinobiGami.scene_table.ST",   locale),
-            'CST'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.CST",  locale),
-            'MST'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.MST",  locale),
-            'DST'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.DST",  locale),
-            'TST'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TST",  locale),
-            'NST'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.NST",  locale),
+            'ST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.ST", locale),
+            'CST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.CST",  locale),
+            'MST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.MST",  locale),
+            'DST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.DST",  locale),
+            'TST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TST",  locale),
+            'NST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.NST",  locale),
             'TKST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TKST", locale),
-            'KST'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.KST",  locale),
-            'GST'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.GST",  locale),
+            'KST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.KST",  locale),
+            'GST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.GST",  locale),
             'GAST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.GAST", locale),
             'KYST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.KYST", locale),
             'JBST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.JBST", locale),
             'AKST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.AKST", locale),
             'CLST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.CLST", locale),
             'DXST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.DXST", locale),
-            'HC'   => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HC",   locale),
-            'HK'   => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HK",   locale),
+            'HC' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HC",   locale),
+            'HK' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HK",   locale),
             'HLST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HLST", locale),
-            'HM'   => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HM",   locale),
-            'HO'   => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HO",   locale),
-            'HR'   => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HR",   locale),
-            'HS'   => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HS",   locale),
-            'HT'   => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HT",   locale),
-            'HY'   => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HY",   locale),
+            'HM' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HM",   locale),
+            'HO' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HO",   locale),
+            'HR' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HR",   locale),
+            'HS' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HS",   locale),
+            'HT' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HT",   locale),
+            'HY' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.HY",   locale),
             'NTST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.NTST", locale),
             'PLST' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.PLST", locale),
             ## 以下正忍記
-            'TMT'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TMT",  locale),
-            'TMG'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TMG",  locale),
-            'TC'   => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TC",   locale),
-            'TGS'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TGS",  locale),
-            'TRM'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TRM",  locale),
-            'TMC'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TMC",  locale),
-            'TKG'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TKG",  locale),
-            'TKH'  => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TKH",  locale),
+            'TMT' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TMT",  locale),
+            'TMG' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TMG",  locale),
+            'TC' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TC", locale),
+            'TGS' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TGS",  locale),
+            'TRM' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TRM",  locale),
+            'TMC' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TMC",  locale),
+            'TKG' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TKG",  locale),
+            'TKH' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.TKH",  locale),
             ## 以下流派ブック
             'OTFK' => DiceTable::Table.from_i18n("ShinobiGami.scene_table.OTFK", locale),
           }
@@ -318,7 +318,6 @@ module BCDice
         def translate_rtt(locale)
           DiceTable::SaiFicSkillTable.from_i18n("ShinobiGami.RTT", locale)
         end
-
       end
 
       DEMON_SKILL_TABLES = translate_demon_skill_tables(:ja_jp).freeze
