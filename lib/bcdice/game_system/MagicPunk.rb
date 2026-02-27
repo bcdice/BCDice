@@ -37,25 +37,27 @@ module BCDice
       def roll_mp(command)
         m = /^(\d*)MP(\d+)(C?)(\d*)$/.match(command)
         return nil unless m
-
+        # 構文解析
         dices = m[1].empty? ? 1 : m[1].to_i
         spec = m[2].to_i
         opt1 = m[3]
         arg1 = m[4].to_i
-
+        # ダイス数0モードフラグ
         is_zero = dices == 0
+        # チャレンジ値
         challenge = opt1 == "C" ? arg1 : 0
-
+        # ダイスロール
         dice_list = @randomizer.roll_barabara(is_zero ? 2 : dices, 20)
-
+        # 通常は1つ成功なら成功、0ダイス時はすべて成功したとき成功
         check_method = is_zero ? :all? : :any?
+        # 通常はすべて失敗なら失敗、0ダイス時は1つ失敗したら失敗
         fail_method = is_zero ? :any? : :all?
 
-        check = dice_list.public_send(check_method) { |d| d <= spec && challenge <= d }
-        is_jp = dice_list.public_send(check_method) { |d| d == spec }
-        is_bb = dice_list.public_send(fail_method) { |d| d == 1 }
+        check = dice_list.public_send(check_method) { |d| d <= spec && challenge <= d } # 通常判定
+        is_jp = dice_list.public_send(check_method) { |d| d == spec } # ジャックポット判定
+        is_bb = dice_list.public_send(fail_method) { |d| d == 1 } # バッドビート判定
 
-        result = if is_bb
+        result = if is_bb # 自動失敗優先
                    is_jp = false
                    check = false
                    translate("MagicPunk.bad_beat")
