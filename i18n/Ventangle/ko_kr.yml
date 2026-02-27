@@ -1,0 +1,4 @@
+ko_kr:
+  Ventangle:
+      special: 스페셜
+      gap_bonus: "갭 보너스(%<gap>d)"
