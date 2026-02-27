@@ -37,6 +37,7 @@ module BCDice
       def roll_mp(command)
         m = /^(\d*)MP(\d+)(C?)(\d*)$/.match(command)
         return nil unless m
+
         # 構文解析
         dices = m[1].empty? ? 1 : m[1].to_i
         spec = m[2].to_i
