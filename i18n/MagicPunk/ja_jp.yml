@@ -1,0 +1,5 @@
+ja_jp:
+  MagicPunk:
+      bad_beat: "失敗(BB)"
+      jackpot: "成功(JP)"
+      success: "成功(%<value>d)"
