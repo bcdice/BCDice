@@ -91,7 +91,7 @@ module BCDice
 
         gap_bonus_str =
           if cmd.target_number && cmd.dollar && result.success? && (gap = total - cmd.target_number) >= cmd.dollar
-            translate("Ventangle.gap_bonus", gap: gap)
+            translate("Ventangle.level_gap", gap: gap)
           end
 
         sequence = [
