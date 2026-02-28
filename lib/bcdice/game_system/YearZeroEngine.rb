@@ -196,26 +196,26 @@ module BCDice
       end
 
       def make_result_with_yze(dice_count_text, dice_text)
-        result_text = "#{dice_count_text} ＞ #{dice_text} 成功数:#{@total_success_dice}"
+        result_text = "#{dice_count_text} ＞ #{dice_text} #{translate('YearZeroEngine.success_count')}:#{@total_success_dice}"
         if @difficulty > 0
           if @total_success_dice >= @difficulty
-            return Result.success("#{result_text} 難易度=#{@difficulty}:判定成功！")
+            return Result.success("#{result_text} #{translate('YearZeroEngine.difficulty')}=#{@difficulty}:#{translate('YearZeroEngine.success_msg')}")
           else
-            return Result.failure("#{result_text} 難易度=#{@difficulty}:判定失敗！")
+            return Result.failure("#{result_text} #{translate('YearZeroEngine.difficulty')}=#{@difficulty}:#{translate('YearZeroEngine.failure_msg')}")
           end
         end
         return result_text
       end
 
       def make_result_with_myz(dice_count_text, dice_text)
-        result_text = "#{dice_count_text} ＞ #{dice_text} 成功数:#{@total_success_dice}"
-        atter_text = "\n出目1：[能力：#{@base_botch_dice},技能：#{@skill_botch_dice},アイテム：#{@gear_botch_dice}) プッシュ可能=#{@push_dice}ダイス"
+        result_text = "#{dice_count_text} ＞ #{dice_text} #{translate('YearZeroEngine.success_count')}:#{@total_success_dice}"
+        atter_text = "\n#{translate('YearZeroEngine.roll_one')}：[#{translate('YearZeroEngine.ability')}：#{@base_botch_dice},#{translate('YearZeroEngine.skill')}：#{@skill_botch_dice},#{translate('YearZeroEngine.item')}：#{@gear_botch_dice}) #{translate('YearZeroEngine.pushable')}=#{@push_dice}#{translate('YearZeroEngine.dice')}"
 
         if @difficulty > 0
           if @total_success_dice >= @difficulty
-            return Result.success("#{result_text} 難易度=#{@difficulty}:判定成功！#{atter_text}")
+            return Result.success("#{result_text} #{translate('YearZeroEngine.difficulty')}=#{@difficulty}:#{translate('YearZeroEngine.success_msg')}#{atter_text}")
           else
-            return Result.failure("#{result_text} 難易度=#{@difficulty}:判定失敗！#{atter_text}")
+            return Result.failure("#{result_text} #{translate('YearZeroEngine.difficulty')}=#{@difficulty}:#{translate('YearZeroEngine.failure_msg')}#{atter_text}")
           end
         end
 
