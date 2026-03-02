@@ -51,7 +51,7 @@ module BCDice
           例）wh60　　wh(43-20)
       INFO_MESSAGE_TEXT
 
-      register_prefix('WH', 'WOM')
+      register_prefix('WH', 'WOM', 'BK')
 
       def initialize(command)
         super(command)
@@ -152,13 +152,11 @@ module BCDice
           when /^BKCT([HABTL])(\d*)?$/
             part = n[1]
             part = "B" if part == "T"
-    
-            if over_damage
-              over_damage = !n[2].nil?
-              over_damage = over_damage.to_i
-            else
-              over_damage = 0
+                
+            if !n[2].nil?
+              over_damage = n[2].to_i 
             end
+            
             CRITICAL_TABLES_UIA[part].roll(@randomizer, over_damage)
         end
       end
