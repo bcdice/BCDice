@@ -291,7 +291,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "OT"
-output = "장애표(6) ＞ 그 자리에 불길한 기운이 가득 찬다. 검정 음색이 하나 늘어난다."
+output = "장애표(6) ＞ 그 자리에 불길한 기운이 가득 찬다. 검정(흑) 음색이 하나 늘어난다."
 rands = [
   { sides = 6, value = 6 },
 ]
