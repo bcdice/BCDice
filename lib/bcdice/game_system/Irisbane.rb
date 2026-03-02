@@ -53,7 +53,7 @@ module BCDice
         if (m = ATTACK_ROLL_REG.match(command))
           roll_attack(m[2], m[3], m[4], m[6], m[7])
         else
-          roll_tables(command, TABLES)
+          roll_tables(command, self.class::TABLES)
         end
       end
 
@@ -73,7 +73,7 @@ module BCDice
         command = make_command_text(power, dice_count, border, modification_operator, modification_value)
 
         if dice_count <= 0
-          return "#{command} ＞ 判定数が 0 です"
+          return "#{command} ＞ #{translate('Irisbane.zero_dice_count')}"
         end
 
         dices = @randomizer.roll_barabara(dice_count, 6).sort
@@ -84,17 +84,17 @@ module BCDice
         message_elements = []
         message_elements << command
         message_elements << dices.join(',')
-        message_elements << "成功ダイス数 #{success_dice_count}"
-        message_elements << "× 攻撃力 #{power}" if success_dice_count > 0
+        message_elements << translate('Irisbane.success_dice_count', count: success_dice_count)
+        message_elements << translate('Irisbane.attack_power', power: power) if success_dice_count > 0
 
         if success_dice_count > 0
           if modification_operator && modification_value
-            message_elements << "ダメージ #{damage}#{modification_operator}#{modification_value}"
+            message_elements << translate('Irisbane.damage_with_mod', damage: damage, operator: modification_operator, mod_value: modification_value)
             damage = parse_operator(modification_operator).call(damage, modification_value)
             damage = 0 if damage < 0
             message_elements << damage.to_s
           else
-            message_elements << "ダメージ #{damage}"
+            message_elements << translate('Irisbane.damage', damage: damage)
           end
         end
 
@@ -119,30 +119,24 @@ module BCDice
         end
       end
 
-      TABLES = {
-        "SceneSituation" => DiceTable::D66LeftRangeTable.new(
-          "シチュエーション",
-          BCDice::D66SortType::NO_SORT,
-          [
-            [1..3, [
-              "【日常】何一つ変わることの無い日々の一幕。移ろい易い世界では、それはとても大切である。",
-              "【準備】何かを為すための用意をする一幕。情報収集、買物遠征、やるべきことは一杯だ。",
-              "【趣味】自分の時間を、有効活用している一幕。必要に追われていない分、心は軽く晴れやかだ。",
-              "【喫茶】一息入れ、嗜好品を嗜む時の一幕。穏やかな空気は、だが、往々にして変わりやすい。",
-              "【鍛錬】体を鍛え、心を養う修練の一幕。己さえ良ければ、その方法も何だって良い。",
-              "【職務】役割の元、仕事に精を出す時の一幕。目的が何であれ、為すべきことに変わりはない。",
-            ]],
-            [4..6, [
-              "【移動】何処かから何処かへと向かう一幕。進んでいるなら、手段も目的地も関係あるまい。",
-              "【墓前】故人が眠る場所へと赴く一幕。共に眠ることだけは無いように。",
-              "【操作】何かを操り、望みを果たしている一幕。運転にせよ何にせよ、脇見には注意が必要だ。",
-              "【食事】何かを糧とし、己の力を蓄える一幕。行動すれば消耗する。腹が減っては何とやらだ。",
-              "【休息】日々の合間の、憩いの一幕。“何もしない”というのも、立派な行いである。",
-              "【夢幻】現実に存在しない何かへと耽る一幕。時間帯に関わらず、何時かは必ず覚めるだろう。",
-            ]],
-          ]
-        ),
-      }.transform_keys(&:upcase).freeze
+      class << self
+        private
+
+        def translate_tables(locale)
+          {
+            "SCENESITUATION" => DiceTable::D66LeftRangeTable.new(
+              I18n.t('Irisbane.SceneSituation.name', locale: locale),
+              BCDice::D66SortType::NO_SORT,
+              [
+                [1..3, I18n.t('Irisbane.SceneSituation.1_3', locale: locale)],
+                [4..6, I18n.t('Irisbane.SceneSituation.4_6', locale: locale)],
+              ]
+            ),
+          }
+        end
+      end
+
+      TABLES = translate_tables(:ja_jp).freeze
 
       ALIAS = {
         "SSi" => "SceneSituation",
