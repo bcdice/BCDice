@@ -27,6 +27,7 @@ module BCDice
         y: クリティカル値（省略時6、0は1として扱う）
         通常ダメージ = 成功レベル - 直撃ダメージ
         直撃ダメージ = 成功した出目のうち y 以上の個数
+        ガッツ減少 = 出目 1 の個数
       INFO_MESSAGE_TEXT
 
       register_prefix('\d*NN\d*(#\d+)?', '\d*NA\d*(#\d+)?')
@@ -71,9 +72,10 @@ module BCDice
         dice_list = @randomizer.roll_barabara(dice_count, 6)
         success_level = dice_list.count { |value| value >= difficulty }
         direct_damage = dice_list.count { |value| value >= difficulty && value >= critical_value }
+        guts_loss = dice_list.count(1)
         detail_text = "[#{dice_list.join(',')}]"
 
-        return build_attack_result(command_text, detail_text, success_level, direct_damage)
+        return build_attack_result(command_text, detail_text, success_level, direct_damage, guts_loss)
       end
 
       def build_result(command_text, detail_text, success_level, required_level)
@@ -88,10 +90,12 @@ module BCDice
         return Result.failure(text)
       end
 
-      def build_attack_result(command_text, detail_text, success_level, direct_damage)
+      def build_attack_result(command_text, detail_text, success_level, direct_damage, guts_loss)
         normal_damage = [success_level - direct_damage, 0].max
         success = success_level.positive?
-        text = "#{command_text} ＞ #{detail_text} ＞ 成功レベル#{success_level} ＞ 通常ダメージ#{normal_damage}/直撃ダメージ#{direct_damage}"
+        damage_text = "通常ダメージ#{normal_damage}/直撃ダメージ#{direct_damage}"
+        damage_text += "/ガッツ減少#{guts_loss}" if guts_loss.positive?
+        text = "#{command_text} ＞ #{detail_text} ＞ 成功レベル#{success_level} ＞ #{damage_text}"
 
         if success
           return Result.success(text)
