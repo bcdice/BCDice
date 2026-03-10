@@ -10,7 +10,7 @@ module BCDice
       NAME = 'Chronicles of Darkness 2nd Edtion'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'くろにくるすおふたあくねす'
+      SORT_KEY = 'くろにくるすおふたあくねす2'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
