@@ -139,25 +139,25 @@ module BCDice
       def roll_critical_table(command)
         m = /^WHCT([HABTL])(U)?$/.match(command)
         n = /^BKCT([HABTL])(\d*)?$/.match(command)
-        return nil unless m or n
+        return nil unless m || n
 
         case command
-          when /^WHCT([HABTL])(U)?$/
-            part = m[1]
-            part = "B" if part == "T"
-    
-            under_ganken_bonus = !m[2].nil?
-    
-            CRITICAL_TABLES[part].roll(@randomizer, under_ganken_bonus)
-          when /^BKCT([HABTL])(\d*)?$/
-            part = n[1]
-            part = "B" if part == "T"
-                
-            if !n[2].nil?
-              over_damage = n[2].to_i 
-            end
-            
-            CRITICAL_TABLES_UIA[part].roll(@randomizer, over_damage)
+        when /^WHCT([HABTL])(U)?$/
+          part = m[1]
+          part = "B" if part == "T"
+
+          under_ganken_bonus = !m[2].nil?
+
+          CRITICAL_TABLES[part].roll(@randomizer, under_ganken_bonus)
+        when /^BKCT([HABTL])(\d*)?$/
+          part = n[1]
+          part = "B" if part == "T"
+
+          if !n[2].nil?
+            over_damage = n[2].to_i
+          end
+
+          CRITICAL_TABLES_UIA[part].roll(@randomizer, over_damage)
         end
       end
 
@@ -178,7 +178,7 @@ module BCDice
           "#{@name}(#{dice}) ＞ #{chosen}"
         end
       end
-      
+
       CRITICAL_TABLES = {
         "H" => CriticalTable.new(
           "頭部CT表",
@@ -281,7 +281,7 @@ module BCDice
           ]
         ),
       }.freeze
-      
+
       class CriticalTable_UIA
         def initialize(name, items)
           @name = name
@@ -299,7 +299,7 @@ module BCDice
           "#{@name}(#{dice}) ＞ #{chosen}"
         end
       end
-      
+
       CRITICAL_TABLES_UIA = {
         "H" => CriticalTable_UIA.new(
           "頭部CT表(武器を掲げよ)",
@@ -358,7 +358,7 @@ module BCDice
             [20, 'ただのかすり傷だって！：耐久値-1：「出血状態」1つを得る。'],
             [25, 'みぞおちへの一打：耐久値-1：「朦朧状態」1つを得る。「容易(+40)」な〈肉体抵抗〉テストを行い、失敗したなら「伏せ状態」になる。'],
             [30, '下腹部に直撃！：耐久値-1：「多難(-20)」な〈肉体抵抗〉テストを行い、失敗したなら「朦朧状態」3つを得る。'],
-            [35, '背中を捻じる：耐久値-1：「筋断裂(軽度)」の負傷を得る。'],            
+            [35, '背中を捻じる：耐久値-1：「筋断裂(軽度)」の負傷を得る。'],
             [40, '肋骨に青あざ：耐久値-2：1d10日間に渡って【敏捷力】に関連するテストに-10。'],
             [45, '鎖骨捻じれ：耐久値-2：左右どちらの鎖骨かランダムに決定する。そちらの手に持っている物を落としてしまい、1d10ラウンドに渡ってその腕は使用できない。'],
             [50, '裂傷：耐久値-2：「出血状態」2つを得る。'],
