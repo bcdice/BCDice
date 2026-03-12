@@ -216,3 +216,36 @@ rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "NegikureNegimaki"
+input = "3NS"
+output = "(3NS) ＞ [1,4,1] ＞ ガッツ減少2"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NegikureNegimaki"
+input = "NS"
+output = "(1NS) ＞ [4] ＞ ガッツ減少0"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NegikureNegimaki"
+input = "0NS"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "NegikureNegimaki"
+input = "2ns"
+output = "(2NS) ＞ [1,6] ＞ ガッツ減少1"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]

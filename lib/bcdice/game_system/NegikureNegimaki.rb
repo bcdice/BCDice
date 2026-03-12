@@ -28,12 +28,16 @@ module BCDice
         通常ダメージ = 成功レベル - 直撃ダメージ
         直撃ダメージ = 成功した出目のうち y 以上の個数
         ガッツ減少 = 出目 1 の個数
+
+        ■ ストライクの判定
+        nNS: n個のD6を振り、出目 1 の個数だけガッツ減少を算出する
+        n: ダイス数（省略時1）
       INFO_MESSAGE_TEXT
 
-      register_prefix('\d*NN\d*(#\d+)?', '\d*NA\d*(#\d+)?')
+      register_prefix('\d*NN\d*(#\d+)?', '\d*NA\d*(#\d+)?', '\d*NS')
 
       def eval_game_system_specific_command(command)
-        return eval_action_command(command) || eval_attack_command(command)
+        return eval_action_command(command) || eval_attack_command(command) || eval_guts_command(command)
       end
 
       private
@@ -76,6 +80,21 @@ module BCDice
         detail_text = "[#{dice_list.join(',')}]"
 
         return build_attack_result(command_text, detail_text, success_level, direct_damage, guts_loss)
+      end
+
+      def eval_guts_command(command)
+        m = /\A(\d+)?NS\z/i.match(command)
+        return nil unless m
+
+        dice_count = m[1]&.to_i || 1
+        return nil if dice_count.zero?
+
+        command_text = "(#{dice_count}NS)"
+        dice_list = @randomizer.roll_barabara(dice_count, 6)
+        guts_loss = dice_list.count(1)
+        detail_text = "[#{dice_list.join(',')}]"
+
+        return Result.new("#{command_text} ＞ #{detail_text} ＞ ガッツ減少#{guts_loss}")
       end
 
       def build_result(command_text, detail_text, success_level, required_level)
