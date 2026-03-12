@@ -32,6 +32,7 @@ module BCDice
         ■ ストライクの判定
         nNS: n個のD6を振り、出目 1 の個数だけガッツ減少を算出する
         n: ダイス数（省略時1）
+        ガッツ減少が 0 なら成功、1 以上なら失敗
       INFO_MESSAGE_TEXT
 
       register_prefix('\d*NN\d*(#\d+)?', '\d*NA\d*(#\d+)?', '\d*NS')
@@ -94,7 +95,7 @@ module BCDice
         guts_loss = dice_list.count(1)
         detail_text = "[#{dice_list.join(',')}]"
 
-        return Result.new("#{command_text} ＞ #{detail_text} ＞ ガッツ減少#{guts_loss}")
+        return build_guts_result(command_text, detail_text, guts_loss)
       end
 
       def build_result(command_text, detail_text, success_level, required_level)
@@ -115,6 +116,17 @@ module BCDice
         damage_text = "通常ダメージ#{normal_damage}/直撃ダメージ#{direct_damage}"
         damage_text += "/ガッツ減少#{guts_loss}" if guts_loss.positive?
         text = "#{command_text} ＞ #{detail_text} ＞ 成功レベル#{success_level} ＞ #{damage_text}"
+
+        if success
+          return Result.success(text)
+        end
+
+        return Result.failure(text)
+      end
+
+      def build_guts_result(command_text, detail_text, guts_loss)
+        success = guts_loss.zero?
+        text = "#{command_text} ＞ #{detail_text} ＞ ガッツ減少#{guts_loss}"
 
         if success
           return Result.success(text)

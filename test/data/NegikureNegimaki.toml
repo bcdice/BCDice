@@ -221,6 +221,7 @@ rands = [
 game_system = "NegikureNegimaki"
 input = "3NS"
 output = "(3NS) ＞ [1,4,1] ＞ ガッツ減少2"
+failure = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -231,6 +232,7 @@ rands = [
 game_system = "NegikureNegimaki"
 input = "NS"
 output = "(1NS) ＞ [4] ＞ ガッツ減少0"
+success = true
 rands = [
   { sides = 6, value = 4 },
 ]
@@ -245,6 +247,7 @@ rands = []
 game_system = "NegikureNegimaki"
 input = "2ns"
 output = "(2NS) ＞ [1,6] ＞ ガッツ減少1"
+failure = true
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
