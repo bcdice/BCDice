@@ -32,6 +32,9 @@ module BCDice
         attr_accessor :tmp_fixed_val
 
         # @return [Integer, nil]
+        attr_accessor :set_zero_val
+
+        # @return [Integer, nil]
         attr_accessor :modifier
 
         # @return [Integer, nil]

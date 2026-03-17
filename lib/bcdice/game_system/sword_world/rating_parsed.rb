@@ -35,6 +35,9 @@ module BCDice
         attr_accessor :tmp_fixed_val
 
         # @return [Integer]
+        attr_accessor :set_zero_val
+
+        # @return [Integer]
         attr_accessor :modifier
 
         # @return [Integer, nil]
@@ -58,6 +61,7 @@ module BCDice
           @rateup = 0
           @semi_fixed_val = 0
           @tmp_fixed_val = 0
+          @set_zero_val = 0
           @modifier_after_half = nil
           @modifier_after_one_and_a_half = nil
           @modifier_after_double = nil
@@ -104,6 +108,7 @@ module BCDice
           output += "gf" if @greatest_fortune
           output += "sf[#{semi_fixed_val}]" if semi_fixed_val != 0
           output += "tf[#{tmp_fixed_val}]" if tmp_fixed_val != 0
+          output += "sz[#{set_zero_val}]" if set_zero_val != 0
           output += "a[#{Format.modifier(kept_modify)}]" if kept_modify != 0
 
           if @modifier != 0
