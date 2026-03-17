@@ -576,6 +576,119 @@ rands = []
 
 [[ test ]]
 game_system = "SwordWorld2.5"
+input = "DBk10 DBKのクリティカル値は10"
+output = "KeyNo.10c[10] ＞ 2D:[6,6 5,3]=12,8 ＞ (7,4)*2 ＞ 1回転 ＞ 22"
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "k10db"
+output = "KeyNo.10c[10] ＞ 2D:[6,6 5,3]=12,8 ＞ (7,4)*2 ＞ 1回転 ＞ 22"
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "dbk10db"
+output = "KeyNo.10c[10] ＞ 2D:[2,6]=8 ＞ 4*2 ＞ 8"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "dbk10[9]+10"
+output = "KeyNo.10c[9]+10 ＞ 2D:[5,3]=8 ＞ (4+10)*2 ＞ 28"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "dbk10[9]+10"
+output = "KeyNo.10c[9]+10 ＞ 2D:[2,4]=6 ＞ (3+10)*2 ＞ 26"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "dbK20+6@4"
+output = "KeyNo.20c[4]+6 ＞ 2D:[4,3 2,5 2,6 1,1]=7,7,8,2 ＞ (5,5,6,**+6)*2 ＞ 3回転 ＞ 44"
+critical = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "K20+6@4db"
+output = "KeyNo.20c[4]+6 ＞ 2D:[4,3 2,5 2,6 1,1]=7,7,8,2 ＞ (5,5,6,**+6)*2 ＞ 3回転 ＞ 44"
+critical = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "k20db+1+1"
+output = "KeyNo.20c[10]+1 ＞ 2D:[2,6]=8 ＞ (6+1)*2+1 ＞ 15"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "k20db+(1+1)"
+output = "KeyNo.20c[10] ＞ 2D:[2,6]=8 ＞ 6*2+2 ＞ 14"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "dbk10oh"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "SwordWorld2.5"
+input = "ohk10db"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "SwordWorld2.5"
 input = "k20sf4 sf通常時"
 output = "KeyNo.20c[10]sf[4] ＞ 2D:[3,4]=7 ＞ 5"
 rands = [

@@ -1,5 +1,5 @@
 class RatingParser
-  token NUMBER K R H O G F S T PLUS MINUS ASTERISK SLASH PARENL PARENR BRACKETL BRACKETR AT SHARP DOLLAR TILDE
+  token NUMBER K R H O D B G F S T PLUS MINUS ASTERISK SLASH PARENL PARENR BRACKETL BRACKETR AT SHARP DOLLAR TILDE
 
   expect 4
 
@@ -13,7 +13,7 @@ class RatingParser
         | H rate option
         {
           _, rate, option = val
-          raise ParseError if option.modifier_after_one_and_a_half
+          raise ParseError if option.modifier_after_one_and_a_half or option.modifier_after_double
           option.modifier_after_half ||= Arithmetic::Node::Number.new(0)
           modifier = option.modifier || Arithmetic::Node::Number.new(0)
           result = parsed(rate, modifier.eval(@round_type), option)
@@ -21,8 +21,16 @@ class RatingParser
         | O H rate option
         {
           _, _, rate, option = val
-          raise ParseError if option.modifier_after_half
+          raise ParseError if option.modifier_after_half or option.modifier_after_double
           option.modifier_after_one_and_a_half ||= Arithmetic::Node::Number.new(0)
+          modifier = option.modifier || Arithmetic::Node::Number.new(0)
+          result = parsed(rate, modifier.eval(@round_type), option)
+        }
+        | D B rate option
+        {
+          _, _, rate, option = val
+          raise ParseError if option.modifier_after_half or option.modifier_after_one_and_a_half
+          option.modifier_after_double ||= Arithmetic::Node::Number.new(0)
           modifier = option.modifier || Arithmetic::Node::Number.new(0)
           result = parsed(rate, modifier.eval(@round_type), option)
         }
@@ -121,6 +129,22 @@ class RatingParser
             raise ParseError if option.modifier_after_one_and_a_half
 
             option.modifier_after_one_and_a_half = term
+            result = option
+          }
+          | option D B
+          {
+            option, _, _ = val
+            raise ParseError unless option.modifier_after_double.nil?
+
+            option.modifier_after_double = Arithmetic::Node::Number.new(0)
+            result = option
+          }
+          | option D B unary
+          {
+            option, _, _, term = val
+            raise ParseError unless option.modifier_after_double.nil?
+
+            option.modifier_after_double = term
             result = option
           }
           | option R unary
@@ -249,6 +273,7 @@ def parsed(rate, modifier, option)
     p.tmp_fixed_val = option.tmp_fixed_val&.clamp(1, 6) || 0
     p.modifier_after_half = option.modifier_after_half&.eval(@round_type)
     p.modifier_after_one_and_a_half = option.modifier_after_one_and_a_half&.eval(@round_type)
+    p.modifier_after_double = option.modifier_after_double&.eval(@round_type)
     p.critical = option.critical&.eval(@round_type)&.clamp(0, 13) || (p.half || p.one_and_a_half ? 13 : 10)
   end
 end
