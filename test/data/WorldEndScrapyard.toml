@@ -1,0 +1,153 @@
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "WES<=50 成功"
+output = "(WES<=50) ＞ 30 ＞ 成功 ＞ 差分値20"
+success = true
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "WES<=50 失敗"
+output = "(WES<=50) ＞ 60 ＞ 失敗 ＞ 差分値-10"
+failure = true
+rands = [
+  { sides = 100, value = 60 },
+]
+
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "HEN 変異表"
+output = "変異表 ＞ 0:[回復不能]状態になります。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "HEN 変異表"
+output = "変異表 ＞ 9:[異形]状態を打ち消します。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "HENC 変異表(任意)"
+output = "変異表 ＞ 0:[回復不能]状態になります。\n1:[異形]状態になります。\n2:[大型]状態になります([小柄]状態だった場合でも)\n3: 特に効果はありませんが『外見』を自由に変更させても構いません。\n4:《悪運》以外の《能力値》を【2つ】を『ランダム』で選んで、その《能力値》の数値を入れ替えます。\n5:《悪運》以外の《能力値》を【2つ】を『任意』で選んで、その《能力値》の数値を入れ替えます。\n6: 特に効果はありません。\n7:[小柄]状態になります([大型]状態だった場合でも)\n8:《悪運》以外の《能力値》【5つ】の数値を【10点単位】で再分配します。\n9:[異形]状態を打ち消します。"
+rands = [
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "HAK 発掘表"
+output = "発掘表 ＞ 01: なにも発見できなかった。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "HAK 発掘表"
+output = "発掘表 ＞ 10:《装備アイテム》をランダムで【1つ】を得る。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "HAKC 発掘表(任意)"
+output = "発掘表 ＞ 01: なにも発見できなかった。\n02:《悪運》を【レベル×3点】減少させる。\n03: なにも発見できなかった。\n04:《悪運》を【レベル×3点】上昇させる。\n05: 何かの『物資・材料?』を発見する(内容はGM/PCで相談する)\n06:《煙草》3本分、または《弾薬》3発分のどちらか【1つ】を得る。\n07: 壊れた『日用品?』を発見する(内容はGM/PCの相談で決める)\n08:《消費アイテム》をランダムで【1つ】を得る。\n09: 壊れた『家具類?』を発見する(内容はGM/PCの相談で決める)\n10:《装備アイテム》をランダムで【1つ】を得る。"
+rands = [
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "TAN1 探索表"
+output = "探索表 ＞ 06:エネミー:レベル1『スカベンジャー』PC数×1体と遭遇する。"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "TAN5 探索表"
+output = "探索表 ＞ 35:行商人から【5レベル】までの《消費/装備アイテム》を交換・購入できる。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "TAN5+5 探索表"
+output = "探索表 ＞ 40:《対抗判定:敏捷/成功率50》を行い、勝利時に《発掘表》を1回振る。"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "KAN PC/NPC関係性表"
+output = "PC/NPC関係性表(1) ＞ 物心付いた時からの長い幼馴染"
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "KAN PC/NPC関係性表"
+output = "PC/NPC関係性表(10) ＞ いま出会ったばかりの仕事相手"
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "MOK シナリオの目的表"
+output = "シナリオの目的表(1) ＞ 目的の物品を入手する"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "MOK シナリオの目的表"
+output = "シナリオの目的表(100) ＞ その他(GMの裁量で決めて良い)"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "BAS シナリオの場所表"
+output = "シナリオの場所表(1) ＞ 小規模コミュニティ〈シヴィラツィオ〉が主体。"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "BAS シナリオの場所表"
+output = "シナリオの場所表(100) ＞ その他(GMの裁量で決めて良い)"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "TOJ 登場NPC表"
+output = "登場NPC表(1) ＞ 勇敢な小動物（子犬など）"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "WorldEndScrapyard"
+input = "TOJ 登場NPC表"
+output = "登場NPC表(100) ＞ 古い時空に存在していた高慢な魔法知性"
+rands = [
+  { sides = 100, value = 100 },
+]
+
