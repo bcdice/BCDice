@@ -215,7 +215,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "RT"
-output = "반응표(11) ＞ 드라크：하늘에 빛나는 붉은 달을 올려본다／로젠부르크：콧방귀를 뀐다／헬스가르드：헛기침을 한다／더스트하임：미간을 찌푸리고 생각에 잠긴다／아발롬：하품을 참는다／노스페라스：명왕령의 방향을 노려본다"
+output = "반응표(11) ＞ 드라크：하늘에 빛나는 붉은 달을 올려다본다／로젠부르크：콧방귀를 뀐다／헬스가르드：헛기침을 한다／더스트하임：미간을 찌푸리고 생각에 잠긴다／아발롬：하품을 참는다／노스페라스：명왕령의 방향을 노려본다／게이즈발트：상대를 깔보듯 내려다본다／카인실트：양손으로 얼굴을 감싼다"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -224,16 +224,34 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "RT"
-output = "반응표(61) ＞ 영주：가슴을 펴고 자신있게 발언한다／근위：마음 속에서 다른 기사와 시합을 한다／방랑：자신의 고향을 떠올린다／현자：미래에 대해 점쳐본다／사냥꾼：과거의 원통함에 피눈물을 흘린다／야수：자신의 피부를 손톱등으로 상처입힌다"
+output = "반응표(36) ＞ 드라크：자신의 문장을 쭉 바라본다／로젠부르크：망토에서 무수한 나비가 날아오른다／헬스가르드：차가운 시선으로 상대를 훑어본다／더스트하임：순간, 모습이 안개에 휩싸여 희미해진다／아발롬：뭔가 있어 보이는 말이나 행동을 한다／노스페라스：뭔가 결심한 것처럼 얼굴을 들어올린다／게이즈발트：눈에서 빛이 불꽃처럼 치솟아오른다／카인실트：혈통을 버린 이유에 대해 이야기한다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RT"
+output = "반응표(56) ＞ 영주：손바닥에 체스말을 구현화한다／근위：긴장한 시선으로 주변을 둘러본다／방랑：상대를 치켜 세우며 입맞춤을 요구한다／현자：깊은 지식으로 자세한 설명을 한다／사냥꾼：갑자기 뒤돌아보며 등뒤를 경계한다／야수：영악한 웃음을 짓는다／장군：다른 사람을 꾸짖는다／승정(주교)：남의 말에 크게 감동한다／공구(환기수)：자신의 환수와 음식을 나눠 먹는다／선장：열정적으로 누군가를 유혹하듯 구애한다／총동(미동)：주인이 아닌 다른 기사를 가만히 바라본다／중립：웃으며 대화를 이어 가면서 상대의 진의를 떠본다／기사(공예사)：문득 떠오른 인형의 부위를 구현해 본다／박사：누군가의 지나치게 낮은 지적 수준을 한탄한다／성독(별읽기)：누군가에게 흥미로운 별이 깃들어 있음을 알아챈다／후견：사람들을 서로 소개시켜 인연을 이어 준다"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RT"
+output = "반응표(65) ＞ 영주：우렁차게 이름을 댄다／근위：주군의 소매를 꽉 쥔다／방랑：윗사람의 앞에서 무릎을 꿇고 예를 다한다／현자：달을 올려다보고 드라쿨을 칭송한다／사냥꾼：나직하게 이름을 댄다／야수：사냥감을 노리는 눈으로 다른 기사를 본다／장군：다른 를 격려한다／승정(주교)：진조의 문장을 단단히 움켜쥔다／공구(환기수)：환수를 끌어안고 쓰다듬으며 칭찬한다／선장：이국의 다양한 풍경을 구현해 보여준다／총동(미동)：애달픈 한숨을 내쉰다／중립：누군가에 대해 아낌없는 찬사를 늘어놓는다／기사(공예사)：누군가의 아름다움에 눈을 빼앗긴다／박사：누군가에게 연구에 협력해 달라고 간청한다／성독(별읽기)：하늘을 향해 가볍게 손을 흔들어, 구름으로 특정한 별을 가린다／후견：보호 대상에게 조심스러운 조언을 건넨다"
 rands = [
   { sides = 6, value = 6 },
-  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
 ]
 
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "RT"
-output = "반응표(66) ＞ 영주：입가를 가리며 기품있게 웃는다／근위：주군에 대한 주변의 태도를 비난한다／방랑：아랫사람에게 미소짓는다／현자：다른 기사의 감정에 충고한다／사냥꾼：아랫사람을 내려다보는 눈으로 본다／야수：자학적인 말을 한다"
+output = "반응표(66) ＞ 영주：입가를 가리며 기품있게 웃는다／근위：주군에 대한 주변의 태도를 비난한다／방랑：아랫사람에게 미소짓는다／현자：다른 기사의 감정에 충고한다／사냥꾼：아랫사람을 내려다보는 눈으로 본다／야수：자학적인 말을 한다／장군：부하나 백성으로부터의 보고를 듣는다／승정(주교)：하늘의 붉은 달에 감사를 바친다／공구(환기수)：자신이 이 환수를 얻게 된 경위에 대해 이야기한다／선장：아득히 먼 기묘한 섬이나 해역에 대해 이야기한다／총동(미동)：주인의 손을 잡고 그 손가락을 핥는다／중립：누군가를 비꼬는 느낌이 들지 않을 정도로 치켜세운다／기사(공예사)：누군가의 몸짓을 보고 감탄 섞인 한숨을 내쉰다／박사：나름대로 지적인 말로 누군가를 칭찬한다／성독(별읽기)：하늘로 손을 내밀어 붉은 달을 더욱 빛나게 한다／후견：보호 대상에게 미소를 보내며 살짝 칭찬한다"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -242,10 +260,19 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "RTDF"
-output = "반응표(11) ＞ 드라크：하늘에 빛나는 붉은 달을 올려본다"
+output = "반응표(11) ＞ 드라크：하늘에 빛나는 붉은 달을 올려다본다"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTNF"
+output = "반응표(36) ＞ 노스페라스：뭔가 결심한 것처럼 얼굴을 들어올린다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
 ]
 
 [[ test ]]
@@ -272,6 +299,741 @@ input = "RTMN"
 output = "반응표(16) ＞ 더스트하임：눈을 감고 과거를 생각한다"
 rands = [
   { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTGE"
+output = "반응표(11) ＞ 게이즈발트：상대를 깔보듯 내려다본다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTGE"
+output = "반응표(36) ＞ 게이즈발트：눈에서 빛이 불꽃처럼 치솟아오른다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTGE"
+output = "반응표(41) ＞ 장군：책상이나 벽을 두드리며 격노한다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTGE"
+output = "반응표(66) ＞ 장군：부하나 백성으로부터의 보고를 듣는다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTKB"
+output = "반응표(11) ＞ 카인실트：양손으로 얼굴을 감싼다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTKB"
+output = "반응표(36) ＞ 카인실트：혈통을 버린 이유에 대해 이야기한다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTKB"
+output = "반응표(41) ＞ 승정(주교)：깊은 한숨을 내쉰다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTKB"
+output = "반응표(66) ＞ 승정(주교)：하늘의 붉은 달에 감사를 바친다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDH"
+output = "반응표(41) ＞ 공구(환기수)：환수가 다른 이들을 밀어내며 과잉방어한다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDH"
+output = "반응표(66) ＞ 공구(환기수)：자신이 이 환수를 얻게 된 경위에 대해 이야기한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDK"
+output = "반응표(41) ＞ 선장：조금은 속된 농담을 던진다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDK"
+output = "반응표(66) ＞ 선장：아득히 먼 기묘한 섬이나 해역에 대해 이야기한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDL"
+output = "반응표(41) ＞ 총동(미동)：주인의 그림자 뒤에 살며시 숨는다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDL"
+output = "반응표(66) ＞ 총동(미동)：주인의 손을 잡고 그 손가락을 핥는다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDV"
+output = "반응표(41) ＞ 중립：차가운 눈빛으로 타인의 값어치를 매긴다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDV"
+output = "반응표(66) ＞ 중립：누군가를 비꼬는 느낌이 들지 않을 정도로 치켜세운다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDU"
+output = "반응표(41) ＞ 기사(공예사)：휴대하고 있던 인형의 파츠를 가지고 논다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDU"
+output = "반응표(66) ＞ 기사(공예사)：누군가의 몸짓을 보고 감탄 섞인 한숨을 내쉰다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDD"
+output = "반응표(41) ＞ 박사：훌륭한 착상을 떠올리고는 기묘한 환성을 지른다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDD"
+output = "반응표(66) ＞ 박사：나름대로 지적인 말로 누군가를 칭찬한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDS"
+output = "반응표(41) ＞ 성독(별읽기)：하늘과 너무 동조한 끝에 순간적으로 구현이 풀린다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDS"
+output = "반응표(66) ＞ 성독(별읽기)：하늘로 손을 내밀어 붉은 달을 더욱 빛나게 한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDS"
+output = "반응표(41) ＞ 성독(별읽기)：하늘과 너무 동조한 끝에 순간적으로 구현이 풀린다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDS"
+output = "반응표(66) ＞ 성독(별읽기)：하늘로 손을 내밀어 붉은 달을 더욱 빛나게 한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDG2"
+output = "반응표(41) ＞ 후견：자신의 과거에 얽매여 누군가에게 설교해 버린다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTDG2"
+output = "반응표(66) ＞ 후견：보호 대상에게 미소를 보내며 살짝 칭찬한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "RTZZ"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRT"
+output = "이단의 반응표(11) ＞ 이단경：바닥을 노려보며 간신히 의식을 붙잡는다／브루콜락：자신의 머리를 거칠게 쥐어뜯는다／나흐체러：살아있는 것을 물끄러미 바라본다／카른슈타인：모습이 안개에 감싸여 뿌옇게 보인다／그리말킨：그 자리에서 존다／스트리가：겁을 먹고 날개를 꽉 접는다／멜뤼진：멍하니 먼 곳을 바라본다／판：보다 퇴폐적인 의상을 걸친다／호문클루스：괴로운 듯이 기침을 하며 무릎꿇는다／에나멜룸：인형의 텅 빈 표정에서는 아무것도 읽을 수 없다／생귀나리에：분노와 욕망으로 얼굴이 괴물처럼 추하게 일그러진다／알브：태연히 모임의 분위기를 무시하는 발언을 한다／뷔블：주위 사람들이 압박감과 불편함을 느낀다／루갈루：거대한 늑대의 모습이 되어 경계를 드러내며 으르렁거린다／알라우네：불만을 토로하거나, 가벼운 태도로 제멋대로인 말을 한다／프리가：그 그림자가 거대한 거미가 되어 꿈틀거린다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRT"
+output = "이단의 반응표(36) ＞ 이단경：섬뜩한 눈빛으로 다른 이를 노려본다／브루콜락：결의를 다진 얼굴로 앞을 바라본다／나흐체러：손안에 해골을 구현한다／카른슈타인：호사스러운 의상을 구현하여 걸친다／그리말킨：다른 사람을 농락한다／스트리가：주위에 수없이 많은 작은 새들이 모인다／멜뤼진：다른 이를 하반신으로 휘감아 끌어안는다／판：다른 이를 유혹하기 시작한다／호문클루스：아주 희미한 미소를 떠올린다／에나멜룸：단편적으로 옛 영혼의 기억이 되살아난다／생귀나리에：여유 있고 대담한 미소를 짓는다／알브：누군가의 행동에 큰 감동을 느껴 탄식한다／뷔블：그 모습이 일순간 거대한 용으로 보인다／루갈루：눈을 감고 고향인 자연을 떠올린다／알라우네：자신의 몸에 피는 꽃을 따서 누군가에게 건넨다(순식간에 재생한다)／프리가：누군가에게 광기같은 연정을 품기 시작한다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRT"
+output = "이단의 반응표(41) ＞ 야복(야인)：노골적으로 기사로부터 거리를 둔다／유랑：어이없다는 듯이 한숨을 쉰다／밀사：주위를 평가하는 눈으로 본다／마녀：아무도 없는 곳에 말을 건다／검사：기사의 예의범절을 비웃고 조롱한다／검체(실험체)：육체가 이형화하려는 듯이 물결친다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRT"
+output = "이단의 반응표(66) ＞ 야복(야인)：자기 고향에 대해 이야기한다／유랑：다른 사람에게 타지의 진귀한 물건을 건넨다／밀사：다른 사람에게 적극적으로 말을 건다／마녀：손안에 창백한 불꽃을 구현한다／검사：과거의 싸움이나 모험에 대해 이야기한다／검체(실험체)：누군가에게 자신의 괴로움으로부터의 도움을 요청한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTLS"
+output = "이단의 반응표(11) ＞ 이단경：바닥을 노려보며 간신히 의식을 붙잡는다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTLS"
+output = "이단의 반응표(36) ＞ 이단경：섬뜩한 눈빛으로 다른 이를 노려본다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTLS"
+output = "이단의 반응표(41) ＞ 밀사：주위를 평가하는 눈으로 본다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTLS"
+output = "이단의 반응표(66) ＞ 밀사：다른 사람에게 적극적으로 말을 건다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTVW"
+output = "이단의 반응표(11) ＞ 브루콜락：자신의 머리를 거칠게 쥐어뜯는다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTVW"
+output = "이단의 반응표(36) ＞ 브루콜락：결의를 다진 얼굴로 앞을 바라본다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTVW"
+output = "이단의 반응표(41) ＞ 야복(야인)：노골적으로 기사로부터 거리를 둔다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTVW"
+output = "이단의 반응표(66) ＞ 야복(야인)：자기 고향에 대해 이야기한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTNN"
+output = "이단의 반응표(11) ＞ 나흐체러：살아있는 것을 물끄러미 바라본다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTNN"
+output = "이단의 반응표(36) ＞ 나흐체러：손안에 해골을 구현한다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTNN"
+output = "이단의 반응표(41) ＞ 유랑：어이없다는 듯이 한숨을 쉰다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTNN"
+output = "이단의 반응표(66) ＞ 유랑：다른 사람에게 타지의 진귀한 물건을 건넨다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTKS"
+output = "이단의 반응표(11) ＞ 카른슈타인：모습이 안개에 감싸여 뿌옇게 보인다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTKS"
+output = "이단의 반응표(36) ＞ 카른슈타인：호사스러운 의상을 구현하여 걸친다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTKS"
+output = "이단의 반응표(41) ＞ 밀사：주위를 평가하는 눈으로 본다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTKS"
+output = "이단의 반응표(66) ＞ 밀사：다른 사람에게 적극적으로 말을 건다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTGH"
+output = "이단의 반응표(11) ＞ 그리말킨：그 자리에서 존다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTGH"
+output = "이단의 반응표(41) ＞ 마녀：아무도 없는 곳에 말을 건다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTGH"
+output = "이단의 반응표(66) ＞ 마녀：손안에 창백한 불꽃을 구현한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTSN"
+output = "이단의 반응표(11) ＞ 스트리가：겁을 먹고 날개를 꽉 접는다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTSN"
+output = "이단의 반응표(36) ＞ 스트리가：주위에 수없이 많은 작은 새들이 모인다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTSN"
+output = "이단의 반응표(41) ＞ 유랑：어이없다는 듯이 한숨을 쉰다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTSN"
+output = "이단의 반응표(66) ＞ 유랑：다른 사람에게 타지의 진귀한 물건을 건넨다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTMH"
+output = "이단의 반응표(11) ＞ 멜뤼진：멍하니 먼 곳을 바라본다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTMH"
+output = "이단의 반응표(36) ＞ 멜뤼진：다른 이를 하반신으로 휘감아 끌어안는다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTMH"
+output = "이단의 반응표(41) ＞ 마녀：아무도 없는 곳에 말을 건다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTMH"
+output = "이단의 반응표(66) ＞ 마녀：손안에 창백한 불꽃을 구현한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTFW"
+output = "이단의 반응표(11) ＞ 판：보다 퇴폐적인 의상을 걸친다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTFW"
+output = "이단의 반응표(36) ＞ 판：다른 이를 유혹하기 시작한다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTFW"
+output = "이단의 반응표(41) ＞ 야복(야인)：노골적으로 기사로부터 거리를 둔다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTFW"
+output = "이단의 반응표(66) ＞ 야복(야인)：자기 고향에 대해 이야기한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTEF"
+output = "이단의 반응표(11) ＞ 에나멜룸：인형의 텅 빈 표정에서는 아무것도 읽을 수 없다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTEF"
+output = "이단의 반응표(36) ＞ 에나멜룸：단편적으로 옛 영혼의 기억이 되살아난다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTEF"
+output = "이단의 반응표(41) ＞ 검사：기사의 예의범절을 비웃고 조롱한다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTEF"
+output = "이단의 반응표(66) ＞ 검사：과거의 싸움이나 모험에 대해 이야기한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTHX"
+output = "이단의 반응표(11) ＞ 호문클루스：괴로운 듯이 기침을 하며 무릎꿇는다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTHX"
+output = "이단의 반응표(36) ＞ 호문클루스：아주 희미한 미소를 떠올린다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTHX"
+output = "이단의 반응표(41) ＞ 검체(실험체)：육체가 이형화하려는 듯이 물결친다"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTHX"
+output = "이단의 반응표(66) ＞ 검체(실험체)：누군가에게 자신의 괴로움으로부터의 도움을 요청한다"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTS2X"
+output = "이단의 반응표(11) ＞ 생귀나리에：분노와 욕망으로 얼굴이 괴물처럼 추하게 일그러진다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTS2X"
+output = "이단의 반응표(36) ＞ 생귀나리에：여유 있고 대담한 미소를 짓는다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTAX"
+output = "이단의 반응표(11) ＞ 알브：태연히 모임의 분위기를 무시하는 발언을 한다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTAX"
+output = "이단의 반응표(36) ＞ 알브：누군가의 행동에 큰 감동을 느껴 탄식한다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTV2X"
+output = "이단의 반응표(11) ＞ 뷔블：주위 사람들이 압박감과 불편함을 느낀다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTV2X"
+output = "이단의 반응표(36) ＞ 뷔블：그 모습이 일순간 거대한 용으로 보인다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTL2X"
+output = "이단의 반응표(11) ＞ 루갈루：거대한 늑대의 모습이 되어 경계를 드러내며 으르렁거린다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTL2X"
+output = "이단의 반응표(36) ＞ 루갈루：눈을 감고 고향인 자연을 떠올린다"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTA2X"
+output = "이단의 반응표(11) ＞ 알라우네：불만을 토로하거나, 가벼운 태도로 제멋대로인 말을 한다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTA2X"
+output = "이단의 반응표(36) ＞ 알라우네：자신의 몸에 피는 꽃을 따서 누군가에게 건넨다(순식간에 재생한다)"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTF2X"
+output = "이단의 반응표(11) ＞ 프리가：그 그림자가 거대한 거미가 되어 꿈틀거린다"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "HRTF2X"
+output = "이단의 반응표(36) ＞ 프리가：누군가에게 광기같은 연정을 품기 시작한다"
+rands = [
+  { sides = 6, value = 3 },
   { sides = 6, value = 6 },
 ]
 
@@ -367,6 +1129,33 @@ rands = [
 
 [[ test ]]
 game_system = "Dracurouge:Korean"
+input = "ECS"
+output = "확장・타락의 조짐 표(11) ＞ 완전한 타락：귀경은 〔벽의 꽃〕이 되어 타락자 중 하나로 변한다. 그 〔막〕이 끝난 뒤 세션에서 퇴장한다. (기본 규칙서 247페이지 참조)"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "ECS"
+output = "확장・타락의 조짐 표(65) ＞ 월광욕：지붕 아래에 있으면 불쾌감을 느낀다. 가능한 한 달빛을 받는 곳에 있고 싶다. 궁정에서도 정원이나 발코니를 선호한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
+input = "ECS"
+output = "확장・타락의 조짐 표(66) ＞ 행운：특별한 징조는 느끼지 못할지라도⋯ 스스로를 경계해야 한다. 귀경은 지금 타락의 문턱에 서 있음을 자각하라."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "Dracurouge:Korean"
 input = "D66"
 output = "(D66) ＞ 61"
 rands = [
@@ -384,531 +1173,51 @@ rands = [
 
 [[ test ]]
 game_system = "Dracurouge:Korean"
-input = "HRT"
-output = "異端の反応表(11) ＞ 異端卿：床を睨み意識を何とか保つ／ヴルコラク：己の頭をかきむしる／ナハツェーラ：生きたものをじっと見つめる／カルンシュタイン：姿が霧に包まれぼやける／グリマルキン：その場で居眠りする／ストリガ：翼をきつく閉じて怯える／メリュジーヌ：ぼんやりと遠くを眺める／フォーン：より退廃的な衣装をまとう／ホムンクルス：苦しそうに咳き込みながら膝をつく／エナメルム：人形の虚ろな表情からは何もわからない／サングィナリエ：怒りや欲望で、顔が怪物のように醜くゆがむ／アールヴ：平然と場の空気を無視した発言をする／ヴィーヴル：周囲の者は、圧迫感と居心地の悪さを感じる／ルーガルー：巨大な狼の姿となって、警戒も露にうなる／アルラウネ：不満を漏らしたり、軽い我儘を言ったりする／フリッガ：その影が巨大な蜘蛛となって、蠢く"
+input = "EP"
+output = "아득한 과거 표(11) ＞ 오래된 죄인：지옥이 태어나기 전. 누구나 잊은 감옥에 갇혀 있던 죄인. ...그것이 귀경이다. 수백 년이 지나 마침내 감옥은 뚫렸다. ＞ 기사력：1D66+1300 ＞ (66+1300) ＞ 기사력：1366年"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRT"
-output = "異端の反応表(36) ＞ 異端卿：恐ろしい目で他者を見る／ヴルコラク：決意した顔で、正面を見る／ナハツェーラ：手の中に髑髏を具現化する／カルンシュタイン：豪奢な衣装を具現化してまとう／グリマルキン：他者にじゃれつく／ストリガ：周囲に無数の小鳥が集まる／メリュジーヌ：他者に下半身を絡め抱きしめる／フォーン：他者を口説き始める／ホムンクルス：ほんのかすかな笑顔が浮かぶ／エナメルム：断片的に、かつての魂の記憶が蘇る／サングィナリエ：余裕のある不敵な笑みを浮かべる／アールヴ：誰かの振る舞いに嘆息し、大いに感動を覚える／ヴィーヴル：その姿が一瞬、巨大な龍に見える／ルーガルー：目を閉じて、故郷たる自然に思いを馳せる／アルラウネ：己に咲く花を摘み、誰かに手渡す（瞬時に再生）／フリッガ：誰かに、狂気の如き恋心を抱き始める"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRT"
-output = "異端の反応表(41) ＞ 野伏：露骨に、騎士から距離をとる／流浪：呆れた様子でため息をつく／密使：周りを値踏みする目で見る／魔女：誰もいないところに話しかける／剣士：騎士の礼儀作法を嘲笑い、茶化す／検体：肉体が異形化しようとするように、波打つ"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRT"
-output = "異端の反応表(66) ＞ 野伏：己の土地について語る／流浪：他者に異郷の珍しい品を渡す／密使：他者に積極的に話しかける／魔女：手の中に青白い炎を具現化する／剣士：かつての戦いや冒険について語る／検体：誰かに、己の苦しみからの助けを求める"
-rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "Dracurouge:Korean"
-input = "HRTLS"
-output = "異端の反応表(11) ＞ 異端卿：床を睨み意識を何とか保つ"
+input = "EP"
+output = "아득한 과거 표(12) ＞ 지옥 누출：귀경은 부덕과 타락을 거듭하여 지옥으로 유폐되었을 것이다. 하지만 정신을 차리자 밖이었고 수백 년이 지나가고 있었다. ＞ 기사력：1D666 ＞ (666) ＞ 기사력：666年"
 rands = [
   { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTLS"
-output = "異端の反応表(36) ＞ 異端卿：恐ろしい目で他者を見る"
-rands = [
-  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
   { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTLS"
-output = "異端の反応表(41) ＞ 密使：周りを値踏みする目で見る"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTLS"
-output = "異端の反応表(66) ＞ 密使：他者に積極的に話しかける"
-rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
 ]
 
 [[ test ]]
 game_system = "Dracurouge:Korean"
-input = "HRTVW"
-output = "異端の反応表(11) ＞ ヴルコラク：己の頭をかきむしる"
+input = "EP"
+output = "아득한 과거 표(55) ＞ 노스페라스：귀경은 노스페라스 말기, 역병 속에서 서훈을 받아 구원받은 기사. 명왕과 그 일당의 풍평을 무엇보다 씁쓸하게 보아온 자다. ＞ 기사력：1212 ＞ (1212) ＞ 기사력：1212年"
 rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTVW"
-output = "異端の反応表(36) ＞ ヴルコラク：決意した顔で、正面を見る"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTVW"
-output = "異端の反応表(41) ＞ 野伏：露骨に、騎士から距離をとる"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTVW"
-output = "異端の反応表(66) ＞ 野伏：己の土地について語る"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTNN"
-output = "異端の反応表(11) ＞ ナハツェーラ：生きたものをじっと見つめる"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTNN"
-output = "異端の反応表(36) ＞ ナハツェーラ：手の中に髑髏を具現化する"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTNN"
-output = "異端の反応表(41) ＞ 流浪：呆れた様子でため息をつく"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTNN"
-output = "異端の反応表(66) ＞ 流浪：他者に異郷の珍しい品を渡す"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTKS"
-output = "異端の反応表(11) ＞ カルンシュタイン：姿が霧に包まれぼやける"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTKS"
-output = "異端の反応表(36) ＞ カルンシュタイン：豪奢な衣装を具現化してまとう"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTKS"
-output = "異端の反応表(41) ＞ 密使：周りを値踏みする目で見る"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTKS"
-output = "異端の反応表(66) ＞ 密使：他者に積極的に話しかける"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTGH"
-output = "異端の反応表(11) ＞ グリマルキン：その場で居眠りする"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTGH"
-output = "異端の反応表(41) ＞ 魔女：誰もいないところに話しかける"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTGH"
-output = "異端の反応表(66) ＞ 魔女：手の中に青白い炎を具現化する"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTSN"
-output = "異端の反応表(11) ＞ ストリガ：翼をきつく閉じて怯える"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTSN"
-output = "異端の反応表(36) ＞ ストリガ：周囲に無数の小鳥が集まる"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTSN"
-output = "異端の反応表(41) ＞ 流浪：呆れた様子でため息をつく"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTSN"
-output = "異端の反応表(66) ＞ 流浪：他者に異郷の珍しい品を渡す"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTMH"
-output = "異端の反応表(11) ＞ メリュジーヌ：ぼんやりと遠くを眺める"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTMH"
-output = "異端の反応表(36) ＞ メリュジーヌ：他者に下半身を絡め抱きしめる"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTMH"
-output = "異端の反応表(41) ＞ 魔女：誰もいないところに話しかける"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTMH"
-output = "異端の反応表(66) ＞ 魔女：手の中に青白い炎を具現化する"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTFW"
-output = "異端の反応表(11) ＞ フォーン：より退廃的な衣装をまとう"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTFW"
-output = "異端の反応表(36) ＞ フォーン：他者を口説き始める"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTFW"
-output = "異端の反応表(41) ＞ 野伏：露骨に、騎士から距離をとる"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTFW"
-output = "異端の反応表(66) ＞ 野伏：己の土地について語る"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTEF"
-output = "異端の反応表(11) ＞ エナメルム：人形の虚ろな表情からは何もわからない"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTEF"
-output = "異端の反応表(36) ＞ エナメルム：断片的に、かつての魂の記憶が蘇る"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTEF"
-output = "異端の反応表(41) ＞ 剣士：騎士の礼儀作法を嘲笑い、茶化す"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTEF"
-output = "異端の反応表(66) ＞ 剣士：かつての戦いや冒険について語る"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTHX"
-output = "異端の反応表(11) ＞ ホムンクルス：苦しそうに咳き込みながら膝をつく"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTHX"
-output = "異端の反応表(36) ＞ ホムンクルス：ほんのかすかな笑顔が浮かぶ"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTHX"
-output = "異端の反応表(41) ＞ 検体：肉体が異形化しようとするように、波打つ"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTHX"
-output = "異端の反応表(66) ＞ 検体：誰かに、己の苦しみからの助けを求める"
-rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTS2X"
-output = "異端の反応表(11) ＞ サングィナリエ：怒りや欲望で、顔が怪物のように醜くゆがむ"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTS2X"
-output = "異端の反応表(36) ＞ サングィナリエ：余裕のある不敵な笑みを浮かべる"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTAX"
-output = "異端の反応表(11) ＞ アールヴ：平然と場の空気を無視した発言をする"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTAX"
-output = "異端の反応表(36) ＞ アールヴ：誰かの振る舞いに嘆息し、大いに感動を覚える"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTV2X"
-output = "異端の反応表(11) ＞ ヴィーヴル：周囲の者は、圧迫感と居心地の悪さを感じる"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTV2X"
-output = "異端の反応表(36) ＞ ヴィーヴル：その姿が一瞬、巨大な龍に見える"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTL2X"
-output = "異端の反応表(11) ＞ ルーガルー：巨大な狼の姿となって、警戒も露にうなる"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTL2X"
-output = "異端の反応表(36) ＞ ルーガルー：目を閉じて、故郷たる自然に思いを馳せる"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTA2X"
-output = "異端の反応表(11) ＞ アルラウネ：不満を漏らしたり、軽い我儘を言ったりする"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTA2X"
-output = "異端の反応表(36) ＞ アルラウネ：己に咲く花を摘み、誰かに手渡す（瞬時に再生）"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTF2X"
-output = "異端の反応表(11) ＞ フリッガ：その影が巨大な蜘蛛となって、蠢く"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "HRTF2X"
-output = "異端の反応表(36) ＞ フリッガ：誰かに、狂気の如き恋心を抱き始める"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 6 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "ECS"
-output = "拡張・堕落の兆し表(11) ＞ 完全なる堕落：あなたは〔壁の華〕となり、いずれかの堕落者となる。その〔幕〕の終了後にセッションから退場する。（基本247ページ参照）"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 1 },
-]
-
-[[ test ]]
-game_system = "Dracurouge:Korean"
-input = "ECS"
-output = "拡張・堕落の兆し表(65) ＞ 月光欲：屋根があると不快感を感じる。なるべく月光を浴びられる場所でいたい。宮廷でも庭園やバルコニーを好むだろう。"
-rands = [
-  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
   { sides = 6, value = 5 },
 ]
 
 [[ test ]]
 game_system = "Dracurouge:Korean"
-input = "ECS"
-output = "拡張・堕落の兆し表(66) ＞ 幸運：自覚するような兆しはないようだが……己を戒めねばなるまい。貴卿は今や堕落の瀬戸際にいると自覚せよ。"
+input = "EP"
+output = "아득한 과거 표(66) ＞ 최초의 기사：귀경이야말로 진조의 백년상이 끝났을 때, 시조 그분으로부터 가장 먼저 서훈을 받은 기사. 상야의 모든 역사를 지켜본 산증인이시다. ＞ 기사력：1D66+1833 ＞ (11+1833) ＞ 기사력：1844年"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
 ]
-
 
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "CO"
-output = "叙勲表(11) ＞ 堕落の血：貴卿は堕落者に襲われ、その結果……騎士となった。貴卿に流れるは堕落した血なのだ。 ＞ 叙勲年齢：7+1D6×1D6 ＞ (7+6×6) ＞ 叙勲年齢：43年"
+output = "서훈 표(11) ＞ 타락의 피：귀경은 타락자의 습격을 받았고, 그 결과 ⋯⋯기사가 되었다. 귀경에게 흐르는 것은 타락한 피다. ＞ 수훈 연령：7+1D6×1D6 ＞ (7+6×6) ＞ 수훈 연령：43年"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -919,7 +1228,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "CO"
-output = "叙勲表(23) ＞ 矮小なる主：叙勲と共にものの見方は変わる。叙勲後、主がくだらない存在と見えた。貴卿は主のもとを離れた。 ＞ 叙勲年齢：7+1D6×1D6 ＞ (7+5×2) ＞ 叙勲年齢：17年"
+output = "서훈 표(23) ＞ 초라한 주인：서훈과 함께 사물을 보는 시각은 달라진다. 서훈 후, 주인이 시시한 존재로 느껴졌다. 귀경은 주인의 곁을 떠났다. ＞ 수훈 연령：7+1D6×1D6 ＞ (7+5×2) ＞ 수훈 연령：17年"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -930,7 +1239,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "CO"
-output = "叙勲表(66) ＞ 始祖の寵愛：貴卿は、始祖その人の寵愛を得た。真祖ドラクルに最も近しい、誇るべき身の一人となったのだ。 ＞ 叙勲年齢：7+1D6×1D6 ＞ (7+1×1) ＞ 叙勲年齢：8年"
+output = "서훈 표(66) ＞ 시조의 총애：귀경은 시조의 총애를 얻었다. 진조 드라클과 가장 가까운 자랑스러운 인물의 한 사람이 된 것이다. ＞ 수훈 연령：7+1D6×1D6 ＞ (7+1×1) ＞ 수훈 연령：8年"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -941,7 +1250,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "CA"
-output = "叙勲後表(11) ＞ 滅亡：貴卿の領地は敵に滅ぼされた。守るべき民は絶え、名誉は失われた。彼の者らを許すわけにはいかない。 ＞ 騎士歴：2D6×10 ＞ (12×10) ＞ 騎士歴：120年"
+output = "서훈 후 표(11) ＞ 멸망：귀경의 영지는 적에게 멸망당했다. 지켜야 할 백성은 죽고 명예는 잃었다. 그 자들을 용서할 수는 없다. ＞ 기사력：2D6×10 ＞ (12×10) ＞ 기사력：120年"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -952,7 +1261,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "CA"
-output = "叙勲後表(34) ＞ 失恋：愛深きゆえに貴卿は愛を捨てた。……捨てきってはいないかもしれないが、捨てたと信じた。 ＞ 騎士歴：2D6×10 ＞ (7×10) ＞ 騎士歴：70年"
+output = "서훈 후 표(34) ＞ 실연：사랑이 깊다는 이유로 귀경은 사랑을 버렸다. ⋯⋯버리지 못한 것일지도 모르지만, 버렸다고 믿었다. ＞ 기사력：2D6×10 ＞ (7×10) ＞ 기사력：70年"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
@@ -963,7 +1272,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "CA"
-output = "叙勲後表(66) ＞ 伝説：貴卿は未だ偉業わずかなれど、その逸話は伝説の域。すでに吟遊詩人らの歌にさえ歌われている。 ＞ 騎士歴：1D6×1D6 ＞ (1×1) ＞ 騎士歴：1年"
+output = "서훈 후 표(66) ＞ 전설：귀경이 이룬 업적의 수 아직 미미하나, 그 일화는 전설의 영역. 이미 음유시인들의 노래로까지 불리고 있다. ＞ 기사력：1D6×1D6 ＞ (1×1) ＞ 기사력：1年"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -974,7 +1283,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "ST"
-output = "原風景表(11) ＞ 虐待：あの地獄のような日々で、貴卿がされてきたことを思えば……騎士となっても、人を見る目は暗い。"
+output = "원풍경 표(11) ＞ 학대：지옥과도 같았던 나날 속에서 귀경이 겪어 온 일을 떠올리면⋯ 기사가 된 지금도 사람을 바라보는 눈은 어둡다."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -983,7 +1292,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "ST"
-output = "原風景表(66) ＞ 運命の子：貴卿の生まれた折、旅の賢者が訪れた。貴卿はきっと伝説に残る騎士となるだろう。そう約束されているのだ。"
+output = "원풍경 표(66) ＞ 운명의 아이：귀경이 태어났을 때 방랑하는 현자가 찾아왔다. 귀경은 분명 전설에 남을 기사가 될 것이다. 그렇게 약속되어 있다."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -992,7 +1301,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "PN"
-output = "受難表(11) ＞ 地獄：騎士らによって、御身は一度は地獄に封じられた。何とか脱出できたのは、幸運以外のなにものでもあるまい。"
+output = "수난 표(11) ＞ 지옥：기사의 손에 의해 그대는 한 번 지옥에 봉인된 적이 있다. 간신히 탈출할 수 있었던 것은, 행운 외에는 달리 설명할 길이 없을 것이다."
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1001,7 +1310,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "PN"
-output = "受難表(66) ＞ 井の中の蛙：己こそ最強と思っていた御身だが……一人の騎士を見て、全ては崩れた。まだまだ、世界は広い。"
+output = "수난 표(66) ＞ 물 안의 개구리：스스로가 최강이라 믿고 있던 그대였지만⋯ 한 명의 기사를 보고 그 생각은 무너졌다. 세계는 아직도 넓다."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1010,7 +1319,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "OS"
-output = "原罪表(11) ＞ 虐待：あの地獄のような日々で、御身がされてきたことを思えば……誰も彼も、常夜国すべて等しく呪うしかない。 ＞ 外見年齢：7+1D6×1D6 ＞ (7+1×1) ＞ 外見年齢：8年"
+output = "윈죄 표(11) ＞ 학대：그 지옥 같은 나날 속에서 그대가 당해 온 일을 떠올리면⋯ 누구든, 상야국 전체를 똑같이 저주할 수밖에 없다. ＞ 외모 연령：7+1D6×1D6 ＞ (7+1×1) ＞ 외모 연령：8年"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1021,7 +1330,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "OS"
-output = "原罪表(66) ＞ 神童：御身は有り余る才を持って生まれた。騎士になるかと思われていたのだが……。 ＞ 外見年齢：7+1D6×1D6 ＞ (7+6×6) ＞ 外見年齢：43年"
+output = "윈죄 표(66) ＞ 신동：그대는 넘치는 재능을 타고났다. 기사로 성장하리라 여겨졌지만⋯. ＞ 외모 연령：7+1D6×1D6 ＞ (7+6×6) ＞ 외모 연령：43年"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1032,7 +1341,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "RS"
-output = "近況表(11) ＞ 悪夢：眠りにつくたび、受難の記憶が蘇る。御身の心は晴れず、忌まわしい悪夢がつきまとい続けているのだ。 ＞ 活動年数：2D6×10 ＞ (2×10) ＞ 活動年数：20年"
+output = "근황 표(11) ＞ 악몽：잠에 들 때마다 수난의 기억이 되살아난다. 그대의 마음은 맑아지지 않고, 끔찍한 악몽이 끊임없이 따라붙는다. ＞ 활동 년 수：2D6×10 ＞ (2×10) ＞ 활동 년 수：20年"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1043,7 +1352,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "RS"
-output = "近況表(33) ＞ 新米：御身は未だ、異端となったばかり。得た力に振り回され、受難にも懲りず（古き異端は選択できない）。 ＞ 活動年数：1 ＞ (1) ＞ 活動年数：1年"
+output = "근황 표(33) ＞ 햇병아리：그대는 아직 막 이단이 되었을 뿐이다. 얻은 힘에 휘둘리고 있으며, 수난을 겪어도 아직 깨닫지 못한다. (※오래된 이단은 선택할 수 없다) ＞ 활동 년 수：1 ＞ (1) ＞ 활동 년 수：1年"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1052,7 +1361,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "RS"
-output = "近況表(66) ＞ 伝説：御身は異端なれど、常夜国の歴史に少なからず関わってきた。吟遊詩人にも歌われる伝説の存在だ。 ＞ 活動年数：3D6×50 ＞ (18×50) ＞ 活動年数：900年"
+output = "근황 표(66) ＞ 전설：그대는 이단이지만 상야국의 역사에 적지 않게 관여해 왔다. 음유시인들에게 노래되는 전설적인 존재다. ＞ 활동 년 수：3D6×50 ＞ (18×50) ＞ 활동 년 수：900年"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -1064,7 +1373,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "PP"
-output = "平和な過去表(11) ＞ 乱暴者：短気で、気性が荒く、ついつい手が出て乱暴を働いてしまう。故郷での評判はあまりよくない。今はどうだろう？ ＞ 外見年齢：8+2D6 ＞ (8+2) ＞ 外見年齢：10年"
+output = "평화로운 과거 표(11) ＞ 난폭자：성미가 급하고 기질이 거칠어, 무심코 손이 나가 난폭한 짓을 저지르고 만다. 고향에서의 평판도 그리 좋지 않았다. 지금은 어떨까? ＞ 외모 연령：8+2D6 ＞ (8+2) ＞ 외모 연령：10年"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -1075,7 +1384,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "PP"
-output = "平和な過去表(33) ＞ 好奇心：気を引くものがあれば、目を向ける。秘密とあれば暴かずにいられない。知らぬままでは、済ませられぬのだ。 ＞ 外見年齢：9+2D6 ＞ (9+6) ＞ 外見年齢：15年"
+output = "평화로운 과거 표(33) ＞ 호기심：눈길을 끄는 것이 있으면 반드시 쳐다보고 만다. 비밀이라면 파헤치지 않고는 견딜 수 없다. 모른 채 넘어갈 수는 없는 것이다. ＞ 외모 연령：9+2D6 ＞ (9+6) ＞ 외모 연령：15年"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -1086,7 +1395,7 @@ rands = [
 [[ test ]]
 game_system = "Dracurouge:Korean"
 input = "PP"
-output = "平和な過去表(66) ＞ 血統を遺す身：伴侶を得て、子を為し、家庭を築いた。その血は、御身が民ならざる身となった今も脈絡と続いている。 ＞ 外見年齢：12+4D6 ＞ (12+24) ＞ 外見年齢：36年"
+output = "평화로운 과거 표(66) ＞ 혈통을 잇는 몸：반려를 얻고 아이를 낳아 가정을 이루었다. 그 피는 그대가 더 이상 백성이 아닌 몸이 된 지금도 이어지고 있다. ＞ 외모 연령：12+4D6 ＞ (12+24) ＞ 외모 연령：36年"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },

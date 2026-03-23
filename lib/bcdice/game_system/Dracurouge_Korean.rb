@@ -19,29 +19,33 @@ module BCDice
         ・행동판정（DRx+y）
         　x：굴리는 주사위의 수（생략시４）, y：갈증수정（생략시０）
         　예） DR　DR6　DR+1　DR5+2
+
         ・저항판정（DRRx）
-        　x：굴리는 주사위의
+        　x：굴리는 주사위의 수
         　예） DRR3
-        ・原風景表（ST）, 叙勲表（CO）, 叙勲後表（CA）, 遥か過去表（EP）
-        　原罪表（OS）, 受難表（PN）, 近況表（RS）, 平和な過去表（PP）
+
+        ・원풍경 표（ST）, 서훈 표（CO）, 서훈 후 표（CA）, 아득한 과거 표（EP）
+        　원죄 표（OS）, 수난 표（PN）, 근황 표（RS）, 평화로운 과거 표（PP）
         ・타락표（CTx） x：갈증（예） CT3
-        ・타락의 전조표（CS）, 拡張・堕落の兆し表（ECS）
+        ・타락의 전조표（CS）, 확장·타락의 조짐 표（ECS）
         ・인연 내용 결정표（BT）
+
         ・반응표（RTxy）x：혈통, y：길　xy생략으로 일괄표시
         　　혈통　D：드라크, R：로젠부르크, H：헬스가르드, M：더스트하임,
         　　　　　A：아발롬　N：노스페라스
         　　길　　F：영주, G：근위, R：방랑, W：현자, J：사냥꾼, N：야수
+        　　　　　E：장군, B：승정(주교), H：공구(환기수), K：선장, L：총동(미동), V：중립, U：기사(공예사), D：박사
+        　　　　　S：성독(별읽기), G2：후견
         　예）RT（일괄표시）, RTDF（드라크 영주）, RTAN（아발롬 야수）
-        ・異端の反応表（HRTxy）x：血統, y：道　xy省略で一括表示
-        　血統　L：異端卿, V：ヴルコラク, N：ナハツェーラ, K：カルンシュタイン
-        　　　　G：グリマルキン, S：ストリガ, M：メリュジーヌ, F：フォーン
-        　　　　H：ホムンクルス, E：エナメルム, S2：サングィナリエ, A：アールヴ
-        　　　　V2：ヴィーヴル, L2：ルーガルー, A2：アルラウネ, F2：フリッガ
-        　道　W：野伏, N：流浪, S：密使, H：魔女, F：剣士, X：検体
-        ・D66 다이스 있음
-      MESSAGETEXT
 
-      register_prefix_from_super_class()
+        ・이단의 반응 표（HRTxy）x：혈통, y：길　xy생략으로 일괄표시
+        　혈통　L：이단경, V：브루콜락, N：나흐체러, K：카른슈타인
+        　　　　G：그리말킨, S：스트리가, M：멜뤼진, F：판
+        　　　　H：호문클루스, E：에나멜룸, S2：생귀나리에, A：알브
+        　　　　V2：뷔블, L2：루갈루, A2：알라우네, F2：프리가
+        　길　W：야복(야인), N：유랑, S：밀사, H：마녀, F：검사, X：검체(실험체)
+        ・D66 주사위 있음
+      MESSAGETEXT
 
       def initialize(command)
         super(command)
@@ -49,7 +53,9 @@ module BCDice
         @locale = :ko_kr
       end
 
-      TABLES = translate_tables(:ko_kr)
+      TABLES = translate_tables(:ko_kr).freeze
+
+      register_prefix_from_super_class()
     end
   end
 end
