@@ -565,7 +565,7 @@ rands = [
 [[ test ]]
 game_system = "KemonoNoMori:Korean"
 input = "sHpt"
-output = "인간 부위표(8) ＞ 왼다리 부위"
+output = "인간 부위표(8) ＞ 왼쪽 다리 부위"
 secret = true
 rands = [
   { sides = 12, value = 8 },
@@ -615,7 +615,7 @@ rands = [
 [[ test ]]
 game_system = "KemonoNoMori:Korean"
 input = "sQpt"
-output = "네발 동물 부위표(5) ＞ 왼앞다리 부위"
+output = "네발 동물 부위표(5) ＞ 왼쪽 앞다리 부위"
 secret = true
 rands = [
   { sides = 12, value = 5 },
@@ -690,7 +690,7 @@ rands = [
 [[ test ]]
 game_system = "KemonoNoMori:Korean"
 input = "SBpT"
-output = "새 부위표(6) ＞ 왼날개（왼팔 부위）"
+output = "새 부위표(6) ＞ 왼쪽 날개（왼팔 부위）"
 secret = true
 rands = [
   { sides = 12, value = 6 },
