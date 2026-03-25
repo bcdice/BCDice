@@ -325,6 +325,8 @@ module BCDice
       def getResultText(rating_total, command, diceResults, diceResultTotals,
                         rateResults, dice_total, round)
         sequence = []
+        critical_count = [round - 1, 0].max
+        additional_damage = command.add_damage * critical_count
 
         sequence.push("2D:[#{diceResults.join(' ')}]=#{diceResultTotals.join(',')}")
 
@@ -335,8 +337,11 @@ module BCDice
         end
 
         # rate回数が1回で、修正値がない時には途中式と最終結果が一致するので、途中式を省略する
-        if rateResults.size > 1 || command.modifier != 0
+        if rateResults.size > 1 || command.modifier != 0 || additional_damage != 0
           text = rateResults.join(',') + Format.modifier(command.modifier)
+          if additional_damage != 0
+            text += "+#{command.add_damage}*#{critical_count}"
+          end
           if command.half
             text = "(#{text})/2"
             if command.modifier_after_half != 0
@@ -379,7 +384,7 @@ module BCDice
           sequence.push(round_text)
         end
 
-        total = rating_total + command.modifier
+        total = rating_total + command.modifier + additional_damage
         if command.half
           total = (total / 2.0).ceil
           if command.modifier_after_half != 0

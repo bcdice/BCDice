@@ -22,6 +22,9 @@ module BCDice
         # @return [Integer, nil]
         attr_accessor :rateup
 
+        # @return [Integer, nil]
+        attr_accessor :add_damage
+
         # @return [Boolean, nil]
         attr_accessor :greatest_fortune
 

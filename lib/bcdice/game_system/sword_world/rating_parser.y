@@ -1,5 +1,5 @@
 class RatingParser
-  token NUMBER K R H O D B G F S T Z PLUS MINUS ASTERISK SLASH PARENL PARENR BRACKETL BRACKETR AT SHARP DOLLAR TILDE
+  token NUMBER K R H O D B G F S T Z A PLUS MINUS ASTERISK SLASH PARENL PARENR BRACKETL BRACKETR AT SHARP DOLLAR TILDE
 
   expect 4
 
@@ -155,6 +155,14 @@ class RatingParser
             option.rateup = term
             result = option
           }
+          | option A D unary
+          {
+            option, _, _, term = val
+            raise ParseError unless [:v2_5].include?(@version) && option.add_damage.nil?
+
+            option.add_damage = term
+            result = option
+          }
           | option G F
           {
             option, _, _ = val
@@ -276,6 +284,7 @@ def parsed(rate, modifier, option)
     p.first_modify = option.first_modify || 0
     p.first_modify_ssp = option.first_modify_ssp || 0
     p.rateup = option.rateup&.eval(@round_type) || 0
+    p.add_damage = option.add_damage&.eval(@round_type) || 0
     p.greatest_fortune = option.greatest_fortune if !option.greatest_fortune.nil?
     p.semi_fixed_val = option.semi_fixed_val&.clamp(1, 6) || 0
     p.tmp_fixed_val = option.tmp_fixed_val&.clamp(1, 6) || 0
