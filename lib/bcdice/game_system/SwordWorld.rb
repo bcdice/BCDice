@@ -337,7 +337,7 @@ module BCDice
         end
 
         # rate回数が1回で、修正値がない時には途中式と最終結果が一致するので、途中式を省略する
-        if rateResults.size > 1 || command.modifier != 0 || additional_damage != 0
+        if rateResults.size > 1 || command.modifier != 0
           text = rateResults.join(',') + Format.modifier(command.modifier)
           if additional_damage != 0
             text += "+#{command.add_damage}*#{critical_count}"
