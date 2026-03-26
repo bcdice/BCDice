@@ -1,0 +1,34 @@
+ja_jp:
+  MorkBorg:
+    fumble: "Fumble"
+    succeed: "Succeed"
+    failure_text: "Failure"
+    crit: "Crit"
+    pcs_go_first: "PCs go first"
+    enemies_go_first: "Enemies go first"
+    maintained: "Maintained"
+    flees: "(Flees)"
+    surrenders: "(Surrenders)"
+    ERT:
+      name: "遭遇反応表"
+      type: "2D6"
+      items:
+        - "Kill!"
+        - "Kill!"
+        - "Angered"
+        - "Angered"
+        - "Angered"
+        - "Indifferent"
+        - "Indifferent"
+        - "Almost friendly"
+        - "Almost friendly"
+        - "Helpful"
+        - "Helpful"
+    BRO:
+      name: "崩壊表"
+      type: "1D4"
+      items:
+        - "Fall unconscious for d4 rounds, awaken with d4 HP."
+        - "Roll a d6: 1–5 = Broken or severed limb. 6 = Lost eye. Can't act for d4 rounds then become active with d4 HP."
+        - "Haemorrhage: death in d2 hours unless treated. All tests are DR16 the first hour. DR18 the last hour."
+        - "Dead."
