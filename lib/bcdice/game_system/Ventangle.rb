@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bcdice/base'
+require "bcdice/format"
 
 module BCDice
   module GameSystem
@@ -88,9 +89,9 @@ module BCDice
             "#{dice_total}#{Format.modifier(cmd.modify_number)}"
           end
 
-        level_gap_str =
+        gap_bonus_str =
           if cmd.target_number && cmd.dollar && result.success? && (gap = total - cmd.target_number) >= cmd.dollar
-            "ギャップボーナス(#{gap})"
+            translate("Ventangle.level_gap", gap: gap)
           end
 
         sequence = [
@@ -100,7 +101,7 @@ module BCDice
           modifier_str,
           total.to_s,
           result.text,
-          level_gap_str,
+          gap_bonus_str,
         ].compact
 
         result.text = sequence.join(" ＞ ")
@@ -113,16 +114,16 @@ module BCDice
         fumble = cmd.fumble || DEFAULT_FUMBLE_VALUE
 
         if dice_total <= fumble
-          return Result.fumble('ファンブル')
+          return Result.fumble(translate("fumble"))
         elsif dice_total >= special
-          return Result.critical('スペシャル')
+          return Result.critical(translate("Ventangle.special"))
         end
 
         if cmd.target_number
           if total.send(cmd.cmp_op, cmd.target_number)
-            return Result.success('成功')
+            return Result.success(translate("success"))
           else
-            return Result.failure('失敗')
+            return Result.failure(translate("failure"))
           end
         else
           return Result.new(nil)
