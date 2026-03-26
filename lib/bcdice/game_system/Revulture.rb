@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require "bcdice/base"
+require "bcdice/format"
+
 module BCDice
   module GameSystem
     class Revulture < Base
@@ -56,9 +59,9 @@ module BCDice
         command = make_command_text(dice_count, border, additional_damage_rules)
 
         if dice_count <= 0
-          return "#{command} ＞ ダイス数が 0 です"
+          return "#{command} ＞ #{translate('Revulture.error.no_dice')}"
         elsif border.nil? && additional_damage_rules
-          return "#{command} ＞ 目標値が指定されていないため、追加ダメージを算出できません"
+          return "#{command} ＞ #{translate('Revulture.error.no_border')}"
         end
 
         dices = @randomizer.roll_barabara(dice_count, 6).sort
@@ -70,9 +73,9 @@ module BCDice
         message_elements = []
         message_elements << command
         message_elements << dices.join(',')
-        message_elements << "クリティカル #{critical_hit_count}" if critical_hit_count > 0
-        message_elements << "ヒット数 #{hit_count}" if hit_count
-        message_elements << "ダメージ #{damage}" if damage
+        message_elements << translate("Revulture.critical", count: critical_hit_count) if critical_hit_count > 0
+        message_elements << translate("Revulture.hit_count", count: hit_count) if hit_count
+        message_elements << translate("Revulture.damage", count: damage) if damage
 
         Result.new(message_elements.join(' ＞ ')).tap do |r|
           r.condition = hit_count > 0 if hit_count
