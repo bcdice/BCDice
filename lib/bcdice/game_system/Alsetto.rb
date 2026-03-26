@@ -50,7 +50,7 @@ module BCDice
 
       private
 
-      def parce_check_roll(command)
+      def parse_check_roll(command)
         m = /(\d+)AL(C|G)?(\d+)?((x|\*)(\d+))?$/i.match(command)
         unless m
           return nil
@@ -80,7 +80,7 @@ module BCDice
       end
 
       def check_roll(command)
-        parsed = parce_check_roll(command)
+        parsed = parse_check_roll(command)
         unless parsed
           return nil
         end
@@ -119,13 +119,15 @@ module BCDice
         if is_damage
           total_damage = total_success_count * damage
 
-          result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ Hits：#{total_success_count}*#{damage} ＞ #{total_damage}ダメージ"
+          damage_text = translate("Alsetto.damage", total_damage: total_damage)
+          result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ Hits：#{total_success_count}*#{damage} ＞ #{damage_text}"
         else
-          result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ 成功数：#{total_success_count}"
+          success_text = translate("Alsetto.success_count", success_count: total_success_count)
+          result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ #{success_text}"
         end
 
         if enable_critical
-          result += " / #{total_critical_count}トライアンフ"
+          result += translate("Alsetto.triumph", critical_count: total_critical_count)
         end
 
         return result
