@@ -280,15 +280,15 @@ module BCDice
       # @return [Result] 比較結果
       def compare_result(srs_roll, sum, modified_sum)
         if sum >= srs_roll.critical_value
-          Result.critical("自動成功")
+          Result.critical(translate("SRS.auto_success"))
         elsif sum <= srs_roll.fumble_value
-          Result.fumble("自動失敗")
+          Result.fumble(translate("SRS.auto_failure"))
         elsif srs_roll.target_value.nil?
           Result.new
         elsif modified_sum >= srs_roll.target_value
-          Result.success("成功")
+          Result.success(translate("success"))
         else
-          Result.failure("失敗")
+          Result.failure(translate("failure"))
         end
       end
     end
