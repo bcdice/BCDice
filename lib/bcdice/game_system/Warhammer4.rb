@@ -153,7 +153,9 @@ module BCDice
           part = n[1]
           part = "B" if part == "T"
 
-          if !n[2].nil?
+          if n[2].nil?
+            over_damage = 0
+          else
             over_damage = n[2].to_i
           end
 
