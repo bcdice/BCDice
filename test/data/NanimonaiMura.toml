@@ -1,0 +1,95 @@
+[[ test ]]
+game_system = "NanimonaiMura"
+input = "4NM55"
+output = "4NM55 (4D10) ＞ [3,0,6,9] ＞ 3 ＞ ノーマル成功 ＞ 成功度1"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "NanimonaiMura"
+input = "6NM199"
+output = "6NM199 (6D10) ＞ [0,6,1,1,5,5] ＞ 55 ＞ エピック大成功 ＞ 成功度16"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "NanimonaiMura"
+input = "2NM33"
+output = "2NM33 (2D10) ＞ [5,7] ＞ 57 ＞ 失敗 ＞ 成功度0"
+failure = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "NanimonaiMura"
+input = "1NM35"
+output = "1NM35 (1D10) ＞ [3] ＞ 30 ＞ ノーマル成功 ＞ 成功度1"
+success = true
+rands = [
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "NanimonaiMura"
+input = "2NM50"
+output = "2NM50 (2D10) ＞ [0,0] ＞ 0 ＞ ノーマル大成功 ＞ 成功度1"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "NanimonaiMura"
+input = "3NM156"
+output = "3NM156 (3D10) ＞ [4,5,6] ＞ 45 ＞ エピック成功 ＞ 成功度11"
+success = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "NanimonaiMura"
+input = "2NM30"
+output = "2NM30 (2D10) ＞ [4,4] ＞ 44 ＞ 失敗 ＞ 成功度0"
+failure = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "NanimonaiMura"
+input = "0NM55"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "NanimonaiMura"
+input = "NM55"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "NanimonaiMura"
+input = "4NM"
+output = ""
+rands = []
