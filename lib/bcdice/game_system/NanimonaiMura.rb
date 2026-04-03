@@ -26,7 +26,7 @@ module BCDice
 
       ResultData = Struct.new(:score, :success, :critical, :result_text, :success_level)
 
-      STAGE_NAMES = %w[ノーマル エピック レジェンダリ ミシック].freeze
+      STAGE_NAMES = ['ノーマル', 'エピック', 'レジェンダリ', 'ミシック'].freeze
       BASE_SUCCESS_LEVELS = [1, 11, 21, 31].freeze
 
       def eval_game_system_specific_command(command)
