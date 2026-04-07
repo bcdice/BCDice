@@ -4,14 +4,6 @@ module BCDice
   module DiceTable
     # 項目をRangeを用いて参照するD66表
     class D66RangeTable
-      # @param key [String]
-      # @param locale [Symbol]
-      # @return [D66LeftRangeTable]
-      def self.from_i18n(key, locale)
-        table = I18n.t(key, locale: locale, raise: true)
-        new(table[:name], table[:items])
-      end
-
       # @param name [String] 表の名前
       # @param items [Array<(Range, String)>] 表の項目の配列
       def initialize(name, items)
