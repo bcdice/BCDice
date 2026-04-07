@@ -1750,6 +1750,102 @@ rands = [
 
 [[ test ]]
 game_system = "Warhammer4"
+input = "bkCTH     # クリティカル表（武器掲）境界値テスト"
+output = "頭部CT表(武器を掲げよ)(1) ＞ 勲章となる傷：浅手：「出血状態」1つを得る。社交系テストSL+1(累積なし)。"
+rands = [
+  { sides = 100, value = 1 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "bkCTH"
+output = "頭部CT表(武器を掲げよ)(3) ＞ 勲章となる傷：浅手：「出血状態」1つを得る。社交系テストSL+1(累積なし)。"
+rands = [
+  { sides = 100, value = 3 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "bkCTH"
+output = "頭部CT表(武器を掲げよ)(4) ＞ 朦朧化打撃：耐久値-1：「朦朧状態」1つを得る。"
+rands = [
+  { sides = 100, value = 4 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "bkCTH"
+output = "頭部CT表(武器を掲げよ)(6) ＞ 朦朧化打撃：耐久値-1：「朦朧状態」1つを得る。"
+rands = [
+  { sides = 100, value = 6 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "bkCTH"
+output = "頭部CT表(武器を掲げよ)(7) ＞ 眼窩の負傷：耐久値-1：「目がくらんだ状態」1つを得る。"
+rands = [
+  { sides = 100, value = 7 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "bkCTH"
+output = "頭部CT表(武器を掲げよ)(9) ＞ 眼窩の負傷：耐久値-1：「目がくらんだ状態」1つを得る。"
+rands = [
+  { sides = 100, value = 9 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "bkCTH"
+output = "頭部CT表(武器を掲げよ)(10) ＞ 耳朶への強打：耐久値-1：「耳鳴り状態」1つを得る。"
+rands = [
+  { sides = 100, value = 10 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "bkCTH"
+output = "頭部CT表(武器を掲げよ)(15) ＞ 耳朶への強打：耐久値-1：「耳鳴り状態」1つを得る。"
+rands = [
+  { sides = 100, value = 15 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "bkCTL3"
+output = "脚部CT表(武器を掲げよ)(126) ＞ 骨盤粉砕：即死："
+rands = [
+  { sides = 100, value = 96 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "bkCTH1    # クリティカル表（武器掲）超過ダメージテスト"
+output = "頭部CT表(武器を掲げよ)(11) ＞ 耳朶への強打：耐久値-1：「耳鳴り状態」1つを得る。"
+rands = [
+  { sides = 100, value = 1 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "bkCTH1"
+output = "頭部CT表(武器を掲げよ)(15) ＞ 耳朶への強打：耐久値-1：「耳鳴り状態」1つを得る。"
+rands = [
+  { sides = 100, value = 5 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "bkCTL100"
+output = "脚部CT表(武器を掲げよ)(1000) ＞ 骨盤粉砕：即死："
+rands = [
+  { sides = 100, value = 100 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
 input = "whWGT"
 output = "神々の天罰表(1) ＞ 聖なる幻視：神の幻視が君の感覚を苦しめる。「普通」（+20）の〈肉体抵抗〉テストを行なうこと。失敗すると「朦朧状態」1つを得る。幻視の内容はGMが定めること。"
 rands = [
@@ -1836,6 +1932,53 @@ rands = [
   { sides = 100, value = 100 }
 ]
 
+[[ test ]]
+game_system = "Warhammer4"
+input = "womMIT"
+output = "小誤発動表（Winds of Magic）(25) ＞ 凍える吐息：君の周囲の気温が急降下し、人の吐息が白くなる。君から【意志力】ボーナス×1 マイル以内の者は全員手強い (+0) 〈肉体抵抗〉テストに成功しなければ急激な寒さにより、その場を離れない限り【射撃技術度】、【敏捷力】、【器用度】テストに–10の修正を受ける。この効果は1分間継続する。"
+rands = [
+  { sides = 100, value = 25 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "womMIT"
+output = "小誤発動表（Winds of Magic）(50) ＞ 困惑する：戦闘に参加しているなら、「不意を討たれた状態」になる。それ以外の場合、君は完全にびくついてしまい、心はあたふたとし、ほんの片時も集中することができなくなる。"
+rands = [
+  { sides = 100, value = 50 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "womMIT"
+output = "小誤発動表（Winds of Magic）(100) ＞ ほとばしる混沌：『大誤発動表』でもう一度ロールすること。"
+rands = [
+  { sides = 100, value = 100 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "womMAT"
+output = "大誤発動表（Winds of Magic）(1) ＞ 亡霊の声：【意志力】×1ヤード以内のすべての者が“混沌の領域”から現れた暗く誘惑的な囁き声を耳にする。知性のあるクリーチャーは皆、「普通」（+20）の〈冷静さ〉テストを行ない、失敗したなら、「堕落ポイント」1点を得る。"
+rands = [
+  { sides = 100, value = 1 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "womMAT"
+output = "大誤発動表（Winds of Magic）(50) ＞ 闇の目：君は1d10時間にわたって、《第二の視覚》の異能の利益を失う。この時間中、君は〈魔風交信〉テストにも-20のペナルティを被る。"
+rands = [
+  { sides = 100, value = 50 }
+]
+
+[[ test ]]
+game_system = "Warhammer4"
+input = "womMAT"
+output = "大誤発動表（Winds of Magic）(100) ＞ エーテルの逆流：君の【意志力】ボーナス×1ヤード以内にいるすべての者は──敵も味方も同様に──（【頑健力】ボーナスとアーマー・ポイント〔AP〕を無視して）1d10点の「耐久値」を失い、さらに「伏せ状態」になる。射程内に目標が存在しなければ、魔法は行き場を失い、君の頭は爆発し、君は即死する。"
+rands = [
+  { sides = 100, value = 100 }
+]
 
 [[ test ]]
 game_system = "Warhammer4"
