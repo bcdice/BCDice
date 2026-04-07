@@ -116,15 +116,15 @@ module BCDice
 
       def make_dice_roll(dice_pool, again_number)
         if dice_pool <= 0
-          # ダイスプールがマイナスになるなら、チャンスロール判定
-          _roll_dice_pool(1, again_number, true)
+          # ダイスプールが0以下になるなら、チャンスロール判定
+          roll_dice_pool(1, again_number, true)
         else
-          _roll_dice_pool(dice_pool, again_number, false)
+          roll_dice_pool(dice_pool, again_number, false)
         end
       end
 
       # make_dice_rollの内部処理
-      def _roll_dice_pool(dice_pool, again_number, chance_roll)
+      def roll_dice_pool(dice_pool, again_number, chance_roll)
         success_number = 0
         again_dice = 0
         dice_text = ""
