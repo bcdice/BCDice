@@ -9,7 +9,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "RB"
-output = "(RB>=4) ＞ [3,5] ＞ \n　음색에 3(파랑)를 취득한 경우 5:성공\n　음색에 5(하양)를 취득한 경우 3:실패"
+output = "(RB>=4) ＞ [3,5] ＞ \n　음색에 3(청)를 취득한 경우 5:성공\n　음색에 5(백)를 취득한 경우 3:실패"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 },
@@ -26,7 +26,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "R6"
-output = "(R6>=4) ＞ [2,2,3,3,5,5] ＞ \n　음색에 2(빨강)를 취득한 경우 5:성공\n　음색에 3(파랑)를 취득한 경우 5:성공\n　음색에 5(하양)를 취득한 경우 5:성공"
+output = "(R6>=4) ＞ [2,2,3,3,5,5] ＞ \n　음색에 2(적)를 취득한 경우 5:성공\n　음색에 3(청)를 취득한 경우 5:성공\n　음색에 5(백)를 취득한 경우 5:성공"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -81,7 +81,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "RB+,+1"
-output = "(RB+1+1>=4) ＞ [2,5]+1+1 ＞ \n　음색에 2(빨강)를 취득한 경우 7:성공\n　음색에 5(하양)를 취득한 경우 4:성공"
+output = "(RB+1+1>=4) ＞ [2,5]+1+1 ＞ \n　음색에 2(적)를 취득한 경우 7:성공\n　음색에 5(백)를 취득한 경우 4:성공"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 2 },
@@ -154,7 +154,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "RB+1>=5"
-output = "(RB+1>=5) ＞ [2,4]+1 ＞ \n　음색에 2(빨강)를 취득한 경우 5:성공\n　음색에 4(초록)를 취득한 경우 3:실패"
+output = "(RB+1>=5) ＞ [2,4]+1 ＞ \n　음색에 2(적)를 취득한 경우 5:성공\n　음색에 4(녹)를 취득한 경우 3:실패"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 4 },
@@ -163,7 +163,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "RA-1"
-output = "(RA-1>=4) ＞ [1,5,6]-1 ＞ \n　음색에 1(검정)를 취득한 경우 5:스페셜\n　음색에 5(하양)를 취득한 경우 5:스페셜\n　음색에 6(임의)를 취득한 경우 4:성공"
+output = "(RA-1>=4) ＞ [1,5,6]-1 ＞ \n　음색에 1(흑)를 취득한 경우 5:스페셜\n　음색에 5(백)를 취득한 경우 5:스페셜\n　음색에 6(임의)를 취득한 경우 4:성공"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -173,7 +173,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "RS"
-output = "(RS>=4) ＞ [1,2,5,6] ＞ \n　음색에 1(검정)를 취득한 경우 6:스페셜\n　음색에 2(빨강)를 취득한 경우 6:스페셜\n　음색에 5(하양)를 취득한 경우 6:스페셜\n　음색에 6(임의)를 취득한 경우 5:성공"
+output = "(RS>=4) ＞ [1,2,5,6] ＞ \n　음색에 1(흑)를 취득한 경우 6:스페셜\n　음색에 2(적)를 취득한 경우 6:스페셜\n　음색에 5(백)를 취득한 경우 6:스페셜\n　음색에 6(임의)를 취득한 경우 5:성공"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 1 },
@@ -193,7 +193,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "RB@5"
-output = "(RB@5>=4) ＞ [2,5] ＞ \n　음색에 2(빨강)를 취득한 경우 5:스페셜\n　음색에 5(하양)를 취득한 경우 2:실패"
+output = "(RB@5>=4) ＞ [2,5] ＞ \n　음색에 2(적)를 취득한 경우 5:스페셜\n　음색에 5(백)를 취득한 경우 2:실패"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -202,7 +202,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "RB+2@5"
-output = "(RB+2@5>=4) ＞ [2,5]+2 ＞ \n　음색에 2(빨강)를 취득한 경우 7:스페셜\n　음색에 5(하양)를 취득한 경우 4:성공"
+output = "(RB+2@5>=4) ＞ [2,5]+2 ＞ \n　음색에 2(적)를 취득한 경우 7:스페셜\n　음색에 5(백)를 취득한 경우 4:성공"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -211,7 +211,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "RB+2@5>=5"
-output = "(RB+2@5>=5) ＞ [2,5]+2 ＞ \n　음색에 2(빨강)를 취득한 경우 7:스페셜\n　음색에 5(하양)를 취득한 경우 4:실패"
+output = "(RB+2@5>=5) ＞ [2,5]+2 ＞ \n　음색에 2(적)를 취득한 경우 7:스페셜\n　음색에 5(백)를 취득한 경우 4:실패"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -220,7 +220,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "RB+2>=5@5"
-output = "(RB+2@5>=5) ＞ [2,5]+2 ＞ \n　음색에 2(빨강)를 취득한 경우 7:스페셜\n　음색에 5(하양)를 취득한 경우 4:실패"
+output = "(RB+2@5>=5) ＞ [2,5]+2 ＞ \n　음색에 2(적)를 취득한 경우 7:스페셜\n　음색에 5(백)를 취득한 경우 4:실패"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -229,7 +229,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "RS"
-output = "(RS>=4) ＞ [2,3,3,6] ＞ \n　음색에 2(빨강)를 취득한 경우 6:스페셜\n　음색에 3(파랑)를 취득한 경우 6:스페셜\n　음색에 6(임의)를 취득한 경우 3:실패"
+output = "(RS>=4) ＞ [2,3,3,6] ＞ \n　음색에 2(적)를 취득한 경우 6:스페셜\n　음색에 3(청)를 취득한 경우 6:스페셜\n　음색에 6(임의)를 취득한 경우 3:실패"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -240,7 +240,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "RS"
-output = "(RS>=4) ＞ [2,3,5,5] ＞ \n　음색에 2(빨강)를 취득한 경우 5:성공\n　음색에 3(파랑)를 취득한 경우 5:성공\n　음색에 5(하양)를 취득한 경우 5:성공"
+output = "(RS>=4) ＞ [2,3,5,5] ＞ \n　음색에 2(적)를 취득한 경우 5:성공\n　음색에 3(청)를 취득한 경우 5:성공\n　음색에 5(백)를 취득한 경우 5:성공"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 5 },
@@ -251,7 +251,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "FT"
-output = "펌블표(6) ＞ 럭키! 특별히 아무것도 일어나지 않는다"
+output = "펌블표(6) ＞ 럭키! 아무 일도 일어나지 않는다."
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -267,7 +267,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "BT"
-output = "휴식표(6) ＞ 노이즈 스토어에 접속했다. 각 PC는, 자신의【두뇌】의 주사위 수와 같은 개수까지, 어플리(アプリ)을 구입할 수 있다."
+output = "휴식표(6) ＞ 노이즈 스토어에 접속했다. 각 PC는, 자신의【두뇌】의 주사위 수와 같은 개수까지, 어플(アプリ)을 구입할 수 있다."
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -275,7 +275,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "TT"
-output = "목표표(6) ＞ 난전. 해당 위협(적)이 있는 패러그래프와, 숫자가 1만큼 차이 나는 패러그래프에 있는 PC 전원을 목표로 선택한다. 해당 패러그래프에 PC가 없을 경우, GM이 임의로 한 명을 선택한다."
+output = "목표표(6) ＞ 난전. 해당 위협이 있는 패러그래프와, 숫자가 1만큼 차이 나는 패러그래프에 있는 PC 전원을 목표로 선택한다. 해당 패러그래프에 PC가 없을 경우, GM이 임의로 한 명을 선택한다."
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -291,7 +291,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "OT"
-output = "장애표(6) ＞ 그 자리에 불길한 기운이 가득 찬다. 검정 음색이 하나 늘어난다."
+output = "장애표(6) ＞ 그 자리에 불길한 기운이 가득 찬다. 검정(흑) 음색이 하나 늘어난다."
 rands = [
   { sides = 6, value = 6 },
 ]
@@ -494,7 +494,7 @@ rands = [
 [[ test ]]
 game_system = "HatsuneMiku:Korean"
 input = "OMT"
-output = "만남표(12) ＞ 첫눈에 반함. 이전에, 당신은 다양한 악곡을 발표했습니다. 그러자, 그 악곡에 첫눈에 반했다며 당신에게 오토다마가 찾아왔습니다. 이후, 그 오토다마에게 쫓아다니는 나날입니다."
+output = "만남표(12) ＞ 첫눈에 반함. 이전에, 당신은 다양한 악곡을 발표했습니다. 그러자, 그 악곡에 첫눈에 반했다며 당신에게 오토다마가 찾아왔습니다. 이후, 그 오토다마에게 쫓기는 나날입니다."
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },

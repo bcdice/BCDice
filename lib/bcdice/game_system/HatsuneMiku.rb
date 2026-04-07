@@ -161,115 +161,25 @@ module BCDice
             'CLT' => DiceTable::Table.from_i18n('HatsuneMiku.CLT', locale),
             'RWT' => DiceTable::Table.from_i18n('HatsuneMiku.RWT', locale),
             'NMT' => DiceTable::Table.from_i18n('HatsuneMiku.NMT', locale),
-            'ST' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.ST.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.ST.#{k}", locale: locale)
-              end
-            ),
-            'DKT' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.DKT.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.DKT.#{k}", locale: locale)
-              end
-            ),
-            'DNT' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.DNT.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.DNT.#{k}", locale: locale)
-              end
-            ),
-            'HKT' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.HKT.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.HKT.#{k}", locale: locale)
-              end
-            ),
-            'HNT' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.HNT.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.HNT.#{k}", locale: locale)
-              end
-            ),
-            'LKT' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.LKT.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.LKT.#{k}", locale: locale)
-              end
-            ),
-            'LNT' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.LNT.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.LNT.#{k}", locale: locale)
-              end
-            ),
-            'EKT' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.EKT.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.EKT.#{k}", locale: locale)
-              end
-            ),
-            'ENT' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.ENT.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.ENT.#{k}", locale: locale)
-              end
-            ),
-            'MKT' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.MKT.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.MKT.#{k}", locale: locale)
-              end
-            ),
-            'MNT' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.MNT.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.MNT.#{k}", locale: locale)
-              end
-            ),
-            'OPA' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.OPA.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.OPA.#{k}", locale: locale)
-              end
-            ),
-            'OPB' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.OPB.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.OPB.#{k}", locale: locale)
-              end
-            ),
-            'OHT' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.OHT.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.OHT.#{k}", locale: locale)
-              end
-            ),
-            'OLT' => DiceTable::D66Table.new(
-              I18n.t('HatsuneMiku.OLT.name', locale: locale),
-              D66SortType::ASC,
-              (11..66).select { |i| i % 10 <= 6 && i % 10 >= 1 }.each_with_object({}) do |k, h|
-                h[k] = I18n.t("HatsuneMiku.OLT.#{k}", locale: locale)
-              end
-            ),
             'OIT' => DiceTable::Table.from_i18n('HatsuneMiku.OIT', locale),
             'OYT' => DiceTable::Table.from_i18n('HatsuneMiku.OYT', locale),
             'ORT' => DiceTable::Table.from_i18n('HatsuneMiku.ORT', locale),
             'OMT' => DiceTable::Table.from_i18n('HatsuneMiku.OMT', locale),
+            'ST' => DiceTable::D66Table.from_i18n('HatsuneMiku.ST', locale),
+            'DKT' => DiceTable::D66Table.from_i18n('HatsuneMiku.DKT', locale),
+            'HKT' => DiceTable::D66Table.from_i18n('HatsuneMiku.HKT', locale),
+            'LKT' => DiceTable::D66Table.from_i18n('HatsuneMiku.LKT', locale),
+            'EKT' => DiceTable::D66Table.from_i18n('HatsuneMiku.EKT', locale),
+            'MKT' => DiceTable::D66Table.from_i18n('HatsuneMiku.MKT', locale),
+            'DNT' => DiceTable::D66Table.from_i18n('HatsuneMiku.DNT', locale),
+            'HNT' => DiceTable::D66Table.from_i18n('HatsuneMiku.HNT', locale),
+            'LNT' => DiceTable::D66Table.from_i18n('HatsuneMiku.LNT', locale),
+            'ENT' => DiceTable::D66Table.from_i18n('HatsuneMiku.ENT', locale),
+            'MNT' => DiceTable::D66Table.from_i18n('HatsuneMiku.MNT', locale),
+            'OPA' => DiceTable::D66Table.from_i18n('HatsuneMiku.OPA', locale),
+            'OPB' => DiceTable::D66Table.from_i18n('HatsuneMiku.OPB', locale),
+            'OHT' => DiceTable::D66Table.from_i18n('HatsuneMiku.OHT', locale),
+            'OLT' => DiceTable::D66Table.from_i18n('HatsuneMiku.OLT', locale),
           }
         end
       end
