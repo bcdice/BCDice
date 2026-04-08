@@ -1,0 +1,4 @@
+ja_jp:
+  Ventangle:
+    special: スペシャル
+    level_gap: "ギャップボーナス(%<gap>d)"

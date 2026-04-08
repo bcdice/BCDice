@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "bcdice/base"
+
 module BCDice
   module GameSystem
     class MagicPunk < Base
@@ -41,15 +43,12 @@ module BCDice
         spec = m[2].to_i
         opt1 = m[3]
         arg1 = m[4].to_i
-
         # ダイス数0モードフラグ
         is_zero = dices == 0
         # チャレンジ値
         challenge = opt1 == "C" ? arg1 : 0
-
         # ダイスロール
         dice_list = @randomizer.roll_barabara(is_zero ? 2 : dices, 20)
-
         # 通常は1つ成功なら成功、0ダイス時はすべて成功したとき成功
         check_method = is_zero ? :all? : :any?
         # 通常はすべて失敗なら失敗、0ダイス時は1つ失敗したら失敗
@@ -62,16 +61,16 @@ module BCDice
         result = if is_bb # 自動失敗優先
                    is_jp = false
                    check = false
-                   "失敗(BB)"
+                   translate("MagicPunk.bad_beat")
                  elsif is_jp
                    check = true
-                   "成功(JP)"
+                   translate("MagicPunk.jackpot")
                  elsif check
                    value_method = is_zero ? :min : :max
                    value = dice_list.select { |d| d <= spec }.public_send(value_method)
-                   "成功(#{value})"
+                   translate("MagicPunk.success", value: value)
                  else
-                   "失敗"
+                   translate("failure")
                  end
 
         return Result.new.tap do |r|

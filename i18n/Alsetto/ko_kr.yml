@@ -1,0 +1,5 @@
+ko_kr:
+  Alsetto:
+    damage: "%{total_damage} 대미지"
+    success_count: "성공 수 : %{success_count}"
+    triumph: " / %{critical_count} 트라이엄프"

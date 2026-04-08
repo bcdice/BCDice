@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "bcdice/base"
+
 module BCDice
   module GameSystem
     class Airgetlamh < Base
@@ -41,9 +43,7 @@ module BCDice
         ・15AAx4c0 → 15d10で目標値6、威力4、クリティカル無しの命中判定。
       MESSAGETEXT
 
-      register_prefix(
-        '\d*A[AL]'
-      )
+      register_prefix('\d*A[AL]')
 
       def initialize(command)
         super(command)
@@ -126,12 +126,12 @@ module BCDice
 
           result += "(#{dice_count}D10\<\=#{target}) ＞ #{text} ＞ Hits：#{total_success_count}*#{damage}"
           result += " + Trigger：#{total_critical_count}*#{critical_trigger}" if critical_trigger > 0
-          result += " ＞ #{total_damage}ダメージ"
+          result += " ＞ #{translate('Airgetlamh.damage', count: total_damage)}"
         else
-          result += "(#{dice_count}D10\<\=#{target}) ＞ #{text} ＞ 成功数：#{total_success_count}"
+          result += "(#{dice_count}D10\<\=#{target}) ＞ #{text} ＞ #{translate('Airgetlamh.success_count', count: total_success_count)}"
         end
 
-        result += " / #{total_critical_count}クリティカル" if total_critical_count > 0
+        result += " / #{translate('Airgetlamh.critical', count: total_critical_count)}" if total_critical_count > 0
 
         return result
       end

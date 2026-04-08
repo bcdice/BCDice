@@ -25,7 +25,7 @@ module BCDice
 
       def initialize(command)
         super(command)
-        @validDiceTypes = [20, 12, 10, 8, 6, 4, 2]
+        @valid_dice_types = [20, 12, 10, 8, 6, 4, 2]
       end
 
       def eval_game_system_specific_command(command)
@@ -39,84 +39,84 @@ module BCDice
 
         dice1 = Regexp.last_match(1).to_i
         dice2 = Regexp.last_match(3).to_i
-        modifyString = Regexp.last_match(4)
+        modify_string = Regexp.last_match(4)
         difficulty = Regexp.last_match(6)
 
-        dice1, dice2 = getDiceType(dice1, dice2)
+        dice1, dice2 = get_dice_type(dice1, dice2)
         if dice1 == 0
           return ''
         end
 
-        modifyString ||= ''
-        modify = ArithmeticEvaluator.eval(modifyString)
-        difficulty = getDiffculty(difficulty)
+        modify_string ||= ''
+        modify = ArithmeticEvaluator.eval(modify_string)
+        difficulty = get_difficulty(difficulty)
 
-        value1 = getRollValue(dice1)
-        value2 = getRollValue(dice2)
+        value1 = get_roll_value(dice1)
+        value2 = get_roll_value(dice2)
         total = value1 + value2 + modify
 
-        result = getResultText(value1, value2, dice1, dice2, difficulty, total)
+        result = get_result_text(value1, value2, dice1, dice2, difficulty, total)
         unless result.empty?
           result = " ＞ #{result}"
         end
 
-        value1Text = "#{value1}(#{dice1})"
-        value2Text = (value2 == 0 ? "" : "+#{value2}(#{dice2})")
-        modifyText = getModifyString(modify)
+        value1_text = "#{value1}(#{dice1})"
+        value2_text = (value2 == 0 ? "" : "+#{value2}(#{dice2})")
+        modify_text = get_modify_string(modify)
 
-        baseText = getBaseText(dice1, dice2, modify, difficulty)
-        output = "(#{baseText}) ＞ #{value1Text}#{value2Text}#{modifyText} ＞ #{total}#{result}"
+        base_text = get_base_text(dice1, dice2, modify, difficulty)
+        output = "(#{base_text}) ＞ #{value1_text}#{value2_text}#{modify_text} ＞ #{total}#{result}"
         return output
       end
 
-      def getDiceType(dice1, dice2)
-        debug('getDiceType begin')
+      def get_dice_type(dice1, dice2)
+        debug('get_dice_type begin')
 
         if dice2 != 0
-          if isValidDiceOne(dice1)
+          if valid_dice_one?(dice1)
             return dice1, dice2
           else
             return 0, 0
           end
         end
 
-        if isValidDice(dice1, dice2)
+        if valid_dice?(dice1, dice2)
           return dice1, dice2
         end
 
-        diceBase = dice1
+        dice_base = dice1
 
-        dice1 = diceBase / 10
-        dice2 = diceBase % 10
+        dice1 = dice_base / 10
+        dice2 = dice_base % 10
 
-        if isValidDice(dice1, dice2)
+        if valid_dice?(dice1, dice2)
           return dice1, dice2
         end
 
-        dice1 = diceBase / 100
-        dice2 = diceBase % 100
+        dice1 = dice_base / 100
+        dice2 = dice_base % 100
 
-        if isValidDice(dice1, dice2)
+        if valid_dice?(dice1, dice2)
           return dice1, dice2
         end
 
-        if isValidDiceOne(diceBase)
-          return diceBase, 0
+        if valid_dice_one?(dice_base)
+          return dice_base, 0
         end
 
         return 0, 0
       end
 
-      def isValidDice(dice1, dice2)
-        return isValidDiceOne(dice1) &&
-               isValidDiceOne(dice2)
+      def valid_dice?(dice1, dice2)
+        return valid_dice_one?(dice1) &&
+               valid_dice_one?(dice2)
       end
 
-      def isValidDiceOne(dice)
-        @validDiceTypes.include?(dice)
+      def valid_dice_one?(dice)
+        @valid_dice_types.include?(dice)
       end
 
-      def getDiffculty(difficulty)
+      def get_difficulty(difficulty)
         unless difficulty.nil?
           difficulty = difficulty.to_i
         end
@@ -124,19 +124,19 @@ module BCDice
         return difficulty
       end
 
-      def getRollValue(dice)
+      def get_roll_value(dice)
         return 0 if dice == 0
 
         value = @randomizer.roll_once(dice)
         return value
       end
 
-      def getResultText(value1, value2, dice1, dice2, difficulty, total)
-        if isFamble(value1, value2)
+      def get_result_text(value1, value2, dice1, dice2, difficulty, total)
+        if famble?(value1, value2)
           return "１ゾロ【１ゾロポイント＋１】"
         end
 
-        if isCritical(value1, value2, dice1, dice2)
+        if critical?(value1, value2, dice1, dice2)
           return "クリティカル成功"
         end
 
@@ -151,11 +151,11 @@ module BCDice
         return "失敗"
       end
 
-      def isFamble(value1, value2)
+      def famble?(value1, value2)
         return (value1 == 1) && (value2 == 1)
       end
 
-      def isCritical(value1, value2, dice1, dice2)
+      def critical?(value1, value2, dice1, dice2)
         return false if value2 == 0
 
         if (value1 == 6) && (value2 == 6)
@@ -169,23 +169,23 @@ module BCDice
         return false
       end
 
-      def getBaseText(dice1, dice2, modify, difficulty)
-        baseText = "R#{dice1}"
+      def get_base_text(dice1, dice2, modify, difficulty)
+        base_text = "R#{dice1}"
 
         if dice2 != 0
-          baseText += ",#{dice2}"
+          base_text += ",#{dice2}"
         end
 
-        baseText += getModifyString(modify)
+        base_text += get_modify_string(modify)
 
         unless difficulty.nil?
-          baseText += ">=#{difficulty}"
+          base_text += ">=#{difficulty}"
         end
 
-        return baseText
+        return base_text
       end
 
-      def getModifyString(modify)
+      def get_modify_string(modify)
         if modify > 0
           return "+" + modify.to_s
         elsif modify < 0
