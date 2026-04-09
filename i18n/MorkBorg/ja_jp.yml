@@ -1,14 +1,14 @@
 ja_jp:
   MorkBorg:
     fumble: "Fumble"
-    succeed: "Succeed"
-    failure_text: "Failure"
-    crit: "Crit"
+    success: "Succeed"
+    failure: "Failure"
+    critical: "Crit"
     pcs_go_first: "PCs go first"
     enemies_go_first: "Enemies go first"
-    maintained: "Maintained"
-    flees: "(Flees)"
-    surrenders: "(Surrenders)"
+    maintain: "Maintained"
+    flee: "(Flees)"
+    surrender: "(Surrenders)"
     ERT:
       name: "遭遇反応表"
       type: "2D6"

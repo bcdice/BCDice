@@ -1,14 +1,14 @@
 ko_kr:
   MorkBorg:
     fumble: "펌블"
-    succeed: "성공"
-    failure_text: "실패"
-    crit: "크리티컬"
+    success: "성공"
+    failure: "실패"
+    critical: "크리티컬"
     pcs_go_first: "PC 선공"
     enemies_go_first: "적 선공"
-    maintained: "모럴 유지"
-    flees: "(도주)"
-    surrenders: "(항복)"
+    maintain: "모럴 유지"
+    flee: "(도주)"
+    surrender: "(항복)"
     ERT:
       name: "조우 반응표"
       type: "2D6"

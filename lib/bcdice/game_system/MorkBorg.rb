@@ -53,11 +53,11 @@ module BCDice
         if dice_total <= 1
           Result.fumble(translate('MorkBorg.fumble'))
         elsif dice_total >= 20
-          Result.critical(translate('MorkBorg.crit'))
+          Result.critical(translate('MorkBorg.critical'))
         elsif total >= target
-          Result.success(translate('MorkBorg.succeed'))
+          Result.success(translate('MorkBorg.success'))
         else
-          Result.failure(translate('MorkBorg.failure_text'))
+          Result.failure(translate('MorkBorg.failure'))
         end
       end
 
@@ -135,13 +135,13 @@ module BCDice
         die = ""
         result =
           if total <= num_target
-            Result.failure(translate('MorkBorg.maintained'))
+            Result.failure(translate('MorkBorg.maintain'))
           else
             die = @randomizer.roll_once(6)
             if die >= 4
-              Result.success(translate('MorkBorg.surrenders'))
+              Result.success(translate('MorkBorg.surrender'))
             else
-              Result.success(translate('MorkBorg.flees'))
+              Result.success(translate('MorkBorg.flee'))
             end
           end
         result.text = "(#{command}) ＞ #{dice_total}#{with_symbol(num_status)} ＞ #{total} ＞ #{die}#{result.text}"
