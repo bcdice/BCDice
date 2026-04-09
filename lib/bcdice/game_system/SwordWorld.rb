@@ -119,7 +119,7 @@ module BCDice
 
           currentKey = (command.rate + round * command.rateup).clamp(0, keyMax)
           debug("currentKey", currentKey)
-          rateValue = 
+          rateValue =
             if dice > command.set_zero_val
               newRates[dice][currentKey]
             else
