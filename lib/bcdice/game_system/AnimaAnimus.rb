@@ -68,17 +68,7 @@ module BCDice
         def translate_tables(locale)
           {
             'IGT' => DiceTable::Table.from_i18n('AnimaAnimus.table.IGT', locale),
-            'LT' => DiceTable::RangeTable.new(
-              I18n.t('AnimaAnimus.table.LT.name', locale: locale),
-              '1d10',
-              [
-                [1..2, I18n.t('AnimaAnimus.table.LT.items.1_2', locale: locale)],
-                [3..4, I18n.t('AnimaAnimus.table.LT.items.3_4', locale: locale)],
-                [5..6, I18n.t('AnimaAnimus.table.LT.items.5_6', locale: locale)],
-                [7..8, I18n.t('AnimaAnimus.table.LT.items.7_8', locale: locale)],
-                [9..10, I18n.t('AnimaAnimus.table.LT.items.9_10', locale: locale)],
-              ]
-            ),
+            'LT' => DiceTable::RangeTable.from_i18n('AnimaAnimus.table.LT', locale),
           }
         end
       end
