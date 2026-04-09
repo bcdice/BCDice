@@ -119,259 +119,43 @@ module BCDice
 
         def general_tables(locale)
           {
-            'FT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.FT.name', locale: locale),
-              '1D12',
-              [
-                [1..3,  I18n.t('KemonoNoMori.table.FT.1_3', locale: locale)],
-                [4..5,  I18n.t('KemonoNoMori.table.FT.4_5', locale: locale)],
-                [6..7,  I18n.t('KemonoNoMori.table.FT.6_7', locale: locale)],
-                [8..9,  I18n.t('KemonoNoMori.table.FT.8_9', locale: locale)],
-                [10..10, I18n.t('KemonoNoMori.table.FT.10', locale: locale)],
-                [11..11, I18n.t('KemonoNoMori.table.FT.11', locale: locale)],
-                [12..12, I18n.t('KemonoNoMori.table.FT.12', locale: locale)],
-              ]
-            ),
-            'RST' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.RST.name', locale: locale),
-              '1D12',
-              [
-                [1..2,   I18n.t('KemonoNoMori.table.RST.1_2', locale: locale)],
-                [3..4,   I18n.t('KemonoNoMori.table.RST.3_4', locale: locale)],
-                [5..6,   I18n.t('KemonoNoMori.table.RST.5_6', locale: locale)],
-                [7..8,   I18n.t('KemonoNoMori.table.RST.7_8', locale: locale)],
-                [9..10,  I18n.t('KemonoNoMori.table.RST.9_10', locale: locale)],
-                [11..12, I18n.t('KemonoNoMori.table.RST.11_12', locale: locale)],
-              ]
-            ),
-            'RTT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.RTT.name', locale: locale),
-              '1D12',
-              [
-                [1..3,   I18n.t('KemonoNoMori.table.RTT.1_3', locale: locale)],
-                [4..6,   I18n.t('KemonoNoMori.table.RTT.4_6', locale: locale)],
-                [7..9,   I18n.t('KemonoNoMori.table.RTT.7_9', locale: locale)],
-                [10..12, I18n.t('KemonoNoMori.table.RTT.10_12', locale: locale)],
-              ]
-            ),
-            'RET' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.RET.name', locale: locale),
-              '1D12',
-              [
-                [1..3,   I18n.t('KemonoNoMori.table.RET.1_3', locale: locale)],
-                [4..6,   I18n.t('KemonoNoMori.table.RET.4_6', locale: locale)],
-                [7..9,   I18n.t('KemonoNoMori.table.RET.7_9', locale: locale)],
-                [10..12, I18n.t('KemonoNoMori.table.RET.10_12', locale: locale)],
-              ]
-            ),
-            'RWT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.RWT.name', locale: locale),
-              '1D12',
-              [
-                [1..2,   I18n.t('KemonoNoMori.table.RWT.1_2', locale: locale)],
-                [3..4,   I18n.t('KemonoNoMori.table.RWT.3_4', locale: locale)],
-                [5..6,   I18n.t('KemonoNoMori.table.RWT.5_6', locale: locale)],
-                [7..8,   I18n.t('KemonoNoMori.table.RWT.7_8', locale: locale)],
-                [9..10,  I18n.t('KemonoNoMori.table.RWT.9_10', locale: locale)],
-                [11..12, I18n.t('KemonoNoMori.table.RWT.11_12', locale: locale)],
-              ]
-            ),
-            'RWDT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.RWDT.name', locale: locale),
-              '1D12',
-              [
-                [1..2,   I18n.t('KemonoNoMori.table.RWDT.1_2', locale: locale)],
-                [3..4,   I18n.t('KemonoNoMori.table.RWDT.3_4', locale: locale)],
-                [5..6,   I18n.t('KemonoNoMori.table.RWDT.5_6', locale: locale)],
-                [7..8,   I18n.t('KemonoNoMori.table.RWDT.7_8', locale: locale)],
-                [9..10,  I18n.t('KemonoNoMori.table.RWDT.9_10', locale: locale)],
-                [11..12, I18n.t('KemonoNoMori.table.RWDT.11_12', locale: locale)],
-              ]
-            ),
+            'FT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.FT', locale),
+            'RST' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.RST', locale),
+            'RTT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.RTT', locale),
+            'RET' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.RET', locale),
+            'RWT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.RWT', locale),
+            'RWDT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.RWDT', locale),
+            'ROMT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.ROMT', locale),
+            'RIMT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.RIMT', locale),
+            'EET' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.EET', locale),
+            'GFT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.GFT', locale),
+            'GWT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.GWT', locale),
+            'WST' => DiceTable::Table.from_i18n('KemonoNoMori.table.WST', locale),
           }
         end
 
         def field_tables(locale)
           {
-            'ROMT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.ROMT.name', locale: locale),
-              '1D12',
-              [
-                [1..2,   I18n.t('KemonoNoMori.table.ROMT.1_2', locale: locale)],
-                [3..5,   I18n.t('KemonoNoMori.table.ROMT.3_5', locale: locale)],
-                [6..8,   I18n.t('KemonoNoMori.table.ROMT.6_8', locale: locale)],
-                [9..10,  I18n.t('KemonoNoMori.table.ROMT.9_10', locale: locale)],
-                [11..12, I18n.t('KemonoNoMori.table.ROMT.11_12', locale: locale)],
-              ]
-            ),
-            'RIMT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.RIMT.name', locale: locale),
-              '1D12',
-              [
-                [1..4,  I18n.t('KemonoNoMori.table.RIMT.1_4', locale: locale)],
-                [5..8,  I18n.t('KemonoNoMori.table.RIMT.5_8', locale: locale)],
-                [9..12, I18n.t('KemonoNoMori.table.RIMT.9_12', locale: locale)],
-              ]
-            ),
-            'EET' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.EET.name', locale: locale),
-              '1D12',
-              [
-                [1..3,   I18n.t('KemonoNoMori.table.EET.1_3', locale: locale)],
-                [4..6,   I18n.t('KemonoNoMori.table.EET.4_6', locale: locale)],
-                [7..9,   I18n.t('KemonoNoMori.table.EET.7_9', locale: locale)],
-                [10..12, I18n.t('KemonoNoMori.table.EET.10_12', locale: locale)],
-              ]
-            ),
-            'GFT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.GFT.name', locale: locale),
-              '1D12',
-              [
-                [1..2,   I18n.t('KemonoNoMori.table.GFT.1_2', locale: locale)],
-                [3..5,   I18n.t('KemonoNoMori.table.GFT.3_5', locale: locale)],
-                [6..8,   I18n.t('KemonoNoMori.table.GFT.6_8', locale: locale)],
-                [9..10,  I18n.t('KemonoNoMori.table.GFT.9_10', locale: locale)],
-                [11..11, I18n.t('KemonoNoMori.table.GFT.11', locale: locale)],
-                [12..12, I18n.t('KemonoNoMori.table.GFT.12', locale: locale)],
-              ]
-            ),
-            'GWT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.GWT.name', locale: locale),
-              '1D12',
-              [
-                [1..6,   I18n.t('KemonoNoMori.table.GWT.1_6', locale: locale)],
-                [7..11,  I18n.t('KemonoNoMori.table.GWT.7_11', locale: locale)],
-                [12..12, I18n.t('KemonoNoMori.table.GWT.12', locale: locale)],
-              ]
-            ),
+            'ROMT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.ROMT', locale),
+            'RIMT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.RIMT', locale),
+            'EET' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.EET', locale),
+            'GFT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.GFT', locale),
+            'GWT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.GWT', locale),
             'WST' => DiceTable::Table.from_i18n('KemonoNoMori.table.WST', locale),
           }
         end
 
         def body_part_tables(locale)
           {
-            'HPT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.HPT.name', locale: locale),
-              '1D12',
-              [
-                [1..2,   I18n.t('KemonoNoMori.table.HPT.1_2', locale: locale)],
-                [3..4,   I18n.t('KemonoNoMori.table.HPT.3_4', locale: locale)],
-                [5..6,   I18n.t('KemonoNoMori.table.HPT.5_6', locale: locale)],
-                [7..8,   I18n.t('KemonoNoMori.table.HPT.7_8', locale: locale)],
-                [9..11,  I18n.t('KemonoNoMori.table.HPT.9_11', locale: locale)],
-                [12..12, I18n.t('KemonoNoMori.table.HPT.12', locale: locale)],
-              ]
-            ),
-            'PDT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.PDT.name', locale: locale),
-              '1D12',
-              [
-                [1..6,   I18n.t('KemonoNoMori.table.PDT.1_6', locale: locale)],
-                [7..10,  I18n.t('KemonoNoMori.table.PDT.7_10', locale: locale)],
-                [11..11, I18n.t('KemonoNoMori.table.PDT.11', locale: locale)],
-                [12..12, I18n.t('KemonoNoMori.table.PDT.12', locale: locale)],
-              ]
-            ),
-            'QPT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.QPT.name', locale: locale),
-              '1D12',
-              [
-                [1..2,   I18n.t('KemonoNoMori.table.QPT.1_2', locale: locale)],
-                [3..3,   I18n.t('KemonoNoMori.table.QPT.3', locale: locale)],
-                [4..4,   I18n.t('KemonoNoMori.table.QPT.4', locale: locale)],
-                [5..5,   I18n.t('KemonoNoMori.table.QPT.5', locale: locale)],
-                [6..6,   I18n.t('KemonoNoMori.table.QPT.6', locale: locale)],
-                [7..7,   I18n.t('KemonoNoMori.table.QPT.7', locale: locale)],
-                [8..10,  I18n.t('KemonoNoMori.table.QPT.8_10', locale: locale)],
-                [11..12, I18n.t('KemonoNoMori.table.QPT.11_12', locale: locale)],
-              ]
-            ),
-            'APT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.APT.name', locale: locale),
-              '1D12',
-              [
-                [1..3,   I18n.t('KemonoNoMori.table.APT.1_3', locale: locale)],
-                [4..6,   I18n.t('KemonoNoMori.table.APT.4_6', locale: locale)],
-                [7..10,  I18n.t('KemonoNoMori.table.APT.7_10', locale: locale)],
-                [11..12, I18n.t('KemonoNoMori.table.APT.11_12', locale: locale)],
-              ]
-            ),
-            'TPT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.TPT.name', locale: locale),
-              '1D12',
-              [
-                [1..1,   I18n.t('KemonoNoMori.table.TPT.1', locale: locale)],
-                [2..2,   I18n.t('KemonoNoMori.table.TPT.2', locale: locale)],
-                [3..3,   I18n.t('KemonoNoMori.table.TPT.3', locale: locale)],
-                [4..4,   I18n.t('KemonoNoMori.table.TPT.4', locale: locale)],
-                [5..6,   I18n.t('KemonoNoMori.table.TPT.5_6', locale: locale)],
-                [7..8,   I18n.t('KemonoNoMori.table.TPT.7_8', locale: locale)],
-                [9..11,  I18n.t('KemonoNoMori.table.TPT.9_11', locale: locale)],
-                [12..12, I18n.t('KemonoNoMori.table.TPT.12', locale: locale)],
-              ]
-            ),
-            'BPT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.BPT.name', locale: locale),
-              '1D12',
-              [
-                [1..1,   I18n.t('KemonoNoMori.table.BPT.1', locale: locale)],
-                [2..2,   I18n.t('KemonoNoMori.table.BPT.2', locale: locale)],
-                [3..4,   I18n.t('KemonoNoMori.table.BPT.3_4', locale: locale)],
-                [5..6,   I18n.t('KemonoNoMori.table.BPT.5_6', locale: locale)],
-                [7..7,   I18n.t('KemonoNoMori.table.BPT.7', locale: locale)],
-                [8..8,   I18n.t('KemonoNoMori.table.BPT.8', locale: locale)],
-                [9..11,  I18n.t('KemonoNoMori.table.BPT.9_11', locale: locale)],
-                [12..12, I18n.t('KemonoNoMori.table.BPT.12', locale: locale)],
-              ]
-            ),
-            'CPT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.CPT.name', locale: locale),
-              '1D12',
-              [
-                [1..1,   I18n.t('KemonoNoMori.table.CPT.1', locale: locale)],
-                [2..2,   I18n.t('KemonoNoMori.table.CPT.2', locale: locale)],
-                [3..3,   I18n.t('KemonoNoMori.table.CPT.3', locale: locale)],
-                [4..4,   I18n.t('KemonoNoMori.table.CPT.4', locale: locale)],
-                [5..7,   I18n.t('KemonoNoMori.table.CPT.5_7', locale: locale)],
-                [8..10,  I18n.t('KemonoNoMori.table.CPT.8_10', locale: locale)],
-                [11..11, I18n.t('KemonoNoMori.table.CPT.11', locale: locale)],
-                [12..12, I18n.t('KemonoNoMori.table.CPT.12', locale: locale)],
-              ]
-            ),
-            'IPT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.IPT.name', locale: locale),
-              '1D12',
-              [
-                [1..2,   I18n.t('KemonoNoMori.table.IPT.1_2', locale: locale)],
-                [3..3,   I18n.t('KemonoNoMori.table.IPT.3', locale: locale)],
-                [4..4,   I18n.t('KemonoNoMori.table.IPT.4', locale: locale)],
-                [5..5,   I18n.t('KemonoNoMori.table.IPT.5', locale: locale)],
-                [6..6,   I18n.t('KemonoNoMori.table.IPT.6', locale: locale)],
-                [7..7,   I18n.t('KemonoNoMori.table.IPT.7', locale: locale)],
-                [8..8,   I18n.t('KemonoNoMori.table.IPT.8', locale: locale)],
-                [9..9,   I18n.t('KemonoNoMori.table.IPT.9', locale: locale)],
-                [10..11, I18n.t('KemonoNoMori.table.IPT.10_11', locale: locale)],
-                [12..12, I18n.t('KemonoNoMori.table.IPT.12', locale: locale)],
-              ]
-            ),
-            'SPT' => DiceTable::RangeTable.new(
-              I18n.t('KemonoNoMori.table.SPT.name', locale: locale),
-              '1D12',
-              [
-                [1..1,   I18n.t('KemonoNoMori.table.SPT.1', locale: locale)],
-                [2..2,   I18n.t('KemonoNoMori.table.SPT.2', locale: locale)],
-                [3..3,   I18n.t('KemonoNoMori.table.SPT.3', locale: locale)],
-                [4..4,   I18n.t('KemonoNoMori.table.SPT.4', locale: locale)],
-                [5..5,   I18n.t('KemonoNoMori.table.SPT.5', locale: locale)],
-                [6..6,   I18n.t('KemonoNoMori.table.SPT.6', locale: locale)],
-                [7..7,   I18n.t('KemonoNoMori.table.SPT.7', locale: locale)],
-                [8..8,   I18n.t('KemonoNoMori.table.SPT.8', locale: locale)],
-                [9..9,   I18n.t('KemonoNoMori.table.SPT.9', locale: locale)],
-                [10..10, I18n.t('KemonoNoMori.table.SPT.10', locale: locale)],
-                [11..11, I18n.t('KemonoNoMori.table.SPT.11', locale: locale)],
-                [12..12, I18n.t('KemonoNoMori.table.SPT.12', locale: locale)],
-              ]
-            ),
+            'HPT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.HPT', locale),
+            'PDT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.PDT', locale),
+            'QPT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.QPT', locale),
+            'APT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.APT', locale),
+            'TPT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.TPT', locale),
+            'BPT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.BPT', locale),
+            'CPT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.CPT', locale),
+            'IPT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.IPT', locale),
+            'SPT' => DiceTable::RangeTable.from_i18n('KemonoNoMori.table.SPT', locale),
           }
         end
       end

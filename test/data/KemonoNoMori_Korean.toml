@@ -624,7 +624,7 @@ rands = [
 [[ test ]]
 game_system = "KemonoNoMori:Korean"
 input = "APT"
-output = "무족 동물 부위표(1) ＞ 이형"
+output = "무족류 부위표(1) ＞ 이형"
 rands = [
   { sides = 12, value = 1 },
 ]
@@ -632,7 +632,7 @@ rands = [
 [[ test ]]
 game_system = "KemonoNoMori:Korean"
 input = "apt"
-output = "무족 동물 부위표(12) ＞ 머리 부위"
+output = "무족류 부위표(12) ＞ 머리 부위"
 rands = [
   { sides = 12, value = 12 },
 ]
@@ -640,7 +640,7 @@ rands = [
 [[ test ]]
 game_system = "KemonoNoMori:Korean"
 input = "SApt"
-output = "무족 동물 부위표(4) ＞ 무기"
+output = "무족류 부위표(4) ＞ 무기"
 secret = true
 rands = [
   { sides = 12, value = 4 },
@@ -699,7 +699,7 @@ rands = [
 [[ test ]]
 game_system = "KemonoNoMori:Korean"
 input = "CPT"
-output = "두족 동물 부위표(1) ＞ 이형"
+output = "두족류 부위표(1) ＞ 이형"
 rands = [
   { sides = 12, value = 1 },
 ]
@@ -707,7 +707,7 @@ rands = [
 [[ test ]]
 game_system = "KemonoNoMori:Korean"
 input = "cpt"
-output = "두족 동물 부위표(12) ＞ 머리 부위"
+output = "두족류 부위표(12) ＞ 머리 부위"
 rands = [
   { sides = 12, value = 12 },
 ]
@@ -715,7 +715,7 @@ rands = [
 [[ test ]]
 game_system = "KemonoNoMori:Korean"
 input = "sCpt"
-output = "두족 동물 부위표(2) ＞ 무기"
+output = "두족류 부위표(2) ＞ 무기"
 secret = true
 rands = [
   { sides = 12, value = 2 },
