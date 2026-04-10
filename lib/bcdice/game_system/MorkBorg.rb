@@ -44,20 +44,20 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        resolute_action(command) || resolute_initiative(command) || resolute_morale(command) || roll_tables(command, TABLES)
+        resolute_action(command) || resolute_initiative(command) || resolute_morale(command) || roll_tables(command, self.class::TABLES)
       end
 
       private
 
       def result_dr(total, dice_total, target)
         if dice_total <= 1
-          Result.fumble("Fumble")
+          Result.fumble(translate('MorkBorg.fumble'))
         elsif dice_total >= 20
-          Result.critical("Crit")
+          Result.critical(translate('MorkBorg.critical'))
         elsif total >= target
-          Result.success("Succeed")
+          Result.success(translate('MorkBorg.success'))
         else
-          Result.failure("Failure")
+          Result.failure(translate('MorkBorg.failure'))
         end
       end
 
@@ -109,9 +109,9 @@ module BCDice
         total = die + num_status
         result =
           if total >= 4
-            Result.success("PCs go first")
+            Result.success(translate('MorkBorg.pcs_go_first'))
           else
-            Result.failure("Enemies go first")
+            Result.failure(translate('MorkBorg.enemies_go_first'))
           end
 
         result.text = "(#{command}) ＞ #{die}#{with_symbol(num_status)} ＞ #{total} ＞ #{result.text}"
@@ -135,13 +135,13 @@ module BCDice
         die = ""
         result =
           if total <= num_target
-            Result.failure("Maintained")
+            Result.failure(translate('MorkBorg.maintain'))
           else
             die = @randomizer.roll_once(6)
             if die >= 4
-              Result.success("(Surrenders)")
+              Result.success(translate('MorkBorg.surrender'))
             else
-              Result.success("(Flees)")
+              Result.success(translate('MorkBorg.flee'))
             end
           end
         result.text = "(#{command}) ＞ #{dice_total}#{with_symbol(num_status)} ＞ #{total} ＞ #{die}#{result.text}"
@@ -151,37 +151,18 @@ module BCDice
 
       # 各種表
 
-      TABLES = {
-        # 無理に高度なことをしなくても、表は展開して実装しても動く
-        'ERT' => DiceTable::Table.new(
-          '遭遇反応表',
-          '2D6',
-          [
-            'Kill!',
-            'Kill!',
-            'Angered',
-            'Angered',
-            'Angered',
-            'Indifferent',
-            'Indifferent',
-            'Almost friendly',
-            'Almost friendly',
-            'Helpful',
-            'Helpful',
-          ]
-        ),
+      class << self
+        private
 
-        'BRO' => DiceTable::Table.new(
-          '崩壊表',
-          '1D4',
-          [
-            "Fall unconscious for d4 rounds, awaken with d4 HP.",
-            "Roll a d6: 1–5 = Broken or severed limb. 6 = Lost eye. Can't act for d4 rounds then become active with d4 HP.",
-            "Haemorrhage: death in d2 hours unless treated. All tests are DR16 the first hour. DR18 the last hour.",
-            "Dead.",
-          ]
-        ),
-      }.freeze
+        def translate_tables(locale)
+          {
+            'ERT' => DiceTable::Table.from_i18n('MorkBorg.ERT', locale),
+            'BRO' => DiceTable::Table.from_i18n('MorkBorg.BRO', locale),
+          }
+        end
+      end
+
+      TABLES = translate_tables(:ja_jp).freeze
 
       register_prefix('([+-]?\d+)?DR[\d]+', '([+-]?\d+)?INS', '([+-]?\d+)?MOR', TABLES.keys)
     end
