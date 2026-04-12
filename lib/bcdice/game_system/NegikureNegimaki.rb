@@ -100,8 +100,9 @@ module BCDice
 
       def build_result(command_text, detail_text, success_level, required_level)
         success = success_level >= required_level
-        judge_text = success ? "成功" : "失敗"
-        text = "#{command_text} ＞ #{detail_text} ＞ 成功レベル#{success_level}/要求#{required_level} ＞ #{judge_text}"
+        judge_text = success ? translate('success') : translate('failure')
+        result_level_text = translate('NegikureNegimaki.result_level', success_level: success_level, required_level: required_level)
+        text = "#{command_text} ＞ #{detail_text} ＞ #{result_level_text} ＞ #{judge_text}"
 
         if success
           return Result.success(text)
@@ -113,9 +114,9 @@ module BCDice
       def build_attack_result(command_text, detail_text, success_level, direct_damage, guts_loss)
         normal_damage = [success_level - direct_damage, 0].max
         success = success_level.positive?
-        damage_text = "通常ダメージ#{normal_damage}/直撃ダメージ#{direct_damage}"
-        damage_text += "/ガッツ減少#{guts_loss}" if guts_loss.positive?
-        text = "#{command_text} ＞ #{detail_text} ＞ 成功レベル#{success_level} ＞ #{damage_text}"
+        damage_text = translate('NegikureNegimaki.damage', normal_damage: normal_damage, direct_damage: direct_damage)
+        damage_text += "/#{translate('NegikureNegimaki.guts_loss', guts_loss: guts_loss)}" if guts_loss.positive?
+        text = "#{command_text} ＞ #{detail_text} ＞ #{translate('NegikureNegimaki.success_level', success_level: success_level)} ＞ #{damage_text}"
 
         if success
           return Result.success(text)
@@ -126,7 +127,7 @@ module BCDice
 
       def build_guts_result(command_text, detail_text, guts_loss)
         success = guts_loss.zero?
-        text = "#{command_text} ＞ #{detail_text} ＞ ガッツ減少#{guts_loss}"
+        text = "#{command_text} ＞ #{detail_text} ＞ #{translate('NegikureNegimaki.guts_loss', guts_loss: guts_loss)}"
 
         if success
           return Result.success(text)
