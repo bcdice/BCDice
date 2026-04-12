@@ -488,6 +488,126 @@ rands = [
 
 [[ test ]]
 game_system = "FutariSousa"
+input = "DT>=2"
+output = "DT>=2(2,1) ＞ 成功"
+success = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "DT>=5"
+output = "DT>=5(4,3) ＞ 失敗"
+failure = true
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "DT>=2"
+output = "DT>=2(1,1) ＞ ファンブル（変調を受け、助手の心労が1点上昇）"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "DT[5]"
+output = "DT[5](5,3) ＞ スペシャル（助手の余裕を1点獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "DT[5]"
+output = "DT[5](6,2) ＞ スペシャル（助手の余裕を1点獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "DT[5,7]"
+output = "DT[5,7](7,4) ＞ スペシャル（助手の余裕を1点獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "DT>=2[5,7]"
+output = "DT>=2[5,7](5,1) ＞ スペシャル（助手の余裕を1点獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "3DT6>=5[4,5]"
+output = "3DT6>=5[4,5](5,3,1) ＞ スペシャル（助手の余裕を1点獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "AS>=3"
+output = "AS>=3(3,2) ＞ 成功（余裕1点と、探偵から助手への感情を獲得）"
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "AS[5]"
+output = "AS[5](5,2) ＞ スペシャル（余裕2点と、探偵から助手への感情を獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "3AS10>=5[7,9]"
+output = "3AS10>=5[7,9](9,4,2) ＞ スペシャル（余裕2点と、探偵から助手への感情を獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
 input = "SHRD"
 output = "異常な癖決定表(1) ＞ 異常な癖・口から出る表(1) ＞ 猛烈に感謝の言葉を述べる"
 rands = [
