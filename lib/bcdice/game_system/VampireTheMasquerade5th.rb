@@ -7,7 +7,7 @@ module BCDice
       ID = 'VampireTheMasquerade5th'
 
       # ゲームシステム名
-      NAME = 'Vampire: The Masquerade 5th Edition'
+      NAME = 'ヴァンパイア：ザ・マスカレード第５版'
 
       # ゲームシステム名の読みがな
       SORT_KEY = 'うあんはいあさますかれえと5'
