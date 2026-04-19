@@ -15,32 +15,32 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
         ・判定コマンド(nVMFx+x または nVMIxHx)
-          VMFコマンドはHungerダイスとダイスプールを個別に指定する。
-          VMIコマンドはHungerダイスをダイスプールの内数として指定する。
+          VMFコマンドはハンガーダイスとダイスプールを個別に指定する。
+          VMIコマンドはハンガーダイスをダイスプールの内数として指定する。
 
-            例：難易度2、9ダイスプールでHungerダイス3個の場合、それぞれ以下のようなコマンドとなる。
+            例：難易度2、9ダイスプールでハンガーダイス3個の場合、それぞれ以下のようなコマンドとなる。
             2VMF6+3
             2VMI9H3
 
-          難易度指定：成功数のカウント、判定成功と失敗、Critical処理、Critical Win、Total Failureのチェックを行う
-                     （Hungerダイスがある場合）Messy CriticalとBestial Failureチェックを行う
-          例) (難易度)VMF(通常ダイス)+(Hungerダイス)
+          難易度指定：達成数のカウント、判定成功と失敗、クリティカル処理、クリティカル成功、完全失敗のチェックを行う
+                     （ハンガーダイスがある場合）凄惨なるクリティカルと獣の過ちチェックを行う
+          例) (難易度)VMF(通常ダイス)+(ハンガーダイス)
               (難易度)VMF(通常ダイス)
-              (難易度)VMI(通常ダイス)H(Hungerダイス)
+              (難易度)VMI(通常ダイス)H(ハンガーダイス)
               (難易度)VMI(通常ダイス)
 
-          難易度省略：成功数のカウント、判定失敗、Critical処理、Total Failure、（Hungerダイスがある場合）Bestial Failureチェックを行う
-                      判定成功、Messy Criticalのチェックを行わない
-                      Critical Win、（Hungerダイスがある場合）Bestial Failure、Messy Criticalのヒントを出力
-          例) VMF(通常ダイス)+(Hungerダイス)
+          難易度省略：達成数のカウント、判定失敗、クリティカル処理、完全失敗、（ハンガーダイスがある場合）獣の過ちチェックを行う
+                      判定成功、凄惨なるクリティカルのチェックを行わない
+                      クリティカル成功、（ハンガーダイスがある場合）獣の過ち、凄惨なるクリティカルのヒントを出力
+          例) VMF(通常ダイス)+(ハンガーダイス)
               VMF(通常ダイス)
-              VMI(通常ダイス)H(Hungerダイス)
+              VMI(通常ダイス)H(ハンガーダイス)
               VMI(通常ダイス)
 
-          難易度0指定：Critical処理と成功数のカウントを行い、全てのチェックを行わない
-          例) 0VMF(通常ダイス)+(Hungerダイス)
+          難易度0指定：Critical処理と達成数のカウントを行い、全てのチェックを行わない
+          例) 0VMF(通常ダイス)+(ハンガーダイス)
               0VMF(通常ダイス)
-              0VMI(通常ダイス)+(Hungerダイス)
+              0VMI(通常ダイス)+(ハンガーダイス)
               0VMI(通常ダイス)
 
       MESSAGETEXT
@@ -65,10 +65,10 @@ module BCDice
 
         dice_pool, hunger_dice_pool = get_dice_pools(m)
         if dice_pool < 0
-          return "ダイスプール0のときにHungerダイスは指定できません。"
+          return "ダイスプール0のときにハンガーダイスは指定できません。"
         end
         if hunger_dice_pool > 5
-          return "Hungerダイス指定は5ダイスが最大です。"
+          return "ハンガーダイス指定は5ダイスが最大です。"
         end
 
         dice_text, success_dice, ten_dice, = make_dice_roll(dice_pool)
@@ -104,7 +104,7 @@ module BCDice
           dice_pool_value = m[DICE_POOL_HUNGER_DICE_INCLUDED_INDEX].to_i
           dice_pool = dice_pool_value - (hunger_dice_pool < 0 ? 0 : hunger_dice_pool)
           if dice_pool_value > 0 && hunger_dice_pool >= dice_pool_value
-            # 1 以上のダイスプール、かつ、Hungerダイスがダイスプール以上のとき、ダイスプールが全てHungerダイスになる。
+            # 1 以上のダイスプール、かつ、ハンガーダイスがダイスプール以上のとき、ダイスプールが全てハンガーダイスになる。
             dice_pool = 0
             hunger_dice_pool = dice_pool_value
           end
@@ -117,28 +117,28 @@ module BCDice
       end
 
       def get_roll_result(result_text, success_dice, ten_dice, hunger_ten_dice, hunger_botch_dice, difficulty)
-        result_text = "#{result_text} 成功数=#{success_dice}"
+        result_text = "#{result_text} 達成数=#{success_dice}"
         is_critical = ten_dice >= 2
 
         if difficulty > 0
           result_text = "#{result_text} 難易度=#{difficulty}"
 
           if success_dice >= difficulty
-            result_text = "#{result_text} 差分=#{success_dice - difficulty}"
+            result_text = "#{result_text} 上回り=#{success_dice - difficulty}"
 
             if hunger_ten_dice > 0 && is_critical
-              return Result.critical("#{result_text}：判定成功! [Messy Critical]")
+              return Result.critical("#{result_text}：判定成功! [凄惨なるクリティカル/Messy Critical]")
             elsif is_critical
-              return Result.critical("#{result_text}：判定成功! [Critical Win]")
+              return Result.critical("#{result_text}：判定成功! [クリティカル成功/Critical Win]")
             end
 
             return Result.success("#{result_text}：判定成功!")
           else
             if hunger_botch_dice > 0
-              return Result.fumble("#{result_text}：判定失敗! [Bestial Failure]")
+              return Result.fumble("#{result_text}：判定失敗! [獣の過ち/Bestial Failure]")
             end
             if success_dice == 0
-              return Result.fumble("#{result_text}：判定失敗! [Total Failure]")
+              return Result.fumble("#{result_text}：判定失敗! [完全失敗/Total Failure]")
             end
 
             return Result.failure("#{result_text}：判定失敗!")
@@ -146,18 +146,18 @@ module BCDice
         elsif difficulty < 0
           if success_dice == 0
             if hunger_botch_dice > 0
-              return Result.fumble("#{result_text}：判定失敗! [Bestial Failure]")
+              return Result.fumble("#{result_text}：判定失敗! [獣の過ち/Bestial Failure]")
             end
 
-            return Result.fumble("#{result_text}：判定失敗! [Total Failure]")
+            return Result.fumble("#{result_text}：判定失敗! [完全失敗/Total Failure]")
           else
             if hunger_botch_dice > 0
-              result_text = "#{result_text}\n　判定失敗なら [Bestial Failure]"
+              result_text = "#{result_text}\n　判定失敗なら [獣の過ち/Bestial Failure]"
             end
             if hunger_ten_dice > 0 && is_critical
-              result_text = "#{result_text}\n　判定成功なら [Messy Critical]"
+              result_text = "#{result_text}\n　判定成功なら [凄惨なるクリティカル/Messy Critical]"
             elsif is_critical
-              result_text = "#{result_text}\n　判定成功なら [Critical Win]"
+              result_text = "#{result_text}\n　判定成功なら [クリティカル成功/Critical Win]"
             end
             return result_text.to_s
           end
