@@ -1,0 +1,349 @@
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG>=7"
+output = "(2D6>=7[12,2]) ＞ 6[2,4] ＞ 6 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG-3>=8"
+output = "(2D6-3>=8[12,2]) ＞ 11[5,6]-3 ＞ 8 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "SMG+1>=5[11,3]"
+output = "(2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
+secret = true
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG1>=7"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MGA>=7"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP>=7"
+output = "(2D6>=7[12,2]) ＞ 6[2,4] ＞ 6 ＞ 실패"
+failure = true
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP-3>=8"
+output = "(2D6-3>=8[12,2]) ＞ 11[5,6]-3 ＞ 8 ＞ 성공"
+success = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "SFP+1>=5[11,3]"
+output = "(2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
+secret = true
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP1>=7"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FPA>=7"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "D66"
+output = "(D66) ＞ 65"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG"
+output = "(2D6[12,2]) ＞ 12[6,6] ＞ 12 ＞ 자동 성공"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG"
+output = "(2D6[12,2]) ＞ 2[1,1] ＞ 2 ＞ 자동 실패"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG1"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MGA"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP"
+output = "(2D6[12,2]) ＞ 12[6,6] ＞ 12 ＞ 자동 성공"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP"
+output = "(2D6[12,2]) ＞ 2[1,1] ＞ 2 ＞ 자동 실패"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP1"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FPA"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG+1"
+output = "(2D6+1[12,2]) ＞ 11[5,6]+1 ＞ 12"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG-1"
+output = "(2D6-1[12,2]) ＞ 3[1,2]-1 ＞ 2"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG+1[11,3]"
+output = "(2D6+1[11,3]) ＞ 6[2,4]+1 ＞ 7"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG+1[11,3]"
+output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG+1[11,3]"
+output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동 실패"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP+1"
+output = "(2D6+1[12,2]) ＞ 11[5,6]+1 ＞ 12"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP-1"
+output = "(2D6-1[12,2]) ＞ 3[1,2]-1 ＞ 2"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP+1[11,3]"
+output = "(2D6+1[11,3]) ＞ 6[2,4]+1 ＞ 7"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP+1[11,3]"
+output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP+1[11,3]"
+output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동 실패"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "SMG+1@11#3>=5"
+output = "(2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
+secret = true
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "SFP+1@11#3>=5"
+output = "(2D6+1>=5[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
+secret = true
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG+1@11#3"
+output = "(2D6+1[11,3]) ＞ 6[2,4]+1 ＞ 7"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG+1@11#3"
+output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "MG+1@11#3"
+output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동 실패"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP+1@11#3"
+output = "(2D6+1[11,3]) ＞ 6[2,4]+1 ＞ 7"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP+1@11#3"
+output = "(2D6+1[11,3]) ＞ 11[5,6]+1 ＞ 12 ＞ 자동 성공"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "FullMetalPanic:Korean"
+input = "FP+1@11#3"
+output = "(2D6+1[11,3]) ＞ 3[1,2]+1 ＞ 4 ＞ 자동 실패"
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
