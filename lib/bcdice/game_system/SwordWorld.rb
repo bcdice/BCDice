@@ -119,7 +119,12 @@ module BCDice
 
           currentKey = (command.rate + round * command.rateup).clamp(0, keyMax)
           debug("currentKey", currentKey)
-          rateValue = newRates[dice][currentKey]
+          rateValue =
+            if dice > command.set_zero_val
+              newRates[dice][currentKey]
+            else
+              0
+            end
           debug("rateValue", rateValue)
 
           totalValue += rateValue
@@ -321,6 +326,8 @@ module BCDice
       def getResultText(rating_total, command, diceResults, diceResultTotals,
                         rateResults, dice_total, round)
         sequence = []
+        critical_count = [round - 1, 0].max
+        additional_damage = command.add_damage * critical_count
 
         sequence.push("2D:[#{diceResults.join(' ')}]=#{diceResultTotals.join(',')}")
 
@@ -333,6 +340,9 @@ module BCDice
         # rate回数が1回で、修正値がない時には途中式と最終結果が一致するので、途中式を省略する
         if rateResults.size > 1 || command.modifier != 0
           text = rateResults.join(',') + Format.modifier(command.modifier)
+          if additional_damage != 0
+            text += "+#{command.add_damage}*#{critical_count}"
+          end
           if command.half
             text = "(#{text})/2"
             if command.modifier_after_half != 0
@@ -342,6 +352,11 @@ module BCDice
             text = "(#{text})*1.5"
             if command.modifier_after_one_and_a_half != 0
               text += Format.modifier(command.modifier_after_one_and_a_half)
+            end
+          elsif command.double
+            text = "(#{text})*2"
+            if command.modifier_after_double != 0
+              text += Format.modifier(command.modifier_after_double)
             end
           end
           sequence.push(text)
@@ -357,6 +372,12 @@ module BCDice
             text += Format.modifier(command.modifier_after_one_and_a_half)
           end
           sequence.push(text)
+        elsif command.double
+          text = "#{rateResults.first}*2"
+          if command.modifier_after_double != 0
+            text += Format.modifier(command.modifier_after_double)
+          end
+          sequence.push(text)
         end
 
         if round > 1
@@ -364,7 +385,7 @@ module BCDice
           sequence.push(round_text)
         end
 
-        total = rating_total + command.modifier
+        total = rating_total + command.modifier + additional_damage
         if command.half
           total = (total / 2.0).ceil
           if command.modifier_after_half != 0
@@ -374,6 +395,11 @@ module BCDice
           total = (total * 1.5).ceil
           if command.modifier_after_one_and_a_half != 0
             total += command.modifier_after_one_and_a_half
+          end
+        elsif command.double
+          total = (total * 2).ceil
+          if command.modifier_after_double != 0
+            total += command.modifier_after_double
           end
         end
 

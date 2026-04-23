@@ -25,6 +25,9 @@ module BCDice
         # @return [Integer]
         attr_accessor :rateup
 
+        # @return [Integer]
+        attr_accessor :add_damage
+
         # @return [Boolean]
         attr_accessor :greatest_fortune
 
@@ -35,6 +38,9 @@ module BCDice
         attr_accessor :tmp_fixed_val
 
         # @return [Integer]
+        attr_accessor :set_zero_val
+
+        # @return [Integer]
         attr_accessor :modifier
 
         # @return [Integer, nil]
@@ -42,6 +48,9 @@ module BCDice
 
         # @return [Integer, nil]
         attr_accessor :modifier_after_one_and_a_half
+
+        # @return [Integer, nil]
+        attr_accessor :modifier_after_double
 
         def initialize(rate, modifier)
           @rate = rate
@@ -53,10 +62,13 @@ module BCDice
           @first_modify_ssp = 0
           @greatest_fortune = false
           @rateup = 0
+          @add_damage = 0
           @semi_fixed_val = 0
           @tmp_fixed_val = 0
+          @set_zero_val = 0
           @modifier_after_half = nil
           @modifier_after_one_and_a_half = nil
+          @modifier_after_double = nil
         end
 
         # @return [Boolean]
@@ -67,6 +79,11 @@ module BCDice
         # @return [Boolean]
         def one_and_a_half
           return !@modifier_after_one_and_a_half.nil?
+        end
+
+        # @return [Boolean]
+        def double
+          return !@modifier_after_double.nil?
         end
 
         # @return [Integer]
@@ -92,9 +109,11 @@ module BCDice
           output += "m[~#{Format.modifier(first_modify_ssp)}]" if first_modify_ssp != 0
           output += "m[#{first_to}]" if first_to != 0
           output += "r[#{rateup}]" if rateup != 0
+          output += "ad[#{add_damage}]" if add_damage != 0
           output += "gf" if @greatest_fortune
           output += "sf[#{semi_fixed_val}]" if semi_fixed_val != 0
           output += "tf[#{tmp_fixed_val}]" if tmp_fixed_val != 0
+          output += "sz[#{set_zero_val}]" if set_zero_val != 0
           output += "a[#{Format.modifier(kept_modify)}]" if kept_modify != 0
 
           if @modifier != 0
