@@ -10,7 +10,7 @@ module BCDice
       NAME = 'MarvelヒロイックRPG'
 
       # ゲームシステム名の読みがな
-      SORT_KEY = 'まあへるひろいつくろうるぷれいんく'
+      SORT_KEY = 'まあへるひろいつくろうるふれいんく'
 
       # ダイスボットの使い方
       HELP_MESSAGE = <<~INFO_MESSAGETEXT
@@ -51,10 +51,9 @@ module BCDice
           n = /(\d+)D(\d+)/.match(d)
           dice_block_arr.push(dice_block.new(n[1].to_i, n[2].to_i))
         end
-        dice_block_arr = dice_block_arr
-          .group_by(&:sides)
-          .map { |sides, group| dice_block.new(group.sum(&:counts), sides) }
-          .sort_by { |item| -item.sides }
+        dice_block_arr = dice_block_arr.group_by(&:sides)
+                                       .map { |sides, group| dice_block.new(group.sum(&:counts), sides) }
+                                       .sort_by { |item| -item.sides }
 
         output = ""
         result_dice_stats_arr = []
@@ -69,13 +68,13 @@ module BCDice
         output.slice!(0)
         result_dice_stats_arr = result_dice_stats_arr.sort_by { |item| [-item.value, item.sides] }
 
-        chance = result_dice_stats_arr.count { |item| item.value == 1}
-        result_dice_stats_arr.each { |item| item.used = true if item.value == 1}
+        chance = result_dice_stats_arr.count { |item| item.value == 1 }
+        result_dice_stats_arr.each { |item| item.used = true if item.value == 1 }
         add_dice = result_dice_stats_arr[0].value + result_dice_stats_arr[1].value
         result_dice_stats_arr[0].used = true
         result_dice_stats_arr[1].used = true
-        max_item = result_dice_stats_arr.select { |item| !item.used }
-                                        .max_by { |item| item.sides }
+        max_item = result_dice_stats_arr.reject(&:used)
+                                        .max_by(&:sides)
         if max_item
           effect_die = max_item.sides
         else
