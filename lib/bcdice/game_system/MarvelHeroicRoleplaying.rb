@@ -74,6 +74,8 @@ module BCDice
         result_dice_stats_arr.each { |item| item.used = true if item.value == 1 }
 
         add_dice, effect_die = result_prioritize_the_sum(result_dice_stats_arr)
+        return nil if add_dice <= 0
+
         output_prioritize_the_sum = "合計値#{add_dice},効果ダイスD#{effect_die}"
         add_dice, effect_die = result_prioritize_effect_dice(result_dice_stats_arr)
         output_prioritize_effect_dice = "合計値#{add_dice},効果ダイスD#{effect_die}"
@@ -95,9 +97,14 @@ module BCDice
       def result_prioritize_the_sum(dice_stats_arr)
         result_dice_stats_arr = dice_stats_arr.map { |item| Dice_stats.new(*item.to_h.values) }
 
-        add_dice = result_dice_stats_arr[0].value + result_dice_stats_arr[1].value
-        result_dice_stats_arr[0].used = true
-        result_dice_stats_arr[1].used = true
+        if result_dice_stats_arr.length >= 2
+          add_dice = result_dice_stats_arr[0].value + result_dice_stats_arr[1].value
+          result_dice_stats_arr[0].used = true
+          result_dice_stats_arr[1].used = true
+        else
+          return 0, 4
+        end
+
         max_item = result_dice_stats_arr.reject(&:used)
                                         .max_by(&:sides)
         if max_item

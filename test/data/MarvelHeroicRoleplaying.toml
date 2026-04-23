@@ -95,3 +95,12 @@ rands = [
   { sides = 8, value = 2 },
 ]
 
+
+[[ test ]]
+game_system = "MarvelHeroicRoleplaying"
+input = "MHR1D10 #ダイスの個数が足りてない時にエラーにならないか確認"
+output = ""
+rands = [
+  { sides = 10, value = 5 },
+]
+
