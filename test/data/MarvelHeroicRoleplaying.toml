@@ -42,7 +42,7 @@ rands = [
 [[ test ]]
 game_system = "MarvelHeroicRoleplaying"
 input = "MHR5D10 #チャンス表示確認"
-output = "D10[6,5,4,3,1] ＞ 合計値11,効果ダイスD10,チャンス1"
+output = "D10[6,5,4,3,1] ＞ 合計値11,効果ダイスD10 ＞ チャンス1"
 failure = true
 rands = [
   { sides = 10, value = 5 },
@@ -55,7 +55,7 @@ rands = [
 [[ test ]]
 game_system = "MarvelHeroicRoleplaying"
 input = "MHR5D10 #ダイスを使い切った時の効果ダイス(D4)の確認"
-output = "D10[6,5,1,1,1] ＞ 合計値11,効果ダイスD4,チャンス3"
+output = "D10[6,5,1,1,1] ＞ 合計値11,効果ダイスD4 ＞ チャンス3"
 failure = true
 rands = [
   { sides = 10, value = 5 },
@@ -83,7 +83,7 @@ rands = [
 [[ test ]]
 game_system = "MarvelHeroicRoleplaying"
 input = "MHR5D10+2D8 #効果ダイスがD8になるかの確認"
-output = "D10[6,5,1,1,1],D8[2,2] ＞ 合計値11,効果ダイスD8,チャンス3"
+output = "D10[6,5,1,1,1],D8[2,2] ＞ 合計値11,効果ダイスD8 or 合計値8,効果ダイスD10 ＞ チャンス3"
 failure = true
 rands = [
   { sides = 10, value = 5 },
