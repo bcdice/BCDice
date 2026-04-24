@@ -124,14 +124,7 @@ module BCDice
 
         def translate_tables(locale)
           {
-            "SCENESITUATION" => DiceTable::D66LeftRangeTable.new(
-              I18n.t('Irisbane.SceneSituation.name', locale: locale),
-              BCDice::D66SortType::NO_SORT,
-              [
-                [1..3, I18n.t('Irisbane.SceneSituation.1_3', locale: locale)],
-                [4..6, I18n.t('Irisbane.SceneSituation.4_6', locale: locale)],
-              ]
-            ),
+            "SCENESITUATION" => DiceTable::D66LeftRangeTable.from_i18n('Irisbane.SceneSituation', locale),
           }
         end
       end
