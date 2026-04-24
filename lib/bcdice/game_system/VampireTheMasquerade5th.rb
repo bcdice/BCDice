@@ -64,12 +64,6 @@ module BCDice
         end
 
         dice_pool, hunger_dice_pool = get_dice_pools(m)
-<<<<<<< One_Dice_Rule_FIX
-=======
-        if dice_pool < 0
-          return "ダイスプール0のときにハンガーダイスは指定できません。"
-        end
->>>>>>> master
         if hunger_dice_pool > 5
           return "ハンガーダイス指定は5ダイスが最大です。"
         end

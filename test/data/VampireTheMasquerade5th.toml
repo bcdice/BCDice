@@ -393,11 +393,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "0VMF0"
-<<<<<<< One_Dice_Rule_FIX
 output = "(1D10) ＞ [5]  達成数=0"
-=======
-output = "(0D10) ＞ []  達成数=0"
->>>>>>> master
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 4 },
