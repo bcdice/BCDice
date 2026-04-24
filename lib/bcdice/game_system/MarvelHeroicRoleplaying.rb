@@ -35,8 +35,8 @@ module BCDice
 
       private
 
-      Dice_block = Struct.new(:counts, :sides)
-      Dice_stats = Struct.new(:value, :sides, :used)
+      DiceBlock = Struct.new(:counts, :sides)
+      DiceStats = Struct.new(:value, :sides, :used)
 
       # 判定
       # @param [String] command
@@ -51,10 +51,10 @@ module BCDice
 
         dice_cmd_arr.each do |d|
           n = /(\d+)D(\d+)/.match(d)
-          dice_block_arr.push(Dice_block.new(n[1].to_i, n[2].to_i))
+          dice_block_arr.push(DiceBlock.new(n[1].to_i, n[2].to_i))
         end
         dice_block_arr = dice_block_arr.group_by(&:sides)
-                                       .map { |sides, group| Dice_block.new(group.sum(&:counts), sides) }
+                                       .map { |sides, group| DiceBlock.new(group.sum(&:counts), sides) }
                                        .sort_by { |item| -item.sides }
 
         output = ""
@@ -62,7 +62,7 @@ module BCDice
         dice_block_arr.each do |db|
           dices = @randomizer.roll_barabara(db.counts, db.sides).sort.reverse
           dices.each do |n|
-            result_dice_stats_arr.push(Dice_stats.new(n, db.sides, false))
+            result_dice_stats_arr.push(DiceStats.new(n, db.sides, false))
           end
           dice_text = dices.join(",")
           output += ",D#{db.sides}[#{dice_text}]"
@@ -95,7 +95,7 @@ module BCDice
 
       # 合計値優先
       def result_prioritize_the_sum(dice_stats_arr)
-        result_dice_stats_arr = dice_stats_arr.map { |item| Dice_stats.new(*item.to_h.values) }
+        result_dice_stats_arr = dice_stats_arr.map { |item| DiceStats.new(*item.to_h.values) }
 
         if result_dice_stats_arr.length >= 2
           add_dice = result_dice_stats_arr[0].value + result_dice_stats_arr[1].value
@@ -117,7 +117,7 @@ module BCDice
 
       # 効果ダイス優先
       def result_prioritize_effect_dice(dice_stats_arr)
-        result_dice_stats_arr = dice_stats_arr.map { |item| Dice_stats.new(*item.to_h.values) }
+        result_dice_stats_arr = dice_stats_arr.map { |item| DiceStats.new(*item.to_h.values) }
 
         max_item = result_dice_stats_arr.reject(&:used)
                                         .min_by { |item| [-item.sides, item.value] }
