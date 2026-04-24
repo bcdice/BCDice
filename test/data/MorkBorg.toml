@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "MorkBorg"
 input = "0DR12 DRロール Succeed,Failureの確認"
-output = "(0DR12) ＞ 12+0 ＞ 12 ＞ Succeed"
+output = "(0DR12) ＞ 12+0 ＞ 12 ＞ 成功"
 success = true
 rands = [
   { sides = 20, value = 12 },
@@ -10,7 +10,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "0DR12"
-output = "(0DR12) ＞ 11+0 ＞ 11 ＞ Failure"
+output = "(0DR12) ＞ 11+0 ＞ 11 ＞ 失敗"
 failure = true
 rands = [
   { sides = 20, value = 11 },
@@ -19,7 +19,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "0DR12"
-output = "(0DR12) ＞ 20+0 ＞ 20 ＞ Crit"
+output = "(0DR12) ＞ 20+0 ＞ 20 ＞ クリティカル"
 success = true
 critical = true
 rands = [
@@ -29,7 +29,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "0DR12"
-output = "(0DR12) ＞ 1+0 ＞ 1 ＞ Fumble"
+output = "(0DR12) ＞ 1+0 ＞ 1 ＞ ファンブル"
 failure = true
 fumble = true
 rands = [
@@ -39,7 +39,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "DR12 DRロール Succeed,Failureの確認"
-output = "(DR12) ＞ 12+0 ＞ 12 ＞ Succeed"
+output = "(DR12) ＞ 12+0 ＞ 12 ＞ 成功"
 success = true
 rands = [
   { sides = 20, value = 12 },
@@ -48,7 +48,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "DR12"
-output = "(DR12) ＞ 11+0 ＞ 11 ＞ Failure"
+output = "(DR12) ＞ 11+0 ＞ 11 ＞ 失敗"
 failure = true
 rands = [
   { sides = 20, value = 11 },
@@ -57,7 +57,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "-3DR12 DRロール 能力値加算の確認"
-output = "(-3DR12) ＞ 14-3 ＞ 11 ＞ Failure"
+output = "(-3DR12) ＞ 14-3 ＞ 11 ＞ 失敗"
 failure = true
 rands = [
   { sides = 20, value = 14 },
@@ -66,7 +66,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "-2DR12"
-output = "(-2DR12) ＞ 14-2 ＞ 12 ＞ Succeed"
+output = "(-2DR12) ＞ 14-2 ＞ 12 ＞ 成功"
 success = true
 rands = [
   { sides = 20, value = 14 },
@@ -75,7 +75,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "-1DR12"
-output = "(-1DR12) ＞ 14-1 ＞ 13 ＞ Succeed"
+output = "(-1DR12) ＞ 14-1 ＞ 13 ＞ 成功"
 success = true
 rands = [
   { sides = 20, value = 14 },
@@ -84,7 +84,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "0DR12"
-output = "(0DR12) ＞ 14+0 ＞ 14 ＞ Succeed"
+output = "(0DR12) ＞ 14+0 ＞ 14 ＞ 成功"
 success = true
 rands = [
   { sides = 20, value = 14 },
@@ -93,7 +93,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "1DR12"
-output = "(1DR12) ＞ 14+1 ＞ 15 ＞ Succeed"
+output = "(1DR12) ＞ 14+1 ＞ 15 ＞ 成功"
 success = true
 rands = [
   { sides = 20, value = 14 },
@@ -102,7 +102,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "2DR12"
-output = "(2DR12) ＞ 14+2 ＞ 16 ＞ Succeed"
+output = "(2DR12) ＞ 14+2 ＞ 16 ＞ 成功"
 success = true
 rands = [
   { sides = 20, value = 14 },
@@ -111,7 +111,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "+3DR12"
-output = "(+3DR12) ＞ 14+3 ＞ 17 ＞ Succeed"
+output = "(+3DR12) ＞ 14+3 ＞ 17 ＞ 成功"
 success = true
 rands = [
   { sides = 20, value = 14 },
@@ -120,7 +120,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "DR12 能力値0の時の省略が有効か？"
-output = "(DR12) ＞ 14+0 ＞ 14 ＞ Succeed"
+output = "(DR12) ＞ 14+0 ＞ 14 ＞ 成功"
 success = true
 rands = [
   { sides = 20, value = 14 },
@@ -129,7 +129,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "3DR12 DRロール Crit・Fumbleが出目だけに影響を受けているか確認"
-output = "(3DR12) ＞ 17+3 ＞ 20 ＞ Succeed"
+output = "(3DR12) ＞ 17+3 ＞ 20 ＞ 成功"
 success = true
 rands = [
   { sides = 20, value = 17 },
@@ -138,7 +138,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "-2DR12"
-output = "(-2DR12) ＞ 3-2 ＞ 1 ＞ Failure"
+output = "(-2DR12) ＞ 3-2 ＞ 1 ＞ 失敗"
 failure = true
 rands = [
   { sides = 20, value = 3 },
@@ -147,7 +147,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "INS イニシアティヴ　enemies・PCs go firstの確認"
-output = "(INS) ＞ 1+0 ＞ 1 ＞ Enemies go first"
+output = "(INS) ＞ 1+0 ＞ 1 ＞ 敵対者ども"
 failure = true
 rands = [
   { sides = 6, value = 1 },
@@ -156,7 +156,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "INS"
-output = "(INS) ＞ 3+0 ＞ 3 ＞ Enemies go first"
+output = "(INS) ＞ 3+0 ＞ 3 ＞ 敵対者ども"
 failure = true
 rands = [
   { sides = 6, value = 3 },
@@ -165,7 +165,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "INS"
-output = "(INS) ＞ 4+0 ＞ 4 ＞ PCs go first"
+output = "(INS) ＞ 4+0 ＞ 4 ＞ PCたち"
 success = true
 rands = [
   { sides = 6, value = 4 },
@@ -174,7 +174,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "INS"
-output = "(INS) ＞ 6+0 ＞ 6 ＞ PCs go first"
+output = "(INS) ＞ 6+0 ＞ 6 ＞ PCたち"
 success = true
 rands = [
   { sides = 6, value = 6 },
@@ -183,7 +183,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "+1INS"
-output = "(+1INS) ＞ 4+1 ＞ 5 ＞ PCs go first"
+output = "(+1INS) ＞ 4+1 ＞ 5 ＞ PCたち"
 success = true
 rands = [
   { sides = 6, value = 4 },
@@ -192,7 +192,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "-1INS"
-output = "(-1INS) ＞ 6-1 ＞ 5 ＞ PCs go first"
+output = "(-1INS) ＞ 6-1 ＞ 5 ＞ PCたち"
 success = true
 rands = [
   { sides = 6, value = 6 },
@@ -201,7 +201,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "MOR7 モラル　退散・降伏の確認"
-output = "(MOR7) ＞ 8+0 ＞ 8 ＞ 3(Flees)"
+output = "(MOR7) ＞ 8+0 ＞ 8 ＞ 3(逃亡)"
 success = true
 rands = [
   { sides = 6, value = 6 },
@@ -212,7 +212,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "MOR7"
-output = "(MOR7) ＞ 8+0 ＞ 8 ＞ 4(Surrenders)"
+output = "(MOR7) ＞ 8+0 ＞ 8 ＞ 4(降伏)"
 success = true
 rands = [
   { sides = 6, value = 6 },
@@ -223,7 +223,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "MOR7"
-output = "(MOR7) ＞ 7+0 ＞ 7 ＞ Maintained"
+output = "(MOR7) ＞ 7+0 ＞ 7 ＞ 維持された"
 failure = true
 rands = [
   { sides = 6, value = 6 },
@@ -233,7 +233,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "+1MOR9"
-output = "(+1MOR9) ＞ 9+1 ＞ 10 ＞ 3(Flees)"
+output = "(+1MOR9) ＞ 9+1 ＞ 10 ＞ 3(逃亡)"
 success = true
 rands = [
   { sides = 6, value = 6 },
@@ -244,7 +244,7 @@ rands = [
 [[ test ]]
 game_system = "MorkBorg"
 input = "-1MOR7"
-output = "(-1MOR7) ＞ 9-1 ＞ 8 ＞ 3(Flees)"
+output = "(-1MOR7) ＞ 9-1 ＞ 8 ＞ 3(逃亡)"
 success = true
 rands = [
   { sides = 6, value = 6 },
@@ -254,8 +254,8 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "ERT 遭遇反応表"
-output = "遭遇反応表(2) ＞ Kill!"
+input = "ERT 予期せぬ反応表"
+output = "予期せぬ反応表(2) ＞ 殺す！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },
@@ -263,8 +263,8 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "ERT 遭遇反応表"
-output = "遭遇反応表(3) ＞ Kill!"
+input = "ERT 予期せぬ反応表"
+output = "予期せぬ反応表(3) ＞ 殺す！"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -272,8 +272,8 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "ERT 遭遇反応表"
-output = "遭遇反応表(4) ＞ Angered"
+input = "ERT 予期せぬ反応表"
+output = "予期せぬ反応表(4) ＞ 激昂"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -281,8 +281,8 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "ERT 遭遇反応表"
-output = "遭遇反応表(5) ＞ Angered"
+input = "ERT 予期せぬ反応表"
+output = "予期せぬ反応表(5) ＞ 激昂"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 },
@@ -290,8 +290,8 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "ERT 遭遇反応表"
-output = "遭遇反応表(6) ＞ Angered"
+input = "ERT 予期せぬ反応表"
+output = "予期せぬ反応表(6) ＞ 激昂"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 5 },
@@ -299,8 +299,8 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "ERT 遭遇反応表"
-output = "遭遇反応表(7) ＞ Indifferent"
+input = "ERT 予期せぬ反応表"
+output = "予期せぬ反応表(7) ＞ 無関心"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 6 },
@@ -308,8 +308,8 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "ERT 遭遇反応表"
-output = "遭遇反応表(8) ＞ Indifferent"
+input = "ERT 予期せぬ反応表"
+output = "予期せぬ反応表(8) ＞ 無関心"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 6 },
@@ -317,8 +317,8 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "ERT 遭遇反応表"
-output = "遭遇反応表(9) ＞ Almost friendly"
+input = "ERT 予期せぬ反応表"
+output = "予期せぬ反応表(9) ＞ 概ね友好的"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -326,8 +326,8 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "ERT 遭遇反応表"
-output = "遭遇反応表(10) ＞ Almost friendly"
+input = "ERT 予期せぬ反応表"
+output = "予期せぬ反応表(10) ＞ 概ね友好的"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -335,8 +335,8 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "ERT 遭遇反応表"
-output = "遭遇反応表(11) ＞ Helpful"
+input = "ERT 予期せぬ反応表"
+output = "予期せぬ反応表(11) ＞ 協力的"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 6 },
@@ -344,8 +344,8 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "ERT 遭遇反応表"
-output = "遭遇反応表(12) ＞ Helpful"
+input = "ERT 予期せぬ反応表"
+output = "予期せぬ反応表(12) ＞ 協力的"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -353,16 +353,16 @@ rands = [
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "BRO 崩壊表"
-output = "崩壊表(1) ＞ Fall unconscious for d4 rounds, awaken with d4 HP."
+input = "BRO 瀕死表"
+output = "瀕死表(1) ＞ d4ラウンドの間気絶し、d4HPと共に目を覚ます。"
 rands = [
   { sides = 4, value = 1 },
 ]
 
 [[ test ]]
 game_system = "MorkBorg"
-input = "BRO 崩壊表"
-output = "崩壊表(4) ＞ Dead."
+input = "BRO 瀕死表"
+output = "瀕死表(4) ＞ 死ぬ。"
 rands = [
   { sides = 4, value = 4 },
 ]

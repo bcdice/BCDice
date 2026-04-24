@@ -176,4 +176,47 @@ class TestRangeTable < Test::Unit::TestCase
       BCDice::DiceTable::RangeTable.conv_string_range([])
     end
   end
+
+  class TestRangeTableI18n < Test::Unit::TestCase
+    setup do
+      data = {
+        dummy: {
+          RT: {
+            name: "Table",
+            type: "2D6",
+            items: [
+              ["2..7", "A"],
+              ["8", "B"],
+              ["9..12", "C"],
+            ]
+          },
+          InvalidRT: {
+            name: "Invalid Table",
+            type: "2D6",
+            items: [
+              ["2..X", "A"],
+              ["8..12", "B"],
+            ]
+          }
+        }
+      }
+      I18n.backend.store_translations(:ja_jp, data)
+    end
+
+    teardown do
+      I18n.backend.reload!
+    end
+
+    def test_valid_range_table_from_i18n_should_be_accepted
+      assert_nothing_raised do
+        BCDice::DiceTable::RangeTable.from_i18n("dummy.RT", :ja_jp)
+      end
+    end
+
+    def test_invalid_range_table_from_i18n_should_be_denied
+      assert_raise(ArgumentError) do
+        BCDice::DiceTable::RangeTable.from_i18n("dummy.InvalidRT", :ja_jp)
+      end
+    end
+  end
 end
