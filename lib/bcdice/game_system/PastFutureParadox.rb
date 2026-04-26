@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/ClassLength
-
 module BCDice
   module GameSystem
     class PastFutureParadox < Base
@@ -3428,5 +3426,3 @@ module BCDice
     end
   end
 end
-
-# rubocop:enable Metrics/ClassLength

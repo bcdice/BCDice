@@ -26,6 +26,8 @@ Metrics/BlockNesting:
 # Configuration parameters: CountComments, CountAsOne.
 Metrics/ClassLength:
   Max: 2103
+  Exclude:
+    - 'lib/bcdice/game_system/PastFutureParadox.rb'
 
 # Offense count: 180
 # Configuration parameters: AllowedMethods, AllowedPatterns, IgnoredMethods.
