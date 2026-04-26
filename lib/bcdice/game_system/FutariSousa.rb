@@ -19,6 +19,18 @@ module BCDice
         　　　　【DT6】…6面ダイスを2つ振って判定します。『有利』なら【3DT6】、『不利』なら【1DT6】を使います。
         助手用：【AS】…6面ダイスを2つ振って判定します。『有利』なら【3AS】、『不利』なら【1AS】を使います。
         　　　　【AS10】…10面ダイスを2つ振って判定します。『有利』なら【3AS10】、『不利』なら【1AS10】を使います。
+
+        ・目標値の変更　(>=x)
+        ">=目標値"をつけると、成功となる出目の基準を変更します。
+        >=2と指定すると、2以上で成功になります。
+        　例）DT>=2　　　3AS10>=3
+
+        ・スペシャル値の追加　([x])
+        "[スペシャル値]"を付加することで、通常のスペシャル（出目6）に加えて、指定した数字でもスペシャルが発生するようになります。
+        カンマ(,)で区切って記入することで、複数の出目をスペシャルに指定することも可能です。
+        目標値の変更（>=）と併用する場合は、必ず目標値指定の直後に記述してください。
+        　例）DT[5]　　　AS[5,7]　　　DT>=2[5,7]
+
         ・各種表
         【セッション時】
         異常な癖決定表　　　　　 SHRD／新・異常な癖決定表　　 SHND
@@ -72,12 +84,17 @@ module BCDice
       register_prefix('(\d+)?DT(?:6)?', '(\d+)?AS(?:10)?')
 
       def eval_game_system_specific_command(command)
-        if (m = /^(\d+)?DT(?:6)?$/i.match(command))
+        if (m = /^(\d+)?DT(?:6)?(?:>=(\d+))?(?:\[([0-9,]+)\])?$/i.match(command))
           count = m[1]&.to_i || 2
-          return roll_dt(command, count)
-        elsif (m = /^(\d+)?AS(?:10)?$/i.match(command))
+          target = m[2]&.to_i
+          specials = m[3] ? m[3].split(',').map(&:to_i) : []
+          return roll_dt(command, count, target, specials)
+
+        elsif (m = /^(\d+)?AS(?:10)?(?:>=(\d+))?(?:\[([0-9,]+)\])?$/i.match(command))
           count = m[1]&.to_i || 2
-          return roll_as(command, count)
+          target = m[2]&.to_i
+          specials = m[3] ? m[3].split(',').map(&:to_i) : []
+          return roll_as(command, count, target, specials)
         end
 
         return roll_tables(command, self.class::TABLES)
@@ -92,21 +109,24 @@ module BCDice
       SPECIAL_DICE = 6
 
       # 探偵用判定コマンド DT
-      def roll_dt(command, count)
+      def roll_dt(command, count, target = nil, specials = nil)
         dice_list =
-          if command =~ /^(\d*)DT6$/i
+          if command =~ /^(\d*)DT6/i
             @randomizer.roll_barabara(count, 6)
           else
             @randomizer.roll_barabara(count, 10)
           end
+
         max = dice_list.max
+        threshold = target || SUCCESS_THRESHOLD
+        special_values = ([SPECIAL_DICE] + specials).uniq
 
         result =
           if max <= 1
             Result.fumble(translate("FutariSousa.DT.fumble"))
-          elsif dice_list.include?(SPECIAL_DICE)
+          elsif (dice_list & special_values).any?
             Result.critical(translate("FutariSousa.DT.special"))
-          elsif max >= SUCCESS_THRESHOLD
+          elsif max >= threshold
             Result.success(translate("success"))
           else
             Result.failure(translate("failure"))
@@ -117,21 +137,23 @@ module BCDice
       end
 
       # 助手用判定コマンド AS
-      def roll_as(command, count)
+      def roll_as(command, count, target = nil, specials = nil)
         dice_list =
-          if command =~ /^(\d*)AS10$/i
+          if command =~ /^(\d*)AS10/i
             @randomizer.roll_barabara(count, 10)
           else
             @randomizer.roll_barabara(count, 6)
           end
         max = dice_list.max
+        threshold = target || SUCCESS_THRESHOLD
+        special_values = ([SPECIAL_DICE] + specials).uniq
 
         result =
           if max <= 1
             Result.fumble(translate("FutariSousa.AS.fumble"))
-          elsif dice_list.include?(SPECIAL_DICE)
+          elsif (dice_list & special_values).any?
             Result.critical(translate("FutariSousa.AS.special"))
-          elsif max >= SUCCESS_THRESHOLD
+          elsif max >= threshold
             Result.success(translate("FutariSousa.AS.success"))
           else
             Result.failure(translate("failure"))
