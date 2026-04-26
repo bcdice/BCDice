@@ -58,15 +58,12 @@ module BCDice
       register_prefix('\d*(VMF|(VMI\d*(H\d?)?))')
 
       def eval_game_system_specific_command(command)
-        m = /\A(\d+)?(((VMF)(\d+)(\+(\d+))?)|((VMI)(\d+)(H(\d+))?))$/.match(command)
+        m = /\A(\d+)?(((VMF)(-?\d+)(\+(\d+))?)|((VMI)(-?\d+)(H(\d+))?))$/.match(command)
         unless m
           return ''
         end
 
         dice_pool, hunger_dice_pool = get_dice_pools(m)
-        if dice_pool < 0
-          return "ダイスプール0のときにハンガーダイスは指定できません。"
-        end
         if hunger_dice_pool > 5
           return "ハンガーダイス指定は5ダイスが最大です。"
         end
@@ -102,6 +99,10 @@ module BCDice
           # Hunger Diceを内数処理するの場合
           hunger_dice_pool = m[HUNGER_DICE_INCLUDED_INDEX].nil? ? -1 : m[HUNGER_DICE_INCLUDED_INDEX].to_i
           dice_pool_value = m[DICE_POOL_HUNGER_DICE_INCLUDED_INDEX].to_i
+          if dice_pool_value <= 0
+            # ダイスプールが0のとき、最低保証ダイスプールであるダイスプール1にする
+            dice_pool_value = 1
+          end
           dice_pool = dice_pool_value - (hunger_dice_pool < 0 ? 0 : hunger_dice_pool)
           if dice_pool_value > 0 && hunger_dice_pool >= dice_pool_value
             # 1 以上のダイスプール、かつ、ハンガーダイスがダイスプール以上のとき、ダイスプールが全てハンガーダイスになる。
@@ -112,6 +113,10 @@ module BCDice
           # Hunger DiceがPLによる内数指定の場合
           hunger_dice_pool = m[HUNGER_DICE_NO_INCLUDED_INDEX].nil? ? -1 : m[HUNGER_DICE_NO_INCLUDED_INDEX].to_i
           dice_pool = m[DICE_POOL_HUNGER_DICE_NO_INCLUDED_INDEX].to_i
+          if dice_pool <= 0 && hunger_dice_pool <= 0
+            # ダイスプールとハンガーダイスどちらも0指定のとき、最低保証ダイスプールである1ダイスプールにする
+            dice_pool = 1
+          end
         end
         return dice_pool, hunger_dice_pool
       end

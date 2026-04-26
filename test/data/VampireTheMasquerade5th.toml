@@ -2,7 +2,7 @@
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMF0"
-output = "(0D10) ＞ []  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -224,7 +224,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMF0"
-output = "(0D10) ＞ []  達成数=0：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [2]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -256,7 +256,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMF0+0"
-output = "(0D10+0D10) ＞ []+[]  達成数=0：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10+0D10) ＞ [2]+[]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -393,7 +393,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "0VMF0"
-output = "(0D10) ＞ []  達成数=0"
+output = "(1D10) ＞ [5]  達成数=0"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 4 },
@@ -495,7 +495,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMF0"
-output = "(0D10) ＞ []  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -712,7 +712,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMF0"
-output = "(0D10) ＞ []  達成数=0：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [2]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -898,9 +898,10 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S0VMF0"
-output = "(0D10) ＞ []  達成数=0"
+output = "(1D10) ＞ [5]  達成数=0"
 secret = true
 rands = [
+  { sides = 10, value = 5 },
 ]
 
 [[ test ]]
@@ -1007,7 +1008,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMI0"
-output = "(0D10) ＞ []  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -1215,7 +1216,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMI0"
-output = "(0D10) ＞ []  達成数=0：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [2]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -1247,7 +1248,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "VMI0H0"
-output = "(0D10+0D10) ＞ []+[]  達成数=0：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10+0D10) ＞ [2]+[]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -1384,7 +1385,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "0VMI0"
-output = "(0D10) ＞ []  達成数=0"
+output = "(1D10) ＞ [5]  達成数=0"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 4 },
@@ -1486,7 +1487,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S3VMI0"
-output = "(0D10) ＞ []  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1703,7 +1704,7 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "SVMI0"
-output = "(0D10) ＞ []  達成数=0：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [2]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1889,9 +1890,10 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "S0VMI0"
-output = "(0D10) ＞ []  達成数=0"
+output = "(1D10) ＞ [2]  達成数=0"
 secret = true
 rands = [
+  { sides = 10, value = 2 },
 ]
 
 [[ test ]]
@@ -2011,7 +2013,9 @@ rands = [
 [[ test ]]
 game_system = "VampireTheMasquerade5th"
 input = "3VMI0H3"
-output = "ダイスプール0のときにハンガーダイスは指定できません。"
+output = "(0D10+1D10) ＞ []+[4]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 10 },
@@ -2242,4 +2246,24 @@ rands = [
   { sides = 10, value = 4 },
   { sides = 10, value = 2 },
   { sides = 10, value = 5 },
+]
+
+# ダイスプール0以下指定で成功するパターン
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "1VMF-1+0"
+output = "(1D10+0D10) ＞ [6]+[]  達成数=1 難易度=1 上回り=0：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 6 },
+]
+
+# ダイスプール0以下指定で成功するパターン
+[[ test ]]
+game_system = "VampireTheMasquerade5th"
+input = "1VMI-1H4"
+output = "(0D10+1D10) ＞ []+[6]  達成数=1 難易度=1 上回り=0：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 6 },
 ]
