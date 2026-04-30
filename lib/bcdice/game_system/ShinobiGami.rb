@@ -186,8 +186,6 @@ module BCDice
         private
 
         def translate_tables(locale)
-          mt_pretext  = I18n.translate("ShinobiGami.table.MT.pretext",  locale: locale)
-          nmt_pretext = I18n.translate("ShinobiGami.table.NMT.pretext", locale: locale)
           mt_items    = I18n.translate("ShinobiGami.table.MT.items",    locale: locale)
           nmt_items   = I18n.translate("ShinobiGami.table.NMT.items",   locale: locale)
 
@@ -204,9 +202,9 @@ module BCDice
               I18n.translate("ShinobiGami.table.MT.name", locale: locale),
               '1D6',
               [
-                DemonSkillTableForMetamorphose.new(mt_pretext[0], dsa),
-                DemonSkillTableForMetamorphose.new(mt_pretext[1], dsb),
-                DemonSkillTableForMetamorphose.new(mt_pretext[2], dsc),
+                DemonSkillTableForMetamorphose.new(mt_items[0], dsa),
+                DemonSkillTableForMetamorphose.new(mt_items[1], dsb),
+                DemonSkillTableForMetamorphose.new(mt_items[2], dsc),
                 mt_items[3],
                 mt_items[4],
                 mt_items[5],
@@ -217,10 +215,10 @@ module BCDice
               I18n.translate("ShinobiGami.table.NMT.name", locale: locale),
               '1D6',
               [
-                DemonSkillTableForMetamorphose.new(nmt_pretext[0], dsn1),
-                DemonSkillTableForMetamorphose.new(nmt_pretext[1], dsn2),
-                DemonSkillTableForMetamorphose.new(nmt_pretext[2], dsn3),
-                DemonSkillTableForMetamorphose.new(nmt_pretext[3], dsn4),
+                DemonSkillTableForMetamorphose.new(nmt_items[0], dsn1),
+                DemonSkillTableForMetamorphose.new(nmt_items[1], dsn2),
+                DemonSkillTableForMetamorphose.new(nmt_items[2], dsn3),
+                DemonSkillTableForMetamorphose.new(nmt_items[3], dsn4),
                 nmt_items[4],
                 nmt_items[5],
               ]

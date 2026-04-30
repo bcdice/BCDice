@@ -5,7 +5,7 @@
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF0"
-output = "(0D10) ＞ []  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -147,7 +147,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI0"
-output = "(0D10) ＞ []  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -290,7 +290,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF0"
-output = "(0D10) ＞ []  達成数=0：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -394,7 +394,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI0"
-output = "(0D10) ＞ []  達成数=0：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -1399,7 +1399,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF0"
-output = "(0D10) ＞ []  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1550,7 +1550,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI0"
-output = "(0D10) ＞ []  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1702,7 +1702,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF0"
-output = "(0D10) ＞ []  達成数=0：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1813,7 +1813,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI0"
-output = "(0D10) ＞ []  達成数=0：判定失敗! [完全失敗/Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -2990,18 +2990,20 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ========== エラーコマンド ========== #
-
 # ダイスプール0の時のRageダイス指定
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI0R4"
-output = "ダイスプール0のときにRageダイスは指定できません。"
+output = "(0D10+1D10) ＞ []+[1]  成功数=0：判定失敗! [Total Failure]"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
   { sides = 10, value = 6 },
 ]
+
+# ========== エラーコマンド ========== #
 
 # 5を超えるRageダイス指定(WAI)
 [[ test ]]
@@ -3029,4 +3031,24 @@ rands = [
   { sides = 10, value = 8 },
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
+]
+
+# ダイスプール0以下指定で成功するパターン
+[[ test ]]
+game_system = "WerewolfTheApocalypse5th"
+input = "1WAF-1+0"
+output = "(1D10+0D10) ＞ [6]+[]  成功数=1 難易度=1 差分=0：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 6 },
+]
+
+# ダイスプール0以下指定で成功するパターン
+[[ test ]]
+game_system = "WerewolfTheApocalypse5th"
+input = "1WAI-1R4"
+output = "(0D10+1D10) ＞ []+[6]  成功数=1 難易度=1 差分=0：判定成功!"
+success = true
+rands = [
+  { sides = 10, value = 6 },
 ]

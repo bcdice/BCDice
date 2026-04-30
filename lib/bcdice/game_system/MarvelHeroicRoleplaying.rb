@@ -67,7 +67,7 @@ module BCDice
           dice_text = dices.join(",")
           output += ",D#{db.sides}[#{dice_text}]"
         end
-        output.slice!(0)
+        output = output.delete_prefix(",")
         result_dice_stats_arr = result_dice_stats_arr.sort_by { |item| [-item.value, item.sides] }
 
         chance = result_dice_stats_arr.count { |item| item.value == 1 }

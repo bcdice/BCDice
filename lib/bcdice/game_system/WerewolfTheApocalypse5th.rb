@@ -57,15 +57,12 @@ module BCDice
       register_prefix('\d*(WAF|(WAI\d*(R\d?)?))')
 
       def eval_game_system_specific_command(command)
-        m = /\A(\d+)?(((WAF)(\d+)(\+(\d+))?)|((WAI)(\d+)(R(\d+))?))$/.match(command)
+        m = /\A(\d+)?(((WAF)(-?\d+)(\+(\d+))?)|((WAI)(-?\d+)(R(\d+))?))$/.match(command)
         unless m
           return ''
         end
 
         dice_pool, rage_dice_pool = get_dice_pools(m)
-        if dice_pool < 0
-          return "ダイスプール0のときにRageダイスは指定できません。"
-        end
         if rage_dice_pool > 5
           return "5を超えるRageダイス指定はできません。"
         end
@@ -102,6 +99,10 @@ module BCDice
           # Rage Diceを内数処理するの場合
           rage_dice_pool = m[RAGE_DICE_INCLUDED_INDEX].nil? ? -1 : m[RAGE_DICE_INCLUDED_INDEX].to_i
           dice_pool_value = m[DICE_POOL_RAGE_DICE_INCLUDED_INDEX].to_i
+          if dice_pool_value <= 0
+            # ダイスプールが0のとき、最低保証ダイスプールであるダイスプール1にする
+            dice_pool_value = 1
+          end
           dice_pool = dice_pool_value - (rage_dice_pool < 0 ? 0 : rage_dice_pool)
           if dice_pool_value > 0 && rage_dice_pool >= dice_pool_value
             # 1 以上のダイスプール、かつ、Rageダイスがダイスプール以上のとき、ダイスプールが全てRageダイスになる。
@@ -112,6 +113,10 @@ module BCDice
           # Rage DiceがPLによる内数指定の場合
           rage_dice_pool = m[RAGE_DICE_NO_INCLUDED_INDEX].nil? ? -1 : m[RAGE_DICE_NO_INCLUDED_INDEX].to_i
           dice_pool = m[DICE_POOL_RAGE_DICE_NO_INCLUDED_INDEX].to_i
+          if dice_pool <= 0 && rage_dice_pool <= 0
+            # ダイスプールとrageダイスどちらも0指定のとき、最低保証ダイスプールである1ダイスプールにする
+            dice_pool = 1
+          end
         end
         return dice_pool, rage_dice_pool
       end
