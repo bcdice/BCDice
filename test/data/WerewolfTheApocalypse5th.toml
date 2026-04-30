@@ -2994,7 +2994,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI0R4"
-output = "(0D10+1D10) ＞ []+[1]  成功数=0：判定失敗! [Total Failure]"
+output = "(0D10+1D10) ＞ []+[1]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -3037,7 +3037,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "1WAF-1+0"
-output = "(1D10+0D10) ＞ [6]+[]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(1D10+0D10) ＞ [6]+[]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 6 },
@@ -3047,7 +3047,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "1WAI-1R4"
-output = "(0D10+1D10) ＞ []+[6]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(0D10+1D10) ＞ []+[6]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 6 },
