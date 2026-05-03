@@ -151,8 +151,8 @@ module BCDice
         end
 
         # 難易度とダイスを昇順ソート
-        sorted_dice_array = dice_array.min(dice_array.size)
-        sorted_difficulty = difficulty.chars.min(difficulty.length)
+        sorted_dice_array = dice_array.sort()
+        sorted_difficulty = difficulty.chars.sort()
         debug("sorted_difficulty #{sorted_difficulty}")
         debug("sorted_dice_array #{sorted_dice_array}")
 
