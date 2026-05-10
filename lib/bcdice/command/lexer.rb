@@ -17,6 +17,7 @@ module BCDice
         "@" => :AT,
         "#" => :SHARP,
         "$" => :DOLLAR,
+        "^" => :CARET,
       }.freeze
 
       def initialize(source, notations)
@@ -38,6 +39,8 @@ module BCDice
 
         if (number = @scanner.scan(/\d+/))
           [:NUMBER, number.to_i]
+        elsif (log_op = @scanner.scan(/LOG(?=[^A-Za-z]|$)/i))
+          [:LOG, log_op.upcase]
         elsif (cmp_op = @scanner.scan(/[<>!=]+/))
           cmp_op = Normalize.comparison_operator(cmp_op)
           type = cmp_op ? :CMP_OP : :ILLEGAL
