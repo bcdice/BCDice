@@ -1,5 +1,25 @@
 [[ test ]]
 game_system = "Cthulhu"
+input = "c(10^10)"
+output = "c(10^10) ＞ 10000000000"
+rands = [
+]
+[[ test ]]
+game_system = "Cthulhu"
+input = "c(10log100)"
+output = "c(10LOG100) ＞ 2"
+rands = [
+]
+[[ test ]]
+game_system = "Cthulhu"
+input = "c(10*5)"
+output = "c(10*5) ＞ 50"
+rands = [
+]
+
+
+[[ test ]]
+game_system = "Cthulhu"
 input = "1D100<=70 ファンブルなし"
 output = "(1D100<=70) ＞ 100 ＞ 失敗"
 failure = true
