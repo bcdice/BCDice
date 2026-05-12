@@ -31,8 +31,6 @@ module BCDice
 
         if (number = @scanner.scan(/\d+/))
           [:NUMBER, number.to_i]
-        elsif (log_op = @scanner.scan(/LOG(?=[^A-Za-z]|$)/i))
-          [:LOG, log_op.upcase]
         elsif (cmp_op = @scanner.scan(/[<>!=]+/))
           [:CMP_OP, Normalize.comparison_operator(cmp_op)]
         else

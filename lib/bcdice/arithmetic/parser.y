@@ -1,5 +1,5 @@
 class BCDice::Arithmetic::Parser
-  token NUMBER R U C F PLUS MINUS ASTERISK SLASH PARENL PARENR CARET LOG
+  token NUMBER R U C F PLUS MINUS ASTERISK SLASH PARENL PARENR CARET
 
   rule
     add: add PLUS mul
@@ -32,11 +32,7 @@ class BCDice::Arithmetic::Parser
          { result = val[1] }
          | MINUS unary
          { result = Arithmetic::Node::Negative.new(val[1]) }
-         | log_op
-
-    log_op: log_op LOG power
-          { result = Arithmetic::Node::Log.new(val[0], val[2]) }
-          | power
+         | power
 
     power: term CARET power
          { result = Arithmetic::Node::Power.new(val[0], val[2]) }

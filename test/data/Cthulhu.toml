@@ -6,8 +6,14 @@ rands = [
 ]
 [[ test ]]
 game_system = "Cthulhu"
-input = "c(10log100)"
-output = "c(10LOG100) ＞ 2"
+input = "c((2^3^4)-2^(3^4))"
+output = "c((2^3^4)-2^(3^4)) ＞ 0"
+rands = [
+]
+[[ test ]]
+game_system = "Cthulhu"
+input = "c((2^3^4)-(2^3)^4)"
+output = "c((2^3^4)-(2^3)^4) ＞ 2417851639229258349408256"
 rands = [
 ]
 [[ test ]]

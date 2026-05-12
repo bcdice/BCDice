@@ -191,42 +191,6 @@ module BCDice
         end
       end
 
-      # 常用対数（xLOGn）のノード
-      #
-      # x を底、n を真数とした対数 log_x(n) を計算する。
-      # 結果は切り捨てにより整数化する。
-      class Log
-        # ノードを初期化する
-        # @param [Object] base 底のノード
-        # @param [Object] value 真数のノード
-        def initialize(base, value)
-          @base = base
-          @value = value
-        end
-
-        # @param round_type [Symbol] 端数処理方法
-        # @return [Integer] 評価結果（切り捨て）
-        # @raise [ArgumentError] 底または真数が対数の定義域外の場合
-        def eval(round_type)
-          b = @base.eval(round_type).to_f
-          v = @value.eval(round_type).to_f
-          raise ArgumentError, "対数の底は1より大きい値でなければなりません: #{b}" if b <= 1.0
-          raise ArgumentError, "対数の真数は正の値でなければなりません: #{v}" unless v.positive?
-
-          (Math.log(v) / Math.log(b)).floor
-        end
-
-        # @return [String] メッセージへの出力
-        def output
-          "#{@base.output}LOG#{@value.output}"
-        end
-
-        # @return [String] ノードのS式
-        def s_exp
-          "(LOG #{@base.s_exp} #{@value.s_exp})"
-        end
-      end
-
       class Negative
         def initialize(body)
           @body = body
