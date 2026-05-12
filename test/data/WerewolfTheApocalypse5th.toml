@@ -5,7 +5,7 @@
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF0"
-output = "(1D10) ＞ [1]  成功数=0 難易度=3：判定失敗! [Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -18,7 +18,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF6"
-output = "(6D10) ＞ [1,2,6,8,2,10]  成功数=3 難易度=3 差分=0：判定成功!"
+output = "(6D10) ＞ [1,2,6,8,2,10]  達成数=3 難易度=3 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 1 },
@@ -33,7 +33,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF6"
-output = "(6D10) ＞ [1,2,6,1,2,5]  成功数=1 難易度=3：判定失敗!"
+output = "(6D10) ＞ [1,2,6,1,2,5]  達成数=1 難易度=3：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -44,11 +44,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF6"
-output = "(6D10) ＞ [1,2,5,1,2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
+output = "(6D10) ＞ [1,2,5,1,2,5]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -60,11 +60,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win)
+# ダイス数 6 個(クリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF6"
-output = "(6D10) ＞ [1,2,6,10,2,10]  成功数=5 難易度=3 差分=2：判定成功! [Critical Win]"
+output = "(6D10) ＞ [1,2,6,10,2,10]  達成数=5 難易度=3 上回り=2：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 rands = [
@@ -76,11 +76,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win 10が奇数個)
+# ダイス数 6 個(クリティカル成功/Critical Win 10が奇数個)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF6"
-output = "(6D10) ＞ [1,10,6,10,2,10]  成功数=6 難易度=3 差分=3：判定成功! [Critical Win]"
+output = "(6D10) ＞ [1,10,6,10,2,10]  達成数=6 難易度=3 上回り=3：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 rands = [
@@ -92,11 +92,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win 2ペア)
+# ダイス数 6 個(クリティカル成功/Critical Win 2ペア)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF6"
-output = "(6D10) ＞ [1,10,10,10,2,10]  成功数=8 難易度=3 差分=5：判定成功! [Critical Win]"
+output = "(6D10) ＞ [1,10,10,10,2,10]  達成数=8 難易度=3 上回り=5：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 rands = [
@@ -112,7 +112,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "5WAF6"
-output = "(6D10) ＞ [1,2,2,10,2,10]  成功数=4 難易度=5：判定失敗!"
+output = "(6D10) ＞ [1,2,2,10,2,10]  達成数=4 難易度=5：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -127,7 +127,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF11"
-output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  成功数=4 難易度=3 差分=1：判定成功!"
+output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  達成数=4 難易度=3 上回り=1：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 1 },
@@ -147,7 +147,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI0"
-output = "(1D10) ＞ [1]  成功数=0 難易度=3：判定失敗! [Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -160,7 +160,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI6"
-output = "(6D10) ＞ [1,2,6,8,2,10]  成功数=3 難易度=3 差分=0：判定成功!"
+output = "(6D10) ＞ [1,2,6,8,2,10]  達成数=3 難易度=3 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 1 },
@@ -175,7 +175,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI6"
-output = "(6D10) ＞ [1,2,6,1,2,5]  成功数=1 難易度=3：判定失敗!"
+output = "(6D10) ＞ [1,2,6,1,2,5]  達成数=1 難易度=3：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -186,11 +186,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI6"
-output = "(6D10) ＞ [1,2,5,1,2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
+output = "(6D10) ＞ [1,2,5,1,2,5]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -202,11 +202,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win)
+# ダイス数 6 個(クリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI6"
-output = "(6D10) ＞ [1,2,6,10,2,10]  成功数=5 難易度=3 差分=2：判定成功! [Critical Win]"
+output = "(6D10) ＞ [1,2,6,10,2,10]  達成数=5 難易度=3 上回り=2：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 rands = [
@@ -218,11 +218,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win 10が奇数個)
+# ダイス数 6 個(クリティカル成功/Critical Win 10が奇数個)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI6"
-output = "(6D10) ＞ [1,10,6,10,2,10]  成功数=6 難易度=3 差分=3：判定成功! [Critical Win]"
+output = "(6D10) ＞ [1,10,6,10,2,10]  達成数=6 難易度=3 上回り=3：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 rands = [
@@ -234,11 +234,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win 2ペア)
+# ダイス数 6 個(クリティカル成功/Critical Win 2ペア)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI6"
-output = "(6D10) ＞ [1,10,10,10,2,10]  成功数=8 難易度=3 差分=5：判定成功! [Critical Win]"
+output = "(6D10) ＞ [1,10,10,10,2,10]  達成数=8 難易度=3 上回り=5：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 rands = [
@@ -254,7 +254,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "5WAI6"
-output = "(6D10) ＞ [1,2,2,10,2,10]  成功数=4 難易度=5：判定失敗!"
+output = "(6D10) ＞ [1,2,2,10,2,10]  達成数=4 難易度=5：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -269,7 +269,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI11"
-output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  成功数=4 難易度=3 差分=1：判定成功!"
+output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  達成数=4 難易度=3 上回り=1：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 1 },
@@ -286,11 +286,11 @@ rands = [
 ]
 
 # ========== 通常判定 難易度指定なし ========== #
-# ダイス数を 0 個指定(Total Failure)
+# ダイス数を 0 個指定(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF0"
-output = "(1D10) ＞ [1]  成功数=0：判定失敗! [Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -303,7 +303,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF6"
-output = "(6D10) ＞ [1,2,6,8,2,10]  成功数=3"
+output = "(6D10) ＞ [1,2,6,8,2,10]  達成数=3"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -313,11 +313,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF6"
-output = "(6D10) ＞ [1,2,5,1,2,5]  成功数=0：判定失敗! [Total Failure]"
+output = "(6D10) ＞ [1,2,5,1,2,5]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -329,11 +329,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win？)
+# ダイス数 6 個(クリティカル成功/Critical Win？)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF6"
-output = "(6D10) ＞ [1,2,6,10,2,10]  成功数=5\n　判定成功なら [Critical Win]"
+output = "(6D10) ＞ [1,2,6,10,2,10]  達成数=5\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -343,11 +343,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win？ 10が奇数個)
+# ダイス数 6 個(クリティカル成功/Critical Win？ 10が奇数個)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF6"
-output = "(6D10) ＞ [1,10,6,10,2,10]  成功数=6\n　判定成功なら [Critical Win]"
+output = "(6D10) ＞ [1,10,6,10,2,10]  達成数=6\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 10 },
@@ -357,11 +357,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win？ 2ペア)
+# ダイス数 6 個(クリティカル成功/Critical Win？ 2ペア)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF6"
-output = "(6D10) ＞ [1,10,10,10,2,10]  成功数=8\n　判定成功なら [Critical Win]"
+output = "(6D10) ＞ [1,10,10,10,2,10]  達成数=8\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 10 },
@@ -375,7 +375,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF11"
-output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  成功数=4"
+output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  達成数=4"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -390,11 +390,11 @@ rands = [
   { sides = 10, value = 6 },
 ]
 
-# ダイス数を 0 個指定(Total Failure)
+# ダイス数を 0 個指定(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI0"
-output = "(1D10) ＞ [1]  成功数=0：判定失敗! [Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -407,7 +407,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6"
-output = "(6D10) ＞ [1,2,6,8,2,10]  成功数=3"
+output = "(6D10) ＞ [1,2,6,8,2,10]  達成数=3"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -417,11 +417,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6"
-output = "(6D10) ＞ [1,2,5,1,2,5]  成功数=0：判定失敗! [Total Failure]"
+output = "(6D10) ＞ [1,2,5,1,2,5]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -433,11 +433,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win？)
+# ダイス数 6 個(クリティカル成功/Critical Win？)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6"
-output = "(6D10) ＞ [1,2,6,10,2,10]  成功数=5\n　判定成功なら [Critical Win]"
+output = "(6D10) ＞ [1,2,6,10,2,10]  達成数=5\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -447,11 +447,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win？ 10が奇数個)
+# ダイス数 6 個(クリティカル成功/Critical Win？ 10が奇数個)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6"
-output = "(6D10) ＞ [1,10,6,10,2,10]  成功数=6\n　判定成功なら [Critical Win]"
+output = "(6D10) ＞ [1,10,6,10,2,10]  達成数=6\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 10 },
@@ -461,11 +461,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win？ 2ペア)
+# ダイス数 6 個(クリティカル成功/Critical Win？ 2ペア)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6"
-output = "(6D10) ＞ [1,10,10,10,2,10]  成功数=8\n　判定成功なら [Critical Win]"
+output = "(6D10) ＞ [1,10,10,10,2,10]  達成数=8\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 10 },
@@ -479,7 +479,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI11"
-output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  成功数=4"
+output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  達成数=4"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -500,7 +500,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAF6"
-output = "(6D10) ＞ [1,2,6,8,2,10]  成功数=3"
+output = "(6D10) ＞ [1,2,6,8,2,10]  達成数=3"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -510,11 +510,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Total Failure?)
+# ダイス数 6 個(完全失敗/Total Failure?)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAF6"
-output = "(6D10) ＞ [1,2,5,1,2,5]  成功数=0"
+output = "(6D10) ＞ [1,2,5,1,2,5]  達成数=0"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -524,11 +524,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win？)
+# ダイス数 6 個(クリティカル成功/Critical Win？)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAF6"
-output = "(6D10) ＞ [1,2,6,10,2,10]  成功数=5"
+output = "(6D10) ＞ [1,2,6,10,2,10]  達成数=5"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -542,7 +542,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAI6"
-output = "(6D10) ＞ [1,2,6,8,2,10]  成功数=3"
+output = "(6D10) ＞ [1,2,6,8,2,10]  達成数=3"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -552,11 +552,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Total Failure?)
+# ダイス数 6 個(完全失敗/Total Failure?)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAI6"
-output = "(6D10) ＞ [1,2,5,1,2,5]  成功数=0"
+output = "(6D10) ＞ [1,2,5,1,2,5]  達成数=0"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -566,11 +566,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win？)
+# ダイス数 6 個(クリティカル成功/Critical Win？)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAI6"
-output = "(6D10) ＞ [1,2,6,10,2,10]  成功数=5"
+output = "(6D10) ＞ [1,2,6,10,2,10]  達成数=5"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -586,7 +586,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  成功数=3 難易度=3 差分=0：判定成功!"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  達成数=3 難易度=3 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 1 },
@@ -601,7 +601,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  成功数=1 難易度=3：判定失敗!"
+output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  達成数=1 難易度=3：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -612,11 +612,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
+output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -628,11 +628,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win)
+# ダイス数 6 個(クリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  成功数=5 難易度=3 差分=2：判定成功! [Critical Win]"
+output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  達成数=5 難易度=3 上回り=2：判定成功! [クリティカル成功/Critical Win]"
 critical = true
 success = true
 rands = [
@@ -648,7 +648,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "5WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  成功数=4 難易度=5：判定失敗!"
+output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  達成数=4 難易度=5：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -663,7 +663,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF4+2"
-output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=7 難易度=3 差分=4：判定成功!"
+output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=7 難易度=3 上回り=4：判定成功!"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
@@ -673,11 +673,11 @@ rands = [
   { sides = 10, value = 2 },
 ]
 
-# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でCritical Win)
+# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF4+3"
-output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 成功数=10 難易度=3 差分=7：判定成功! [Critical Win]"
+output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 達成数=10 難易度=3 上回り=7：判定成功! [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
@@ -688,11 +688,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでCritical Win)
+# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAF4+4"
-output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 成功数=8 難易度=3 差分=5：判定成功! [Critical Win]"
+output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 達成数=8 難易度=3 上回り=5：判定成功! [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -708,7 +708,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "6WAF4+2"
-output = "(4D10+2D10) ＞ [1,6,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=5 難易度=6：判定失敗!"
+output = "(4D10+2D10) ＞ [1,6,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=5 難易度=6：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -723,7 +723,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "5WAF4+2"
-output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=4 難易度=5：判定失敗!"
+output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=4 難易度=5：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -738,7 +738,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "1WAF1+5"
-output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 1 },
@@ -753,7 +753,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "1WAF6+0"
-output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 1 },
@@ -768,7 +768,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  成功数=3 難易度=3 差分=0：判定成功!"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  達成数=3 難易度=3 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 1 },
@@ -783,7 +783,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  成功数=1 難易度=3：判定失敗!"
+output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  達成数=1 難易度=3：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -794,11 +794,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
+output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -810,11 +810,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win)
+# ダイス数 6 個(クリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  成功数=5 難易度=3 差分=2：判定成功! [Critical Win]"
+output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  達成数=5 難易度=3 上回り=2：判定成功! [クリティカル成功/Critical Win]"
 critical = true
 success = true
 rands = [
@@ -830,7 +830,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "5WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  成功数=4 難易度=5：判定失敗!"
+output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  達成数=4 難易度=5：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -845,7 +845,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI6R2"
-output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=7 難易度=3 差分=4：判定成功!"
+output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=7 難易度=3 上回り=4：判定成功!"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
@@ -855,11 +855,11 @@ rands = [
   { sides = 10, value = 2 },
 ]
 
-# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でCritical Win)
+# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI7R3"
-output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 成功数=10 難易度=3 差分=7：判定成功! [Critical Win]"
+output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 達成数=10 難易度=3 上回り=7：判定成功! [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
@@ -870,11 +870,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでCritical Win)
+# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "3WAI8R4"
-output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 成功数=8 難易度=3 差分=5：判定成功! [Critical Win]"
+output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 達成数=8 難易度=3 上回り=5：判定成功! [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -890,7 +890,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "6WAI6R2"
-output = "(4D10+2D10) ＞ [1,6,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=5 難易度=6：判定失敗!"
+output = "(4D10+2D10) ＞ [1,6,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=5 難易度=6：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -905,7 +905,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "5WAI6R2"
-output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=4 難易度=5：判定失敗!"
+output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=4 難易度=5：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 1 },
@@ -920,7 +920,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "1WAI6R5"
-output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 1 },
@@ -935,7 +935,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "1WAI6R0"
-output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 1 },
@@ -952,7 +952,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  成功数=3"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  達成数=3"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -966,7 +966,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  成功数=1"
+output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  達成数=1"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -976,11 +976,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  成功数=0：判定失敗! [Total Failure]"
+output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -992,11 +992,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win)
+# ダイス数 6 個(クリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  成功数=5\n　判定成功なら [Critical Win]"
+output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  達成数=5\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1010,7 +1010,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  成功数=4\n　判定成功なら [Critical Win]"
+output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  達成数=4\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1024,7 +1024,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF4+2"
-output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=7"
+output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=7"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
@@ -1034,11 +1034,11 @@ rands = [
   { sides = 10, value = 2 },
 ]
 
-# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でCritical Win)
+# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF4+3"
-output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 成功数=10\n　判定成功なら [Critical Win]"
+output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 達成数=10\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
@@ -1049,11 +1049,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでCritical Win)
+# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF4+4"
-output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 成功数=8\n　判定成功なら [Critical Win]"
+output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 達成数=8\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1069,7 +1069,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF4+2"
-output = "(4D10+2D10) ＞ [1,6,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=5"
+output = "(4D10+2D10) ＞ [1,6,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=5"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
@@ -1083,7 +1083,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF4+2"
-output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=4"
+output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=4"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -1097,7 +1097,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF1+5"
-output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  成功数=1"
+output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  達成数=1"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -1111,7 +1111,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAF6+0"
-output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  成功数=1"
+output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  達成数=1"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -1125,7 +1125,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  成功数=3"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  達成数=3"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1139,7 +1139,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  成功数=1"
+output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  達成数=1"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1149,11 +1149,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  成功数=0：判定失敗! [Total Failure]"
+output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -1165,11 +1165,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win)
+# ダイス数 6 個(クリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  成功数=5\n　判定成功なら [Critical Win]"
+output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  達成数=5\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1183,7 +1183,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  成功数=4\n　判定成功なら [Critical Win]"
+output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  達成数=4\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1197,7 +1197,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6R2"
-output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=7"
+output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=7"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
@@ -1207,11 +1207,11 @@ rands = [
   { sides = 10, value = 2 },
 ]
 
-# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でCritical Win)
+# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI7R3"
-output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 成功数=10\n　判定成功なら [Critical Win]"
+output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 達成数=10\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 6 },
@@ -1222,11 +1222,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでCritical Win)
+# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI8R4"
-output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 成功数=8\n　判定成功なら [Critical Win]"
+output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 達成数=8\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1242,7 +1242,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6R2"
-output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=4"
+output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=4"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -1256,7 +1256,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6R5"
-output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  成功数=1"
+output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  達成数=1"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -1270,7 +1270,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI6R0"
-output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  成功数=1"
+output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  達成数=1"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
@@ -1286,7 +1286,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  成功数=3"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  達成数=3"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1300,7 +1300,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,1]  成功数=2"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,1]  達成数=2"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1310,11 +1310,11 @@ rands = [
   { sides = 10, value = 1 },
 ]
 
-# ダイス数 6 個(Total Failure?)
+# ダイス数 6 個(完全失敗/Total Failure?)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  成功数=0"
+output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  達成数=0"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1324,11 +1324,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win？)
+# ダイス数 6 個(クリティカル成功/Critical Win？)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  成功数=5"
+output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  達成数=5"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1342,7 +1342,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  成功数=3"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  達成数=3"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1356,7 +1356,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,1]  成功数=2"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,1]  達成数=2"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1366,11 +1366,11 @@ rands = [
   { sides = 10, value = 1 },
 ]
 
-# ダイス数 6 個(Total Failure?)
+# ダイス数 6 個(完全失敗/Total Failure?)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  成功数=0"
+output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  達成数=0"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1380,11 +1380,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win？)
+# ダイス数 6 個(クリティカル成功/Critical Win？)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "0WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  成功数=5"
+output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  達成数=5"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -1399,7 +1399,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF0"
-output = "(1D10) ＞ [1]  成功数=0 難易度=3：判定失敗! [Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1413,7 +1413,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF6"
-output = "(6D10) ＞ [1,2,6,8,2,10]  成功数=3 難易度=3 差分=0：判定成功!"
+output = "(6D10) ＞ [1,2,6,8,2,10]  達成数=3 難易度=3 上回り=0：判定成功!"
 success = true
 secret = true
 rands = [
@@ -1429,7 +1429,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF6"
-output = "(6D10) ＞ [1,2,6,1,2,5]  成功数=1 難易度=3：判定失敗!"
+output = "(6D10) ＞ [1,2,6,1,2,5]  達成数=1 難易度=3：判定失敗!"
 failure = true
 secret = true
 rands = [
@@ -1441,11 +1441,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF6"
-output = "(6D10) ＞ [1,2,5,1,2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
+output = "(6D10) ＞ [1,2,5,1,2,5]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1458,11 +1458,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win)
+# ダイス数 6 個(クリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF6"
-output = "(6D10) ＞ [1,2,6,10,2,10]  成功数=5 難易度=3 差分=2：判定成功! [Critical Win]"
+output = "(6D10) ＞ [1,2,6,10,2,10]  達成数=5 難易度=3 上回り=2：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 secret = true
@@ -1475,11 +1475,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win 10が奇数個)
+# ダイス数 6 個(クリティカル成功/Critical Win 10が奇数個)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF6"
-output = "(6D10) ＞ [1,10,6,10,2,10]  成功数=6 難易度=3 差分=3：判定成功! [Critical Win]"
+output = "(6D10) ＞ [1,10,6,10,2,10]  達成数=6 難易度=3 上回り=3：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 secret = true
@@ -1492,11 +1492,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win 2ペア)
+# ダイス数 6 個(クリティカル成功/Critical Win 2ペア)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF6"
-output = "(6D10) ＞ [1,10,10,10,2,10]  成功数=8 難易度=3 差分=5：判定成功! [Critical Win]"
+output = "(6D10) ＞ [1,10,10,10,2,10]  達成数=8 難易度=3 上回り=5：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 secret = true
@@ -1513,7 +1513,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S5WAF6"
-output = "(6D10) ＞ [1,2,2,10,2,10]  成功数=4 難易度=5：判定失敗!"
+output = "(6D10) ＞ [1,2,2,10,2,10]  達成数=4 難易度=5：判定失敗!"
 failure = true
 secret = true
 rands = [
@@ -1529,7 +1529,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF11"
-output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  成功数=4 難易度=3 差分=1：判定成功!"
+output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  達成数=4 難易度=3 上回り=1：判定成功!"
 success = true
 secret = true
 rands = [
@@ -1550,7 +1550,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI0"
-output = "(1D10) ＞ [1]  成功数=0 難易度=3：判定失敗! [Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1564,7 +1564,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI6"
-output = "(6D10) ＞ [1,2,6,8,2,10]  成功数=3 難易度=3 差分=0：判定成功!"
+output = "(6D10) ＞ [1,2,6,8,2,10]  達成数=3 難易度=3 上回り=0：判定成功!"
 success = true
 secret = true
 rands = [
@@ -1580,7 +1580,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI6"
-output = "(6D10) ＞ [1,2,6,1,2,5]  成功数=1 難易度=3：判定失敗!"
+output = "(6D10) ＞ [1,2,6,1,2,5]  達成数=1 難易度=3：判定失敗!"
 failure = true
 secret = true
 rands = [
@@ -1592,11 +1592,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI6"
-output = "(6D10) ＞ [1,2,5,1,2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
+output = "(6D10) ＞ [1,2,5,1,2,5]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1609,11 +1609,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win)
+# ダイス数 6 個(クリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI6"
-output = "(6D10) ＞ [1,2,6,10,2,10]  成功数=5 難易度=3 差分=2：判定成功! [Critical Win]"
+output = "(6D10) ＞ [1,2,6,10,2,10]  達成数=5 難易度=3 上回り=2：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 secret = true
@@ -1626,11 +1626,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win 10が奇数個)
+# ダイス数 6 個(クリティカル成功/Critical Win 10が奇数個)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI6"
-output = "(6D10) ＞ [1,10,6,10,2,10]  成功数=6 難易度=3 差分=3：判定成功! [Critical Win]"
+output = "(6D10) ＞ [1,10,6,10,2,10]  達成数=6 難易度=3 上回り=3：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 secret = true
@@ -1643,11 +1643,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win 2ペア)
+# ダイス数 6 個(クリティカル成功/Critical Win 2ペア)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI6"
-output = "(6D10) ＞ [1,10,10,10,2,10]  成功数=8 難易度=3 差分=5：判定成功! [Critical Win]"
+output = "(6D10) ＞ [1,10,10,10,2,10]  達成数=8 難易度=3 上回り=5：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 secret = true
@@ -1664,7 +1664,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S5WAI6"
-output = "(6D10) ＞ [1,2,2,10,2,10]  成功数=4 難易度=5：判定失敗!"
+output = "(6D10) ＞ [1,2,2,10,2,10]  達成数=4 難易度=5：判定失敗!"
 failure = true
 secret = true
 rands = [
@@ -1680,7 +1680,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI11"
-output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  成功数=4 難易度=3 差分=1：判定成功!"
+output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  達成数=4 難易度=3 上回り=1：判定成功!"
 success = true
 secret = true
 rands = [
@@ -1698,11 +1698,11 @@ rands = [
 ]
 
 # ========== 通常判定 難易度指定なし(シークレット) ========== #
-# ダイス数を 0 個指定(Total Failure)
+# ダイス数を 0 個指定(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF0"
-output = "(1D10) ＞ [1]  成功数=0：判定失敗! [Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1716,7 +1716,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF6"
-output = "(6D10) ＞ [1,2,6,8,2,10]  成功数=3"
+output = "(6D10) ＞ [1,2,6,8,2,10]  達成数=3"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1727,11 +1727,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF6"
-output = "(6D10) ＞ [1,2,5,1,2,5]  成功数=0：判定失敗! [Total Failure]"
+output = "(6D10) ＞ [1,2,5,1,2,5]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1744,11 +1744,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win？)
+# ダイス数 6 個(クリティカル成功/Critical Win？)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF6"
-output = "(6D10) ＞ [1,2,6,10,2,10]  成功数=5\n　判定成功なら [Critical Win]"
+output = "(6D10) ＞ [1,2,6,10,2,10]  達成数=5\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1759,11 +1759,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win？ 10が奇数個)
+# ダイス数 6 個(クリティカル成功/Critical Win？ 10が奇数個)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF6"
-output = "(6D10) ＞ [1,10,6,10,2,10]  成功数=6\n　判定成功なら [Critical Win]"
+output = "(6D10) ＞ [1,10,6,10,2,10]  達成数=6\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1774,11 +1774,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win？ 2ペア)
+# ダイス数 6 個(クリティカル成功/Critical Win？ 2ペア)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF6"
-output = "(6D10) ＞ [1,10,10,10,2,10]  成功数=8\n　判定成功なら [Critical Win]"
+output = "(6D10) ＞ [1,10,10,10,2,10]  達成数=8\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1793,7 +1793,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF11"
-output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  成功数=4"
+output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  達成数=4"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1809,11 +1809,11 @@ rands = [
   { sides = 10, value = 6 },
 ]
 
-# ダイス数を 0 個指定(Total Failure)
+# ダイス数を 0 個指定(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI0"
-output = "(1D10) ＞ [1]  成功数=0：判定失敗! [Total Failure]"
+output = "(1D10) ＞ [1]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1827,7 +1827,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6"
-output = "(6D10) ＞ [1,2,6,8,2,10]  成功数=3"
+output = "(6D10) ＞ [1,2,6,8,2,10]  達成数=3"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1838,11 +1838,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6"
-output = "(6D10) ＞ [1,2,5,1,2,5]  成功数=0：判定失敗! [Total Failure]"
+output = "(6D10) ＞ [1,2,5,1,2,5]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -1855,11 +1855,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win？)
+# ダイス数 6 個(クリティカル成功/Critical Win？)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6"
-output = "(6D10) ＞ [1,2,6,10,2,10]  成功数=5\n　判定成功なら [Critical Win]"
+output = "(6D10) ＞ [1,2,6,10,2,10]  達成数=5\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1870,11 +1870,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win？ 10が奇数個)
+# ダイス数 6 個(クリティカル成功/Critical Win？ 10が奇数個)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6"
-output = "(6D10) ＞ [1,10,6,10,2,10]  成功数=6\n　判定成功なら [Critical Win]"
+output = "(6D10) ＞ [1,10,6,10,2,10]  達成数=6\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1885,11 +1885,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Critical Win？ 2ペア)
+# ダイス数 6 個(クリティカル成功/Critical Win？ 2ペア)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6"
-output = "(6D10) ＞ [1,10,10,10,2,10]  成功数=8\n　判定成功なら [Critical Win]"
+output = "(6D10) ＞ [1,10,10,10,2,10]  達成数=8\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1904,7 +1904,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI11"
-output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  成功数=4"
+output = "(11D10) ＞ [1,2,5,2,4,6,3,5,6,6,6]  達成数=4"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1926,7 +1926,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAF6"
-output = "(6D10) ＞ [1,2,6,8,2,10]  成功数=3"
+output = "(6D10) ＞ [1,2,6,8,2,10]  達成数=3"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1937,11 +1937,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Total Failure?)
+# ダイス数 6 個(完全失敗/Total Failure?)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAF6"
-output = "(6D10) ＞ [1,2,5,1,2,5]  成功数=0"
+output = "(6D10) ＞ [1,2,5,1,2,5]  達成数=0"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1952,11 +1952,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win？)
+# ダイス数 6 個(クリティカル成功/Critical Win？)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAF6"
-output = "(6D10) ＞ [1,2,6,10,2,10]  成功数=5"
+output = "(6D10) ＞ [1,2,6,10,2,10]  達成数=5"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1971,7 +1971,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAI6"
-output = "(6D10) ＞ [1,2,6,8,2,10]  成功数=3"
+output = "(6D10) ＞ [1,2,6,8,2,10]  達成数=3"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1982,11 +1982,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 6 個(Total Failure?)
+# ダイス数 6 個(完全失敗/Total Failure?)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAI6"
-output = "(6D10) ＞ [1,2,5,1,2,5]  成功数=0"
+output = "(6D10) ＞ [1,2,5,1,2,5]  達成数=0"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -1997,11 +1997,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win？)
+# ダイス数 6 個(クリティカル成功/Critical Win？)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAI6"
-output = "(6D10) ＞ [1,2,6,10,2,10]  成功数=5"
+output = "(6D10) ＞ [1,2,6,10,2,10]  達成数=5"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2018,7 +2018,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  成功数=3 難易度=3 差分=0：判定成功!"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  達成数=3 難易度=3 上回り=0：判定成功!"
 success = true
 secret = true
 rands = [
@@ -2034,7 +2034,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  成功数=1 難易度=3：判定失敗!"
+output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  達成数=1 難易度=3：判定失敗!"
 failure = true
 secret = true
 rands = [
@@ -2046,11 +2046,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
+output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -2063,11 +2063,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win)
+# ダイス数 6 個(クリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  成功数=5 難易度=3 差分=2：判定成功! [Critical Win]"
+output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  達成数=5 難易度=3 上回り=2：判定成功! [クリティカル成功/Critical Win]"
 critical = true
 success = true
 secret = true
@@ -2084,7 +2084,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S5WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  成功数=4 難易度=5：判定失敗!"
+output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  達成数=4 難易度=5：判定失敗!"
 failure = true
 secret = true
 rands = [
@@ -2100,7 +2100,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF4+2"
-output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=7 難易度=3 差分=4：判定成功!"
+output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=7 難易度=3 上回り=4：判定成功!"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2111,11 +2111,11 @@ rands = [
   { sides = 10, value = 2 },
 ]
 
-# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でCritical Win)
+# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF4+3"
-output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 成功数=10 難易度=3 差分=7：判定成功! [Critical Win]"
+output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 達成数=10 難易度=3 上回り=7：判定成功! [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2127,11 +2127,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでCritical Win)
+# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAF4+4"
-output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 成功数=8 難易度=3 差分=5：判定成功! [Critical Win]"
+output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 達成数=8 難易度=3 上回り=5：判定成功! [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2148,7 +2148,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S6WAF4+2"
-output = "(4D10+2D10) ＞ [1,6,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=5 難易度=6：判定失敗!"
+output = "(4D10+2D10) ＞ [1,6,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=5 難易度=6：判定失敗!"
 failure = true
 secret = true
 rands = [
@@ -2164,7 +2164,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S5WAF4+2"
-output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=4 難易度=5：判定失敗!"
+output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=4 難易度=5：判定失敗!"
 failure = true
 secret = true
 rands = [
@@ -2180,7 +2180,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S1WAF1+5"
-output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 secret = true
 rands = [
@@ -2196,7 +2196,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S1WAF6+0"
-output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 secret = true
 rands = [
@@ -2212,7 +2212,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  成功数=3 難易度=3 差分=0：判定成功!"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  達成数=3 難易度=3 上回り=0：判定成功!"
 success = true
 secret = true
 rands = [
@@ -2228,7 +2228,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  成功数=1 難易度=3：判定失敗!"
+output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  達成数=1 難易度=3：判定失敗!"
 failure = true
 secret = true
 rands = [
@@ -2240,11 +2240,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  成功数=0 難易度=3：判定失敗! [Total Failure]"
+output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  達成数=0 難易度=3：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -2257,11 +2257,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win)
+# ダイス数 6 個(クリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  成功数=5 難易度=3 差分=2：判定成功! [Critical Win]"
+output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  達成数=5 難易度=3 上回り=2：判定成功! [クリティカル成功/Critical Win]"
 critical = true
 success = true
 secret = true
@@ -2278,7 +2278,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S5WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  成功数=4 難易度=5：判定失敗!"
+output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  達成数=4 難易度=5：判定失敗!"
 failure = true
 secret = true
 rands = [
@@ -2294,7 +2294,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI6R2"
-output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=7 難易度=3 差分=4：判定成功!"
+output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=7 難易度=3 上回り=4：判定成功!"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2305,11 +2305,11 @@ rands = [
   { sides = 10, value = 2 },
 ]
 
-# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でCritical Win)
+# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI7R3"
-output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 成功数=10 難易度=3 差分=7：判定成功! [Critical Win]"
+output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 達成数=10 難易度=3 上回り=7：判定成功! [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2321,11 +2321,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでCritical Win)
+# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S3WAI8R4"
-output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 成功数=8 難易度=3 差分=5：判定成功! [Critical Win]"
+output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 達成数=8 難易度=3 上回り=5：判定成功! [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2342,7 +2342,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S6WAI6R2"
-output = "(4D10+2D10) ＞ [1,6,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=5 難易度=6：判定失敗!"
+output = "(4D10+2D10) ＞ [1,6,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=5 難易度=6：判定失敗!"
 failure = true
 secret = true
 rands = [
@@ -2358,7 +2358,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S5WAI6R2"
-output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=4 難易度=5：判定失敗!"
+output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=4 難易度=5：判定失敗!"
 failure = true
 secret = true
 rands = [
@@ -2374,7 +2374,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S1WAI6R5"
-output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 secret = true
 rands = [
@@ -2390,7 +2390,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S1WAI6R0"
-output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 secret = true
 rands = [
@@ -2408,7 +2408,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  成功数=3"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  達成数=3"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2423,7 +2423,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  成功数=1"
+output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  達成数=1"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2434,11 +2434,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF4+2"
-output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  成功数=0：判定失敗! [Total Failure]"
+output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -2451,11 +2451,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win)
+# ダイス数 6 個(クリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  成功数=5\n　判定成功なら [Critical Win]"
+output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  達成数=5\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2470,7 +2470,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF4+2"
-output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  成功数=4\n　判定成功なら [Critical Win]"
+output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  達成数=4\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2485,7 +2485,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF4+2"
-output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=7"
+output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=7"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2496,11 +2496,11 @@ rands = [
   { sides = 10, value = 2 },
 ]
 
-# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でCritical Win)
+# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF4+3"
-output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 成功数=10\n　判定成功なら [Critical Win]"
+output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 達成数=10\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2512,11 +2512,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでCritical Win)
+# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF4+4"
-output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 成功数=8\n　判定成功なら [Critical Win]"
+output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 達成数=8\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2533,7 +2533,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF4+2"
-output = "(4D10+2D10) ＞ [1,6,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=5"
+output = "(4D10+2D10) ＞ [1,6,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=5"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2548,7 +2548,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF4+2"
-output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=4"
+output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=4"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2563,7 +2563,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF1+5"
-output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  成功数=1"
+output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  達成数=1"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2578,7 +2578,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAF6+0"
-output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  成功数=1"
+output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  達成数=1"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2593,7 +2593,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  成功数=3"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  達成数=3"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2608,7 +2608,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  成功数=1"
+output = "(4D10+2D10) ＞ [1,2,6,1]+[2,5]  達成数=1"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2619,11 +2619,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Total Failure)
+# ダイス数 6 個(完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6R2"
-output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  成功数=0：判定失敗! [Total Failure]"
+output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 secret = true
@@ -2636,11 +2636,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win)
+# ダイス数 6 個(クリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  成功数=5\n　判定成功なら [Critical Win]"
+output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  達成数=5\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2655,7 +2655,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6R2"
-output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  成功数=4\n　判定成功なら [Critical Win]"
+output = "(4D10+2D10) ＞ [1,2,5,10]+[2,10]  達成数=4\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2670,7 +2670,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6R2"
-output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=7"
+output = "(4D10+2D10) ＞ [1,6,6,8]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=7"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2681,11 +2681,11 @@ rands = [
   { sides = 10, value = 2 },
 ]
 
-# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でCritical Win)
+# ダイス数 7 個(Brutal outcome で自動失敗だが、判定が有効な状態でクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI7R3"
-output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 成功数=10\n　判定成功なら [Critical Win]"
+output = "(4D10+3D10) ＞ [1,6,10,8]+[1,2,10]  [Brutal outcome] 自動失敗、または 達成数=10\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2697,11 +2697,11 @@ rands = [
   { sides = 10, value = 10 },
 ]
 
-# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでCritical Win)
+# ダイス数 8 個(Brutal outcome で自動失敗だが、判定が有効な状態で、かつRageダイスのみでクリティカル成功/Critical Win)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI8R4"
-output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 成功数=8\n　判定成功なら [Critical Win]"
+output = "(4D10+4D10) ＞ [1,2,5,2]+[1,2,10,10]  [Brutal outcome] 自動失敗、または 達成数=8\n　判定成功なら [クリティカル成功/Critical Win]"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2718,7 +2718,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6R2"
-output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 成功数=4"
+output = "(4D10+2D10) ＞ [1,5,5,2]+[1,2]  [Brutal outcome] 自動失敗、または 達成数=4"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2733,7 +2733,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6R5"
-output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  成功数=1"
+output = "(1D10+5D10) ＞ [1]+[5,5,3,6,2]  達成数=1"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2748,7 +2748,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "SWAI6R0"
-output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  成功数=1"
+output = "(6D10+0D10) ＞ [1,5,5,3,6,2]+[]  達成数=1"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2765,7 +2765,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  成功数=3"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  達成数=3"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2780,7 +2780,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,1]  成功数=2"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,1]  達成数=2"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2791,11 +2791,11 @@ rands = [
   { sides = 10, value = 1 },
 ]
 
-# ダイス数 6 個(Total Failure?)
+# ダイス数 6 個(完全失敗/Total Failure?)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  成功数=0"
+output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  達成数=0"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2806,11 +2806,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win？)
+# ダイス数 6 個(クリティカル成功/Critical Win？)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAF4+2"
-output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  成功数=5"
+output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  達成数=5"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2825,7 +2825,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  成功数=3"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,10]  達成数=3"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2840,7 +2840,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,8]+[2,1]  成功数=2"
+output = "(4D10+2D10) ＞ [1,2,6,8]+[2,1]  達成数=2"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2851,11 +2851,11 @@ rands = [
   { sides = 10, value = 1 },
 ]
 
-# ダイス数 6 個(Total Failure?)
+# ダイス数 6 個(完全失敗/Total Failure?)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  成功数=0"
+output = "(4D10+2D10) ＞ [1,2,5,1]+[2,5]  達成数=0"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2866,11 +2866,11 @@ rands = [
   { sides = 10, value = 5 },
 ]
 
-# ダイス数 6 個(Critical Win？)
+# ダイス数 6 個(クリティカル成功/Critical Win？)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "S0WAI6R2"
-output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  成功数=5"
+output = "(4D10+2D10) ＞ [1,2,6,10]+[2,10]  達成数=5"
 secret = true
 rands = [
   { sides = 10, value = 1 },
@@ -2887,7 +2887,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI3R4"
-output = "(0D10+3D10) ＞ []+[1,2,6]  [Brutal outcome] 自動失敗、または 成功数=5"
+output = "(0D10+3D10) ＞ []+[1,2,6]  [Brutal outcome] 自動失敗、または 達成数=5"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -2898,7 +2898,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI3R5"
-output = "(0D10+3D10) ＞ []+[3,2,6]  成功数=1"
+output = "(0D10+3D10) ＞ []+[3,2,6]  達成数=1"
 rands = [
   { sides = 10, value = 3 },
   { sides = 10, value = 2 },
@@ -2909,18 +2909,18 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI3R4"
-output = "(0D10+3D10) ＞ []+[10,10,6]  成功数=5\n　判定成功なら [Critical Win]"
+output = "(0D10+3D10) ＞ []+[10,10,6]  達成数=5\n　判定成功なら [クリティカル成功/Critical Win]"
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
   { sides = 10, value = 6 },
 ]
 
-# ダイスプールより多いRageダイス指定(難易度なし、Total Failure)
+# ダイスプールより多いRageダイス指定(難易度なし、完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI3R4"
-output = "(0D10+3D10) ＞ []+[3,2,5]  成功数=0：判定失敗! [Total Failure]"
+output = "(0D10+3D10) ＞ []+[3,2,5]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -2933,7 +2933,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "1WAI3R4"
-output = "(0D10+3D10) ＞ []+[1,2,6]  [Brutal outcome] 自動失敗、または 成功数=5 難易度=1 差分=4：判定成功!"
+output = "(0D10+3D10) ＞ []+[1,2,6]  [Brutal outcome] 自動失敗、または 達成数=5 難易度=1 上回り=4：判定成功!"
 rands = [
   { sides = 10, value = 1 },
   { sides = 10, value = 2 },
@@ -2944,7 +2944,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "1WAI3R5"
-output = "(0D10+3D10) ＞ []+[3,2,6]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(0D10+3D10) ＞ []+[3,2,6]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 3 },
@@ -2956,7 +2956,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "2WAI3R5"
-output = "(0D10+3D10) ＞ []+[3,2,6]  成功数=1 難易度=2：判定失敗!"
+output = "(0D10+3D10) ＞ []+[3,2,6]  達成数=1 難易度=2：判定失敗!"
 failure = true
 rands = [
   { sides = 10, value = 3 },
@@ -2968,7 +2968,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "1WAI3R4"
-output = "(0D10+3D10) ＞ []+[10,10,6]  成功数=5 難易度=1 差分=4：判定成功! [Critical Win]"
+output = "(0D10+3D10) ＞ []+[10,10,6]  達成数=5 難易度=1 上回り=4：判定成功! [クリティカル成功/Critical Win]"
 success = true
 critical = true
 rands = [
@@ -2977,11 +2977,11 @@ rands = [
   { sides = 10, value = 6 },
 ]
 
-# ダイスプールより多いRageダイス指定(難易度あり、Total Failure)
+# ダイスプールより多いRageダイス指定(難易度あり、完全失敗/Total Failure)
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "2WAI3R4"
-output = "(0D10+3D10) ＞ []+[3,2,5]  成功数=0 難易度=2：判定失敗! [Total Failure]"
+output = "(0D10+3D10) ＞ []+[3,2,5]  達成数=0 難易度=2：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -2994,7 +2994,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "WAI0R4"
-output = "(0D10+1D10) ＞ []+[1]  成功数=0：判定失敗! [Total Failure]"
+output = "(0D10+1D10) ＞ []+[1]  達成数=0：判定失敗! [完全失敗/Total Failure]"
 failure = true
 fumble = true
 rands = [
@@ -3037,7 +3037,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "1WAF-1+0"
-output = "(1D10+0D10) ＞ [6]+[]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(1D10+0D10) ＞ [6]+[]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 6 },
@@ -3047,7 +3047,7 @@ rands = [
 [[ test ]]
 game_system = "WerewolfTheApocalypse5th"
 input = "1WAI-1R4"
-output = "(0D10+1D10) ＞ []+[6]  成功数=1 難易度=1 差分=0：判定成功!"
+output = "(0D10+1D10) ＞ []+[6]  達成数=1 難易度=1 上回り=0：判定成功!"
 success = true
 rands = [
   { sides = 10, value = 6 },

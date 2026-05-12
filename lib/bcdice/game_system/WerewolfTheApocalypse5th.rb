@@ -22,21 +22,21 @@ module BCDice
             2WAF6+3
             2WAI9R3
 
-          難易度指定：成功数のカウント、判定成功と失敗、（Rageダイスがある場合）Brutal outcome、Critical処理、Total Failure、Critical Winのチェックを行う
+          難易度指定：達成数のカウント、判定成功と失敗、（Rageダイスがある場合）Brutal outcome、クリティカル処理、完全失敗/Total Failure、クリティカル成功のチェックを行う
           例) (難易度)WAF(通常ダイス)+(Rageダイス)
               (難易度)WAF(通常ダイス)
               (難易度)WAI(通常ダイス)R(Rageダイス)
               (難易度)WAI(通常ダイス)
 
-          難易度省略：成功数のカウント、判定失敗、（Rageダイスがある場合）Brutal outcome、Critical処理、Total Failureのチェックを行う
+          難易度省略：達成数のカウント、判定失敗、（Rageダイスがある場合）Brutal outcome、クリティカル処理、完全失敗のチェックを行う
                       判定成功チェックを行わない
-                      Critical Winのヒントを出力
+                      クリティカル成功/Critical Winのヒントを出力
           例) WAF(通常ダイス)+(Rageダイス)
               WAF(通常ダイス)
               WAI(通常ダイス)R(Rageダイス)
               WAI(通常ダイス)
 
-          難易度0指定：Critical処理と成功数のカウントを行い、全てのチェックを行わない
+          難易度0指定：クリティカル処理と達成数のカウントを行い、全てのチェックを行わない
           例) 0WAF(通常ダイス)+(Rageダイス)
               0WAF(通常ダイス)
               0WAI(通常ダイス)+(Rageダイス)
@@ -126,35 +126,35 @@ module BCDice
 
         if brutal_outcome > 0 && difficulty != 0
           success_dice += 4
-          result_text = "#{result_text} [Brutal outcome] 自動失敗、または 成功数=#{success_dice}"
+          result_text = "#{result_text} [Brutal outcome] 自動失敗、または 達成数=#{success_dice}"
         else
-          result_text = "#{result_text} 成功数=#{success_dice}"
+          result_text = "#{result_text} 達成数=#{success_dice}"
         end
 
         if difficulty > 0
           result_text = "#{result_text} 難易度=#{difficulty}"
           if success_dice >= difficulty
-            result_text = "#{result_text} 差分=#{success_dice - difficulty}"
+            result_text = "#{result_text} 上回り=#{success_dice - difficulty}"
 
             if is_critical
-              result_data = Result.critical("#{result_text}：判定成功! [Critical Win]")
+              result_data = Result.critical("#{result_text}：判定成功! [クリティカル成功/Critical Win]")
               return brutal_outcome > 0 ? result_data.text : result_data
             end
             result_data = Result.success("#{result_text}：判定成功!")
             return brutal_outcome > 0 ? result_data.text : result_data
           else
             if success_dice == 0
-              return Result.fumble("#{result_text}：判定失敗! [Total Failure]")
+              return Result.fumble("#{result_text}：判定失敗! [完全失敗/Total Failure]")
             else
               return Result.failure("#{result_text}：判定失敗!")
             end
           end
         elsif difficulty < 0
           if success_dice == 0
-            return Result.fumble("#{result_text}：判定失敗! [Total Failure]")
+            return Result.fumble("#{result_text}：判定失敗! [完全失敗/Total Failure]")
           else
             if is_critical
-              result_text = "#{result_text}\n　判定成功なら [Critical Win]"
+              result_text = "#{result_text}\n　判定成功なら [クリティカル成功/Critical Win]"
             end
             return result_text.to_s
           end
