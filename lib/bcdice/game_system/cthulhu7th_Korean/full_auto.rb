@@ -25,14 +25,14 @@ module BCDice
 
         def eval(command, randomizer)
           @randomizer = randomizer
-          getFullAutoResult(command)
+          get_full_auto_result(command)
         end
 
         private
 
         include Rollable
 
-        def getFullAutoResult(command)
+        def get_full_auto_result(command)
           m = /^FAR\((-?\d+),(-?\d+),(-?\d+)(?:,(-?\d+)?)?(?:,(-?\w+)?)?(?:,(-?\d+)?)?\)$/i.match(command)
           unless m
             return nil
@@ -84,14 +84,14 @@ module BCDice
           end
 
           output += "보너스, 페널티 주사위[#{bonus_dice_count}]"
-          output += rollFullAuto(bullet_count, diff, broken_number, bonus_dice_count, stop_count, bullet_set_count_cap)
+          output += roll_full_auto(bullet_count, diff, broken_number, bonus_dice_count, stop_count, bullet_set_count_cap)
 
           return output
         end
 
-        def rollFullAuto(bullet_count, diff, broken_number, dice_num, stop_count, bullet_set_count_cap)
+        def roll_full_auto(bullet_count, diff, broken_number, dice_num, stop_count, bullet_set_count_cap)
           output = ""
-          loopCount = 0
+          loop_count = 0
 
           counts = {
             hit_bullet: 0,
@@ -101,22 +101,22 @@ module BCDice
 
           # 難易度変更用ループ : 난이도 변경용 루프
           4.times do |more_difficulty|
-            output += getNextDifficultyMessage(more_difficulty)
+            output += get_next_difficulty_message(more_difficulty)
 
             # ペナルティダイスを減らしながらロール用ループ : 페널티 주사위를 줄이면서 주사위를 굴리는 루프
             while dice_num >= BONUS_DICE_RANGE.min
 
-              loopCount += 1
-              hit_result, total, total_list = getHitResultInfos(dice_num, diff, more_difficulty)
-              output += "\n#{loopCount}번째: ＞ #{total_list.join(', ')} ＞ #{hit_result}"
+              loop_count += 1
+              hit_result, total, total_list = get_hit_result_infos(dice_num, diff, more_difficulty)
+              output += "\n#{loop_count}번째: ＞ #{total_list.join(', ')} ＞ #{hit_result}"
 
               if total >= broken_number
                 output += "　총알 걸림(고장)"
-                return getHitResultText(output, counts)
+                return get_hit_result_text(output, counts)
               end
 
-              hit_type = getHitType(more_difficulty, hit_result)
-              hit_bullet, impale_bullet, lost_bullet = getBulletResults(counts[:bullet], hit_type, diff, bullet_set_count_cap)
+              hit_type = get_hit_type(more_difficulty, hit_result)
+              hit_bullet, impale_bullet, lost_bullet = get_bullet_results(counts[:bullet], hit_type, diff, bullet_set_count_cap)
 
               output += "　（#{hit_bullet}발 명중, #{impale_bullet}발 관통）"
 
@@ -124,13 +124,13 @@ module BCDice
               counts[:impale_bullet] += impale_bullet
               counts[:bullet] -= lost_bullet
 
-              return getHitResultText(output, counts) if counts[:bullet] <= 0
+              return get_hit_result_text(output, counts) if counts[:bullet] <= 0
 
               dice_num -= 1
             end
 
             # 指定された難易度となった場合、連射処理を途中で止める : 지정된 난이도에 도달하면 연사 처리를 중단
-            if shouldStopRollFullAuto?(stop_count, more_difficulty)
+            if should_stop_roll_full_auto?(stop_count, more_difficulty)
               output += "\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】"
               break
             end
@@ -138,50 +138,50 @@ module BCDice
             dice_num += 1
           end
 
-          return getHitResultText(output, counts)
+          return get_hit_result_text(output, counts)
         end
 
         # 連射処理を止めるべきかどうかを返す : 연사 처리를 중지해야 하는지 여부를 반환
         # @param [String] stop_count 成功の種類
         # @param [Integer] difficulty 難易度
         # @return [Boolean]
-        def shouldStopRollFullAuto?(stop_count, difficulty)
+        def should_stop_roll_full_auto?(stop_count, difficulty)
           difficulty_threshold = ROLL_FULL_AUTO_DIFFICULTY_THRESHOLD[stop_count]
           return difficulty_threshold && difficulty >= difficulty_threshold
         end
 
-        def getHitResultInfos(dice_num, diff, more_difficulty)
+        def get_hit_result_infos(dice_num, diff, more_difficulty)
           total, total_list = roll_with_bonus(dice_num)
 
-          fumbleable = getFumbleable(more_difficulty)
+          fumbleable = get_fumbleable(more_difficulty)
           hit_result = ResultLevel.from_values(total, diff, fumbleable).to_s
 
           return hit_result, total, total_list
         end
 
-        def getHitResultText(output, counts)
+        def get_hit_result_text(output, counts)
           return "#{output}\n＞ #{counts[:hit_bullet]}발 명중, #{counts[:impale_bullet]}발 관통, 남은 탄환 #{counts[:bullet]}발"
         end
 
-        def getHitType(more_difficulty, hit_result)
-          successList, impaleBulletList = getSuccessListImpaleBulletList(more_difficulty)
+        def get_hit_type(more_difficulty, hit_result)
+          success_list, impale_bullet_list = get_success_list_impale_bullet_list(more_difficulty)
 
-          return :hit if successList.include?(hit_result)
-          return :impale if impaleBulletList.include?(hit_result)
+          return :hit if success_list.include?(hit_result)
+          return :impale if impale_bullet_list.include?(hit_result)
 
           return ""
         end
 
-        def getBulletResults(bullet_count, hit_type, diff, bullet_set_count_cap)
-          bullet_set_count = getSetOfBullet(diff, bullet_set_count_cap)
-          hit_bullet_count_base = getHitBulletCountBase(diff, bullet_set_count)
+        def get_bullet_results(bullet_count, hit_type, diff, bullet_set_count_cap)
+          bullet_set_count = get_set_of_bullet(diff, bullet_set_count_cap)
+          hit_bullet_count_base = get_hit_bullet_count_base(diff, bullet_set_count)
           impale_bullet_count_base = (bullet_set_count / 2.to_f)
 
           lost_bullet_count = 0
           hit_bullet_count = 0
           impale_bullet_count = 0
 
-          if !isLastBulletTurn(bullet_count, bullet_set_count)
+          if !last_bullet_turn?(bullet_count, bullet_set_count)
 
             case hit_type
             when :hit
@@ -198,10 +198,10 @@ module BCDice
 
             case hit_type
             when :hit
-              hit_bullet_count = getLastHitBulletCount(bullet_count)
+              hit_bullet_count = get_last_hit_bullet_count(bullet_count)
 
             when :impale
-              impale_bullet_count = getLastHitBulletCount(bullet_count)
+              impale_bullet_count = get_last_hit_bullet_count(bullet_count)
               hit_bullet_count = bullet_count - impale_bullet_count
             end
 
@@ -211,29 +211,29 @@ module BCDice
           return hit_bullet_count, impale_bullet_count, lost_bullet_count
         end
 
-        def getSuccessListImpaleBulletList(more_difficulty)
-          successList = []
-          impaleBulletList = []
+        def get_success_list_impale_bullet_list(more_difficulty)
+          success_list = []
+          impale_bullet_list = []
 
           case more_difficulty
           when 0
-            successList = ["어려운 성공", "보통 성공"]
-            impaleBulletList = ["대성공", "극단적 성공"]
+            success_list = ["어려운 성공", "보통 성공"]
+            impale_bullet_list = ["대성공", "극단적 성공"]
           when 1
-            successList = ["어려운 성공"]
-            impaleBulletList = ["대성공", "극단적 성공"]
+            success_list = ["어려운 성공"]
+            impale_bullet_list = ["대성공", "극단적 성공"]
           when 2
-            successList = []
-            impaleBulletList = ["대성공", "극단적 성공"]
+            success_list = []
+            impale_bullet_list = ["대성공", "극단적 성공"]
           when 3
-            successList = ["대성공"]
-            impaleBulletList = []
+            success_list = ["대성공"]
+            impale_bullet_list = []
           end
 
-          return successList, impaleBulletList
+          return success_list, impale_bullet_list
         end
 
-        def getNextDifficultyMessage(more_difficulty)
+        def get_next_difficulty_message(more_difficulty)
           case more_difficulty
           when 1
             return "\n【난이도를 어려운 성공으로 변경】"
@@ -246,7 +246,7 @@ module BCDice
           return ""
         end
 
-        def getSetOfBullet(diff, bullet_set_count_cap)
+        def get_set_of_bullet(diff, bullet_set_count_cap)
           bullet_set_count = diff / 10
 
           if bullet_set_count_cap < bullet_set_count
@@ -260,7 +260,7 @@ module BCDice
           return bullet_set_count
         end
 
-        def getHitBulletCountBase(diff, bullet_set_count)
+        def get_hit_bullet_count_base(diff, bullet_set_count)
           hit_bullet_count_base = (bullet_set_count / 2)
 
           if (diff >= 1) && (diff < 30)
@@ -270,11 +270,11 @@ module BCDice
           return hit_bullet_count_base
         end
 
-        def isLastBulletTurn(bullet_count, bullet_set_count)
+        def last_bullet_turn?(bullet_count, bullet_set_count)
           ((bullet_count - bullet_set_count) < 0)
         end
 
-        def getLastHitBulletCount(bullet_count)
+        def get_last_hit_bullet_count(bullet_count)
           # 残弾1での最低値保障処理 : 잔탄 1개일 때의 최저치 보장 처리
           if bullet_count == 1
             return 1
@@ -284,7 +284,7 @@ module BCDice
           return count
         end
 
-        def getFumbleable(more_difficulty)
+        def get_fumbleable(more_difficulty)
           # 成功が49以下の出目のみとなるため、ファンブル値は上昇 : 성공이 49 이하일 때만 적용되므로, 펌블치 상승
           return (more_difficulty >= 1)
         end
