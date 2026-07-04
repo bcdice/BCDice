@@ -1264,17 +1264,8 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "BMS"
-output = "광기의 발작(요약)(7) ＞ 시설 감금: 탐사자가 정신을 차려 보니 정신병원이나 경찰서 유치장에 갇혀 있습니다. 그간의 사정이 조금씩 기억나기 시작할 수도 있습니다.(1D10 ＞ 7시간)"
-rands = [
-  { sides = 10, value = 7 },
-  { sides = 10, value = 7 },
-]
-
-[[ test ]]
-game_system = "Cthulhu7th:Korean"
 input = "BMR"
-output = "광기의 발작(실시간)(5) ＞ 중요한 사람: 탐사자의 백스토리에서 중요한 사람들 항목을 봅니다. 곁에 있는 사람을 자기의 중요한 사람으로 착각하고, 관계에 맞게 행동합니다. 1D10 라운드 동안 지속됩니다.(1D10 ＞ 3라운드)"
+output = "狂気の発作（リアルタイム）(5) ＞ 重要な人々：探索者のバックストーリーの重要な人々を見直す。探索者はその場にいた人物を、自分にとっての重要な人々だと思い込む。人間関係の性質を考慮した上で、探索者はそれに従って行動する。1D10ラウンド続く。(1D10＞3ラウンド)"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 3 },
@@ -1283,7 +1274,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "PH"
-output = "공포증 표(1) ＞ 세척공포증: 씻거나 목욕하는 것에 대한 공포"
+output = "恐怖症表(1) ＞ 入浴恐怖症：体、手、顔を洗うのが怖い。"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -1291,7 +1282,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "PH"
-output = "공포증 표(36) ＞ 첨단공포증: 바늘이나 핀에 대한 공포"
+output = "恐怖症表(36) ＞ ピン恐怖症：針やピンが怖い。"
 rands = [
   { sides = 100, value = 36 },
 ]
@@ -1299,7 +1290,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "PH"
-output = "공포증 표(100) ＞ 동물공포증: 동물에 대한 공포"
+output = "恐怖症表(100) ＞ 動物恐怖症：動物が怖い。"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -1307,7 +1298,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "MA"
-output = "집착증 표(1) ＞ 세척광: 자기 몸을 씻어야겠다는 강박"
+output = "マニア表(1) ＞ 洗浄マニア：自分の体を洗わずにはいられない。"
 rands = [
   { sides = 100, value = 1 },
 ]
@@ -1315,7 +1306,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "MA"
-output = "집착증 표(30) ＞ 광대애호증: 광대에 대한 집착"
+output = "マニア表(30) ＞ ピエロマニア：ピエロへの執着。"
 rands = [
   { sides = 100, value = 30 },
 ]
@@ -1323,7 +1314,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "MA"
-output = "집착증 표(100) ＞ 동물광: 동물을 광적으로 좋아하는 증상"
+output = "マニア表(100) ＞ 動物マニア：動物への正気でない溺愛。"
 rands = [
   { sides = 100, value = 100 },
 ]
@@ -1331,7 +1322,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FCL"
-output = "주문의 강행 판정 실패(小)표(1) ＞ 시야가 흐려지거나 일시적으로 눈이 멉니다."
+output = "キャスティング・ロール失敗(小)表(1) ＞ 視界がぼんやりするか、あるいは一時的な失明。"
 rands = [
   { sides = 8, value = 1 },
 ]
@@ -1339,7 +1330,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FCL"
-output = "주문의 강행 판정 실패(小)표(5) ＞ 괴이한 환영과 환각이 시작됩니다."
+output = "キャスティング・ロール失敗(小)表(5) ＞ 奇妙な幻視と幻覚。"
 rands = [
   { sides = 8, value = 5 },
 ]
@@ -1347,7 +1338,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FCL"
-output = "주문의 강행 판정 실패(小)표(8) ＞ 실수로 신화의 괴물이 소환됩니다."
+output = "キャスティング・ロール失敗(小)表(8) ＞ クトゥルフ神話の怪物が偶然召喚される。"
 rands = [
   { sides = 8, value = 8 },
 ]
@@ -1355,7 +1346,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FCM"
-output = "주문의 강행 판정 실패(大)표(1) ＞ 땅이 울리고 벽이 부서집니다."
+output = "キャスティング・ロール失敗(大)表(1) ＞ 大地が震え、壁に亀裂が入って崩れる。"
 rands = [
   { sides = 8, value = 1 },
 ]
@@ -1363,7 +1354,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FCM"
-output = "주문의 강행 판정 실패(大)표(3) ＞ 하늘에서 피가 떨어집니다."
+output = "キャスティング・ロール失敗(大)表(3) ＞ 血が空から降る。"
 rands = [
   { sides = 8, value = 3 },
 ]
@@ -1371,7 +1362,7 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FCM"
-output = "주문의 강행 판정 실패(大)표(8) ＞ 실수로 신화의 신이 소환됩니다."
+output = "キャスティング・ロール失敗(大)表(8) ＞ クトゥルフ神話の神格が偶然招来される。"
 rands = [
   { sides = 8, value = 8 },
 ]
