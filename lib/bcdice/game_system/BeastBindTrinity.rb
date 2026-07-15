@@ -217,10 +217,10 @@ module BCDice
 
         def calc_total
           total = @dice_total + @modify_number
-          if fumble?
-            total = 0 unless @keep_value_on_fumble
-          elsif critical?
+          if critical?
             total += 20
+          elsif fumble?
+            total = 0 unless @keep_value_on_fumble
           end
 
           if total < 0
