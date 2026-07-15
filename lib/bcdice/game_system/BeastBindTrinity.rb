@@ -124,11 +124,11 @@ module BCDice
           @dice_num = m[1].to_i
           @modify_number = m[2] ? ArithmeticEvaluator.eval(m[2]) : 0
 
-          @critical = parse_critical(m[3], m[4])
-
           @keep_value_on_fumble = !m[5].nil?
 
           @fumble = parse_fumble(m[6])
+
+          @critical = parse_critical(m[3], m[4], @fumble)
 
           @dice_pool = m[7] ? m[7].split("").map(&:to_i) : []
           @dice_pool.pop(@dice_pool.size - @dice_num) if @dice_pool.size > @dice_num
@@ -143,10 +143,12 @@ module BCDice
 
         # @param humanity [String, nil]
         # @param atmark [String, nil]
+        # @param fumble [Integer]
         # @return [Integer]
-        def parse_critical(humanity, atmark)
+        def parse_critical(humanity, atmark, fumble)
           humanity = humanity ? humanity.to_i : 99
           atmark_value = atmark ? ArithmeticEvaluator.eval(atmark) : 0
+          fumble = fumble ? fumble : 2
 
           critical =
             if /^[+-]/.match(atmark)
@@ -157,7 +159,7 @@ module BCDice
               critical_from_humanity(humanity)
             end
 
-          return critical
+          return [critical, fumble].max
         end
 
         def critical_from_humanity(humanity)
