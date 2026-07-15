@@ -87,10 +87,10 @@ module BCDice
           result.fumble = fumble?
 
           dice_status =
-            if result.fumble?
-              "ファンブル"
-            elsif result.critical?
+            if result.critical?
               "クリティカル"
+            elsif result.fumble?
+              "ファンブル"
             end
           result_str =
             if result.success?
