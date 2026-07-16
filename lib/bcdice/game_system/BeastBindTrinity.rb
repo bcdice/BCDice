@@ -212,7 +212,7 @@ module BCDice
         end
 
         def fumble?
-          @dice_total <= @fumble
+          @dice_total <= @fumble && ! critical?
         end
 
         def critical?
