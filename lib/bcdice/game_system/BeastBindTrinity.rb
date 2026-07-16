@@ -163,7 +163,7 @@ module BCDice
               critical_from_humanity(humanity)
             end
 
-          return [critical, fumble].max
+          return [2, critical, fumble].max
         end
 
         def critical_from_humanity(humanity)
@@ -183,13 +183,16 @@ module BCDice
         def parse_fumble(sharp)
           sharp_value = sharp ? ArithmeticEvaluator.eval(sharp) : 0
 
-          if /^[+-]/.match(sharp)
-            2 + sharp_value
-          elsif sharp
-            sharp_value
-          else
-            2
-          end
+          fumble =
+            if /^[+-]/.match(sharp)
+              2 + sharp_value
+            elsif sharp
+              sharp_value
+            else
+              2
+            end
+
+          return [[2, fumble].max, 12].min
         end
 
         def roll_with_dice_pool
