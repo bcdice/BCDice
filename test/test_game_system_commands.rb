@@ -73,7 +73,10 @@ class TestGameSystemCommands < Test::Unit::TestCase
     game_system = klass.new(data[:input])
 
     rands = data[:rands].map { |r| [r[:value], r[:sides]] }
-    game_system.randomizer = RandomizerMock.new(rands)
+    game_system.randomizer = RandomizerMock.new(
+      rands,
+      upper_limit_dice_times: game_system.randomizer.upper_limit_dice_times
+    )
 
     msg = JSON.pretty_generate(data)
 

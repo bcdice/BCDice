@@ -3,8 +3,8 @@
 require "bcdice/randomizer"
 
 class RandomizerMock < BCDice::Randomizer
-  def initialize(rands)
-    super()
+  def initialize(rands, upper_limit_dice_times: BCDice::Randomizer::UPPER_LIMIT_DICE_TIMES)
+    super(upper_limit_dice_times: upper_limit_dice_times)
     @rands = rands
   end
 

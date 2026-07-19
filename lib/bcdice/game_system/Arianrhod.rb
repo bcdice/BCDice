@@ -3,6 +3,7 @@
 module BCDice
   module GameSystem
     class Arianrhod < Base
+
       # ゲームシステムの識別子
       ID = 'Arianrhod'
 
@@ -21,6 +22,7 @@ module BCDice
       def initialize(command)
         super(command)
 
+        @randomizer = BCDice::Randomizer.new(upper_limit_dice_times: 10000)
         @sort_add_dice = true
         @d66_sort_type = D66SortType::NO_SORT
       end
