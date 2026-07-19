@@ -3,7 +3,6 @@
 module BCDice
   module GameSystem
     class Arianrhod < Base
-
       # ゲームシステムの識別子
       ID = 'Arianrhod'
 
