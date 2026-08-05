@@ -159,6 +159,38 @@ module BCDice
         end
       end
 
+      # べき乗（x^n）のノード
+      class Power
+        # ノードを初期化する
+        # @param [Object] base 底のノード
+        # @param [Object] exp 指数のノード
+        def initialize(base, exp)
+          @base = base
+          @exp = exp
+        end
+
+        # @param round_type [Symbol] 端数処理方法
+        # @return [Integer] 評価結果
+        # @raise [ArgumentError] 指数が負の場合
+        def eval(round_type)
+          b = @base.eval(round_type)
+          e = @exp.eval(round_type)
+          raise ArgumentError, "べき乗の指数に負の値は使用できません: #{e}" if e.negative?
+
+          b**e
+        end
+
+        # @return [String] メッセージへの出力
+        def output
+          "#{@base.output}^#{@exp.output}"
+        end
+
+        # @return [String] ノードのS式
+        def s_exp
+          "(^ #{@base.s_exp} #{@exp.s_exp})"
+        end
+      end
+
       class Negative
         def initialize(body)
           @body = body
