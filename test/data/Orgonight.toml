@@ -1,0 +1,656 @@
+
+[[ test ]]
+game_system = "Orgonight"
+input = "1OR"
+output = "1OR ＞ 15"
+rands = [
+  { sides = 20, value = 15 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR"
+output = "2OR ＞ [5,9] ＞ 9"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "1OR　スペシャル有り"
+output = "1OR ＞ 20 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "1OR　ファンブル有り"
+output = "1OR ＞ 1 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR スペシャル有り"
+output = "2OR ＞ [15,20] ＞ 20 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 15 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR ファンブル有り"
+output = "2OR ＞ [1,1] ＞ 1 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@17　スペシャル値あり"
+output = "2OR@17 ＞ [5,9] ＞ 9"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@17　スペシャル値あり"
+output = "2OR@17 ＞ [9,19] ＞ 19 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 9 },
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@-3　スペシャル値あり"
+output = "2OR@17 ＞ [9,17] ＞ 17 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 9 },
+  { sides = 20, value = 17 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@-3　スペシャル値あり"
+output = "2OR@17 ＞ [9,16] ＞ 16"
+rands = [
+  { sides = 20, value = 9 },
+  { sides = 20, value = 16 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@17　スペシャル値あり"
+output = "2OR@17 ＞ [1,1] ＞ 1 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR#5　ファンブル値あり"
+output = "2OR#5 ＞ [5,9] ＞ 9"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR#5　ファンブル値あり"
+output = "2OR#5 ＞ [2,20] ＞ 20 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR#5　ファンブル値あり"
+output = "2OR#5 ＞ [2,5] ＞ 5 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 5 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR#+3　ファンブル値あり"
+output = "2OR#4 ＞ [2,5] ＞ 5"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 5 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR#+4　ファンブル値あり"
+output = "2OR#5 ＞ [2,5] ＞ 5 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 5 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@17#5　両方値あり"
+output = "2OR@17#5 ＞ [5,9] ＞ 9"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@17#5　両方値あり"
+output = "2OR@17#5 ＞ [5,19] ＞ 19 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@17#5　両方値あり"
+output = "2OR@17#5 ＞ [2,5] ＞ 5 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 5 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@-3#+4　両方値あり"
+output = "2OR@17#5 ＞ [5,9] ＞ 9"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@-3#5　両方値あり"
+output = "2OR@17#5 ＞ [5,19] ＞ 19 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@17#+4　両方値あり"
+output = "2OR@17#5 ＞ [2,5] ＞ 5 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 5 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@10#13　ファンブル値がスペシャル値を超えた場合"
+output = "2OR@10#13 ＞ [1,12] ＞ 12 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 12 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR>=12 難易度有り"
+output = "2OR>=12 ＞ [1,12] ＞ 12 ＞ 成功"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 12 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR$>=8 難易度有りGB"
+output = "2OR$>=8 ＞ [9,19] ＞ 19 ＞ 成功、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 9 },
+  { sides = 20, value = 19 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR>=12 難易度有り"
+output = "2OR>=12 ＞ [7,8] ＞ 8 ＞ 失敗"
+rands = [
+  { sides = 20, value = 7 },
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR$>=19 難易度有りGB"
+output = "2OR$>=19 ＞ [7,8] ＞ 8 ＞ 失敗、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 7 },
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR>=19 難易度有りGBなし"
+output = "2OR>=19 ＞ [7,8] ＞ 8 ＞ 失敗"
+rands = [
+  { sides = 20, value = 7 },
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR>=7 難易度有りGBなし"
+output = "2OR>=7 ＞ [7,8] ＞ 8 ＞ 成功"
+rands = [
+  { sides = 20, value = 7 },
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR>12 難易度有り特殊事例"
+output = "2OR>12 ＞ [1,12] ＞ 12 ＞ 失敗"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 12 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR>=12 難易度有りスペシャル"
+output = "2OR>=12 ＞ [7,20] ＞ 20 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 7 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR$>=8 難易度有りスペシャルGB"
+output = "2OR$>=8 ＞ [7,20] ＞ 20 ＞ スペシャル、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 7 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR>=27 難易度有りスペシャル"
+output = "2OR>=27 ＞ [7,20] ＞ 20 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 7 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR>=9 難易度有りファンブル"
+output = "2OR>=9 ＞ [1,1] ＞ 1 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR$>=12 難易度有りファンブルGB"
+output = "2OR$>=12 ＞ [1,1] ＞ 1 ＞ ファンブル、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR>=1 難易度有りファンブル"
+output = "2OR>=1 ＞ [1,1] ＞ 1 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "1OR+8"
+output = "1OR+8 ＞ 15+8 ＞ 23"
+rands = [
+  { sides = 20, value = 15 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8"
+output = "2OR+8 ＞ [5,9] ＞ 9+8 ＞ 17"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8"
+output = "2OR+8 ＞ [5,20] ＞ 20+8 ＞ 28 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8"
+output = "2OR+8 ＞ [1,1] ＞ 1+8 ＞ 9 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8>=14"
+output = "2OR+8>=14 ＞ [5,9] ＞ 9+8 ＞ 17 ＞ 成功"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8>=18"
+output = "2OR+8>=18 ＞ [5,9] ＞ 9+8 ＞ 17 ＞ 失敗"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8$>=4"
+output = "2OR+8$>=4 ＞ [5,9] ＞ 9+8 ＞ 17 ＞ 成功、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8$>=38"
+output = "2OR+8$>=38 ＞ [5,9] ＞ 9+8 ＞ 17 ＞ 失敗、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8>=20"
+output = "2OR+8>=20 ＞ [5,20] ＞ 20+8 ＞ 28 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8>=40"
+output = "2OR+8>=40 ＞ [5,20] ＞ 20+8 ＞ 28 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8$>=18"
+output = "2OR+8$>=18 ＞ [5,20] ＞ 20+8 ＞ 28 ＞ スペシャル、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8>=7"
+output = "2OR+8>=7 ＞ [1,1] ＞ 1+8 ＞ 9 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8$>=19"
+output = "2OR+8$>=19 ＞ [1,1] ＞ 1+8 ＞ 9 ＞ ファンブル、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8$3>=14"
+output = "2OR+8$3>=14 ＞ [5,9] ＞ 9+8 ＞ 17 ＞ 成功、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8$3>=20"
+output = "2OR+8$3>=20 ＞ [5,9] ＞ 9+8 ＞ 17 ＞ 失敗、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR@17#5+8$8>=16　基準値＋C値＋F値＋GB指定"
+output = "2OR+8@17#5$8>=16 ＞ [8,16] ＞ 16+8 ＞ 24 ＞ 成功、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 8 },
+  { sides = 20, value = 16 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR$8#(2+3)+8@17>=16　基準値＋C値＋F値＋GB指定　順番バラバラ"
+output = "2OR+8@17#5$8>=16 ＞ [8,16] ＞ 16+8 ＞ 24 ＞ 成功、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 16 },
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR%"
+output = "2OR% ＞ [5,9] ＞ [8] ＞ 8"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR%"
+output = "2OR% ＞ [5,20] ＞ [8] ＞ 8"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR%12"
+output = "2OR%12 ＞ [5,9] ＞ [12] ＞ 12"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR%12"
+output = "2OR%12 ＞ [1,1] ＞ [12] ＞ 12"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR/3"
+output = "2OR/3 ＞ [10,13] ＞ 13/3 ＞ 5"
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 13 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR#+10+7@17$8%>=16"
+output = "2OR+7@17#11$8%>=16 ＞ [8,16] ＞ [8] ＞ 8+7 ＞ 15 ＞ ファンブル"
+rands = [
+  { sides = 20, value = 8 },
+  { sides = 20, value = 16 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "(1+2)OR#+(5+3)+3+4@(20-3)$(4+4)%10>=16"
+output = "3OR+7@17#9$8%10>=16 ＞ [8,11,16] ＞ [10] ＞ 10+7 ＞ 17 ＞ 成功"
+rands = [
+  { sides = 20, value = 8 },
+  { sides = 20, value = 11 },
+  { sides = 20, value = 16 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+5@17#4$8/3>=6"
+output = "2OR+5@17#4$8/3>=6 ＞ [8,16] ＞ 16+5 ＞ 21/3 ＞ 7 ＞ 成功"
+rands = [
+  { sides = 20, value = 8 },
+  { sides = 20, value = 16 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+15@17#4$8/3>=1"
+output = "2OR+15@17#4$8/3>=1 ＞ [8,16] ＞ 16+15 ＞ 31/3 ＞ 11 ＞ 成功、GB(ギャップボーナス)"
+rands = [
+  { sides = 20, value = 8 },
+  { sides = 20, value = 16 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+5@10#4$10/>=11"
+output = "2OR+5@10#4$10/>=11 ＞ [8,16] ＞ 16+5 ＞ 21/2 ＞ 11 ＞ スペシャル"
+rands = [
+  { sides = 20, value = 8 },
+  { sides = 20, value = 16 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+8+1"
+output = "2OR+9 ＞ [5,9] ＞ 9+9 ＞ 18"
+rands = [
+  { sides = 20, value = 5 },
+  { sides = 20, value = 9 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+5@10#4$9%8/>=10"
+output = "2OR+5@10#4$9%8/>=10 ＞ [8,16] ＞ [8] ＞ 8+5 ＞ 13/2 ＞ 7 ＞ 失敗"
+rands = [
+  { sides = 20, value = 8 },
+  { sides = 20, value = 16 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR+5+4@10#4$9%8/>=10"
+output = "2OR+9@10#4$9%8/>=10 ＞ [8,16] ＞ [8] ＞ 8+9 ＞ 17/2 ＞ 9 ＞ 失敗"
+rands = [
+  { sides = 20, value = 8 },
+  { sides = 20, value = 16 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "2OR>=12+2 難易度有り"
+output = "2OR>=14 ＞ [7,8] ＞ 8 ＞ 失敗"
+rands = [
+  { sides = 20, value = 7 },
+  { sides = 20, value = 8 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "citem"
+output = "コモンアイテム表(10) ＞ 【スライムボトル】スペルとして使用可。対象１体のHPに２性的ダメージを与える（ショット）。「スライムを封印した瓶。割れれば、手近な相手に襲いかかる。」"
+rands = [
+  { sides = 20, value = 10 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "dprv"
+output = "堕落表(34) ＞ 劣等意識／肉体的あるいは精神的に、引け目を感じていることがある。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "strgITEM"
+output = "奇妙な品表／いわくの品(34) ＞ 何かの目玉が入った小瓶"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "magcitem"
+output = "奇妙な品表／魔法の品(13) ＞ ぬくもりを持つ特定人物の像"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "FltyITEM"
+output = "奇妙な品表／淫らな品(42) ＞ 虜囚らしき誰かを常に映す手鏡"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "Orgonight"
+input = "vllg"
+output = "さまざまな村の例(41) ＞ ネヴァースノウ／一年を通して温暖な村。雪が降らず、冬も作物が収穫できる。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 },
+]
