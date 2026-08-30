@@ -13,7 +13,7 @@ module BCDice
       NAME = "オルガナイト"
 
       # ゲームシステム名の読みがな
-      SORT_KEY = "おるがないと"
+      SORT_KEY = "おるかないと"
 
       HELP_MESSAGE = <<~TEXT
         ・判定コマンド nOR+z@x#y$g%t/w>=m
