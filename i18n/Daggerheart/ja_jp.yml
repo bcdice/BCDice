@@ -1,0 +1,11 @@
+ja_jp:
+  Daggerheart:
+    success: Success
+    failure: Failure
+    critical: Critical Success
+    hope: Hope
+    fear: Fear
+    success_hope: Success with Hope
+    success_fear: Success with Fear
+    failure_hope: Failure with Hope
+    failure_fear: Failure with Fear
