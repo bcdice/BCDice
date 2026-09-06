@@ -58,10 +58,10 @@ module BCDice
           LU70
       TEXT
 
-      register_prefix('RI','LU')
+      register_prefix('RI', 'LU')
 
       def eval_game_system_specific_command(command)
-        roll_ri(command)|| roll_lu(command)
+        roll_ri(command) || roll_lu(command)
       end
 
       private
@@ -75,7 +75,7 @@ module BCDice
         deep = mode == "D"
 
         dice_count = [m[2].to_i, 1].max
-        modifier = m[3]&.to_i || 0
+        modifier = m[3].to_i
         target = m[4]&.to_i
 
         dice_list = @randomizer.roll_barabara(dice_count, 6)
@@ -127,28 +127,28 @@ module BCDice
         result
       end
 
-        def roll_lu(command)
-          m = /^LU(\d+)$/.match(command)
-          return nil unless m
+      def roll_lu(command)
+        m = /^LU(\d+)$/.match(command)
+        return nil unless m
 
-          luck = m[1].to_i
-          return nil unless (1..100).cover?(luck)
+        luck = m[1].to_i
+        return nil unless (1..100).cover?(luck)
 
-          dice = @randomizer.roll_once(100)
+        dice = @randomizer.roll_once(100)
 
-          result = Result.new
+        result = Result.new
 
-          if dice <= luck
-            result.success = true
-            judgement = "成功"
-          else
-            result.failure = true
-            judgement = "失敗"
-          end
-
-          result.text = "(#{command}) ＞ #{dice} ＞ #{judgement}"
-          result
+        if dice <= luck
+          result.success = true
+          judgement = "成功"
+        else
+          result.failure = true
+          judgement = "失敗"
         end
+
+        result.text = "(#{command}) ＞ #{dice} ＞ #{judgement}"
+        result
+      end
 
       def format_modifier(modifier)
         return "" if modifier.zero?
