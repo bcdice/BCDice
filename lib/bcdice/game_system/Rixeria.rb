@@ -146,9 +146,9 @@ module BCDice
             judgement = "失敗"
           end
 
-        result.text = "(#{command}) ＞ #{dice} ＞ #{judgement}"
-        result
-      end
+          result.text = "(#{command}) ＞ #{dice} ＞ #{judgement}"
+          result
+        end
 
       def format_modifier(modifier)
         return "" if modifier.zero?
