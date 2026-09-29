@@ -31,6 +31,8 @@ module BCDice
         　「絶対にクリティカルしない」状態は、@13など xを13以上に指定すること。
         ・xの先頭が「+」か「-」なら、計算したC値にその値を加算。例）@-1、@+2
         　この方法でC値をプラスする場合、上限は12となる。
+        ・クリティカル値は、ファンブル値より小さくならない
+        ・クリティカルとファンブルが同時成立する場合、クリティカル優先
         ＞#y、#Ay：ファンブル値修正。（加減式でも入力可能）
         ・yに直接数字を書くと、ファンブル値をその数字に設定。
         ・yの数字の先頭が「+」か「-」なら、ファンブル値=2にその数字を加算。例）#+2
@@ -41,10 +43,6 @@ module BCDice
         　例）2BB$16→ダイスを2個振る判定で、ダイスの出目を1と6で固定
         ＞&v：出目がv未満のダイスがあれば、出目がvだったものとして達成値を計算する。
         　例）2BB&3 →出目3未満（→出目1、2）を出目3だったものとして計算。
-
-        ・20260617質疑応答による判定ルール更新に対応
-        　クリティカル値は、ファンブル値より小さくならない
-        　クリティカルとファンブルが同時成立する場合、クリティカル優先
 
         ・D66ダイスあり
         ・邂逅表：EMO
@@ -152,7 +150,6 @@ module BCDice
         def parse_critical(humanity, atmark, fumble)
           humanity = humanity ? humanity.to_i : 99
           atmark_value = atmark ? ArithmeticEvaluator.eval(atmark) : 0
-          fumble = fumble ? fumble : 2
 
           critical =
             if /^[+-]/.match(atmark)
@@ -192,7 +189,7 @@ module BCDice
               2
             end
 
-          return [[2, fumble].max, 12].min
+          return fumble.clamp(2, 12)
         end
 
         def roll_with_dice_pool
