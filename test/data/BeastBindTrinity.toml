@@ -437,3 +437,13 @@ output = "正体判明チャートC(4) ＞ 絆がエゴに書き換わる"
 rands = [
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "BeastBindTrinity"
+input = "2BB+5%-5@-4#+4"
+output = "(2BB+5@6#6) ＞ 6[3,3]+5+20 ＞ クリティカル ＞ 31"
+critical = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
