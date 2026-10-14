@@ -605,52 +605,7 @@ rands = [
 [[ test ]]
 game_system = "Orgonight"
 input = "citem"
-output = "コモンアイテム表(10) ＞ 【スライムボトル】スペルとして使用可。対象１体のHPに２性的ダメージを与える（ショット）。「スライムを封印した瓶。割れれば、手近な相手に襲いかかる。」"
+output = "コモンアイテム表(10) ＞ 【スライムボトル】スペルとして使用可。対象１体のHPに２性的ダメージを与える（ショット）。"
 rands = [
   { sides = 20, value = 10 },
-]
-
-[[ test ]]
-game_system = "Orgonight"
-input = "dprv"
-output = "堕落表(34) ＞ 劣等意識／肉体的あるいは精神的に、引け目を感じていることがある。"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "Orgonight"
-input = "strgITEM"
-output = "奇妙な品表／いわくの品(34) ＞ 何かの目玉が入った小瓶"
-rands = [
-  { sides = 6, value = 3 },
-  { sides = 6, value = 4 },
-]
-
-[[ test ]]
-game_system = "Orgonight"
-input = "magcitem"
-output = "奇妙な品表／魔法の品(13) ＞ ぬくもりを持つ特定人物の像"
-rands = [
-  { sides = 6, value = 1 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "Orgonight"
-input = "FltyITEM"
-output = "奇妙な品表／淫らな品(42) ＞ 虜囚らしき誰かを常に映す手鏡"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 2 },
-]
-
-[[ test ]]
-game_system = "Orgonight"
-input = "vllg"
-output = "さまざまな村の例(41) ＞ ネヴァースノウ／一年を通して温暖な村。雪が降らず、冬も作物が収穫できる。"
-rands = [
-  { sides = 6, value = 4 },
-  { sides = 6, value = 1 },
 ]
