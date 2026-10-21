@@ -1,6 +1,6 @@
 # BCDice
 
-[![Action Status](https://github.com/bcdice/BCDice/workflows/Test/badge.svg?branch=master)](https://github.com/bcdice/BCDice/actions)
+[![Action Status](https://github.com/bcdice/BCDice/actions/workflows/test.yml/badge.svg)](https://github.com/bcdice/BCDice/actions/workflows/test.yml)
 [![Gem Version](https://badge.fury.io/rb/bcdice.svg)](https://badge.fury.io/rb/bcdice)
 [![YARD](https://img.shields.io/badge/yard-docs-blue.svg)](https://yard.bcdice.org/)
 [![codecov](https://codecov.io/gh/bcdice/BCDice/branch/master/graph/badge.svg)](https://codecov.io/gh/bcdice/BCDice)
