@@ -1,5 +1,5 @@
 class BCDice::CommonCommand::Calc::Parser
-  token NUMBER R U C F S PLUS MINUS ASTERISK SLASH PARENL PARENR
+  token NUMBER R U C F S PLUS MINUS ASTERISK SLASH PARENL PARENR CARET
 
   rule
     expr: secret C add
@@ -45,6 +45,10 @@ class BCDice::CommonCommand::Calc::Parser
          { result = val[1] }
          | MINUS unary
          { result = Arithmetic::Node::Negative.new(val[1]) }
+         | power
+
+    power: term CARET power
+         { result = Arithmetic::Node::Power.new(val[0], val[2]) }
          | term
 
     term: PARENL add PARENR
