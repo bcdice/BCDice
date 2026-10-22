@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gemspec
 
 group :development, :test do
+  gem "benchmark"
   gem "nkf", "~> 0.2.0", require: false
   gem "rake", "~> 13.3.1"
   gem "rubocop", "~> 1.59.0", require: false
