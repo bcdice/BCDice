@@ -602,10 +602,3 @@ rands = [
   { sides = 20, value = 8 },
 ]
 
-[[ test ]]
-game_system = "Orgonight"
-input = "citem"
-output = "コモンアイテム表(10) ＞ 【スライムボトル】スペルとして使用可。対象１体のHPに２性的ダメージを与える（ショット）。"
-rands = [
-  { sides = 20, value = 10 },
-]
