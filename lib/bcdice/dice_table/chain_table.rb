@@ -26,9 +26,8 @@ module BCDice
         value = randomizer.roll_sum(@times, @sides)
         index = value - @times
         chosen = @items[index]
-        chosen = chosen.roll(randomizer) if chosen.respond_to?(:roll)
 
-        return RollResult.new(@name, value, chosen)
+        RollResult.new_with_chain(@name, value, chosen, randomizer)
       end
     end
   end
