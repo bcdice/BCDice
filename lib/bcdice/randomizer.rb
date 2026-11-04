@@ -8,9 +8,10 @@ module BCDice
 
     UPPER_LIMIT_RANDS = 10000
 
-    def initialize
+    def initialize(upper_limit_dice_times: UPPER_LIMIT_DICE_TIMES)
       @rand_results = []
       @detailed_rand_results = []
+      @upper_limit_dice_times = upper_limit_dice_times
     end
 
     # @return [Array<Array<(Integer, Integer)>>] ダイスの出目一覧
@@ -18,6 +19,9 @@ module BCDice
 
     # @return [Array<DetailedRandResult>]
     attr_reader :detailed_rand_results
+
+    # @return [Integer] ダイスの振れる最大個数
+    attr_reader :upper_limit_dice_times
 
     # 実行したダイスロールの詳細
     # @!attribute [rw] kind
@@ -38,7 +42,7 @@ module BCDice
         raise TooManyRandsError
       end
 
-      if times <= 0 || times > UPPER_LIMIT_DICE_TIMES
+      if times <= 0 || times > @upper_limit_dice_times
         return []
       end
 
