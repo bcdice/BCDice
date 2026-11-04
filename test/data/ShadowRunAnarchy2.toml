@@ -1,0 +1,457 @@
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0"
+output = "(1SRA0@0) ＞ 通常[1] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1"
+output = "(1SRA1@0) ＞ 通常[] リスク[1] ＞ ヒット数0 ＞ リスクの1:1個 RR:0 残り:1個 ＞ 軽度のコンプリケーション"
+rands = [{ sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0"
+output = "(1SRA0@0) ＞ 通常[2] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1"
+output = "(1SRA1@0) ＞ 通常[] リスク[2] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0"
+output = "(1SRA0@0) ＞ 通常[3] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 3 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1"
+output = "(1SRA1@0) ＞ 通常[] リスク[3] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 3 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0"
+output = "(1SRA0@0) ＞ 通常[4] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 4 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1"
+output = "(1SRA1@0) ＞ 通常[] リスク[4] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 4 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0"
+output = "(1SRA0@0) ＞ 通常[5] リスク[] ＞ ヒット数1 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 5 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1"
+output = "(1SRA1@0) ＞ 通常[] リスク[5] ＞ ヒット数2 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 5 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0"
+output = "(1SRA0@0) ＞ 通常[6] リスク[] ＞ ヒット数1 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1"
+output = "(1SRA1@0) ＞ 通常[] リスク[6] ＞ ヒット数2 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0A"
+output = "(1SRA0@0A) ＞ 通常[1] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1A"
+output = "(1SRA1@0A) ＞ 通常[] リスク[1] ＞ ヒット数0 ＞ リスクの1:1個 RR:0 残り:1個 ＞ 軽度のコンプリケーション"
+rands = [{ sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0A"
+output = "(1SRA0@0A) ＞ 通常[2] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1A"
+output = "(1SRA1@0A) ＞ 通常[] リスク[2] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0A"
+output = "(1SRA0@0A) ＞ 通常[3] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 3 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1A"
+output = "(1SRA1@0A) ＞ 通常[] リスク[3] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 3 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0A"
+output = "(1SRA0@0A) ＞ 通常[4] リスク[] ＞ ヒット数1 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 4 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1A"
+output = "(1SRA1@0A) ＞ 通常[] リスク[4] ＞ ヒット数2 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 4 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0A"
+output = "(1SRA0@0A) ＞ 通常[5] リスク[] ＞ ヒット数1 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 5 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1A"
+output = "(1SRA1@0A) ＞ 通常[] リスク[5] ＞ ヒット数2 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 5 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0A"
+output = "(1SRA0@0A) ＞ 通常[6] リスク[] ＞ ヒット数1 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1A"
+output = "(1SRA1@0A) ＞ 通常[] リスク[6] ＞ ヒット数2 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0D"
+output = "(1SRA0@0D) ＞ 通常[1] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1D"
+output = "(1SRA1@0D) ＞ 通常[] リスク[1] ＞ ヒット数0 ＞ リスクの1:1個 RR:0 残り:1個 ＞ 軽度のコンプリケーション"
+rands = [{ sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0D"
+output = "(1SRA0@0D) ＞ 通常[2] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1D"
+output = "(1SRA1@0D) ＞ 通常[] リスク[2] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0D"
+output = "(1SRA0@0D) ＞ 通常[3] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 3 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1D"
+output = "(1SRA1@0D) ＞ 通常[] リスク[3] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 3 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0D"
+output = "(1SRA0@0D) ＞ 通常[4] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 4 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1D"
+output = "(1SRA1@0D) ＞ 通常[] リスク[4] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 4 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0D"
+output = "(1SRA0@0D) ＞ 通常[5] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 5 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1D"
+output = "(1SRA1@0D) ＞ 通常[] リスク[5] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 5 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA0D"
+output = "(1SRA0@0D) ＞ 通常[6] リスク[] ＞ ヒット数1 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA1D"
+output = "(1SRA1@0D) ＞ 通常[] リスク[6] ＞ ヒット数2 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "8SRA4@1"
+output = "(8SRA4@1) ＞ 通常[1,4,5,6] リスク[1,1,5,6] ＞ ヒット数6 ＞ リスクの1:2個 RR:1 残り:1個 ＞ 軽度のコンプリケーション"
+rands = [{ sides = 6, value = 6 }, { sides = 6, value = 1 }, { sides = 6, value = 5 }, { sides = 6, value = 4 }, { sides = 6, value = 6 }, { sides = 6, value = 1 }, { sides = 6, value = 5 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "8SRA4@1A"
+output = "(8SRA4@1A) ＞ 通常[1,4,5,6] リスク[1,1,5,6] ＞ ヒット数7 ＞ リスクの1:2個 RR:1 残り:1個 ＞ 軽度のコンプリケーション"
+rands = [{ sides = 6, value = 6 }, { sides = 6, value = 1 }, { sides = 6, value = 5 }, { sides = 6, value = 4 }, { sides = 6, value = 6 }, { sides = 6, value = 1 }, { sides = 6, value = 5 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "8SRA4@1D"
+output = "(8SRA4@1D) ＞ 通常[1,4,5,6] リスク[1,1,5,6] ＞ ヒット数3 ＞ リスクの1:2個 RR:1 残り:1個 ＞ 軽度のコンプリケーション"
+rands = [{ sides = 6, value = 6 }, { sides = 6, value = 1 }, { sides = 6, value = 5 }, { sides = 6, value = 4 }, { sides = 6, value = 6 }, { sides = 6, value = 1 }, { sides = 6, value = 5 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "4SRA0"
+output = "(4SRA0@0) ＞ 通常[1,1,1,1] リスク[] ＞ ヒット数0 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "5SRA5"
+output = "(5SRA5@0) ＞ 通常[] リスク[1,1,1,5,6] ＞ ヒット数4 ＞ リスクの1:3個 RR:0 残り:3個 ＞ 大惨事（原則として判定失敗）"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "4SRA4"
+output = "(4SRA4@0) ＞ 通常[] リスク[1,1,1,1] ＞ ヒット数0 ＞ リスクの1:4個 RR:0 残り:4個 ＞ 大惨事（原則として判定失敗）"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "4SRA4@0"
+output = "(4SRA4@0) ＞ 通常[] リスク[1,1,1,6] ＞ ヒット数2 ＞ リスクの1:3個 RR:0 残り:3個 ＞ 大惨事（原則として判定失敗）"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "4SRA4@1"
+output = "(4SRA4@1) ＞ 通常[] リスク[1,1,1,6] ＞ ヒット数2 ＞ リスクの1:3個 RR:1 残り:2個 ＞ 重度のコンプリケーション"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "4SRA4@2"
+output = "(4SRA4@2) ＞ 通常[] リスク[1,1,1,6] ＞ ヒット数2 ＞ リスクの1:3個 RR:2 残り:1個 ＞ 軽度のコンプリケーション"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "4SRA4@3"
+output = "(4SRA4@3) ＞ 通常[] リスク[1,1,1,6] ＞ ヒット数2 ＞ リスクの1:3個 RR:3 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2SRA2@3"
+output = "(2SRA2@3) ＞ 通常[] リスク[1,5] ＞ ヒット数2 ＞ リスクの1:1個 RR:3 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 5 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "4SRA4@2"
+output = "(4SRA4@2) ＞ 通常[] リスク[1,1,5,6] ＞ ヒット数4 ＞ リスクの1:2個 RR:2 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 5 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "12SRA@0"
+output = "(12SRA2@0) ＞ 通常[5,5,5,5,5,5,5,5,5,5] リスク[6,6] ＞ ヒット数14 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "12SRA@1"
+output = "(12SRA5@1) ＞ 通常[5,5,5,5,5,5,5] リスク[6,6,6,6,6] ＞ ヒット数17 ＞ リスクの1:0個 RR:1 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "12SRA@2"
+output = "(12SRA8@2) ＞ 通常[5,5,5,5] リスク[6,6,6,6,6,6,6,6] ＞ ヒット数20 ＞ リスクの1:0個 RR:2 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "12SRA@3"
+output = "(12SRA12@3) ＞ 通常[] リスク[6,6,6,6,6,6,6,6,6,6,6,6] ＞ ヒット数24 ＞ リスクの1:0個 RR:3 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "8SRA"
+output = "(8SRA2@0) ＞ 通常[1,2,3,4,5,6] リスク[5,6] ＞ ヒット数6 ＞ リスクの1:0個 RR:0 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 2 }, { sides = 6, value = 3 }, { sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }, { sides = 6, value = 1 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "1SRA@3A"
+output = "(1SRA1@3A) ＞ 通常[] リスク[4] ＞ ヒット数2 ＞ リスクの1:0個 RR:3 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 4 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "8SRA0@3D"
+output = "(8SRA0@3D) ＞ 通常[1,1,2,3,4,5,6,6] リスク[] ＞ ヒット数2 ＞ リスクの1:0個 RR:3 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 2 }, { sides = 6, value = 3 }, { sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }, { sides = 6, value = 6 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "s8sra3@1a"
+output = "(8SRA3@1A) ＞ 通常[2,3,4,5,6] リスク[1,4,6] ＞ ヒット数7 ＞ リスクの1:1個 RR:1 残り:0個 ＞ コンプリケーションなし"
+secret = true
+rands = [{ sides = 6, value = 6 }, { sides = 6, value = 5 }, { sides = 6, value = 4 }, { sides = 6, value = 3 }, { sides = 6, value = 2 }, { sides = 6, value = 1 }, { sides = 6, value = 4 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "8sra3@1d メモ"
+output = "(8SRA3@1D) ＞ 通常[2,3,4,5,6] リスク[1,4,6] ＞ ヒット数3 ＞ リスクの1:1個 RR:1 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 6 }, { sides = 6, value = 5 }, { sides = 6, value = 4 }, { sides = 6, value = 3 }, { sides = 6, value = 2 }, { sides = 6, value = 1 }, { sides = 6, value = 4 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "8SRA3@1 通常判定"
+output = "(8SRA3@1) ＞ 通常[2,3,4,5,6] リスク[1,4,6] ＞ ヒット数4 ＞ リスクの1:1個 RR:1 残り:0個 ＞ コンプリケーションなし"
+rands = [{ sides = 6, value = 6 }, { sides = 6, value = 5 }, { sides = 6, value = 4 }, { sides = 6, value = 3 }, { sides = 6, value = 2 }, { sides = 6, value = 1 }, { sides = 6, value = 4 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "0SRA"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "0SRA0"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2SRA3"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2SRA@4"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2SRA1@999"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2SRA-1"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2SRA1@-1"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2SRA1@"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2SRA1AD"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2SRA1A@1"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2SRAX"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "SRA"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "-1SRA"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2SRA1@1A!"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2D6"
+output = "(2D6) ＞ 7[2,5] ＞ 7"
+rands = [{ sides = 6, value = 2 }, { sides = 6, value = 5 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "S2SRA1@1D"
+output = "(2SRA1@1D) ＞ 通常[6] リスク[1] ＞ ヒット数1 ＞ リスクの1:1個 RR:1 残り:0個 ＞ コンプリケーションなし"
+secret = true
+rands = [{ sides = 6, value = 6 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2SRAD"
+output = "(2SRA2@0D) ＞ 通常[] リスク[1,6] ＞ ヒット数2 ＞ リスクの1:1個 RR:0 残り:1個 ＞ 軽度のコンプリケーション"
+rands = [{ sides = 6, value = 6 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "ShadowRunAnarchy2"
+input = "2D"
+output = "(2D6) ＞ 7[2,5] ＞ 7"
+rands = [{ sides = 6, value = 2 }, { sides = 6, value = 5 }]
