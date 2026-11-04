@@ -1,0 +1,350 @@
+# Sinless (2024), pp.27–30: target numbers, tests, rerolls, ABF, opposed tests.
+# p.67: untrained skills. pp.114, 118: reroll 1s / 1s and 2s.
+
+[[ test ]]
+game_system = "Sinless"
+input = "7SL ルールブックp.28の例"
+output = "(7SL) ＞ 目標値4 ＞ [1,1,1,2,3,4,6] ＞ 成功数2"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 2 }, { sides = 6, value = 3 }, { sides = 6, value = 4 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "6SL@4"
+output = "(6SL@4) ＞ 目標値4 ＞ [1,2,3,4,5,6] ＞ 成功数3"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 2 }, { sides = 6, value = 3 }, { sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "6SL@5"
+output = "(6SL@5) ＞ 目標値5 ＞ [1,2,3,4,5,6] ＞ 成功数2"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 2 }, { sides = 6, value = 3 }, { sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "6SL@6"
+output = "(6SL@6) ＞ 目標値6 ＞ [1,2,3,4,5,6] ＞ 成功数1"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 2 }, { sides = 6, value = 3 }, { sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "6SL@3 Heatによる目標値低下"
+output = "(6SL@3) ＞ 目標値3 ＞ [1,2,3,4,5,6] ＞ 成功数4"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 2 }, { sides = 6, value = 3 }, { sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL@2"
+output = "(2SL@2) ＞ 目標値2 ＞ [1,2] ＞ 成功数1"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "1SL"
+output = "(1SL) ＞ 目標値4 ＞ [4] ＞ 成功数1"
+rands = [{ sides = 6, value = 4 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL 6が複数あってもクリティカルではない"
+output = "(2SL) ＞ 目標値4 ＞ [6,6] ＞ 成功数2"
+rands = [{ sides = 6, value = 6 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "3SL 成功数ゼロでも全出目1でなければABFではない"
+output = "(3SL) ＞ 目標値4 ＞ [1,1,2] ＞ 成功数0"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "1SL"
+output = "(1SL) ＞ 目標値4 ＞ [1] ＞ 成功数0 ＞ Argle Bargle Foofaraw"
+failure = true
+fumble = true
+rands = [{ sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "3SLR1 ABFは振り直しを無効化"
+output = "(3SLR1) ＞ 目標値4 ＞ [1,1,1] ＞ 成功数0 ＞ Argle Bargle Foofaraw"
+failure = true
+fumble = true
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "1SLR2>=0 ABFは必要成功数ゼロより優先"
+output = "(1SLR2>=0) ＞ 目標値4 ＞ [1] ＞ 成功数0 ＞ Argle Bargle Foofaraw"
+failure = true
+fumble = true
+rands = [{ sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "4SLR1 出目1のみを振り直して置換"
+output = "(4SLR1) ＞ 目標値4 ＞ [1,2,4,1] ＞ 振り直し[6,3] ＞ 最終出目[6,2,4,3] ＞ 成功数2"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 2 }, { sides = 6, value = 4 }, { sides = 6, value = 1 }, { sides = 6, value = 6 }, { sides = 6, value = 3 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "4SLR2 出目1と2を振り直す"
+output = "(4SLR2) ＞ 目標値4 ＞ [1,2,3,6] ＞ 振り直し[4,5] ＞ 最終出目[4,5,3,6] ＞ 成功数3"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 2 }, { sides = 6, value = 3 }, { sides = 6, value = 6 }, { sides = 6, value = 4 }, { sides = 6, value = 5 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SLR1 振り直した1を再度振らない"
+output = "(2SLR1) ＞ 目標値4 ＞ [1,4] ＞ 振り直し[1] ＞ 最終出目[1,4] ＞ 成功数1"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 4 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SLR2 振り直した2を再度振らない"
+output = "(2SLR2) ＞ 目標値4 ＞ [2,3] ＞ 振り直し[2] ＞ 最終出目[2,3] ＞ 成功数0"
+rands = [{ sides = 6, value = 2 }, { sides = 6, value = 3 }, { sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SLR1 対象がなければ振り直さない"
+output = "(2SLR1) ＞ 目標値4 ＞ [2,6] ＞ 成功数1"
+rands = [{ sides = 6, value = 2 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SLR2"
+output = "(2SLR2) ＞ 目標値4 ＞ [3,6] ＞ 成功数1"
+rands = [{ sides = 6, value = 3 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SLR2 振り直しで全出目1"
+output = "(2SLR2) ＞ 目標値4 ＞ [2,1] ＞ 振り直し[1,1] ＞ 最終出目[1,1] ＞ 成功数0 ＞ Argle Bargle Foofaraw"
+failure = true
+fumble = true
+rands = [{ sides = 6, value = 2 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "3SL@5R2>=2"
+output = "(3SL@5R2>=2) ＞ 目標値5 ＞ [2,4,5] ＞ 振り直し[6] ＞ 最終出目[6,4,5] ＞ 成功数2 ＞ 成功"
+success = true
+rands = [{ sides = 6, value = 2 }, { sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "3SLU 未修得技能は4成功未満ならゼロ"
+output = "(3SLU) ＞ 目標値4 ＞ [4,5,6] ＞ 未修得技能:3/4 ＞ 成功数0"
+rands = [{ sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "4SLU"
+output = "(4SLU) ＞ 目標値4 ＞ [4,5,6,4] ＞ 未修得技能:4/4 ＞ 成功数1"
+rands = [{ sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }, { sides = 6, value = 4 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "8SLU>=2 未修得技能の端数切り捨て"
+output = "(8SLU>=2) ＞ 目標値4 ＞ [4,5,6,4,5,6,4,3] ＞ 未修得技能:7/4 ＞ 成功数1 ＞ 失敗"
+failure = true
+rands = [{ sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }, { sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }, { sides = 6, value = 4 }, { sides = 6, value = 3 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "8SLU@5R2>=2 振り直し後に未修得技能の換算"
+output = "(8SLU@5R2>=2) ＞ 目標値5 ＞ [1,2,5,6,5,6,5,6] ＞ 振り直し[5,6] ＞ 最終出目[5,6,5,6,5,6,5,6] ＞ 未修得技能:8/4 ＞ 成功数2 ＞ 成功"
+success = true
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 2 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SLUR2>=1"
+output = "(2SLUR2>=1) ＞ 目標値4 ＞ [1,1] ＞ 未修得技能:0/4 ＞ 成功数0 ＞ Argle Bargle Foofaraw"
+failure = true
+fumble = true
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL>=1 必要成功数ちょうど"
+output = "(2SL>=1) ＞ 目標値4 ＞ [3,4] ＞ 成功数1 ＞ 成功"
+success = true
+rands = [{ sides = 6, value = 3 }, { sides = 6, value = 4 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL>=1 必要成功数未満"
+output = "(2SL>=1) ＞ 目標値4 ＞ [2,3] ＞ 成功数0 ＞ 失敗"
+failure = true
+rands = [{ sides = 6, value = 2 }, { sides = 6, value = 3 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL>=1 必要成功数超過"
+output = "(2SL>=1) ＞ 目標値4 ＞ [4,6] ＞ 成功数2 ＞ 成功"
+success = true
+rands = [{ sides = 6, value = 4 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "1SL>=0"
+output = "(1SL>=0) ＞ 目標値4 ＞ [2] ＞ 成功数0 ＞ 成功"
+success = true
+rands = [{ sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "3SL>1 対抗勝利"
+output = "(3SL>1) ＞ 目標値4 ＞ [6,4,5] ＞ 成功数3 ＞ 成功（純成功数2）"
+success = true
+rands = [{ sides = 6, value = 6 }, { sides = 6, value = 4 }, { sides = 6, value = 5 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL>3 対抗敗北"
+output = "(2SL>3) ＞ 目標値4 ＞ [4,2] ＞ 成功数1 ＞ 失敗（相手の純成功数2）"
+failure = true
+rands = [{ sides = 6, value = 4 }, { sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL>1 対抗同数"
+output = "(2SL>1) ＞ 目標値4 ＞ [4,2] ＞ 成功数1 ＞ 引き分け（状況変化なし）"
+rands = [{ sides = 6, value = 4 }, { sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "1SL>0"
+output = "(1SL>0) ＞ 目標値4 ＞ [2] ＞ 成功数0 ＞ 引き分け（状況変化なし）"
+rands = [{ sides = 6, value = 2 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "1SL>0 ABFは引き分けより優先"
+output = "(1SL>0) ＞ 目標値4 ＞ [1] ＞ 成功数0 ＞ Argle Bargle Foofaraw"
+failure = true
+fumble = true
+rands = [{ sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "4SLU>0 未修得技能換算後の対抗"
+output = "(4SLU>0) ＞ 目標値4 ＞ [4,5,6,4] ＞ 未修得技能:4/4 ＞ 成功数1 ＞ 成功（純成功数1）"
+success = true
+rands = [{ sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }, { sides = 6, value = 4 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "s2sl@5r1>=1 シークレットと小文字"
+output = "(2SL@5R1>=1) ＞ 目標値5 ＞ [1,4] ＞ 振り直し[5] ＞ 最終出目[5,4] ＞ 成功数1 ＞ 成功"
+secret = true
+success = true
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 4 }, { sides = 6, value = 5 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "(5+3-2)SL"
+output = "(6SL) ＞ 目標値4 ＞ [1,2,3,4,5,6] ＞ 成功数3"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 2 }, { sides = 6, value = 3 }, { sides = 6, value = 4 }, { sides = 6, value = 5 }, { sides = 6, value = 6 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2D6 通常の合計ロールは直接ダメージなどに使用"
+output = "(2D6) ＞ 7[3,4] ＞ 7"
+rands = [{ sides = 6, value = 3 }, { sides = 6, value = 4 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "2B6>=4 Kismet追加ダイス単独ではABFを判定しない"
+output = "(2B6>=4) ＞ 1,1 ＞ 成功数0"
+rands = [{ sides = 6, value = 1 }, { sides = 6, value = 1 }]
+
+[[ test ]]
+game_system = "Sinless"
+input = "0SL"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "SL"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "-1SL"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL@1"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL@7"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL@40"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SLR0"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SLR3"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SLR"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL@"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL>=-1"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL>="
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL<=1"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SLR1R2"
+output = ""
+rands = []
+
+[[ test ]]
+game_system = "Sinless"
+input = "2SL@4R1ABC"
+output = ""
+rands = []
