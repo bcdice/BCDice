@@ -17,6 +17,7 @@ module BCDice
         "]" => :BRACKETR,
         "?" => :QUESTION,
         "@" => :AT,
+        "^" => :CARET,
       }.freeze
 
       def initialize(source)
