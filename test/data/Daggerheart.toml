@@ -1,7 +1,7 @@
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR コマンドのみの表示確認"
-output = "(AR12/12) ＞ 15[12,3] ＞ Hope"
+input = "AR コマンドのみ、希望"
+output = "AR(12:12) ＞ 15[12,3] ＞ Hope"
 rands = [
   { sides = 12, value = 12 },
   { sides = 12, value = 3 },
@@ -9,8 +9,17 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR クリティカル"
-output = "(AR12/12) ＞ 16[8,8] ＞ Critical Success"
+input = "AR コマンドのみ、恐怖"
+output = "AR(12:12) ＞ 21[10,11] ＞ Fear"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "Daggerheart"
+input = "AR コマンドのみ、クリティカル"
+output = "AR(12:12) ＞ 16[8,8] ＞ Critical Success"
 critical = true
 success = true
 rands = [
@@ -20,15 +29,24 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR+ 加減算記号のみで数字のない不正入力時の処理確認"
+input = "AT ATが許容されることを確認"
+output = "AT(12:12) ＞ 15[10,5] ＞ Hope"
+rands = [
+  { sides = 12, value = 10 },
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "Daggerheart"
+input = "AR+ 加算記号のみで数字のない不正入力時の処理"
 output = ""
 rands = [
 ]
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR20/12 DualityDice修正"
-output = "(AR20/12) ＞ 12[2,10] ＞ Fear"
+input = "AR(20:12) 二元ダイスの修正"
+output = "AR(20:12) ＞ 12[2,10] ＞ Fear"
 rands = [
   { sides = 20, value = 2 },
   { sides = 12, value = 10 },
@@ -36,8 +54,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR>=10 失敗の表示確認"
-output = "(AR12/12>=10) ＞ 8[2,6] ＞ Failure with Fear"
+input = "AR>=10 目標値あり、失敗＋恐怖"
+output = "AR(12:12)>=10 ＞ 8[2,6] ＞ Failure with Fear"
 failure = true
 rands = [
   { sides = 12, value = 2 },
@@ -46,8 +64,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR>=10 成功(同値)の表示確認"
-output = "(AR12/12>=10) ＞ 10[4,6] ＞ Success with Fear"
+input = "AR>=10 目標値あり、成功（同値）＋恐怖"
+output = "AR(12:12)>=10 ＞ 10[4,6] ＞ Success with Fear"
 success = true
 rands = [
   { sides = 12, value = 4 },
@@ -56,8 +74,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR>=10 成功の表示確認"
-output = "(AR12/12>=10) ＞ 15[12,3] ＞ Success with Hope"
+input = "AR>=10 目標値あり、成功＋希望"
+output = "AR(12:12)>=10 ＞ 15[12,3] ＞ Success with Hope"
 success = true
 rands = [
   { sides = 12, value = 12 },
@@ -66,8 +84,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR>=10 クリティカルの表示確認"
-output = "(AR12/12>=10) ＞ 16[8,8] ＞ Critical Success"
+input = "AR>=10 目標値あり、クリティカル"
+output = "AR(12:12)>=10 ＞ 16[8,8] ＞ Critical Success"
 critical = true
 success = true
 rands = [
@@ -77,8 +95,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR+5 +修正値の表示確認"
-output = "(AR12/12+5) ＞ 11[3,8]+5 ＞ 16 ＞ Fear"
+input = "AR+5 +修正あり"
+output = "AR(12:12)+5 ＞ 11[3,8]+5 ＞ 16 ＞ Fear"
 rands = [
   { sides = 12, value = 3 },
   { sides = 12, value = 8 },
@@ -86,8 +104,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR-3>=10 -修正値の表示確認"
-output = "(AR12/12-3>=10) ＞ 11[3,8]-3 ＞ 8 ＞ Failure with Fear"
+input = "AR-3>=10 -修正あり、目標値あり"
+output = "AR(12:12)-3>=10 ＞ 11[3,8]-3 ＞ 8 ＞ Failure with Fear"
 failure = true
 rands = [
   { sides = 12, value = 3 },
@@ -96,8 +114,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR+2-3>=11 加減算修正の表示確認"
-output = "(AR12/12+2-3>=11) ＞ 11[2,9]-1[2,-3] ＞ 10 ＞ Failure with Fear"
+input = "AR+2-3>=11 複数の加減算修正あり"
+output = "AR(12:12)+2-3>=11 ＞ 11[2,9]-1[2,-3] ＞ 10 ＞ Failure with Fear"
 failure = true
 rands = [
   { sides = 12, value = 2 },
@@ -106,8 +124,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "ARa 有利の表示確認"
-output = "(AR12/12+1D6) ＞ 12[10,2]+4[4] ＞ 16 ＞ Hope"
+input = "ARa 有利"
+output = "AR(12:12)+1D6 ＞ 12[10,2]+4[4] ＞ 16 ＞ Hope"
 rands = [
   { sides = 12, value = 10 },
   { sides = 12, value = 2 },
@@ -116,8 +134,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "ARa>=18 有利の表示確認"
-output = "(AR12/12+1D6>=18) ＞ 11[8,3]+2[2] ＞ 13 ＞ Failure with Hope"
+input = "ARa>=18 有利、目標値あり"
+output = "AR(12:12)+1D6>=18 ＞ 11[8,3]+2[2] ＞ 13 ＞ Failure with Hope"
 failure = true
 rands = [
   { sides = 12, value = 8 },
@@ -127,8 +145,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "ARa8>=18 有利の表示確認"
-output = "(AR12/12+1D8>=18) ＞ 11[3,8]+7[7] ＞ 18 ＞ Success with Fear"
+input = "ARa8>=18 有利＋ダイス指定、目標値あり"
+output = "AR(12:12)+1D8>=18 ＞ 11[3,8]+7[7] ＞ 18 ＞ Success with Fear"
 success = true
 rands = [
   { sides = 12, value = 3 },
@@ -138,8 +156,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "ARd 不利の表示確認"
-output = "(AR12/12-1D6) ＞ 9[2,7]-3[3] ＞ 6 ＞ Fear"
+input = "ARd 不利"
+output = "AR(12:12)-1D6 ＞ 9[2,7]-3[3] ＞ 6 ＞ Fear"
 rands = [
   { sides = 12, value = 2 },
   { sides = 12, value = 7 },
@@ -148,8 +166,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "ARd>=12 不利の表示確認"
-output = "(AR12/12-1D6>=12) ＞ 13[8,5]-1[1] ＞ 12 ＞ Success with Hope"
+input = "ARd>=12 不利、目標値あり"
+output = "AR(12:12)-1D6>=12 ＞ 13[8,5]-1[1] ＞ 12 ＞ Success with Hope"
 success = true
 rands = [
   { sides = 12, value = 8 },
@@ -159,8 +177,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "ARd8>=12 不利の表示確認"
-output = "(AR12/12-1D8>=12) ＞ 13[5,8]-4[4] ＞ 9 ＞ Failure with Fear"
+input = "ARd8>=12 不利＋ダイス指定、目標値あり"
+output = "AR(12:12)-1D8>=12 ＞ 13[5,8]-4[4] ＞ 9 ＞ Failure with Fear"
 failure = true
 rands = [
   { sides = 12, value = 5 },
@@ -170,8 +188,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "ARa+3>=18 有利＆修正値の表示確認"
-output = "(AR12/12+3+1D6>=18) ＞ 7[4,3]+9[3,6[6]] ＞ 16 ＞ Failure with Hope"
+input = "ARa+3>=18 有利、修正あり、目標値あり"
+output = "AR(12:12)+3+1D6>=18 ＞ 7[4,3]+9[3,6[6]] ＞ 16 ＞ Failure with Hope"
 failure = true
 rands = [
   { sides = 12, value = 4 },
@@ -181,8 +199,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "ARd-2>=12 不利＆修正値の表示確認"
-output = "(AR12/12-2-1D6>=12) ＞ 16[6,10]-3[-2,-1[1]] ＞ 13 ＞ Success with Fear"
+input = "ARd-2>=12 不利、修正あり、目標値あり"
+output = "AR(12:12)-2-1D6>=12 ＞ 16[6,10]-3[-2,-1[1]] ＞ 13 ＞ Success with Fear"
 success = true
 rands = [
   { sides = 12, value = 6 },
@@ -192,8 +210,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR+1d4>=12 ボーナスダイスの表示確認"
-output = "(AR12/12+1D4>=12) ＞ 10[6,4]+2[2] ＞ 12 ＞ Success with Hope"
+input = "AR+1d4>=12 ボーナスダイス"
+output = "AR(12:12)+1D4>=12 ＞ 10[6,4]+2[2] ＞ 12 ＞ Success with Hope"
 success = true
 rands = [
   { sides = 12, value = 6 },
@@ -203,8 +221,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR+1d4-1d6>=12 ボーナスダイスの表示確認"
-output = "(AR12/12+1D4-1D6>=12) ＞ 11[6,5]-1[3[3],-4[4]] ＞ 10 ＞ Failure with Hope"
+input = "AR+1d4-1d6>=12 複数のボーナスダイス"
+output = "AR(12:12)+1D4-1D6>=12 ＞ 11[6,5]-1[3[3],-4[4]] ＞ 10 ＞ Failure with Hope"
 failure = true
 rands = [
   { sides = 12, value = 6 },
@@ -215,8 +233,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AR+3+1d4>=16 修正値＆ボーナスダイスの表示確認"
-output = "(AR12/12+3+1D4>=16) ＞ 10[3,7]+5[3,2[2]] ＞ 15 ＞ Failure with Fear"
+input = "AR+3+1d4>=16 修正＋ボーナスダイス"
+output = "AR(12:12)+3+1D4>=16 ＞ 10[3,7]+5[3,2[2]] ＞ 15 ＞ Failure with Fear"
 failure = true
 rands = [
   { sides = 12, value = 3 },
@@ -226,8 +244,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "ARa+1d8>=12 有利＆ボーナスダイスの表示確認"
-output = "(AR12/12+1D8+1D6>=12) ＞ 4[3,1]+8[6[6],2[2]] ＞ 12 ＞ Success with Hope"
+input = "ARa+1d8>=12 有利、ボーナスダイス"
+output = "AR(12:12)+1D8+1D6>=12 ＞ 4[3,1]+8[6[6],2[2]] ＞ 12 ＞ Success with Hope"
 success = true
 rands = [
   { sides = 12, value = 3 },
@@ -238,8 +256,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "ARa8+2+1d4-1d6>=12 有利＆修正値＆ボーナスダイスの表示確認"
-output = "(AR12/12+2+1D4-1D6+1D8>=12) ＞ 10[6,4]+6[2,2[2],-3[3],5[5]] ＞ 16 ＞ Success with Hope"
+input = "ARa8+2+1d4-1d6>=12 有利、修正＋複数のボーナスダイス"
+output = "AR(12:12)+2+1D4-1D6+1D8>=12 ＞ 10[6,4]+6[2,2[2],-3[3],5[5]] ＞ 16 ＞ Success with Hope"
 success = true
 rands = [
   { sides = 12, value = 6 },
@@ -251,8 +269,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR コマンドのみの表示確認"
-output = "(RR12/12) ＞ 15[12,3]"
+input = "RR コマンドのみ"
+output = "RR(12:12) ＞ 15[12,3]"
 rands = [
   { sides = 12, value = 12 },
   { sides = 12, value = 3 },
@@ -261,7 +279,7 @@ rands = [
 [[ test ]]
 game_system = "Daggerheart"
 input = "RR クリティカル"
-output = "(RR12/12) ＞ 16[8,8] ＞ Critical Success"
+output = "RR(12:12) ＞ 16[8,8] ＞ Critical Success"
 critical = true
 success = true
 rands = [
@@ -271,15 +289,15 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR+ 加減算記号のみで数字のない不正入力時の処理確認"
+input = "RR+ 加減算記号のみで数字のない不正入力時の処理"
 output = ""
 rands = [
 ]
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR12/20 DualityDice修正"
-output = "(RR12/20) ＞ 20[2,18]"
+input = "RR(12:20) 二元ダイスの修正"
+output = "RR(12:20) ＞ 20[2,18]"
 rands = [
   { sides = 12, value = 2 },
   { sides = 20, value = 18 },
@@ -287,8 +305,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR>=10 失敗の表示確認"
-output = "(RR12/12>=10) ＞ 8[2,6] ＞ Failure"
+input = "RR>=10 目標値あり、失敗"
+output = "RR(12:12)>=10 ＞ 8[2,6] ＞ Failure"
 failure = true
 rands = [
   { sides = 12, value = 2 },
@@ -297,8 +315,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR>=10 成功(同値)の表示確認"
-output = "(RR12/12>=10) ＞ 10[4,6] ＞ Success"
+input = "RR>=10 目標値あり、成功（同値）"
+output = "RR(12:12)>=10 ＞ 10[4,6] ＞ Success"
 success = true
 rands = [
   { sides = 12, value = 4 },
@@ -307,8 +325,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR>=10 成功の表示確認"
-output = "(RR12/12>=10) ＞ 15[12,3] ＞ Success"
+input = "RR>=10 目標値あり、成功"
+output = "RR(12:12)>=10 ＞ 15[12,3] ＞ Success"
 success = true
 rands = [
   { sides = 12, value = 12 },
@@ -317,8 +335,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR>=10 クリティカルの表示確認"
-output = "(RR12/12>=10) ＞ 16[8,8] ＞ Critical Success"
+input = "RR>=10 目標値あり、クリティカル"
+output = "RR(12:12)>=10 ＞ 16[8,8] ＞ Critical Success"
 critical = true
 success = true
 rands = [
@@ -328,8 +346,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR+5 +修正値の表示確認"
-output = "(RR12/12+5) ＞ 11[3,8]+5 ＞ 16"
+input = "RR+5 +修正あり"
+output = "RR(12:12)+5 ＞ 11[3,8]+5 ＞ 16"
 rands = [
   { sides = 12, value = 3 },
   { sides = 12, value = 8 },
@@ -337,8 +355,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR-3>=10 -修正値の表示確認"
-output = "(RR12/12-3>=10) ＞ 11[3,8]-3 ＞ 8 ＞ Failure"
+input = "RR-3>=10 -修正あり、目標値あり"
+output = "RR(12:12)-3>=10 ＞ 11[3,8]-3 ＞ 8 ＞ Failure"
 failure = true
 rands = [
   { sides = 12, value = 3 },
@@ -347,8 +365,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR+2-3>=11 加減算修正の表示確認"
-output = "(RR12/12+2-3>=11) ＞ 11[2,9]-1[2,-3] ＞ 10 ＞ Failure"
+input = "RR+2-3>=11 複数の加減算修正あり"
+output = "RR(12:12)+2-3>=11 ＞ 11[2,9]-1[2,-3] ＞ 10 ＞ Failure"
 failure = true
 rands = [
   { sides = 12, value = 2 },
@@ -357,8 +375,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RRa 有利の表示確認"
-output = "(RR12/12+1D6) ＞ 12[10,2]+4[4] ＞ 16"
+input = "RRa 有利"
+output = "RR(12:12)+1D6 ＞ 12[10,2]+4[4] ＞ 16"
 rands = [
   { sides = 12, value = 10 },
   { sides = 12, value = 2 },
@@ -367,8 +385,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RRa>=18 有利の表示確認"
-output = "(RR12/12+1D6>=18) ＞ 11[8,3]+2[2] ＞ 13 ＞ Failure"
+input = "RRa>=18 有利、目標値あり"
+output = "RR(12:12)+1D6>=18 ＞ 11[8,3]+2[2] ＞ 13 ＞ Failure"
 failure = true
 rands = [
   { sides = 12, value = 8 },
@@ -378,8 +396,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RRa8>=18 有利の表示確認"
-output = "(RR12/12+1D8>=18) ＞ 11[3,8]+7[7] ＞ 18 ＞ Success"
+input = "RRa8>=18 有利＋ダイス指定、目標値あり"
+output = "RR(12:12)+1D8>=18 ＞ 11[3,8]+7[7] ＞ 18 ＞ Success"
 success = true
 rands = [
   { sides = 12, value = 3 },
@@ -389,8 +407,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RRd 不利の表示確認"
-output = "(RR12/12-1D6) ＞ 9[2,7]-3[3] ＞ 6"
+input = "RRd 不利"
+output = "RR(12:12)-1D6 ＞ 9[2,7]-3[3] ＞ 6"
 rands = [
   { sides = 12, value = 2 },
   { sides = 12, value = 7 },
@@ -399,8 +417,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RRd>=12 不利の表示確認"
-output = "(RR12/12-1D6>=12) ＞ 13[8,5]-1[1] ＞ 12 ＞ Success"
+input = "RRd>=12 不利、目標値あり"
+output = "RR(12:12)-1D6>=12 ＞ 13[8,5]-1[1] ＞ 12 ＞ Success"
 success = true
 rands = [
   { sides = 12, value = 8 },
@@ -410,8 +428,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RRd8>=12 不利の表示確認"
-output = "(RR12/12-1D8>=12) ＞ 13[5,8]-4[4] ＞ 9 ＞ Failure"
+input = "RRd8>=12 不利＋ダイス指定、目標値あり"
+output = "RR(12:12)-1D8>=12 ＞ 13[5,8]-4[4] ＞ 9 ＞ Failure"
 failure = true
 rands = [
   { sides = 12, value = 5 },
@@ -421,8 +439,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RRa+3>=18 有利＆修正値の表示確認"
-output = "(RR12/12+3+1D6>=18) ＞ 7[4,3]+9[3,6[6]] ＞ 16 ＞ Failure"
+input = "RRa+3>=18 有利、修正あり、目標値あり"
+output = "RR(12:12)+3+1D6>=18 ＞ 7[4,3]+9[3,6[6]] ＞ 16 ＞ Failure"
 failure = true
 rands = [
   { sides = 12, value = 4 },
@@ -432,8 +450,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RRd-2>=12 不利＆修正値の表示確認"
-output = "(RR12/12-2-1D6>=12) ＞ 16[6,10]-3[-2,-1[1]] ＞ 13 ＞ Success"
+input = "RRd-2>=12 不利、修正あり、目標値あり"
+output = "RR(12:12)-2-1D6>=12 ＞ 16[6,10]-3[-2,-1[1]] ＞ 13 ＞ Success"
 success = true
 rands = [
   { sides = 12, value = 6 },
@@ -443,8 +461,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR+1d4>=12 ボーナスダイスの表示確認"
-output = "(RR12/12+1D4>=12) ＞ 10[6,4]+2[2] ＞ 12 ＞ Success"
+input = "RR+1d4>=12 ボーナスダイス"
+output = "RR(12:12)+1D4>=12 ＞ 10[6,4]+2[2] ＞ 12 ＞ Success"
 success = true
 rands = [
   { sides = 12, value = 6 },
@@ -454,8 +472,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR+1d4-1d6>=12 ボーナスダイスの表示確認"
-output = "(RR12/12+1D4-1D6>=12) ＞ 11[6,5]-1[3[3],-4[4]] ＞ 10 ＞ Failure"
+input = "RR+1d4-1d6>=12 複数のボーナスダイス"
+output = "RR(12:12)+1D4-1D6>=12 ＞ 11[6,5]-1[3[3],-4[4]] ＞ 10 ＞ Failure"
 failure = true
 rands = [
   { sides = 12, value = 6 },
@@ -466,8 +484,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RR+3+1d4>=16 修正値＆ボーナスダイスの表示確認"
-output = "(RR12/12+3+1D4>=16) ＞ 10[3,7]+5[3,2[2]] ＞ 15 ＞ Failure"
+input = "RR+3+1d4>=16 修正＋ボーナスダイス"
+output = "RR(12:12)+3+1D4>=16 ＞ 10[3,7]+5[3,2[2]] ＞ 15 ＞ Failure"
 failure = true
 rands = [
   { sides = 12, value = 3 },
@@ -477,8 +495,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RRa+1d8>=12 有利＆ボーナスダイスの表示確認"
-output = "(RR12/12+1D8+1D6>=12) ＞ 4[3,1]+8[6[6],2[2]] ＞ 12 ＞ Success"
+input = "RRa+1d8>=12 有利、ボーナスダイス"
+output = "RR(12:12)+1D8+1D6>=12 ＞ 4[3,1]+8[6[6],2[2]] ＞ 12 ＞ Success"
 success = true
 rands = [
   { sides = 12, value = 3 },
@@ -489,8 +507,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "RRa8+2+1d4-1d6>=12 有利＆修正値＆ボーナスダイスの表示確認"
-output = "(RR12/12+2+1D4-1D6+1D8>=12) ＞ 10[6,4]+6[2,2[2],-3[3],5[5]] ＞ 16 ＞ Success"
+input = "RRa8+2+1d4-1d6>=12 有利、修正＋複数のボーナスダイス"
+output = "RR(12:12)+2+1D4-1D6+1D8>=12 ＞ 10[6,4]+6[2,2[2],-3[3],5[5]] ＞ 16 ＞ Success"
 success = true
 rands = [
   { sides = 12, value = 6 },
@@ -502,31 +520,39 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAR コマンドのみの表示確認"
-output = "(AAR) ＞ 12[12]"
+input = "AAR コマンドのみ"
+output = "AAR ＞ 12[12]"
 rands = [
   { sides = 20, value = 12 },
 ]
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAR クリティカルが出ないのを確認"
-output = "(AAR) ＞ 20[20]"
+input = "AAR クリティカルが出ないことを確認"
+output = "AAR ＞ 20[20]"
 rands = [
   { sides = 20, value = 20 },
 ]
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAR+ 加減算記号のみで数字のない不正入力時の処理確認"
+input = "ARR ARRの許容を確認"
+output = "ARR ＞ 10[10]"
+rands = [
+  { sides = 20, value = 10 },
+]
+
+[[ test ]]
+game_system = "Daggerheart"
+input = "AAR+ 加減算記号のみで数字のない不正入力時の処理"
 output = ""
 rands = [
 ]
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAR>=10 失敗の表示確認"
-output = "(AAR>=10) ＞ 6[6] ＞ Failure"
+input = "AAR>=10 目標値あり、失敗"
+output = "AAR>=10 ＞ 6[6] ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 6 },
@@ -534,8 +560,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAR>=10 成功(同値)の表示確認"
-output = "(AAR>=10) ＞ 10[10] ＞ Success"
+input = "AAR>=10 目標値あり、成功（同値）"
+output = "AAR>=10 ＞ 10[10] ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 10 },
@@ -543,8 +569,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAR>=10 成功の表示確認"
-output = "(AAR>=10) ＞ 12[12] ＞ Success"
+input = "AAR>=10 目標値あり、成功"
+output = "AAR>=10 ＞ 12[12] ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 12 },
@@ -552,16 +578,16 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAR+5 +修正値の表示確認"
-output = "(AAR+5) ＞ 8[8]+5 ＞ 13"
+input = "AAR+5 +修正あり"
+output = "AAR+5 ＞ 8[8]+5 ＞ 13"
 rands = [
   { sides = 20, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAR-3>=10 -修正値の表示確認"
-output = "(AAR-3>=10) ＞ 11[11]-3 ＞ 8 ＞ Failure"
+input = "AAR-3>=10 -修正あり"
+output = "AAR-3>=10 ＞ 11[11]-3 ＞ 8 ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 11 },
@@ -569,8 +595,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAR+2-3>=11 加減算修正の表示確認"
-output = "(AAR+2-3>=11) ＞ 11[11]-1[2,-3] ＞ 10 ＞ Failure"
+input = "AAR+2-3>=11 複数の加減算修正"
+output = "AAR+2-3>=11 ＞ 11[11]-1[2,-3] ＞ 10 ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 11 },
@@ -578,8 +604,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AARa 有利の表示確認"
-output = "(AARA) ＞ 10[10,2] ＞ 10"
+input = "AARa 有利"
+output = "AARA ＞ 10[10,2] ＞ 10"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 2 },
@@ -587,8 +613,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AARa>=18 有利の表示確認"
-output = "(AARA>=18) ＞ 8[8,3] ＞ 8 ＞ Failure"
+input = "AARa>=18 有利、目標値あり"
+output = "AARA>=18 ＞ 8[8,3] ＞ 8 ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 8 },
@@ -597,8 +623,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AARd 不利の表示確認"
-output = "(AARD) ＞ 2[2,7] ＞ 2"
+input = "AARd 不利"
+output = "AARD ＞ 2[2,7] ＞ 2"
 rands = [
   { sides = 20, value = 2 },
   { sides = 20, value = 7 },
@@ -606,8 +632,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AARd>=12 不利の表示確認"
-output = "(AARD>=12) ＞ 13[20,13] ＞ 13 ＞ Success"
+input = "AARd>=12 不利、目標値あり"
+output = "AARD>=12 ＞ 13[20,13] ＞ 13 ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 20 },
@@ -616,8 +642,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AARa+3>=18 有利＆修正値の表示確認"
-output = "(AARA+3>=18) ＞ 7[7,3]+3 ＞ 10 ＞ Failure"
+input = "AARa+3>=18 有利、修正あり、目標値あり"
+output = "AARA+3>=18 ＞ 7[7,3]+3 ＞ 10 ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 7 },
@@ -626,8 +652,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AARd-2>=10 不利＆修正値の表示確認"
-output = "(AARD-2>=10) ＞ 13[16,13]-2 ＞ 11 ＞ Success"
+input = "AARd-2>=10 不利、修正あり、目標値あり"
+output = "AARD-2>=10 ＞ 13[16,13]-2 ＞ 11 ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 16 },
@@ -636,8 +662,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAR+1d4>=12 ボーナスダイスの表示確認"
-output = "(AAR+1D4>=12) ＞ 10[10]+2[2] ＞ 12 ＞ Success"
+input = "AAR+1d4>=12 ボーナスダイス"
+output = "AAR+1D4>=12 ＞ 10[10]+2[2] ＞ 12 ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 10 },
@@ -646,8 +672,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAR+1d4-1d6>=12 ボーナスダイスの表示確認"
-output = "(AAR+1D4-1D6>=12) ＞ 11[11]-1[3[3],-4[4]] ＞ 10 ＞ Failure"
+input = "AAR+1d4-1d6>=12 複数のボーナスダイス"
+output = "AAR+1D4-1D6>=12 ＞ 11[11]-1[3[3],-4[4]] ＞ 10 ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 11 },
@@ -657,8 +683,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAR+3+1d4>=16 修正値＆ボーナスダイスの表示確認"
-output = "(AAR+3+1D4>=16) ＞ 10[10]+5[3,2[2]] ＞ 15 ＞ Failure"
+input = "AAR+3+1d4>=16 修正＋ボーナスダイス"
+output = "AAR+3+1D4>=16 ＞ 10[10]+5[3,2[2]] ＞ 15 ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 10 },
@@ -667,8 +693,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AARa+1d8>=12 有利＆ボーナスダイスの表示確認"
-output = "(AARA+1D8>=12) ＞ 6[4,6]+6[6] ＞ 12 ＞ Success"
+input = "AARa+1d8>=12 有利、ボーナスダイス"
+output = "AARA+1D8>=12 ＞ 6[4,6]+6[6] ＞ 12 ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 4 },
@@ -678,8 +704,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AARa+2+1d4-1d6>=12 有利＆修正値＆ボーナスダイスの表示確認"
-output = "(AARA+2+1D4-1D6>=12) ＞ 10[6,10]+3[2,4[4],-3[3]] ＞ 13 ＞ Success"
+input = "AARa+2+1d4-1d6>=12 有利、修正＋ボーナスダイス"
+output = "AARA+2+1D4-1D6>=12 ＞ 10[6,10]+3[2,4[4],-3[3]] ＞ 13 ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 6 },
@@ -690,16 +716,16 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAT コマンドのみの表示確認"
-output = "(AAT) ＞ 12[12]"
+input = "AAT コマンドのみ"
+output = "AAT ＞ 12[12]"
 rands = [
   { sides = 20, value = 12 },
 ]
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAT クリティカルの表示確認"
-output = "(AAT) ＞ 20[20] ＞ Critical Success"
+input = "AAT コマンドのみ、クリティカル"
+output = "AAT ＞ 20[20] ＞ Critical Success"
 critical = true
 success = true
 rands = [
@@ -708,15 +734,15 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAT+ 加減算記号のみで数字のない不正入力時の処理確認"
+input = "AAT+ 加減算記号のみで数字のない不正入力時の処理"
 output = ""
 rands = [
 ]
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAT>=10 失敗の表示確認"
-output = "(AAT>=10) ＞ 6[6] ＞ Failure"
+input = "AAT>=10 目標値あり、失敗"
+output = "AAT>=10 ＞ 6[6] ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 6 },
@@ -724,8 +750,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAT>=10 成功(同値)の表示確認"
-output = "(AAT>=10) ＞ 10[10] ＞ Success"
+input = "AAT>=10 目標値あり、成功（同値）"
+output = "AAT>=10 ＞ 10[10] ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 10 },
@@ -733,8 +759,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAT>=10 成功の表示確認"
-output = "(AAT>=10) ＞ 12[12] ＞ Success"
+input = "AAT>=10 目標値あり、成功"
+output = "AAT>=10 ＞ 12[12] ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 12 },
@@ -742,16 +768,16 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAT+5 +修正値の表示確認"
-output = "(AAT+5) ＞ 8[8]+5 ＞ 13"
+input = "AAT+5 +修正あり"
+output = "AAT+5 ＞ 8[8]+5 ＞ 13"
 rands = [
   { sides = 20, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAT-3>=10 -修正値の表示確認"
-output = "(AAT-3>=10) ＞ 11[11]-3 ＞ 8 ＞ Failure"
+input = "AAT-3>=10 -修正あり、目標値あり"
+output = "AAT-3>=10 ＞ 11[11]-3 ＞ 8 ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 11 },
@@ -759,8 +785,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAT+2-3>=11 加減算修正の表示確認"
-output = "(AAT+2-3>=11) ＞ 11[11]-1[2,-3] ＞ 10 ＞ Failure"
+input = "AAT+2-3>=11 複数の加減算修正"
+output = "AAT+2-3>=11 ＞ 11[11]-1[2,-3] ＞ 10 ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 11 },
@@ -768,8 +794,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AATa 有利の表示確認"
-output = "(AATA) ＞ 10[10,2] ＞ 10"
+input = "AATa 有利"
+output = "AATA ＞ 10[10,2] ＞ 10"
 rands = [
   { sides = 20, value = 10 },
   { sides = 20, value = 2 },
@@ -777,8 +803,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AATa>=18 有利の表示確認"
-output = "(AATA>=18) ＞ 8[8,3] ＞ 8 ＞ Failure"
+input = "AATa>=18 有利、目標値あり"
+output = "AATA>=18 ＞ 8[8,3] ＞ 8 ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 8 },
@@ -787,8 +813,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AATd 不利の表示確認"
-output = "(AATD) ＞ 2[2,7] ＞ 2"
+input = "AATd 不利"
+output = "AATD ＞ 2[2,7] ＞ 2"
 rands = [
   { sides = 20, value = 2 },
   { sides = 20, value = 7 },
@@ -796,8 +822,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AATd>=12 不利の表示確認"
-output = "(AATD>=12) ＞ 13[20,13] ＞ 13 ＞ Success"
+input = "AATd>=12 不利、目標値あり"
+output = "AATD>=12 ＞ 13[20,13] ＞ 13 ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 20 },
@@ -806,8 +832,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AATa+3>=18 有利＆修正値の表示確認"
-output = "(AATA+3>=18) ＞ 7[7,3]+3 ＞ 10 ＞ Failure"
+input = "AATa+3>=18 有利、修正あり、目標値あり"
+output = "AATA+3>=18 ＞ 7[7,3]+3 ＞ 10 ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 7 },
@@ -816,8 +842,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AATd-2>=10 不利＆修正値の表示確認"
-output = "(AATD-2>=10) ＞ 13[16,13]-2 ＞ 11 ＞ Success"
+input = "AATd-2>=10 不利、修正あり、目標値あり"
+output = "AATD-2>=10 ＞ 13[16,13]-2 ＞ 11 ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 16 },
@@ -826,8 +852,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAT+1d4>=12 ボーナスダイスの表示確認"
-output = "(AAT+1D4>=12) ＞ 10[10]+2[2] ＞ 12 ＞ Success"
+input = "AAT+1d4>=12 ボーナスダイス"
+output = "AAT+1D4>=12 ＞ 10[10]+2[2] ＞ 12 ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 10 },
@@ -836,8 +862,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAT+1d4-1d6>=12 ボーナスダイスの表示確認"
-output = "(AAT+1D4-1D6>=12) ＞ 11[11]-1[3[3],-4[4]] ＞ 10 ＞ Failure"
+input = "AAT+1d4-1d6>=12 複数のボーナスダイス"
+output = "AAT+1D4-1D6>=12 ＞ 11[11]-1[3[3],-4[4]] ＞ 10 ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 11 },
@@ -847,8 +873,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AAT+3+1d4>=16 修正値＆ボーナスダイスの表示確認"
-output = "(AAT+3+1D4>=16) ＞ 10[10]+5[3,2[2]] ＞ 15 ＞ Failure"
+input = "AAT+3+1d4>=16 修正＋ボーナスダイス"
+output = "AAT+3+1D4>=16 ＞ 10[10]+5[3,2[2]] ＞ 15 ＞ Failure"
 failure = true
 rands = [
   { sides = 20, value = 10 },
@@ -857,8 +883,8 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AATa+1d8>=12 有利＆ボーナスダイスの表示確認"
-output = "(AATA+1D8>=12) ＞ 6[4,6]+6[6] ＞ 12 ＞ Success"
+input = "AATa+1d8>=12 有利、ボーナスダイス"
+output = "AATA+1D8>=12 ＞ 6[4,6]+6[6] ＞ 12 ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 4 },
@@ -868,112 +894,12 @@ rands = [
 
 [[ test ]]
 game_system = "Daggerheart"
-input = "AATa+2+1d4-1d6>=12 有利＆修正値＆ボーナスダイスの表示確認"
-output = "(AATA+2+1D4-1D6>=12) ＞ 10[6,10]+3[2,4[4],-3[3]] ＞ 13 ＞ Success"
+input = "AATa+2+1d4-1d6>=12 有利、修正＋複数のボーナスダイス"
+output = "AATA+2+1D4-1D6>=12 ＞ 10[6,10]+3[2,4[4],-3[3]] ＞ 13 ＞ Success"
 success = true
 rands = [
   { sides = 20, value = 6 },
   { sides = 20, value = 10 },
   { sides = 4, value = 4 },
   { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "Daggerheart"
-input = "DR1d4 表示確認"
-output = "(DR1D4) ＞ 3[3] ＞ 3"
-rands = [
-  { sides = 4, value = 3 },
-]
-
-[[ test ]]
-game_system = "Daggerheart"
-input = "DR2d6 表示確認"
-output = "(DR2D6) ＞ 5[2,3] ＞ 5"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "Daggerheart"
-input = "DR1d4+2 +修正値の表示確認"
-output = "(DR1D4+2) ＞ 5[3[3],2] ＞ 5"
-rands = [
-  { sides = 4, value = 3 },
-]
-
-[[ test ]]
-game_system = "Daggerheart"
-input = "DR1d4-2 -修正値の表示確認"
-output = "(DR1D4-2) ＞ 2[4[4],-2] ＞ 2"
-rands = [
-  { sides = 4, value = 4 },
-]
-
-[[ test ]]
-game_system = "Daggerheart"
-input = "DR1d4+2d6 ボーナスダイスの表示確認"
-output = "(DR1D4+2D6) ＞ 10[3[3],7[2,5]] ＞ 10"
-rands = [
-  { sides = 4, value = 3 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "Daggerheart"
-input = "DR1d4+2-2d6 修正値＆ボーナスダイスの表示確認"
-output = "(DR1D4+2-2D6) ＞ -2[3[3],2,-7[2,5]] ＞ -2"
-rands = [
-  { sides = 4, value = 3 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "Daggerheart"
-input = "DRc1d4 クリティカルの表示確認"
-output = "(DRC1D4) ＞ 7[3[3],4] ＞ 7"
-rands = [
-  { sides = 4, value = 3 },
-]
-
-[[ test ]]
-game_system = "Daggerheart"
-input = "DRc2d6 クリティカルの表示確認"
-output = "(DRC2D6) ＞ 17[5[2,3],12] ＞ 17"
-rands = [
-  { sides = 6, value = 2 },
-  { sides = 6, value = 3 },
-]
-
-[[ test ]]
-game_system = "Daggerheart"
-input = "DRc1d4+2 クリティカル＆修正値の表示確認"
-output = "(DRC1D4+2) ＞ 9[3[3],4,2] ＞ 9"
-rands = [
-  { sides = 4, value = 3 },
-]
-
-[[ test ]]
-game_system = "Daggerheart"
-input = "DRc1d4+2d6 クリティカル＆ボーナスダイスの表示確認"
-output = "(DRC1D4+2D6) ＞ 26[3[3],4,7[2,5],12] ＞ 26"
-rands = [
-  { sides = 4, value = 3 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
-]
-
-[[ test ]]
-game_system = "Daggerheart"
-input = "DRc3d8+2-2d6 クリティカル＆修正値＆ボーナスダイスの表示確認"
-output = "(DRC3D8+2-2D6) ＞ 21[14[4,2,8],24,2,-7[2,5],-12] ＞ 21"
-rands = [
-  { sides = 8, value = 4 },
-  { sides = 8, value = 2 },
-  { sides = 8, value = 8 },
-  { sides = 6, value = 2 },
-  { sides = 6, value = 5 },
 ]
