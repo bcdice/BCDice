@@ -165,6 +165,8 @@ module BCDice
     # コマンドを評価する
     # @return [Result, nil] コマンド実行結果。コマンドが実行できなかった場合はnilを返す
     def eval
+      return nil if @raw_input.to_s.strip.empty?
+
       command = BCDice::Preprocessor.process(@raw_input, self)
 
       result = dice_command(command) || eval_common_command(@raw_input)
