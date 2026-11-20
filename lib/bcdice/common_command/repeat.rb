@@ -84,7 +84,7 @@ module BCDice
       private
 
       def validate
-        if /\A(repeat|rep|x)\d+/.match?(@trailer)
+        if /\As?(repeat|rep|x)\d+/i.match?(@trailer)
           result_with_text("Repeatコマンドの重複はできません")
         elsif @times < 1 || REPEAT_LIMIT < @times
           result_with_text("繰り返し回数は1以上、#{REPEAT_LIMIT}以下としてください")
