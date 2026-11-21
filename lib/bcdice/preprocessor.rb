@@ -38,7 +38,7 @@ module BCDice
 
     # 空白より前だけを取る
     def trim_after_whitespace()
-      @text = @text.strip.split(/\s/, 2).first
+      @text = @text.strip.split(/\s/, 2).first || ""
     end
 
     # カッコ書きの数式を事前計算する
