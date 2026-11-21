@@ -1,0 +1,622 @@
+##### General dice roll test #####
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 1 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 1 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 10 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 10 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 11 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 11 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 20 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 20 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 22 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 22 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 30 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 30 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 33 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 33 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 40 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 40 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 44 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 44 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 50 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 50 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 55 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 55 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 60 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 60 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 66 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 66 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 70 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 70 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 77 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 77 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 80 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 80 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 88 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 88 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 90 ＞ Failure"
+failure = true
+rands = [
+  { sides = 100, value = 90 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 99 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 100 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },  
+]
+
+##### Matched dice test when the value is same as difficulty #####
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=11"
+output = "(1D100<=11) ＞ 11 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 11 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=22"
+output = "(1D100<=22) ＞ 22 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 22 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=33"
+output = "(1D100<=33) ＞ 33 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 33 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=44"
+output = "(1D100<=44) ＞ 44 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 44 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=55"
+output = "(1D100<=55) ＞ 55 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 55 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=66"
+output = "(1D100<=66) ＞ 66 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 66 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=77"
+output = "(1D100<=77) ＞ 77 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 77 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=88"
+output = "(1D100<=88) ＞ 88 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 88 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=99"
+output = "(1D100<=99) ＞ 99 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+##### Matched dice test when the value is higher than difficulty #####
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=10"
+output = "(1D100<=10) ＞ 11 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 11 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=20"
+output = "(1D100<=20) ＞ 22 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 22 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=30"
+output = "(1D100<=30) ＞ 33 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 33 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=40"
+output = "(1D100<=40) ＞ 44 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 44 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=50"
+output = "(1D100<=50) ＞ 55 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 55 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=60"
+output = "(1D100<=60) ＞ 66 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 66 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=70"
+output = "(1D100<=70) ＞ 77 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 77 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=80"
+output = "(1D100<=80) ＞ 88 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 88 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=90"
+output = "(1D100<=90) ＞ 99 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+##### Lethality roll test #####
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=1"
+output = "(1D100<=1) ＞ 1 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 1 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=1"
+output = "(1D100<=1) ＞ 9 ＞ Failure, 19 HP Damage"
+failure = true
+rands = [
+  { sides = 100, value = 9 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=1"
+output = "(1D100<=1) ＞ 17 ＞ Failure, 8 HP Damage"
+failure = true
+rands = [
+  { sides = 100, value = 17 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=1"
+output = "(1D100<=1) ＞ 25 ＞ Failure, 7 HP Damage"
+failure = true
+rands = [
+  { sides = 100, value = 25 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=1"
+output = "(1D100<=1) ＞ 33 ＞ Failure, 6 HP Damage"
+failure = true
+rands = [
+  { sides = 100, value = 33 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=1"
+output = "(1D100<=1) ＞ 41 ＞ Failure, 5 HP Damage"
+failure = true
+rands = [
+  { sides = 100, value = 41 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=1"
+output = "(1D100<=1) ＞ 50 ＞ Failure, 15 HP Damage"
+failure = true
+rands = [
+  { sides = 100, value = 50 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=1"
+output = "(1D100<=1) ＞ 68 ＞ Failure, 14 HP Damage"
+failure = true
+rands = [
+  { sides = 100, value = 68 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=1"
+output = "(1D100<=1) ＞ 76 ＞ Failure, 13 HP Damage"
+failure = true
+rands = [
+  { sides = 100, value = 76 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=1"
+output = "(1D100<=1) ＞ 84 ＞ Failure, 12 HP Damage"
+failure = true
+rands = [
+  { sides = 100, value = 84 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=1"
+output = "(1D100<=1) ＞ 92 ＞ Failure, 11 HP Damage"
+failure = true
+rands = [
+  { sides = 100, value = 92 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=1"
+output = "(1D100<=1) ＞ 100 ＞ Failure, 20 HP Damage"
+failure = true
+rands = [
+  { sides = 100, value = 100 },  
+]
+
+##### Command matching test #####
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC"
+output = "1D100 ＞ 99"
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "cc"
+output = "1D100 ＞ 99"
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<="
+output = ""
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=0"
+output = "1D100 ＞ 99"
+success = false
+failure = false
+critical = false
+fumble = false
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "cc<=-1"
+output = "1D100 ＞ 99"
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "2CC<=50"
+output = ""
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC1<=50"
+output = ""
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=200"
+output = "(1D100<=200) ＞ 99 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CC<=200"
+output = "(1D100<=200) ＞ 100 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 100 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "cc<=60-20"
+output = "(1D100<=40) ＞ 44 ＞ Fumble"
+failure = true
+fumble = true
+rands = [
+  { sides = 100, value = 44 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "cc<=60+40"
+output = "(1D100<=100) ＞ 99 ＞ Critical Success"
+success = true
+critical = true
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL"
+output = ""
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<="
+output = ""
+rands = [
+  { sides = 100, value = 99 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=10+10"
+output = "(1D100<=20) ＞ 18 ＞ Success"
+success = true
+rands = [
+  { sides = 100, value = 18 },  
+]
+
+[[ test ]]
+game_system = "DeltaGreen"
+input = "CCL<=30-10"
+output = "(1D100<=20) ＞ 38 ＞ Failure, 11 HP Damage"
+failure = true
+rands = [
+  { sides = 100, value = 38 },  
+]
