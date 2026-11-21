@@ -1,0 +1,4 @@
+ko_kr:
+  SRS:
+    auto_success: "자동 성공"
+    auto_failure: "자동 실패"

@@ -24,6 +24,9 @@ module BCDice
         　・감정표（ET）
         　　포지티브와 네거티브 양쪽을 굴려, 겉으로 나타는 쪽에 O를 붙여 표시합니다.
         　　물론 임의로 정하는 부분을 변경해도 괜찮습니다.
+        ・해프닝차트（HC)
+        ・RW프롤로그차트 포지티브（PCP）
+        ・RW프롤로그차트 네거티브（PCN）
         ・D66다이스 있음
       INFO_MESSAGE_TEXT
 
@@ -46,9 +49,10 @@ module BCDice
 
       # 感情表（ポジティブ）
       POSITIVE_EMOTION_TABLE = positive_emotion_table(:ko_kr).freeze
-
       # 感情表（ネガティブ）
       NEGATIVE_EMOTION_TABLE = negative_emotion_table(:ko_kr).freeze
+      TABLES = translate_tables(:ko_kr).freeze
+      register_prefix('\d+DX', TABLES.keys)
     end
   end
 end

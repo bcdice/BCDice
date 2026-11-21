@@ -1,0 +1,97 @@
+[[ test ]]
+game_system = "PreciousDays"
+input = "3PD>=10 クリティカル"
+output = "(3PD>=10) ＞ 13[6,6,1] ＞ 13 ＞ クリティカル"
+success = true
+critical = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PreciousDays"
+input = "3PD+10>=3 ファンブル"
+output = "(3PD+10>=3) ＞ 3[1,1,1]+10 ＞ 13 ＞ ファンブル"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PreciousDays"
+input = "1PD+10>=3 クリティカルじゃない"
+output = "(1PD+10>=3) ＞ 6[6]+10 ＞ 16 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "PreciousDays"
+input = "3PD>=10+10 失敗"
+output = "(3PD>=10+10) ＞ 4[2,1,1] ＞ 4 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PreciousDays"
+input = "PIT"
+output = "プライズ表(物品)(24) ＞ 手編みのマフラー ＞ 滞在先で手に入れた、感謝の気持ちのこもった編み物。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 }
+]
+
+[[ test ]]
+game_system = "PreciousDays"
+input = "PCT"
+output = "プライズ表(自身の変化)(55) ＞ 良い香り ＞ なにやら自分から良い香りが漂うになった。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 5 }
+]
+
+[[ test ]]
+game_system = "PreciousDays"
+input = "PFT"
+output = "プライズ表(友人)(63) ＞ 古代語の先生 ＞ 図書館などで古代語の知識を教えてくれた、年上の学者。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 }
+]
+
+[[ test ]]
+game_system = "PreciousDays"
+input = "FIT"
+output = "第一印象表(41) ＞ 厳格 ＞ 怖そうというのとは違う、厳しく真面目そうな人のように思えた。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 1 }
+]
+
+[[ test ]]
+game_system = "PreciousDays"
+input = "TCT"
+output = "師匠の呼び名表(1) ＞ 師匠"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "PreciousDays"
+input = "TCT"
+output = "師匠の呼び名表(6) ＞ コーチ"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+

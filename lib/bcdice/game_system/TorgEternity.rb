@@ -31,6 +31,11 @@ module BCDice
         　　mはポシビリティを使用する前のロール結果を入れて下さい。
         　　出目が10未満の場合は、10への読み替えが行われます。
         　　また、振り足しを自動で行い、20の出目が出たときには技能無し値も並記します。
+        　・CPOS
+        　　"CPOSm"で、コズムポシビリティ使用による1d20のロールを行います。
+        　　mはポシビリティを使用する前のロール結果を入れて下さい。
+        　　出目が10未満の場合でも、10への読み替えが行われません。
+        　　振り足しは自動で行い、20の出目が出たときには技能無し値も並記します。
         ・ボーナスダメージロール
         　"xBD[+y]"でロールします。[]内は省略可能。
         　xはダメージダイス数。yはダメージ基本値 or 式を入れて下さい。
@@ -42,13 +47,14 @@ module BCDice
         　・ダメージ結果表「DTx or DAMAGEx」
         　・ロールボーナス表「BTx+y or BONUSx+y or TOTALx+y」 xは数値, yは技能基本値
       INFO_MESSAGE_TEXT
-      register_prefix('TE', 'UP', 'POS', '\d+BD', 'TG', 'RT', 'Result', 'DT', 'damage', 'BT', 'bonus', 'total', '1R20')
+      register_prefix('TE', 'UP', 'POS', 'CPOS', '\d+BD', 'TG', 'RT', 'Result', 'DT', 'damage', 'BT', 'bonus', 'total', '1R20')
 
       def eval_game_system_specific_command(command)
         torg_check(command) ||
           getRolld20DiceCommandResult(command) ||
           getUpRollDiceCommandResult(command) ||
           getPossibilityRollDiceCommandResult(command) ||
+          getCosmPossibilityRollDiceCommandResult(command) ||
           getBonusDamageDiceCommandResult(command) ||
           getSuccessLevelDiceCommandResult(command) ||
           getDamageResultDiceCommandResult(command) ||
@@ -75,7 +81,7 @@ module BCDice
         mod = m[1]
 
         debug(mod)
-        mod = ArithmeticEvaluator.eval(mod) if mod
+        mod = mod ? Arithmetic.eval(mod, @round_type) : 0
         debug(mod)
         mod = mod.to_i
         skilled, unskilled, dice_str, = torg_eternity_dice(false, false)
@@ -191,8 +197,31 @@ module BCDice
           return nil
         end
 
-        output_modifier = ArithmeticEvaluator.eval(m[1])
+        output_modifier = m[1] ? Arithmetic.eval(m[1], @round_type) : 0
         skilled, unskilled, dice_str, = torg_eternity_dice(true, false)
+        subtotal_skilled = skilled + output_modifier
+        subtotal_unskilled = unskilled + output_modifier
+        value_skilled = format("%+d", get_torg_eternity_bonus(subtotal_skilled))
+        if subtotal_skilled != subtotal_unskilled
+          value_unskilled = format("%+d", get_torg_eternity_bonus(subtotal_unskilled))
+          output = "d20ロール（ポシビリティ） ＞ #{output_modifier}+1d20[#{dice_str}] ＞ #{value_skilled}[#{subtotal_skilled}]（技能有） / #{value_unskilled}[#{subtotal_unskilled}]（技能無）"
+        else
+          output = "d20ロール（ポシビリティ） ＞ #{output_modifier}+1d20[#{dice_str}] ＞ #{value_skilled}[#{subtotal_skilled}]"
+        end
+
+        return output
+      end
+
+      # ロールコマンド (コズムポシビリティロール)
+      def getCosmPossibilityRollDiceCommandResult(command)
+        debug("Torg Eternity CosmPossibility Roll Command ? ", command)
+        m = /^CPOS((\d+)(\+\d+)?)$/i.match(command)
+        unless m
+          return nil
+        end
+
+        output_modifier = m[1] ? Arithmetic.eval(m[1], @round_type) : 0
+        skilled, unskilled, dice_str, = torg_eternity_dice(false, false)
         subtotal_skilled = skilled + output_modifier
         subtotal_unskilled = unskilled + output_modifier
         value_skilled = format("%+d", get_torg_eternity_bonus(subtotal_skilled))
@@ -234,7 +263,7 @@ module BCDice
           return nil
         end
 
-        value = ArithmeticEvaluator.eval(m[2])
+        value = m[2] ? Arithmetic.eval(m[2], @round_type) : 0
         debug(value)
         if value < 0
           output = "Failure."
@@ -254,7 +283,7 @@ module BCDice
           return nil
         end
 
-        value = ArithmeticEvaluator.eval(m[2])
+        value = m[2] ? Arithmetic.eval(m[2], @round_type) : 0
         debug(value)
         output = get_torg_eternity_damage_result(value)
         output = "ダメージ結果表[#{value}] ＞ #{output}"
@@ -307,7 +336,7 @@ module BCDice
           value_modifier = 0
           output_modifier = ""
         else
-          value_modifier = ArithmeticEvaluator.eval(string_modifier)
+          value_modifier = string_modifier ? Arithmetic.eval(string_modifier, @round_type) : 0
           output_modifier = format("%+d", value_modifier)
         end
         debug(value_modifier)

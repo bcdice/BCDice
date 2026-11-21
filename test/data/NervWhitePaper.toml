@@ -1,0 +1,151 @@
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "NR 絶対成功"
+output = "(NR) ＞ 3,4 ＞ 絶対成功"
+critical = true
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "NR 絶対失敗"
+output = "(NR) ＞ 1,1 ＞ 絶対失敗"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "NR 絶対失敗"
+output = "(NR) ＞ 6,6 ＞ 絶対失敗"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "NR 成功(奇数)"
+output = "(NR) ＞ 1,4 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "NR 失敗(偶数)"
+output = "(NR) ＞ 3,3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "NA 絶対成功"
+output = "(NA) ＞ 3,4 ＞ 絶対成功"
+critical = true
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "NA 絶対失敗"
+output = "(NA) ＞ 1,1 ＞ 絶対失敗"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "NA 絶対失敗"
+output = "(NA) ＞ 6,6 ＞ 絶対失敗"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "NA 成功(!ゾロ目)"
+output = "(NA) ＞ 1,4 ＞ 成功"
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "NA 失敗(ゾロ目)"
+output = "(NA) ＞ 3,3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "ND 絶対成功"
+output = "(ND) ＞ 3,4 ＞ 絶対成功"
+critical = true
+success = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "ND 絶対失敗"
+output = "(ND) ＞ 1,1 ＞ 絶対失敗"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "ND 絶対失敗"
+output = "(ND) ＞ 6,6 ＞ 絶対失敗"
+fumble = true
+failure = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "NervWhitePaper"
+input = "ND 失敗(!7)"
+output = "(ND) ＞ 3,3 ＞ 失敗"
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+]
+

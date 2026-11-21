@@ -1874,6 +1874,78 @@ rands = [
 
 [[ test ]]
 game_system = "DoubleCross"
+input = "HC"
+output = "ハプニングチャート(1) ＞ こともなし。修正は特にない。"
+rands = [
+  { sides = 100, value = 1 }
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "HC"
+output = "ハプニングチャート(55) ＞ 膠着した進行。修正は特にない。"
+rands = [
+  { sides = 100, value = 55 }
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "HC"
+output = "ハプニングチャート(100) ＞ 順当な進行。このラウンド中に進行判定に成功したキャラクターは、進行値を+1得る。"
+rands = [
+  { sides = 100, value = 100 }
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "PCP"
+output = "プロローグチャート(ポジティブ)(1) ＞ 【ヴィクトリー】 ヴィランの集団と戦い、勝利する。報道陣や観衆がその勝利を称える。"
+rands = [
+  { sides = 10, value = 1 }
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "PCP"
+output = "プロローグチャート(ポジティブ)(5) ＞ 【ヒーローインタビュー】 メディアから取材を受ける。事件の解決や首長からの表彰によって、あるいは注目のヒーローとしてなど。"
+rands = [
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "PCP"
+output = "プロローグチャート(ポジティブ)(10) ＞ 【サクセス】 なにかに大成功した場面だ。仕事でもよいし、休暇中のゲームやスポーツかもしれない。"
+rands = [
+  { sides = 10, value = 10 }
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "PCN"
+output = "プロローグチャート(ネガティブ)(1) ＞ 【ディフィート】 ヴィランと戦い、敗北した場面を回想する。その時の負傷は既に回復しているが、誇りはまだ回復していない。"
+rands = [
+  { sides = 10, value = 1 }
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "PCN"
+output = "プロローグチャート(ネガティブ)(5) ＞ 【バッシング】 メディアや市民から批判を受ける。過去の失敗や、今の乱暴な解決法など。"
+rands = [
+  { sides = 10, value = 5 }
+]
+
+[[ test ]]
+game_system = "DoubleCross"
+input = "PCN"
+output = "プロローグチャート(ネガティブ)(10) ＞ 【プリーズ】 ロイスの対象などから、ヒーローを引退するようにお願いされる。あなたが心配だ、危険すぎる、など。聞き入れるわけにはいかないが⋯⋯。"
+rands = [
+  { sides = 10, value = 10 }
+]
+
+[[ test ]]
+game_system = "DoubleCross"
 input = "10dx+5*2@8"
 output = "(10DX8+10) ＞ 10[2,3,6,6,6,6,7,8,10,10]+6[1,5,6]+10 ＞ 26"
 critical = true

@@ -56,4 +56,68 @@ class TestD66LeftRangeTable < Test::Unit::TestCase
     randomizer = RandomizerMock.new([[6, 6], [3, 6]])
     assert_equal("テスト(63) ＞ B3", table.roll(randomizer).to_s)
   end
+
+  def test_valid_conv_string_range_should_be_accepted
+    assert_equal(
+      Range.new(1, 3),
+      BCDice::DiceTable::D66LeftRangeTable.conv_string_range("1..3")
+    )
+  end
+
+  def test_invalid_conv_string_range_should_be_denied
+    assert_raise(ArgumentError) do
+      BCDice::DiceTable::D66LeftRangeTable.conv_string_range("1")
+    end
+    assert_raise(ArgumentError) do
+      BCDice::DiceTable::D66LeftRangeTable.conv_string_range("2..X")
+    end
+    assert_raise(ArgumentError) do
+      BCDice::DiceTable::D66LeftRangeTable.conv_string_range("hoge")
+    end
+    assert_raise(ArgumentError) do
+      BCDice::DiceTable::D66LeftRangeTable.conv_string_range([])
+    end
+  end
+
+  class TestD66LeftRangeTableI18n < Test::Unit::TestCase
+    setup do
+      data = {
+        dummy: {
+          RT: {
+            name: "Table",
+            d66_sort_type: "asc",
+            items: [
+              ["1..3", ["A", "B", "C", "D", "E", "F"]],
+              ["3..6", ["a", "b", "c", "d", "e", "f"]],
+            ]
+          },
+          InvalidRT: {
+            name: "Invalid Table",
+            d66_sort_type: "asc",
+            items: [
+              ["1", ["A", "B", "C", "D", "E", "F"]],
+              ["2..6", ["a", "b", "c", "d", "e", "f"]],
+            ]
+          }
+        }
+      }
+      I18n.backend.store_translations(:ja_jp, data)
+    end
+
+    teardown do
+      I18n.backend.reload!
+    end
+
+    def test_valid_range_table_from_i18n_should_be_accepted
+      assert_nothing_raised do
+        BCDice::DiceTable::D66LeftRangeTable.from_i18n("dummy.RT", :ja_jp)
+      end
+    end
+
+    def test_invalid_range_table_from_i18n_should_be_denied
+      assert_raise(ArgumentError) do
+        BCDice::DiceTable::D66LeftRangeTable.from_i18n("dummy.InvalidRT", :ja_jp)
+      end
+    end
+  end
 end

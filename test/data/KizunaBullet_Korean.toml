@@ -1,0 +1,540 @@
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "2DM"
+output = "2DM ＞ [1,6] ＞ 6"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "2IN"
+output = "2IN ＞ [1,5] ＞ ［성공］.［조사 진행도］가 2점 증가.［장면 플레이어］의［여기치］가 1점 증가."
+success = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "2IN"
+output = "2IN ＞ [1,3] ＞ ［실패］.［조사 진행도］가 1점 증가.［장면 플레이어］의［파트너］의［여기치］를 1점 소모하면 성공(［파트너의 헬프］)."
+failure = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "2IN"
+output = "2IN ＞ [1,2] ＞ ［실패］.［조사 진행도］가 1점 증가.［파트너의 헬프］사용 불가."
+failure = true
+fumble = true
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "SE13"
+output = "SE13 ＞ 4 ＞ 모든［키즈나］가［균열］상태이므로［정멸］(［사망］). 다음 세션부터 계속 사용할 수 없습니다."
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "SE5"
+output = "SE5 ＞ 4 ＞ ［균열］상태의［키즈나］가 6개 미만이므로［생존］. 다음 세션에 계속 사용할 수 있습니다."
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "SE6"
+output = "SE6 ＞ 7 ＞ ［생존］. 다음 세션에 계속 사용할 수 있습니다."
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "SE6"
+output = "SE6 ＞ 4 ＞ ［잔향체］화(NPC화). 파트너는 자신의 임의의［키즈나］에 2개를 체크하면［생존］(강제 진정)."
+failure = true
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "SO"
+output = "SO ＞ 8"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "OP"
+output = "일상표・장소(6) ＞ 자료실: 조직의 자료실, 서고, 증거물 보관소 등."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "OC"
+output = "일상표・내용(6) ＞ 훈련/관리: 전투 훈련이나 무기 관리 등을 하고 있다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "OPC"
+output = "일상표・장소(6) ＞ 자료실: 조직의 자료실, 서고, 증거물 보관소 등.\n일상표・내용(6) ＞ 훈련/관리: 전투 훈련이나 무기 관리 등을 하고 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "OWP"
+output = "일상표(일)・장소(6) ＞ 병원: 진료소나 병원, 또는 조직의 치료실."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "OWC"
+output = "일상표(일)・내용(6) ＞ 도움: 동료를 도와 심문이나 협상 등을 하고 있다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "OWPC"
+output = "일상표(일)・장소(6) ＞ 병원: 진료소나 병원, 또는 조직의 치료실.\n일상표(일)・내용(6) ＞ 도움: 동료를 도와 심문이나 협상 등을 하고 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "OHP"
+output = "일상표(휴가)・장소(6) ＞ 게임센터: 최신 기종부터 레트로 게임까지 다양한 게임이 있는 게임센터."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "OHC"
+output = "일상표(휴가)・내용(6) ＞ 일 이야기: 외출 중인데도 일에 대해 이야기하고 있다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "OHPC"
+output = "일상표(휴가)・장소(6) ＞ 게임센터: 최신 기종부터 레트로 게임까지 다양한 게임이 있는 게임센터.\n일상표(휴가)・내용(6) ＞ 일 이야기: 외출 중인데도 일에 대해 이야기하고 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "OTP"
+output = "일상표(출장)・장소(6) ＞ 짐승들의 길: 사람의 손에 의해 정비되지 않은 자연 속 짐승들의 길."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "OTC"
+output = "일상표(출장)・내용(6) ＞ 여기가 어디야: 길을 잃은 것 같다…. 앞으로 나아갈 방향에 대해 상의하고 있다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "OTPC"
+output = "일상표(출장)・장소(6) ＞ 짐승들의 길: 사람의 손에 의해 정비되지 않은 자연 속 짐승들의 길.\n일상표(출장)・내용(6) ＞ 여기가 어디야: 길을 잃은 것 같다…. 앞으로 나아갈 방향에 대해 상의하고 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "TT"
+output = "턴 테마표(66) ＞ 갖고 싶었던 물건：조사하는 동안 갖고 싶었던 물건을 찾아보자. 의외의 장소에서 얻을 수 있을지도 모른다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "TTI"
+output = "턴 테마표・친밀(66) ＞ 고민：이 기회에 고민을 털어놓는 것도 좋을 것 같다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "TTC"
+output = "턴 테마표・쿨(66) ＞ 화해：싸워버렸다. 화해의 계기를 찾아야…."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "TTH"
+output = "턴 테마표・주종(66) ＞ 보살핌：평소처럼 주인을 보살피자. 혹은 그 반대도 재미있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "EP"
+output = "조우표・장소(6) ＞ 본거지: 불릿 A의 조직에 불릿 B가 정보 수집을 위해 나타났다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "EO"
+output = "조우표・출현 순서(6) ＞ 불릿 B: 불릿 B가 먼저 장면에 등장한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "EF"
+output = "조우표・상황(첫대면)(6) ＞ 공격: 적으로 인식하고 먼저 등장한 불릿이 공격을 가한다. 단, 오해는 금방 풀린다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "EA"
+output = "조우표・상황(아는 사이)(6) ＞ 공격: 먼저 등장한 불릿이 다른 쪽에 공격을 가한다. 뭐, 인사 같은 거지."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "EE"
+output = "조우표・결착(6) ＞ 상부의 전달: 상부에 먼저 연락을 주고받았고, 양측에 협력 체제를 갖추라는 지시가 내려왔다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "EFA"
+output = "조우표・장소(6) ＞ 본거지: 불릿 A의 조직에 불릿 B가 정보 수집을 위해 나타났다.\n조우표・출현 순서(6) ＞ 불릿 B: 불릿 B가 먼저 장면에 등장한다.\n조우표・상황(첫대면)(6) ＞ 공격: 적으로 인식하고 먼저 등장한 불릿이 공격을 가한다. 단, 오해는 금방 풀린다.\n조우표・결착(6) ＞ 상부의 전달: 상부에 먼저 연락을 주고받았고, 양측에 협력 체제를 갖추라는 지시가 내려왔다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "EAA"
+output = "조우표・장소(6) ＞ 본거지: 불릿 A의 조직에 불릿 B가 정보 수집을 위해 나타났다.\n조우표・출현 순서(6) ＞ 불릿 B: 불릿 B가 먼저 장면에 등장한다.\n조우표・상황(아는 사이)(6) ＞ 공격: 먼저 등장한 불릿이 다른 쪽에 공격을 가한다. 뭐, 인사 같은 거지.\n조우표・결착(6) ＞ 상부의 전달: 상부에 먼저 연락을 주고받았고, 양측에 협력 체제를 갖추라는 지시가 내려왔다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "CP"
+output = "교류표・장소(6) ＞ 옥상: 도시가 내려다보이는 건물 옥상. 바람이 기분 좋다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "CC"
+output = "교류표・내용(6) ＞ 적: 사건의 범인, 표적 등에 대해 이야기해 보자."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "CPC"
+output = "교류표・장소(6) ＞ 옥상: 도시가 내려다보이는 건물 옥상. 바람이 기분 좋다.\n교류표・내용(6) ＞ 적: 사건의 범인, 표적 등에 대해 이야기해 보자."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "IB"
+output = "조사표・베이직(66) ＞ 수수께끼의 전화：관계자를 자칭하는 수수께끼의 전화가 걸려왔다. 쓸모있는 이야기를 들을 수 있을까?"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "ID"
+output = "조사표・다이나믹(66) ＞ 도주극：정보를 가지고 있을 것 같은 사람이 도망쳤다. 쫓아가서 붙잡아 이야기를 들어보자."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "IBD"
+output = "조사표・베이직(66) ＞ 수수께끼의 전화：관계자를 자칭하는 수수께끼의 전화가 걸려왔다. 쓸모있는 이야기를 들을 수 있을까?\n조사표・다이나믹(66) ＞ 도주극：정보를 가지고 있을 것 같은 사람이 도망쳤다. 쫓아가서 붙잡아 이야기를 들어보자."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HA"
+output = "해저드 표(6) ＞ 불운에 강하다: 운이 좋았어! 아무 일도 일어나지 않는다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "NI1"
+output = "그 사건의 내용은…(6) ＞ 의식을 잃은 사람이 늘어났다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "NI2"
+output = "수사를 위해 찾아간 곳은…(6) ＞ 범죄 조직이 관여하는 지하 도박장"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "NI3"
+output = "범인인 기적사는…(6) ＞ 기괴하게 힘을 계속 휘두르고 있었다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "NI4"
+output = "일어난 사건은…(6) ＞ 기적사에 의한 다음 피해를 막았다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "NI5"
+output = "불릿들 사이에서는…(6) ＞ 서로를 이해할 수 없을까하는 고민이 깊어졌다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "NI6"
+output = "싸움의 결말은…(6) ＞ 불운이 겹쳐서 한계에 가깝게 소모되었다. 파괴(임의) × 3"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "NT1"
+output = "그 장소는…(6) ＞ 지도에 존재하지 않는 미스터리한 마을"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "NT2"
+output = "그곳에서 시작된 것은…(6) ＞ 생존을 건 데스게임이 선포되었다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "NT3"
+output = "극한의 상황에서…(6) ＞ 용의자는 이미 죽어 있었다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "NT4"
+output = "범인인 기적사는…(6) ＞ 주목받는 것에 쾌감을 느꼈다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "NT5"
+output = "불릿들 사이에서는…(6) ＞ 왠지 모르게 가장 의지할 수 있는 상대라고 느꼈다. 키즈나 획득!"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "NT6"
+output = "싸움의 결말은…(6) ＞ 불운이 겹쳐서 한계에 가깝게 소모되었다. 파괴(임의) × 3"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HH1"
+output = "그 장소는…(6) ＞ 쇼핑몰"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HH2"
+output = "약속하고 만나면…(6) ＞ 오너는 평소와 다름없이 차려입었다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HH3"
+output = "그리고 무려…(6) ＞ 패션 콘테스트에 참가하게 되었다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HH4"
+output = "두 사람이 결정한 것은…(6) ＞ 포기하고 흐름에 몸을 맡기기로 했다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HH5"
+output = "결과적으로…(6) ＞ 두 사람의 천재적인 발상으로 훌륭하게 해냈다. 키즈나 획득!"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HH6"
+output = "불릿은 마지막으로…(6) ＞ 몰래 사두었던 선물을 서로 주고받았다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HC1"
+output = "그 장소는…(6) ＞ 산속에 있는 캠핑장"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HC2"
+output = "일어난 사건은…(6) ＞ 배가 고파서 견딜 수 없게 된다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HC3"
+output = "범인인 기적사는…(6) ＞ 사실 심오한 계획을 진행하고 있었다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HC4"
+output = "범인을 추적하기 위해…(6) ＞ 어쨌든 폭력으로 해결하기로 했다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HC5"
+output = "싸움의 결과는…(6) ＞ 지나가던 토야마 링고(『제2권』 P135)가 범인을 죽였다. 키즈나 획득!"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KizunaBullet:Korean"
+input = "HC6"
+output = "불릿은 마지막에…(6) ＞ 머지 않아 새로운 사건에 휘말리게 되었다."
+rands = [
+  { sides = 6, value = 6 },
+]

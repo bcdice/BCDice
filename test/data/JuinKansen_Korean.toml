@@ -1,0 +1,444 @@
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Daily"
+output = "일상 표(2) ＞ 「목욕 중」『내용』PC 자기소개 후, 자신의 집에서 어떻게 목욕하고 있는가에 대해 간단히 설명하라.『종료조건』GM이 '몸을 다 씻었으므로 슬슬 나가려 한다' 라고 선언한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Daily"
+output = "일상 표(12) ＞ 「취미」『내용』PC 자기소개 후, 자기 방에서 어떤 취미에 몰두해있는지 간단히 설명하라.『종료조건』GM이 '아쉽지만 이제 잘 시간이다' 라고 선언한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "DAI"
+output = "일상 표(2) ＞ 「목욕 중」『내용』PC 자기소개 후, 자신의 집에서 어떻게 목욕하고 있는가에 대해 간단히 설명하라.『종료조건』GM이 '몸을 다 씻었으므로 슬슬 나가려 한다' 라고 선언한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "DAI"
+output = "일상 표(12) ＞ 「취미」『내용』PC 자기소개 후, 자기 방에서 어떤 취미에 몰두해있는지 간단히 설명하라.『종료조건』GM이 '아쉽지만 이제 잘 시간이다' 라고 선언한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "PlaceCity"
+output = "장소 표「도시」(2) ＞ 「사건현장」여기는 이전에 괴이사건이 일어났다는 소문이 있는 사건현장이다. 잘 보면 근처에 시든 꽃다발이 놓여있다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "PlaceCity"
+output = "장소 표「도시」(12) ＞ 「경찰서 앞」여기는 거리에 있는 경찰서 앞이다. 이번 사건, 또는 방금 전의 괴이현상에 대해 이야기해도… 아마도, 믿지 않겠지."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "PCI"
+output = "장소 표「도시」(2) ＞ 「사건현장」여기는 이전에 괴이사건이 일어났다는 소문이 있는 사건현장이다. 잘 보면 근처에 시든 꽃다발이 놓여있다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "PCI"
+output = "장소 표「도시」(12) ＞ 「경찰서 앞」여기는 거리에 있는 경찰서 앞이다. 이번 사건, 또는 방금 전의 괴이현상에 대해 이야기해도… 아마도, 믿지 않겠지."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "PlaceCountryside"
+output = "장소 표「시골」(2) ＞ 「사건현장」여기는 이전에 괴이사건이 일어났다는 소문이 있는 사건현장이다. 잘 보면 근처에 시든 꽃다발이 놓여있다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "PlaceCountryside"
+output = "장소 표「시골」(12) ＞ 「파출소 앞」여기는 마을의 유일한 파출소 앞이다. 그러나 경찰관의 모습은 보이지 않고 문도 굳게 닫혀있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "PCO"
+output = "장소 표「시골」(2) ＞ 「사건현장」여기는 이전에 괴이사건이 일어났다는 소문이 있는 사건현장이다. 잘 보면 근처에 시든 꽃다발이 놓여있다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "PCO"
+output = "장소 표「시골」(12) ＞ 「파출소 앞」여기는 마을의 유일한 파출소 앞이다. 그러나 경찰관의 모습은 보이지 않고 문도 굳게 닫혀있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "PlaceFacility"
+output = "장소 표「시설 안」(2) ＞ 「예배당」여기는 지하에 있는, 예배당 같아보이는 곳이다. 방 안쪽에는 기묘한 모습의 석상이 있고 주위는 불길한 기운이 감돈다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "PlaceFacility"
+output = "장소 표「시설 안」(12) ＞ 「연구실」여기는 연구실로 보이는 장소이다. 방은 전체적으로 어둡고, 안쪽 찬장에는 기묘한 모습의 생물이 포르말린에 잠겨 늘어서 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "PFA"
+output = "장소 표「시설 안」(2) ＞ 「예배당」여기는 지하에 있는, 예배당 같아보이는 곳이다. 방 안쪽에는 기묘한 모습의 석상이 있고 주위는 불길한 기운이 감돈다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "PFA"
+output = "장소 표「시설 안」(12) ＞ 「연구실」여기는 연구실로 보이는 장소이다. 방은 전체적으로 어둡고, 안쪽 찬장에는 기묘한 모습의 생물이 포르말린에 잠겨 늘어서 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "FirstLook"
+output = "초면 표(2) ＞ 「습격으로부터 구출」『내용』PC간 재회 후 【운명】이 낮은 PC가 갑자기 불량배 등에게 얽혀서, 【운명】이 높은 PC가 힘이나 기지를 발휘해 구해내는 장면을 연출하라.『종료조건』【운명】이 낮은 PC가 【운명】이 높은 PC에게 감사 인사를 한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "FirstLook"
+output = "초면 표(12) ＞ 「주인」『내용』PC간 재회 후, 【민첩】이 높은 PC가, 【민첩】이 낮은 PC가 가진 [주인]을 눈치채는 장면을 연출하라.『종료조건』【민첩】이 높은 PC가 자기도 같은 것이 있다고 알린다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "FL"
+output = "초면 표(2) ＞ 「습격으로부터 구출」『내용』PC간 재회 후 【운명】이 낮은 PC가 갑자기 불량배 등에게 얽혀서, 【운명】이 높은 PC가 힘이나 기지를 발휘해 구해내는 장면을 연출하라.『종료조건』【운명】이 낮은 PC가 【운명】이 높은 PC에게 감사 인사를 한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "FL"
+output = "초면 표(12) ＞ 「주인」『내용』PC간 재회 후, 【민첩】이 높은 PC가, 【민첩】이 낮은 PC가 가진 [주인]을 눈치채는 장면을 연출하라.『종료조건』【민첩】이 높은 PC가 자기도 같은 것이 있다고 알린다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "AppreciativeFriend"
+output = "친구 표(2) ＞ 「소중한 사람」『내용』PC간 재회 후, 사건에 관해 서로 이야기를 나누던 중 PC가 서로 자신의 [소중한 사람]에 대한 이야기를 하는 장면을 연출하라.『종료조건』PC 중 누군가가 '어쨌든 그 사람을 위해서라도 살아남아야 하겠네요' 라고 말한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "AppreciativeFriend"
+output = "친구 표(12) ＞ 「방법이 있을 것이다」『내용』PC끼리 만나, PC 중 누군가가 '살아남을 방법은 분명히 있을 것이다' 라고 힘을 북돋는 장면을 연출하라.『종료조건』고무된 PC가 '그렇네요… 그 방법을 찾아봅시다' 라고 말한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "AF"
+output = "친구 표(2) ＞ 「소중한 사람」『내용』PC간 재회 후, 사건에 관해 서로 이야기를 나누던 중 PC가 서로 자신의 [소중한 사람]에 대한 이야기를 하는 장면을 연출하라.『종료조건』PC 중 누군가가 '어쨌든 그 사람을 위해서라도 살아남아야 하겠네요' 라고 말한다."
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "AF"
+output = "친구 표(12) ＞ 「방법이 있을 것이다」『내용』PC끼리 만나, PC 중 누군가가 '살아남을 방법은 분명히 있을 것이다' 라고 힘을 북돋는 장면을 연출하라.『종료조건』고무된 PC가 '그렇네요… 그 방법을 찾아봅시다' 라고 말한다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Foreshadow"
+output = "복선 표(1) ＞ PC와의 대화 중 문득 번뜩임이 일었다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Foreshadow"
+output = "복선 표(6) ＞ 그 때, 불가사의한 힘이 몸에 깃들었다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "FOR"
+output = "복선 표(1) ＞ PC와의 대화 중 문득 번뜩임이 일었다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "FOR"
+output = "복선 표(6) ＞ 그 때, 불가사의한 힘이 몸에 깃들었다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Emotion"
+output = "감정 표(1) ＞ 존경"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Emotion"
+output = "감정 표(6) ＞ 안심"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "EMO"
+output = "감정 표(1) ＞ 존경"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "EMO"
+output = "감정 표(6) ＞ 안심"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Situation"
+output = "상황 표(1) ＞ 「불행의 연쇄」사건에 관련되었는지, PC들의 주변에 점점 불행이 일어나기 시작한다. 어떻게든 이 연쇄를 끊어야 한다…….『사용가능 능력치』【행운】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Situation"
+output = "상황 표(6) ＞ 「행운은 내 편」상황이 급박해지고 있다. 그러나 운 좋게도 상황이 PC들에게 유리하게 돌아가기 시작했다. 어떻게 해서든 이 기회를 살려야 한다…….『사용가능 능력치』각 PC 임의의【능력치】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "SIT"
+output = "상황 표(1) ＞ 「불행의 연쇄」사건에 관련되었는지, PC들의 주변에 점점 불행이 일어나기 시작한다. 어떻게든 이 연쇄를 끊어야 한다…….『사용가능 능력치』【행운】"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "SIT"
+output = "상황 표(6) ＞ 「행운은 내 편」상황이 급박해지고 있다. 그러나 운 좋게도 상황이 PC들에게 유리하게 돌아가기 시작했다. 어떻게 해서든 이 기회를 살려야 한다…….『사용가능 능력치』각 PC 임의의【능력치】"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Target"
+output = "대상 표(1) ＞ 【체력】이 가장 높은 대상"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Target"
+output = "대상 표(6) ＞ 【희망】이 가장 높은 대상"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "TAR"
+output = "대상 표(1) ＞ 【체력】이 가장 높은 대상"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "TAR"
+output = "대상 표(6) ＞ 【희망】이 가장 높은 대상"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Insanity"
+output = "광기 표(1) ＞ 「도망치고 싶다」다음 [페이즈] 종료를 맞이할 때까지 PC는 공포 때문에 그 자리에서 한시라도 빨리 떠나고 싶은 충동에 휩싸인 듯한 모습을 연출하라."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Insanity"
+output = "광기 표(6) ＞ 「일시적 발광」다음 [페이즈] 종료를 맞이할 때까지 PC는 충격이 너무 심했던 나머지 일시적으로 발광해, 같은 말을 반복해서 중얼거리는 상황을 연출하라."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "INS"
+output = "광기 표(1) ＞ 「도망치고 싶다」다음 [페이즈] 종료를 맞이할 때까지 PC는 공포 때문에 그 자리에서 한시라도 빨리 떠나고 싶은 충동에 휩싸인 듯한 모습을 연출하라."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "INS"
+output = "광기 표(6) ＞ 「일시적 발광」다음 [페이즈] 종료를 맞이할 때까지 PC는 충격이 너무 심했던 나머지 일시적으로 발광해, 같은 말을 반복해서 중얼거리는 상황을 연출하라."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Death"
+output = "종말 표(1) ＞ 「엽기살인」그 후, PC가 교외의 폐가 안에서 조각난 시체로 발견된다. 경찰이 성실하게 조사하지 않았는지 결국 단서를 찾지 못하고 사건은 미궁에 빠졌다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Death"
+output = "종말 표(6) ＞ 「행방불명」그 후, PC가 행방불명이 된다. 가족은 PC에 대한 수색신고를 내지만 결국 끝끝내 PC를 찾지 못했다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "DEA"
+output = "종말 표(1) ＞ 「엽기살인」그 후, PC가 교외의 폐가 안에서 조각난 시체로 발견된다. 경찰이 성실하게 조사하지 않았는지 결국 단서를 찾지 못하고 사건은 미궁에 빠졌다."
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "DEA"
+output = "종말 표(6) ＞ 「행방불명」그 후, PC가 행방불명이 된다. 가족은 PC에 대한 수색신고를 내지만 결국 끝끝내 PC를 찾지 못했다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Fear"
+output = "공포 표(2) ＞ 「기분 나쁜 것」혈액, 사람의 뼈로 보이는 것, 대량의 점액 등… 기묘한 것이 갑자기 발 밑에 떨어진다.[효과계산]PC 전원에게 5+[주인÷2]d"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "Fear"
+output = "공포 표(12) ＞ 「암흑 속에서」PC가 갑자기 <무언가>에게 손발이 잡혀 암흑 속으로 끌려가려 한다![효과계산]PC 1명에게 6+[주인÷2]d"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "FEA"
+output = "공포 표(2) ＞ 「기분 나쁜 것」혈액, 사람의 뼈로 보이는 것, 대량의 점액 등… 기묘한 것이 갑자기 발 밑에 떨어진다.[효과계산]PC 전원에게 5+[주인÷2]d"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "JuinKansen:Korean"
+input = "FEA"
+output = "공포 표(12) ＞ 「암흑 속에서」PC가 갑자기 <무언가>에게 손발이 잡혀 암흑 속으로 끌려가려 한다![효과계산]PC 1명에게 6+[주인÷2]d"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+

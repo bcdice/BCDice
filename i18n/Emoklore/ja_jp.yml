@@ -5,3 +5,4 @@ ja_jp:
     triple: トリプル
     miracle: ミラクル
     catastrophe: カタストロフ
+    dice_count_zero: "ダイス数が0以下 ＞ 確定失敗"

@@ -17,7 +17,13 @@ module BCDice
         attr_accessor :first_modify
 
         # @return [Integer, nil]
+        attr_accessor :first_modify_ssp
+
+        # @return [Integer, nil]
         attr_accessor :rateup
+
+        # @return [Integer, nil]
+        attr_accessor :add_damage
 
         # @return [Boolean, nil]
         attr_accessor :greatest_fortune
@@ -29,6 +35,9 @@ module BCDice
         attr_accessor :tmp_fixed_val
 
         # @return [Integer, nil]
+        attr_accessor :set_zero_val
+
+        # @return [Integer, nil]
         attr_accessor :modifier
 
         # @return [Integer, nil]
@@ -37,8 +46,11 @@ module BCDice
         # @return [Integer, nil]
         attr_accessor :modifier_after_one_and_a_half
 
+        # @return [Integer, nil]
+        attr_accessor :modifier_after_double
+
         def settable_first_roll_adjust_option?
-          return first_modify.nil? && first_to.nil?
+          return first_modify.nil? && first_to.nil? && first_modify_ssp.nil?
         end
 
         def settable_non_2d_roll_option?

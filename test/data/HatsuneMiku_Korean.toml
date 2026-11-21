@@ -1,0 +1,501 @@
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RC>=5"
+output = "(RC>=5) ＞ [5] ＞ 5:성공"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RB"
+output = "(RB>=4) ＞ [3,5] ＞ \n　음색에 3(청)를 취득한 경우 5:성공\n　음색에 5(백)를 취득한 경우 3:실패"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "R1>=5"
+output = "(R1>=5) ＞ [5] ＞ 5:성공"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "R6"
+output = "(R6>=4) ＞ [2,2,3,3,5,5] ＞ \n　음색에 2(적)를 취득한 경우 5:성공\n　음색에 3(청)를 취득한 경우 5:성공\n　음색에 5(백)를 취득한 경우 5:성공"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RD"
+output = "(RD>=4) ＞ [3,4] ＞ 3:실패"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RD"
+output = "(RD>=4) ＞ [4,5] ＞ 4:성공"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RC"
+output = "(RC>=4) ＞ [3] ＞ 3:실패"
+rands = [
+  { sides = 6, value = 3 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RC"
+output = "(RC>=4) ＞ [4] ＞ 4:성공"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RC++"
+output = "(RC+2>=4) ＞ [2]+2 ＞ 4:성공"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RB+,+1"
+output = "(RB+1+1>=4) ＞ [2,5]+1+1 ＞ \n　음색에 2(적)를 취득한 경우 7:성공\n　음색에 5(백)를 취득한 경우 4:성공"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RC++,+1"
+output = "(RC+2+1>=4) ＞ [2]+2+1 ＞ 5:성공"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RC"
+output = "(RC>=4) ＞ [5] ＞ 5:성공"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RC"
+output = "(RC>=4) ＞ [2] ＞ 2:실패"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RC+2"
+output = "(RC+2>=4) ＞ [2]+2 ＞ 4:성공"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RC-3"
+output = "(RC-3>=4) ＞ [2]-3 ＞ -1:실패"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RC-3+2"
+output = "(RC-3+2>=4) ＞ [2]-3+2 ＞ 1:실패"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RC>=5-1"
+output = "(RC>=5-1) ＞ [5] ＞ 5:성공"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RC>=5-2 hogehoge"
+output = "(RC>=5-2) ＞ [5] ＞ 5:성공"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RB+1>=5"
+output = "(RB+1>=5) ＞ [2,4]+1 ＞ \n　음색에 2(적)를 취득한 경우 5:성공\n　음색에 4(녹)를 취득한 경우 3:실패"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RA-1"
+output = "(RA-1>=4) ＞ [1,5,6]-1 ＞ \n　음색에 1(흑)를 취득한 경우 5:스페셜\n　음색에 5(백)를 취득한 경우 5:스페셜\n　음색에 6(임의)를 취득한 경우 4:성공"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RS"
+output = "(RS>=4) ＞ [1,2,5,6] ＞ \n　음색에 1(흑)를 취득한 경우 6:스페셜\n　음색에 2(적)를 취득한 경우 6:스페셜\n　음색에 5(백)를 취득한 경우 6:스페셜\n　음색에 6(임의)를 취득한 경우 5:성공"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RD+1>=5"
+output = "(RD+1>=5) ＞ [2,4]+1 ＞ 3:실패"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RB@5"
+output = "(RB@5>=4) ＞ [2,5] ＞ \n　음색에 2(적)를 취득한 경우 5:스페셜\n　음색에 5(백)를 취득한 경우 2:실패"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RB+2@5"
+output = "(RB+2@5>=4) ＞ [2,5]+2 ＞ \n　음색에 2(적)를 취득한 경우 7:스페셜\n　음색에 5(백)를 취득한 경우 4:성공"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RB+2@5>=5"
+output = "(RB+2@5>=5) ＞ [2,5]+2 ＞ \n　음색에 2(적)를 취득한 경우 7:스페셜\n　음색에 5(백)를 취득한 경우 4:실패"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RB+2>=5@5"
+output = "(RB+2@5>=5) ＞ [2,5]+2 ＞ \n　음색에 2(적)를 취득한 경우 7:스페셜\n　음색에 5(백)를 취득한 경우 4:실패"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RS"
+output = "(RS>=4) ＞ [2,3,3,6] ＞ \n　음색에 2(적)를 취득한 경우 6:스페셜\n　음색에 3(청)를 취득한 경우 6:스페셜\n　음색에 6(임의)를 취득한 경우 3:실패"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RS"
+output = "(RS>=4) ＞ [2,3,5,5] ＞ \n　음색에 2(적)를 취득한 경우 5:성공\n　음색에 3(청)를 취득한 경우 5:성공\n　음색에 5(백)를 취득한 경우 5:성공"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "FT"
+output = "펌블표(6) ＞ 럭키! 아무 일도 일어나지 않는다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "CWT"
+output = "치명상표(6) ＞ 기적적으로 버텨내며 견뎌낸다. 【생명력】이 1점이 된다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "BT"
+output = "휴식표(6) ＞ 노이즈 스토어에 접속했다. 각 PC는, 자신의【두뇌】의 주사위 수와 같은 개수까지, 어플(アプリ)을 구입할 수 있다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "TT"
+output = "목표표(6) ＞ 난전. 해당 위협이 있는 패러그래프와, 숫자가 1만큼 차이 나는 패러그래프에 있는 PC 전원을 목표로 선택한다. 해당 패러그래프에 PC가 없을 경우, GM이 임의로 한 명을 선택한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RT"
+output = "관계표(6) ＞ 소중함(플러스)／귀찮음(마이너스)"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "OT"
+output = "장애표(6) ＞ 그 자리에 불길한 기운이 가득 찬다. 검정(흑) 음색이 하나 늘어난다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RQT"
+output = "리퀘스트표(12) ＞ 당신의 눈앞에, 당신의 시체가 놓여있다. 「너를 죽이는 것은 무엇이냐? 너는 누구에게 살해당하는가?」"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "CLT"
+output = "크롤표(12) ＞ 같은 종류의 오토다마와 계약한 오토다마 사용자와 의기투합한다. 이 세션 동안, 자신의 넘버 1개를 습득 가능한 다른 넘버로 변경할 수 있다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "RWT"
+output = "보상표(6) ＞ 싸움의 경험이【노래의 조각】이 된다. 이번 모험에 등장한 적, 정경, 사건 등에서, 키워드를 하나 선택한다. 그 키워드를【노래의 조각】의 키워드란에 추가한다."
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "NMT"
+output = "악몽표(6) ＞ 절망의 노래 속을 필사적으로 도망쳤다. 등 뒤에서 동료의 목소리가 들린 것 같다. 하지만, 당신은 돌아볼 수 없었다. 【일상】으로 판정한다. 실패하면, 자신에 대해【마음】을 가진 PC 한 명을 선택한다. 그 PC가 당신에게 가지고 있던【마음】은 소실된다"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "ST"
+output = "정경표(66) ＞ 아무도 없는 체육관"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "DKT"
+output = "다크・키워드표(66) ＞ 데스게임"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "DNT"
+output = "다크・이름표(66) ＞ 이미／忌、逝美　무이미／無意味、無為巳"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "HKT"
+output = "핫・키워드표(66) ＞ 오버드라이브"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "HNT"
+output = "핫・이름표(66) ＞ 레오／伶央、獅王　마츠리／祭、茉莉"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "LKT"
+output = "러브・키워드표(66) ＞ 뷰티풀 월드"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "LNT"
+output = "러브・이름표(66) ＞ 로미오／路美雄、露澪　로만／浪漫、絽萬"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "EKT"
+output = "엑센트릭・키워드표(66) ＞ 초속 1폴론크세마"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "ENT"
+output = "엑센트릭・이름표(66) ＞ 빅쿠리／吃驚、！　하테나／果菜、？"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "MKT"
+output = "멜랑콜리・키워드표(66) ＞ 나르시시즘"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "MNT"
+output = "멜랑콜리・이름표(66) ＞ 헤분／戸聞、天国　가라스／硝子、枯州"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "OPA"
+output = "오토다마 성격표A(66) ＞ 호전적"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "OPB"
+output = "오토다마 성격표B(66) ＞ 거짓말쟁이"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "OHT"
+output = "오토다마 취미표(66) ＞ 동영상 스트리밍"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "OLT"
+output = "오토다마 외견표(66) ＞ 전대 코스"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "OIT"
+output = "오토다마 1인칭표(12) ＞ 미(Me)"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "OYT"
+output = "오토다마 호칭표(12) ＞ （PC의 이름）전하"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "ORT"
+output = "리액션표(6) ＞ 공격을 행할 때의 대사"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "HatsuneMiku:Korean"
+input = "OMT"
+output = "만남표(12) ＞ 첫눈에 반함. 이전에, 당신은 다양한 악곡을 발표했습니다. 그러자, 그 악곡에 첫눈에 반했다며 당신에게 오토다마가 찾아왔습니다. 이후, 그 오토다마에게 쫓기는 나날입니다."
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]

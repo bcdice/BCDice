@@ -1,0 +1,184 @@
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD"
+output = "YD ＞ 22[6,7,9] +0 ＞ 22 ＞ 成功段階2"
+rands = [
+    { sides = 10, value = 9 },
+    { sides = 10, value = 6 },
+    { sides = 10, value = 7 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD"
+output = "YD ＞ 6[2,2,2] + 15[1,7,7] +0 ＞ 21 ＞ 成功段階2"
+rands = [
+    { sides = 10, value = 2 },
+    { sides = 10, value = 2 },
+    { sides = 10, value = 2 },
+    { sides = 10, value = 7 },
+    { sides = 10, value = 7 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD>=2"
+output = "YD>=2 ＞ 22[5,7,10] +0 ＞ 22 ＞ 成功段階2 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 5 },
+    { sides = 10, value = 7 },
+    { sides = 10, value = 10 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD>=2"
+output = "YD>=2 ＞ 19[4,6,9] +0 ＞ 19 ＞ 成功段階1 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 10, value = 9 },
+    { sides = 10, value = 4 },
+    { sides = 10, value = 6 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD>=2"
+output = "YD>=2 ＞ 24[8,8,8] + 7[1,2,4] +0 ＞ 31 ＞ 成功段階3 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 8 },
+    { sides = 10, value = 8 },
+    { sides = 10, value = 8 },
+    { sides = 10, value = 2 },
+    { sides = 10, value = 4 },
+    { sides = 10, value = 1 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD>=2"
+output = "YD>=2 ＞ 3[1,1,1] + 5[1,2,2] +0 ＞ 8 ＞ 成功段階0 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 10, value = 1 },
+    { sides = 10, value = 1 },
+    { sides = 10, value = 1 },
+    { sides = 10, value = 2 },
+    { sides = 10, value = 1 },
+    { sides = 10, value = 2 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD+5>=2"
+output = "YD+5>=2 ＞ 21[4,8,9] +5 ＞ 26 ＞ 成功段階2 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 4 },
+    { sides = 10, value = 8 },
+    { sides = 10, value = 9 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD+5>=2"
+output = "YD+5>=2 ＞ 15[3,5,7] +5 ＞ 20 ＞ 成功段階2 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 3 },
+    { sides = 10, value = 5 },
+    { sides = 10, value = 7 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD+5>=2"
+output = "YD+5>=2 ＞ 14[2,6,6] +5 ＞ 19 ＞ 成功段階1 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 10, value = 6 },
+    { sides = 10, value = 6 },
+    { sides = 10, value = 2 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD>2"
+output = "YD>2 ＞ 9[3,3,3] + 21[6,7,8] +0 ＞ 30 ＞ 成功段階3 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 3 },
+    { sides = 10, value = 3 },
+    { sides = 10, value = 3 },
+    { sides = 10, value = 8 },
+    { sides = 10, value = 6 },
+    { sides = 10, value = 7 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD>2"
+output = "YD>2 ＞ 21[6,7,8] +0 ＞ 21 ＞ 成功段階2 ＞ 失敗"
+failure = true
+rands = [ 
+    { sides = 10, value = 8 },
+    { sides = 10, value = 6 },
+    { sides = 10, value = 7 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD+5>2"
+output = "YD+5>2 ＞ 25[8,8,9] +5 ＞ 30 ＞ 成功段階3 ＞ 成功"
+success = true
+rands = [
+    { sides = 10, value = 8 },
+    { sides = 10, value = 8 },
+    { sides = 10, value = 9 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "YD+5>2"
+output = "YD+5>2 ＞ 24[4,10,10] +5 ＞ 29 ＞ 成功段階2 ＞ 失敗"
+failure = true
+rands = [
+    { sides = 10, value = 4 },
+    { sides = 10, value = 10 },
+    { sides = 10, value = 10 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "RT"
+output = "関係表(1) ＞ マブダチ：相手とは、マブダチ（親友） だ。いつからマブダチなのかはプレイヤー同士で相談して決めること。"
+rands = [
+    { sides = 10, value = 1},
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "ST"
+output = "場面表(10) ＞ 河原"
+rands = [
+    { sides = 10, value = 10 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "HT"
+output = "ハプニング表(3) ＞ 不調：どうにも愛車やドウグが体になじまない次の判定の成功段階がー１される。"
+rands = [
+    { sides = 10, value = 3 },
+]
+
+[[test]]
+game_system = "YankeeMustDie"
+input = "DT"
+output = "闇堕ち表(3) ＞ 指名手配：重大な犯罪を起こして指名手配されて逃亡者となる。"
+rands = [
+    { sides = 10, value = 3 },
+]

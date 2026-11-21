@@ -83,7 +83,7 @@ module BCDice
 
       def eval_game_system_specific_command(command)
         case command
-        when /^Gr(\d+)?/i
+        when /^Gr(\d+)?$/i
           if command =~ /^Gr(\d+)/i
             growth(Regexp.last_match(1).to_i)
           else

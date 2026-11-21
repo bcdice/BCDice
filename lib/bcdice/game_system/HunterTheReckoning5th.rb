@@ -15,16 +15,16 @@ module BCDice
       # ダイスボットの使い方
       HELP_MESSAGE = <<~MESSAGETEXT
         ・判定コマンド(nHRFx+x)
-          注意：難易度は必要成功数を表す
+          注意：難易度は必要達成数を表す
 
-          難易度指定：成功数のカウント、判定成功と失敗、Critical処理、Critical Win、Total Failureのチェックを行う
+          難易度指定：達成数のカウント、判定成功と失敗、クリティカル処理、クリティカル成功、完全失敗のチェックを行う
                      （Desperationダイスがある場合）OverreachとDespairの発生チェックを行う
           例) (難易度)HRF(通常ダイス)+(Desperationダイス)
               (難易度)HRF(通常ダイス)
 
-          難易度省略：成功数のカウント、判定失敗、Critical処理、Total Failure、（Desperationダイスがある場合）Despairチェックを行う
+          難易度省略：達成数のカウント、判定失敗、クリティカル処理、完全失敗、（Desperationダイスがある場合）Despairチェックを行う
                       判定成功、Overreachのチェックを行わない
-                      Critical Win、（Desperationダイスがある場合）Despair、Overreachのヒントを出力
+                      クリティカル成功、（Desperationダイスがある場合）Despair、Overreachのヒントを出力
           例) HRF(通常ダイス)+(Desperationダイス)
               HRF(通常ダイス)
 
@@ -45,12 +45,16 @@ module BCDice
       register_prefix('\d*HRF')
 
       def eval_game_system_specific_command(command)
-        m = /\A(\d+)?(HRF)(\d+)(\+(\d+))?$/.match(command)
+        m = /\A(\d+)?(HRF)(-?\d+)(\+(\d+))?$/.match(command)
         unless m
           return ''
         end
 
         dice_pool = m[DICE_POOL_INDEX].to_i
+        if dice_pool <= 0
+          # ダイスプールが0以下のとき、最低保証ダイスプールであるダイスプール1にする
+          dice_pool = 1
+        end
         dice_text, success_dice, ten_dice, = make_dice_roll(dice_pool)
         result_text = "(#{dice_pool}D10"
 
@@ -82,7 +86,7 @@ module BCDice
       private
 
       def get_roll_result(result_text, success_dice, ten_dice, _desperaton_ten_dice, desperaton_botch_dice, difficulty)
-        result_text = "#{result_text} 成功数=#{success_dice}"
+        result_text = "#{result_text} 達成数=#{success_dice}"
         is_critical = ten_dice >= 2
         desperation_result = ""
 
@@ -90,14 +94,14 @@ module BCDice
           result_text = "#{result_text} 難易度=#{difficulty}"
 
           if success_dice >= difficulty
-            result_text = "#{result_text} 差分=#{success_dice - difficulty}"
+            result_text = "#{result_text} 上回り=#{success_dice - difficulty}"
 
             if desperaton_botch_dice > 0
               desperation_result = " [Overreach or Despair?]"
             end
 
             if is_critical
-              return Result.critical("#{result_text}：判定成功! [Critical Win]#{desperation_result}")
+              return Result.critical("#{result_text}：判定成功! [クリティカル成功/Critical Win]#{desperation_result}")
             else
               return Result.success("#{result_text}：判定成功!#{desperation_result}")
             end
@@ -107,7 +111,7 @@ module BCDice
               return Result.fumble("#{result_text}：判定失敗! [Despair]")
             end
             if success_dice == 0
-              return Result.fumble("#{result_text}：判定失敗! [Total Failure]")
+              return Result.fumble("#{result_text}：判定失敗! [完全失敗/Total Failure]")
             end
 
             return Result.failure("#{result_text}：判定失敗!")
@@ -118,7 +122,7 @@ module BCDice
               return Result.fumble("#{result_text}：判定失敗! [Despair]")
             end
 
-            return Result.fumble("#{result_text}：判定失敗! [Total Failure]")
+            return Result.fumble("#{result_text}：判定失敗! [完全失敗/Total Failure]")
           else
             if desperaton_botch_dice > 0
               result_text = "#{result_text}\n　判定失敗なら [Despair]"
@@ -126,7 +130,7 @@ module BCDice
             end
 
             if is_critical
-              result_text = "#{result_text}\n　判定成功なら [Critical Win]"
+              result_text = "#{result_text}\n　判定成功なら [クリティカル成功/Critical Win]"
             elsif desperaton_botch_dice > 0
               result_text = "#{result_text}\n　判定成功なら"
             end

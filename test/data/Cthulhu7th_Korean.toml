@@ -1,133 +1,164 @@
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CBR(70,30) "
-output = "(1d100<=70,30) ＞ 30[어려운 성공,보통 성공] ＞ 부분적 성공"
+input = "CBR(70,30)"
+output = "(1d100<=70,30) ＞ 30[어려운 성공,보통 성공] ＞ 성공"
+success = true
 rands = [
   { sides = 100, value = 30 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CBR(70,30) "
-output = "(1d100<=70,30) ＞ 50[보통 성공,실패] ＞ 실패"
+input = "CBR(70,30)"
+output = "(1d100<=70,30) ＞ 50[보통 성공,실패] ＞ 일부 성공"
 rands = [
   { sides = 100, value = 50 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CBR(30,70) "
-output = "(1d100<=30,70) ＞ 60[실패,보통 성공] ＞ 실패"
+input = "CBR(30,70)"
+output = "(1d100<=30,70) ＞ 60[실패,보통 성공] ＞ 일부 성공"
 rands = [
   { sides = 100, value = 60 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CBR(70,69) "
-output = "(1d100<=70,69) ＞ 14[대단한 성공,어려운 성공] ＞ 성공"
+input = "CBR(70,69)"
+output = "(1d100<=70,69) ＞ 14[극단적 성공,어려운 성공] ＞ 성공"
+success = true
 rands = [
   { sides = 100, value = 14 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CBR(70,30) "
+input = "CBR(70,30)"
 output = "(1d100<=70,30) ＞ 100[대실패,대실패] ＞ 실패"
+failure = true
 rands = [
   { sides = 100, value = 100 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CBR(70,30) "
+input = "CBR(70,30)"
 output = "(1d100<=70,30) ＞ 1[대성공,대성공] ＞ 성공"
+success = true
 rands = [
   { sides = 100, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CBR(25,20) "
+input = "CBR(25,20)"
 output = "(1d100<=25,20) ＞ 1[대성공,대성공] ＞ 성공"
+success = true
 rands = [
   { sides = 100, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CBR(25,1) "
-output = "(1d100<=25,1) ＞ 5[대단한 성공,실패] ＞ 부분적 성공"
+input = "CBR(25,1)"
+output = "(1d100<=25,1) ＞ 5[극단적 성공,실패] ＞ 일부 성공"
 rands = [
   { sides = 100, value = 5 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CBR(90,40) "
+input = "CBR(90,40)"
 output = "(1d100<=90,40) ＞ 97[실패,대실패] ＞ 실패"
+failure = true
 rands = [
   { sides = 100, value = 97 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CBR(10,90) "
-output = "(1d100<=10,90) ＞ 30[실패,어려운 성공] ＞ 부분적 성공"
+input = "CBR(10,90)"
+output = "(1d100<=10,90) ＞ 30[실패,어려운 성공] ＞ 일부 성공"
 rands = [
   { sides = 100, value = 30 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CBR(xxx,xxx) 失敗パターン"
+input = "CBR(10,(40+50))"
+output = "(1d100<=10,90) ＞ 30[실패,어려운 성공] ＞ 일부 성공"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CBR(xxx,xxx) 실패 패턴"
 output = ""
 rands = []
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(-1)<=93"
-output = "(1D100<=93) 보너스, 패널티 주사위[-1] ＞ 92, 72 ＞ 92 ＞ 보통 성공"
+output = "(1D100<=93) 보너스, 페널티 주사위[-1] ＞ 92, 72 ＞ 92 ＞ 보통 성공"
+success = true
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 9 },
   { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(1)<=53"
-output = "(1D100<=53) 보너스, 패널티 주사위[1] ＞ 92, 52 ＞ 52 ＞ 보통 성공"
+output = "(1D100<=53) 보너스, 페널티 주사위[1] ＞ 92, 52 ＞ 52 ＞ 보통 성공"
+success = true
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 9 },
   { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC(+1)<=53"
+output = "(1D100<=53) 보너스, 페널티 주사위[1] ＞ 92, 52 ＞ 52 ＞ 보통 성공"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(1)<=46"
-output = "(1D100<=46) 보너스, 패널티 주사위[1] ＞ 47, 37 ＞ 37 ＞ 보통 성공"
+output = "(1D100<=46) 보너스, 페널티 주사위[1] ＞ 47, 37 ＞ 37 ＞ 보통 성공"
+success = true
 rands = [
-  { sides = 10, value = 7 },
   { sides = 10, value = 4 },
   { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(-1)<=46"
-output = "(1D100<=46) 보너스, 패널티 주사위[-1] ＞ 47, 37 ＞ 47 ＞ 실패"
+output = "(1D100<=46) 보너스, 페널티 주사위[-1] ＞ 47, 37 ＞ 47 ＞ 실패"
+failure = true
 rands = [
-  { sides = 10, value = 7 },
   { sides = 10, value = 4 },
   { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(1)<=63"
-output = "(1D100<=63) 보너스, 패널티 주사위[1] ＞ 100, 100 ＞ 100 ＞ 대실패"
+output = "(1D100<=63) 보너스, 페널티 주사위[1] ＞ 100, 100 ＞ 100 ＞ 대실패"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -137,7 +168,9 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(-1)<=63"
-output = "(1D100<=63) 보너스, 패널티 주사위[-1] ＞ 100, 100 ＞ 100 ＞ 대실패"
+output = "(1D100<=63) 보너스, 페널티 주사위[-1] ＞ 100, 100 ＞ 100 ＞ 대실패"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -147,126 +180,144 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(1)<=63"
-output = "(1D100<=63) 보너스, 패널티 주사위[1] ＞ 1, 1 ＞ 1 ＞ 대성공"
+output = "(1D100<=63) 보너스, 페널티 주사위[1] ＞ 1, 1 ＞ 1 ＞ 대성공"
+success = true
+critical = true
 rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 1 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(-1)<=63"
-output = "(1D100<=63) 보너스, 패널티 주사위[-1] ＞ 1, 1 ＞ 1 ＞ 대성공"
+output = "(1D100<=63) 보너스, 페널티 주사위[-1] ＞ 1, 1 ＞ 1 ＞ 대성공"
+success = true
+critical = true
 rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 1 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(0)<=53"
-output = "(1D100<=53) 보너스, 패널티 주사위[0] ＞ 52 ＞ 52 ＞ 보통 성공"
+output = "(1D100<=53) 보너스, 페널티 주사위[0] ＞ 52 ＞ 52 ＞ 보통 성공"
+success = true
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC<=53"
-output = "(1D100<=53) 보너스, 패널티 주사위[0] ＞ 52 ＞ 52 ＞ 보통 성공"
+output = "(1D100<=53) 보너스, 페널티 주사위[0] ＞ 52 ＞ 52 ＞ 보통 성공"
+success = true
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC<=5"
-output = "(1D100<=5) 보너스, 패널티 주사위[0] ＞ 2 ＞ 2 ＞ 어려운 성공"
+output = "(1D100<=5) 보너스, 페널티 주사위[0] ＞ 2 ＞ 2 ＞ 어려운 성공"
+success = true
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(2)<=73"
-output = "(1D100<=73) 보너스, 패널티 주사위[2] ＞ 24, 14, 54 ＞ 14 ＞ 대단한 성공"
+output = "(1D100<=73) 보너스, 페널티 주사위[2] ＞ 24, 14, 54 ＞ 14 ＞ 극단적 성공"
+success = true
 rands = [
-  { sides = 10, value = 4 },
   { sides = 10, value = 2 },
   { sides = 10, value = 1 },
   { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(2)<=73"
-output = "(1D100<=73) 보너스, 패널티 주사위[2] ＞ 20, 100, 50 ＞ 20 ＞ 어려운 성공"
+output = "(1D100<=73) 보너스, 페널티 주사위[2] ＞ 20, 100, 50 ＞ 20 ＞ 어려운 성공"
+success = true
 rands = [
-  { sides = 10, value = 10 },
   { sides = 10, value = 2 },
   { sides = 10, value = 10 },
   { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(-2)<=43"
-output = "(1D100<=43) 보너스, 패널티 주사위[-2] ＞ 97, 67, 37 ＞ 97 ＞ 대실패"
+output = "(1D100<=43) 보너스, 페널티 주사위[-2] ＞ 97, 67, 37 ＞ 97 ＞ 대실패"
+failure = true
+fumble = true
 rands = [
-  { sides = 10, value = 7 },
   { sides = 10, value = 9 },
   { sides = 10, value = 6 },
   { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(-2)<=80"
-output = "(1D100<=80) 보너스, 패널티 주사위[-2] ＞ 100, 60, 50 ＞ 100 ＞ 대실패"
+output = "(1D100<=80) 보너스, 페널티 주사위[-2] ＞ 100, 60, 50 ＞ 100 ＞ 대실패"
+failure = true
+fumble = true
 rands = [
-  { sides = 10, value = 10 },
   { sides = 10, value = 10 },
   { sides = 10, value = 6 },
   { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC(-1)<=53"
-output = "(1D100<=53) 보너스, 패널티 주사위[-1] ＞ 97, 67 ＞ 97 ＞ 실패"
+output = "(1D100<=53) 보너스, 페널티 주사위[-1] ＞ 97, 67 ＞ 97 ＞ 실패"
+failure = true
 rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
   { sides = 10, value = 7 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 6 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC<=49"
-output = "(1D100<=49) 보너스, 패널티 주사위[0] ＞ 95 ＞ 95 ＞ 실패"
+output = "(1D100<=49) 보너스, 페널티 주사위[0] ＞ 95 ＞ 95 ＞ 실패"
+failure = true
 rands = [
+  { sides = 10, value = 9 },
   { sides = 10, value = 5 },
-  { sides = 10, value = 9 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC<=49"
-output = "(1D100<=49) 보너스, 패널티 주사위[0] ＞ 96 ＞ 96 ＞ 대실패"
+output = "(1D100<=49) 보너스, 페널티 주사위[0] ＞ 96 ＞ 96 ＞ 대실패"
+failure = true
+fumble = true
 rands = [
+  { sides = 10, value = 9 },
   { sides = 10, value = 6 },
-  { sides = 10, value = 9 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC<=50"
-output = "(1D100<=50) 보너스, 패널티 주사위[0] ＞ 99 ＞ 99 ＞ 실패"
+output = "(1D100<=50) 보너스, 페널티 주사위[0] ＞ 99 ＞ 99 ＞ 실패"
+failure = true
 rands = [
   { sides = 10, value = 9 },
   { sides = 10, value = 9 },
@@ -275,7 +326,9 @@ rands = [
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC<=50"
-output = "(1D100<=50) 보너스, 패널티 주사위[0] ＞ 100 ＞ 100 ＞ 대실패"
+output = "(1D100<=50) 보너스, 페널티 주사위[0] ＞ 100 ＞ 100 ＞ 대실패"
+failure = true
+fumble = true
 rands = [
   { sides = 10, value = 10 },
   { sides = 10, value = 10 },
@@ -283,479 +336,1399 @@ rands = [
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CC(-3)<=80"
-output = "에러. 보너스, 패널티 주사위의 수치는 -2~2입니다."
+input = "CC(-101)<=80"
+output = "보너스, 페널티 주사위의 값은 -100 이상, 100 이하로 지정해 주세요."
 rands = []
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "CC(3)<=80"
-output = "에러. 보너스, 패널티 주사위의 수치는 -2~2입니다."
+input = "CC(101)<=80"
+output = "보너스, 페널티 주사위의 값은 -100 이상, 100 이하로 지정해 주세요."
 rands = []
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "CC<=0"
-output = "에러. 목표치는 1 이상입니다."
-rands = []
+output = "(1D100) ＞ 33"
+rands = [
+  { sides = 100, value = 33 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC(2)"
+output = "(1D100) 보너스, 페널티 주사위[2] ＞ 20, 100, 50 ＞ 20"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC(2)<=0"
+output = "(1D100) 보너스, 페널티 주사위[2] ＞ 20, 100, 50 ＞ 20"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC(-2)"
+output = "(1D100) 보너스, 페널티 주사위[-2] ＞ 97, 67, 37 ＞ 97"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC(3) 보너스 주사위 수 완화"
+output = "(1D100) 보너스, 페널티 주사위[3] ＞ 20, 100, 50, 30 ＞ 20"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC(-3) 페널티 주사위 수 완화"
+output = "(1D100) 보너스, 페널티 주사위[-3] ＞ 20, 100, 50, 30 ＞ 100"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC-1<=93 페널티 주사위 지정 (괄호 생략)"
+output = "(1D100<=93) 보너스, 페널티 주사위[-1] ＞ 92, 72 ＞ 92 ＞ 보통 성공"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC1<=53 보너스 주사위 지정 (괄호 생략)"
+output = "(1D100<=53) 보너스, 페널티 주사위[1] ＞ 92, 52 ＞ 52 ＞ 보통 성공"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC+1<=53 보너스 주사위 지정 (괄호 생략)"
+output = "(1D100<=53) 보너스, 페널티 주사위[1] ＞ 92, 52 ＞ 52 ＞ 보통 성공"
+success = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=100"
+output = "(1D100<=100) 보너스, 페널티 주사위[0] ＞ 100 ＞ 100 ＞ 대실패"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=150"
+output = "(1D100<=150) 보너스, 페널티 주사위[0] ＞ 100 ＞ 100 ＞ 대실패"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=53r"
+output = "(1D100<=53) 보너스, 페널티 주사위[0] ＞ 53 ＞ 53 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=53r"
+output = "(1D100<=53) 보너스, 페널티 주사위[0] ＞ 54 ＞ 54 ＞ 실패"
+failure = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=53r"
+output = "(1D100<=53) 보너스, 페널티 주사위[0] ＞ 99 ＞ 99 ＞ 실패"
+failure = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=53r"
+output = "(1D100<=53) 보너스, 페널티 주사위[0] ＞ 100 ＞ 100 ＞ 대실패"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 0 },
+  { sides = 10, value = 0 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=53h"
+output = "(1D100<=26) 보너스, 페널티 주사위[0] ＞ 26 ＞ 26 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=53h"
+output = "(1D100<=26) 보너스, 페널티 주사위[0] ＞ 27 ＞ 27 ＞ 실패"
+failure = true
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=53h"
+output = "(1D100<=26) 보너스, 페널티 주사위[0] ＞ 96 ＞ 96 ＞ 대실패"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=53e"
+output = "(1D100<=10) 보너스, 페널티 주사위[0] ＞ 10 ＞ 10 ＞ 성공"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 0 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=53e"
+output = "(1D100<=10) 보너스, 페널티 주사위[0] ＞ 11 ＞ 11 ＞ 실패"
+failure = true
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=2e"
+output = "(1D100<=0) 보너스, 페널티 주사위[0] ＞ 1 ＞ 1 ＞ 대성공"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 0 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=99c"
+output = "(1D100<=0) 보너스, 페널티 주사위[0] ＞ 1 ＞ 1 ＞ 대성공"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 0 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=99c"
+output = "(1D100<=0) 보너스, 페널티 주사위[0] ＞ 2 ＞ 2 ＞ 실패"
+failure = true
+rands = [
+  { sides = 10, value = 0 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=99c"
+output = "(1D100<=0) 보너스, 페널티 주사위[0] ＞ 96 ＞ 96 ＞ 대실패"
+failure = true
+fumble = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=100r"
+output = "(1D100<=100) 보너스, 페널티 주사위[0] ＞ 100 ＞ 100 ＞ 대실패"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "CC<=300h"
+output = "(1D100<=150) 보너스, 페널티 주사위[0] ＞ 100 ＞ 100 ＞ 대실패"
+fumble = true
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(30,62,98)"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 52 ＞ 보통 성공\n2번째: ＞ 11, 81 ＞ 실패\n3번째: ＞ 2, 2, 2 ＞ 대단한 성공\n    난이도가 어려운 성공으로 변경\n4번째: ＞ 98, 88, 78 ＞ 대실패 총알 걸림\n＞ 6발이 명중, 3발이 관통, 잔탄 12발"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 52 ＞ 보통 성공　（3발 명중, 0발 관통）\n2번째: ＞ 11, 81 ＞ 실패　（0발 명중, 0발 관통）\n3번째: ＞ 2, 2, 2 ＞ 극단적 성공　（3발 명중, 3발 관통）\n【난이도를 어려운 성공으로 변경】\n4번째: ＞ 98, 88, 78 ＞ 대실패　총알 걸림(고장)\n＞ 6발 명중, 3발 관통, 남은 탄환 12발"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 5 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 8 },
   { sides = 10, value = 2 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
   { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(30,62,98,)"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 52 ＞ 보통 성공　（3발 명중, 0발 관통）\n2번째: ＞ 11, 81 ＞ 실패　（0발 명중, 0발 관통）\n3번째: ＞ 2, 2, 2 ＞ 극단적 성공　（3발 명중, 3발 관통）\n【난이도를 어려운 성공으로 변경】\n4번째: ＞ 98, 88, 78 ＞ 대실패　총알 걸림(고장)\n＞ 6발 명중, 3발 관통, 남은 탄환 12발"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(30,62,98,,)"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 52 ＞ 보통 성공　（3발 명중, 0발 관통）\n2번째: ＞ 11, 81 ＞ 실패　（0발 명중, 0발 관통）\n3번째: ＞ 2, 2, 2 ＞ 극단적 성공　（3발 명중, 3발 관통）\n【난이도를 어려운 성공으로 변경】\n4번째: ＞ 98, 88, 78 ＞ 대실패　총알 걸림(고장)\n＞ 6발 명중, 3발 관통, 남은 탄환 12발"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(30,62,98,-1)"
-output = "보너스, 패널티 주사위 [-1]\n1번째: ＞ 11, 81 ＞ 실패\n2번째: ＞ 2, 2, 2 ＞ 대단한 성공\n    난이도가 어려운 성공으로 변경\n3번째: ＞ 98, 88, 78 ＞ 대실패 총알 걸림\n＞ 3발이 명중, 3발이 관통, 잔탄 18발"
+output = "보너스, 페널티 주사위[-1]\n1번째: ＞ 11, 81 ＞ 실패　（0발 명중, 0발 관통）\n2번째: ＞ 2, 2, 2 ＞ 극단적 성공　（3발 명중, 3발 관통）\n【난이도를 어려운 성공으로 변경】\n3번째: ＞ 98, 88, 78 ＞ 대실패　총알 걸림(고장)\n＞ 3발 명중, 3발 관통, 남은 탄환 18발"
 rands = [
   { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
   { sides = 10, value = 1 },
-  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 2 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 8 },
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(30,62,98,-1,)"
+output = "보너스, 페널티 주사위[-1]\n1번째: ＞ 11, 81 ＞ 실패　（0발 명중, 0발 관통）\n2번째: ＞ 2, 2, 2 ＞ 극단적 성공　（3발 명중, 3발 관통）\n【난이도를 어려운 성공으로 변경】\n3번째: ＞ 98, 88, 78 ＞ 대실패　총알 걸림(고장)\n＞ 3발 명중, 3발 관통, 남은 탄환 18발"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(30,62,98,-2)"
-output = "보너스, 패널티 주사위 [-2]\n1번째: ＞ 2, 2, 2 ＞ 대단한 성공\n    난이도가 어려운 성공으로 변경\n2번째: ＞ 98, 88, 78 ＞ 대실패 총알 걸림\n＞ 3발이 명중, 3발이 관통, 잔탄 24발"
+output = "보너스, 페널티 주사위[-2]\n1번째: ＞ 2, 2, 2 ＞ 극단적 성공　（3발 명중, 3발 관통）\n【난이도를 어려운 성공으로 변경】\n2번째: ＞ 98, 88, 78 ＞ 대실패　총알 걸림(고장)\n＞ 3발 명중, 3발 관통, 남은 탄환 24발"
 rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 2 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 8 },
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(30,1,98)"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 1 ＞ 대성공\n2번째: ＞ 98, 88 ＞ 대실패 총알 걸림\n＞ 0발이 명중, 1발이 관통, 잔탄 29발"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 1 ＞ 대성공　（2발 명중, 1발 관통）\n2번째: ＞ 98, 88 ＞ 대실패　총알 걸림(고장)\n＞ 2발 명중, 1발 관통, 남은 탄환 27발"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 10 },
-  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
   { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
   { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(30,14,98)"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 2 ＞ 대단한 성공\n2번째: ＞ 98, 88 ＞ 대실패 총알 걸림\n＞ 0발이 명중, 1발이 관통, 잔탄 29발"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 2 ＞ 극단적 성공　（2발 명중, 1발 관통）\n2번째: ＞ 98, 88 ＞ 대실패　총알 걸림(고장)\n＞ 2발 명중, 1발 관통, 남은 탄환 27발"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 10 },
-  { sides = 10, value = 8 },
+  { sides = 10, value = 2 },
   { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
   { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(30,8,98)"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 2 ＞ 어려운 성공\n2번째: ＞ 98, 88 ＞ 대실패 총알 걸림\n＞ 1발이 명중, 0발이 관통, 잔탄 29발"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 2 ＞ 어려운 성공　（1발 명중, 0발 관통）\n2번째: ＞ 98, 88 ＞ 대실패　총알 걸림(고장)\n＞ 1발 명중, 0발 관통, 남은 탄환 27발"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 10 },
-  { sides = 10, value = 8 },
+  { sides = 10, value = 2 },
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "FAR(7,80,98)"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 10 ＞ 대단한 성공\n＞ 3발이 명중, 4발이 관통, 잔탄 0발"
+input = "FAR(7,80,98) 관통하는 탄환 수＝그 판정에서 판정하는 탄환 수/2（※연사할 탄환 수/2가 아님）"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 10 ＞ 극단적 성공　（4발 명중, 3발 관통）\n＞ 4발 명중, 3발 관통, 남은 탄환 0발"
 rands = [
-  { sides = 10, value = 10 },
   { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(7,80,98)"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 50 ＞ 보통 성공\n＞ 3발이 명중, 0발이 관통, 잔탄 0발"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 50 ＞ 보통 성공　（3발 명중, 0발 관통）\n＞ 3발 명중, 0발 관통, 남은 탄환 0발"
 rands = [
-  { sides = 10, value = 10 },
   { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(7,99,98)"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 98 ＞ 보통 성공 총알 걸림\n＞ 0발이 명중, 0발이 관통, 잔탄 7발"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 98 ＞ 보통 성공　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 7발"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(1,80,98)"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 50 ＞ 보통 성공\n＞ 1발이 명중, 0발이 관통, 잔탄 0발"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 50 ＞ 보통 성공　（1발 명중, 0발 관통）\n＞ 1발 명중, 0발 관통, 남은 탄환 0발"
 rands = [
-  { sides = 10, value = 10 },
   { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(1,80,98)"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 5 ＞ 대단한 성공\n＞ 0발이 명중, 1발이 관통, 잔탄 0발"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 5 ＞ 극단적 성공　（0발 명중, 1발 관통）\n＞ 0발 명중, 1발 관통, 남은 탄환 0발"
 rands = [
-  { sides = 10, value = 5 },
   { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(1,99,98)"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 97 ＞ 보통 성공\n＞ 1발이 명중, 0발이 관통, 잔탄 0발"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 97 ＞ 보통 성공　（1발 명중, 0발 관통）\n＞ 1발 명중, 0발 관통, 남은 탄환 0발"
 rands = [
+  { sides = 10, value = 9 },
   { sides = 10, value = 7 },
-  { sides = 10, value = 9 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(1,99,98)"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 98 ＞ 보통 성공 총알 걸림\n＞ 0발이 명중, 0발이 관통, 잔탄 1발"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 98 ＞ 보통 성공　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 1발"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(30,42,98,-2)"
-output = "보너스, 패널티 주사위 [-2]\n1번째: ＞ 98, 88, 78 ＞ 대실패 총알 걸림\n＞ 0발이 명중, 0발이 관통, 잔탄 30발"
+output = "보너스, 페널티 주사위[-2]\n1번째: ＞ 98, 88, 78 ＞ 대실패　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 30발"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(30,42,98,-1)"
-output = "보너스, 패널티 주사위 [-1]\n1번째: ＞ 98, 88 ＞ 대실패 총알 걸림\n＞ 0발이 명중, 0발이 관통, 잔탄 30발"
+output = "보너스, 페널티 주사위[-1]\n1번째: ＞ 98, 88 ＞ 대실패　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 30발"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
   { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(40,82,97,1)"
-output = "보너스, 패널티 주사위 [1]\n1번째: ＞ 52, 22 ＞ 어려운 성공\n2번째: ＞ 1 ＞ 대성공\n3번째: ＞ 15, 85 ＞ 실패\n4번째: ＞ 3, 13, 3 ＞ 대단한 성공\n    난이도가 어려운 성공으로 변경\n5번째: ＞ 98, 88, 78 ＞ 대실패 총알 걸림\n＞ 12발이 명중, 8발이 관통, 잔탄 8발"
+output = "보너스, 페널티 주사위[1]\n1번째: ＞ 52, 22 ＞ 어려운 성공　（4발 명중, 0발 관통）\n2번째: ＞ 1 ＞ 대성공　（4발 명중, 4발 관통）\n3번째: ＞ 15, 85 ＞ 실패　（0발 명중, 0발 관통）\n4번째: ＞ 3, 13, 3 ＞ 극단적 성공　（4발 명중, 4발 관통）\n【난이도를 어려운 성공으로 변경】\n5번째: ＞ 98, 88, 78 ＞ 대실패　총알 걸림(고장)\n＞ 12발 명중, 8발 관통, 남은 탄환 8발"
 rands = [
-  { sides = 10, value = 2 },
   { sides = 10, value = 5 },
   { sides = 10, value = 2 },
-  { sides = 10, value = 1 },
+  { sides = 10, value = 2 },
   { sides = 10, value = 10 },
-  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 3 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 8 },
   { sides = 10, value = 9 },
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(40,82,97,2)"
-output = "보너스, 패널티 주사위 [2]\n1번째: ＞ 61, 71, 21 ＞ 어려운 성공\n2번째: ＞ 80, 70 ＞ 보통 성공\n3번째: ＞ 65 ＞ 보통 성공\n4번째: ＞ 15, 85 ＞ 실패\n5번째: ＞ 44, 14, 74 ＞ 보통 성공\n＞ 16발이 명중, 0발이 관통, 잔탄 0발"
+output = "보너스, 페널티 주사위[2]\n1번째: ＞ 61, 71, 21 ＞ 어려운 성공　（4발 명중, 0발 관통）\n2번째: ＞ 80, 70 ＞ 보통 성공　（4발 명중, 0발 관통）\n3번째: ＞ 65 ＞ 보통 성공　（4발 명중, 0발 관통）\n4번째: ＞ 15, 85 ＞ 실패　（0발 명중, 0발 관통）\n5번째: ＞ 44, 14, 74 ＞ 보통 성공　（4발 명중, 0발 관통）\n＞ 16발 명중, 0발 관통, 남은 탄환 0발"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
   { sides = 10, value = 2 },
-  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
-  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 6 },
   { sides = 10, value = 5 },
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
-  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
   { sides = 10, value = 4 },
   { sides = 10, value = 1 },
   { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(38,82,97,2)"
-output = "보너스, 패널티 주사위 [2]\n1번째: ＞ 61, 71, 21 ＞ 어려운 성공\n2번째: ＞ 80, 70 ＞ 보통 성공\n3번째: ＞ 65 ＞ 보통 성공\n4번째: ＞ 15, 85 ＞ 실패\n5번째: ＞ 44, 14, 74 ＞ 보통 성공\n＞ 15발이 명중, 0발이 관통, 잔탄 0발"
+output = "보너스, 페널티 주사위[2]\n1번째: ＞ 61, 71, 21 ＞ 어려운 성공　（4발 명중, 0발 관통）\n2번째: ＞ 80, 70 ＞ 보통 성공　（4발 명중, 0발 관통）\n3번째: ＞ 65 ＞ 보통 성공　（4발 명중, 0발 관통）\n4번째: ＞ 15, 85 ＞ 실패　（0발 명중, 0발 관통）\n5번째: ＞ 44, 14, 74 ＞ 보통 성공　（3발 명중, 0발 관통）\n＞ 15발 명중, 0발 관통, 남은 탄환 0발"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
   { sides = 10, value = 2 },
-  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
-  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 6 },
   { sides = 10, value = 5 },
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
-  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
   { sides = 10, value = 4 },
   { sides = 10, value = 1 },
   { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(72,82,97,2)"
-output = "보너스, 패널티 주사위 [2]\n1번째: ＞ 61, 71, 21 ＞ 어려운 성공\n2번째: ＞ 80, 70 ＞ 보통 성공\n3번째: ＞ 65 ＞ 보통 성공\n4번째: ＞ 15, 85 ＞ 실패\n5번째: ＞ 44, 14, 74 ＞ 보통 성공\n    난이도가 어려운 성공으로 변경\n6번째: ＞ 28, 88, 78 ＞ 실패\n    난이도가 대단한 성공으로 변경\n7번째: ＞ 83, 33, 33 ＞ 실패\n    난이도가 대성공으로 변경\n8번째: ＞ 68, 48, 68 ＞ 보통 성공\n＞ 16발이 명중, 0발이 관통, 잔탄 8발"
+output = "보너스, 페널티 주사위[2]\n1번째: ＞ 61, 71, 21 ＞ 어려운 성공　（4발 명중, 0발 관통）\n2번째: ＞ 80, 70 ＞ 보통 성공　（4발 명중, 0발 관통）\n3번째: ＞ 65 ＞ 보통 성공　（4발 명중, 0발 관통）\n4번째: ＞ 15, 85 ＞ 실패　（0발 명중, 0발 관통）\n5번째: ＞ 44, 14, 74 ＞ 보통 성공　（4발 명중, 0발 관통）\n【난이도를 어려운 성공으로 변경】\n6번째: ＞ 28, 88, 78 ＞ 실패　（0발 명중, 0발 관통）\n【난이도를 극단적 성공으로 변경】\n7번째: ＞ 83, 33, 33 ＞ 실패　（0발 명중, 0발 관통）\n【난이도를 대성공으로 변경】\n8번째: ＞ 68, 48, 68 ＞ 보통 성공　（0발 명중, 0발 관통）\n＞ 16발 명중, 0발 관통, 남은 탄환 8발"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
   { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
   { sides = 10, value = 10 },
-  { sides = 10, value = 8 },
-  { sides = 10, value = 7 },
-  { sides = 10, value = 5 },
   { sides = 10, value = 6 },
   { sides = 10, value = 5 },
   { sides = 10, value = 1 },
   { sides = 10, value = 8 },
-  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
   { sides = 10, value = 4 },
   { sides = 10, value = 1 },
   { sides = 10, value = 7 },
-  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
   { sides = 10, value = 2 },
   { sides = 10, value = 8 },
   { sides = 10, value = 7 },
-  { sides = 10, value = 3 },
+  { sides = 10, value = 8 },
   { sides = 10, value = 8 },
   { sides = 10, value = 3 },
   { sides = 10, value = 3 },
-  { sides = 10, value = 8 },
+  { sides = 10, value = 3 },
   { sides = 10, value = 6 },
   { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(72,82,97,2)"
+output = "보너스, 페널티 주사위[2]\n1번째: ＞ 61, 71, 21 ＞ 어려운 성공　（4발 명중, 0발 관통）\n2번째: ＞ 90, 70 ＞ 보통 성공　（4발 명중, 0발 관통）\n3번째: ＞ 65 ＞ 보통 성공　（4발 명중, 0발 관통）\n4번째: ＞ 15, 95 ＞ 실패　（0발 명중, 0발 관통）\n5번째: ＞ 44, 14, 74 ＞ 보통 성공　（4발 명중, 0발 관통）\n【난이도를 어려운 성공으로 변경】\n6번째: ＞ 58, 68, 78 ＞ 보통 성공　（0발 명중, 0발 관통）\n【난이도를 극단적 성공으로 변경】\n7번째: ＞ 23, 33, 23 ＞ 어려운 성공　（0발 명중, 0발 관통）\n【난이도를 대성공으로 변경】\n8번째: ＞ 16, 6, 16 ＞ 극단적 성공　（0발 명중, 0발 관통）\n＞ 16발 명중, 0발 관통, 남은 탄환 8발"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
   { sides = 10, value = 6 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(72,82,97,2)"
-output = "보너스, 패널티 주사위 [2]\n1번째: ＞ 61, 71, 21 ＞ 어려운 성공\n2번째: ＞ 90, 70 ＞ 보통 성공\n3번째: ＞ 65 ＞ 보통 성공\n4번째: ＞ 15, 95 ＞ 실패\n5번째: ＞ 44, 14, 74 ＞ 보통 성공\n    난이도가 어려운 성공으로 변경\n6번째: ＞ 58, 68, 78 ＞ 보통 성공\n    난이도가 대단한 성공으로 변경\n7번째: ＞ 23, 33, 23 ＞ 어려운 성공\n    난이도가 대성공으로 변경\n8번째: ＞ 16, 6, 16 ＞ 대단한 성공\n＞ 16발이 명중, 0발이 관통, 잔탄 8발"
+output = "보너스, 페널티 주사위[2]\n1번째: ＞ 61, 71, 21 ＞ 어려운 성공　（4발 명중, 0발 관통）\n2번째: ＞ 90, 70 ＞ 보통 성공　（4발 명중, 0발 관통）\n3번째: ＞ 65 ＞ 보통 성공　（4발 명중, 0발 관통）\n4번째: ＞ 15, 95 ＞ 실패　（0발 명중, 0발 관통）\n5번째: ＞ 44, 14, 74 ＞ 보통 성공　（4발 명중, 0발 관통）\n【난이도를 어려운 성공으로 변경】\n6번째: ＞ 28, 38, 18 ＞ 어려운 성공　（4발 명중, 0발 관통）\n【난이도를 극단적 성공으로 변경】\n7번째: ＞ 13, 3, 13 ＞ 극단적 성공　（4발 명중, 4발 관통）\n【난이도를 대성공으로 변경】\n8번째: ＞ 1, 1, 1 ＞ 대성공　（4발 명중, 0발 관통）\n＞ 28발 명중, 4발 관통, 남은 탄환 8발"
 rands = [
-  { sides = 10, value = 1 },
   { sides = 10, value = 6 },
   { sides = 10, value = 7 },
   { sides = 10, value = 2 },
-  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
   { sides = 10, value = 9 },
   { sides = 10, value = 7 },
-  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 6 },
   { sides = 10, value = 5 },
   { sides = 10, value = 1 },
   { sides = 10, value = 9 },
-  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
   { sides = 10, value = 4 },
   { sides = 10, value = 1 },
   { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
   { sides = 10, value = 8 },
-  { sides = 10, value = 5 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 7 },
-  { sides = 10, value = 3 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 3 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 6 },
   { sides = 10, value = 1 },
   { sides = 10, value = 10 },
-  { sides = 10, value = 1 },
-]
-
-[[ test ]]
-game_system = "Cthulhu7th:Korean"
-input = "FAR(72,82,97,2)"
-output = "보너스, 패널티 주사위 [2]\n1번째: ＞ 61, 71, 21 ＞ 어려운 성공\n2번째: ＞ 90, 70 ＞ 보통 성공\n3번째: ＞ 65 ＞ 보통 성공\n4번째: ＞ 15, 95 ＞ 실패\n5번째: ＞ 44, 14, 74 ＞ 보통 성공\n    난이도가 어려운 성공으로 변경\n6번째: ＞ 28, 38, 18 ＞ 어려운 성공\n    난이도가 대단한 성공으로 변경\n7번째: ＞ 13, 3, 13 ＞ 대단한 성공\n    난이도가 대성공으로 변경\n8번째: ＞ 1, 1, 1 ＞ 대성공\n＞ 28발이 명중, 4발이 관통, 잔탄 8발"
-rands = [
-  { sides = 10, value = 1 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 7 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 7 },
-  { sides = 10, value = 5 },
-  { sides = 10, value = 6 },
-  { sides = 10, value = 5 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 9 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 4 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 7 },
-  { sides = 10, value = 8 },
-  { sides = 10, value = 2 },
-  { sides = 10, value = 3 },
   { sides = 10, value = 1 },
   { sides = 10, value = 3 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 1 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 1 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
-  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(120,82,97,-2)"
-output = "\n탄약이 너무 많습니다. 장전된 탄약을 100개로 변경합니다.\n보너스, 패널티 주사위 [-2]\n1번째: ＞ 60, 100, 20 ＞ 대실패 총알 걸림\n＞ 0발이 명중, 0발이 관통, 잔탄 100발"
+output = "탄환이 너무 많습니다. 장전된 탄환을 100발로 변경합니다.\n보너스, 페널티 주사위[-2]\n1번째: ＞ 60, 100, 20 ＞ 대실패　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 100발"
 rands = [
-  { sides = 10, value = 10 },
   { sides = 10, value = 6 },
   { sides = 10, value = 10 },
   { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(120,82,97,3)"
-output = "\n에러. 보너스, 패널티 주사위의 수치는 -2~2입니다."
+output = "오류. 보너스, 페널티 주사위의 값은 -2~2여야 합니다."
 rands = []
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
 input = "FAR(38,99,97,-1)"
-output = "보너스, 패널티 주사위 [-1]\n1번째: ＞ 78, 98 ＞ 보통 성공 총알 걸림\n＞ 0발이 명중, 0발이 관통, 잔탄 38발"
+output = "보너스, 페널티 주사위[-1]\n1번째: ＞ 78, 98 ＞ 보통 성공　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 38발"
 rands = [
+  { sides = 10, value = 7 },
+  { sides = 10, value = 9 },
   { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(0,0,98)"
+output = "탄환은 양수여야 합니다."
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(1,98,5)    고장 수치가 극단적으로 낮아 일어날 수 없는 경우의 처리"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 8 ＞ 극단적 성공　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 1발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(3,98,5)    고장 수치가 극단적으로 낮아 일어날 수 없는 경우의 처리"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 8 ＞ 극단적 성공　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 3발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(1,98,5)    고장 수치가 극단적으로 낮아 일어날 수 없는 경우의 처리"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 58 ＞ 보통 성공　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 1발"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(3,98,5)    고장 수치가 극단적으로 낮아 일어날 수 없는 경우의 처리"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 58 ＞ 보통 성공　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 3발"
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(3,18,5)    고장 수치가 극단적으로 낮아 일어날 수 없는 경우의 처리"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 18 ＞ 보통 성공　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 3발"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(3,8,5)    고장 수치가 극단적으로 낮아 일어날 수 없는 경우의 처리"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 8 ＞ 보통 성공　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 3발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(1,99,-98)    고장 수치에 마이너스가 붙어 있는 경우, 절대값을 씌우는 처리 확인"
+output = "고장 수치는 양수여야 합니다. 마이너스 부호를 제외합니다.\n보너스, 페널티 주사위[0]\n1번째: ＞ 8 ＞ 극단적 성공　（0발 명중, 1발 관통）\n＞ 0발 명중, 1발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(-1,99,98)    탄수가 마이너스인 이상 패턴."
+output = "탄환은 양수여야 합니다."
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(1,-99,-98)    목표치가 마이너스인 이상 패턴."
+output = "목표치는 양수여야 합니다."
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(1,99,98,3)    보너스 주사위 이상 패턴"
+output = "오류. 보너스, 페널티 주사위의 값은 -2~2여야 합니다."
+rands = []
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(60,50,99,1,r)    보통 난이도만으로 연사를 마치는 경우. 보너스 주사위 1."
+output = "보너스, 페널티 주사위[1]\n1번째: ＞ 94, 74 ＞ 실패　（0발 명중, 0발 관통）\n2번째: ＞ 19 ＞ 어려운 성공　（2발 명중, 0발 관통）\n3번째: ＞ 84, 44 ＞ 실패　（0발 명중, 0발 관통）\n4번째: ＞ 47, 97, 37 ＞ 실패　（0발 명중, 0발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 2발 명중, 0발 관통, 남은 탄환 40발"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(60,50,99,,r)    보통 난이도만으로 연사를 마치는 경우. 보너스 주사위 0."
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 19 ＞ 어려운 성공　（2발 명중, 0발 관통）\n2번째: ＞ 84, 44 ＞ 실패　（0발 명중, 0발 관통）\n3번째: ＞ 47, 97, 37 ＞ 실패　（0발 명중, 0발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 2발 명중, 0발 관통, 남은 탄환 45발"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(45,70,98,,h)    어려운 난이도만으로 연사를 마치는 경우. 보너스 주사위 0. 총알 걸림(고장)으로 종료."
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 40 ＞ 보통 성공　（3발 명중, 0발 관통）\n2번째: ＞ 48, 78 ＞ 실패　（0발 명중, 0발 관통）\n3번째: ＞ 39, 99, 79 ＞ 실패　총알 걸림(고장)\n＞ 3발 명중, 0발 관통, 남은 탄환 31발"
+rands = [
+  { sides = 10, value = 4 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 9 },
   { sides = 10, value = 7 },
   { sides = 10, value = 9 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "FAR(0,0,98)"
-output = "탄약은 1 이상입니다."
-rands = []
+input = "FAR(45,70,98,,h)    어려운 난이도만으로 연사를 마치는 경우. 보너스 주사위 0."
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 28 ＞ 어려운 성공　（3발 명중, 0발 관통）\n2번째: ＞ 25, 65 ＞ 보통 성공　（3발 명중, 0발 관통）\n3번째: ＞ 33, 63, 73 ＞ 실패　（0발 명중, 0발 관통）\n【난이도를 어려운 성공으로 변경】\n4번째: ＞ 18, 58, 38 ＞ 보통 성공　（0발 명중, 0발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 6발 명중, 0발 관통, 남은 탄환 17발"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 8 },
+]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "FAR(1,98,5)    故障ナンバーが極端に低いありえない場合の処理"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 8 ＞ 대단한 성공 총알 걸림\n＞ 0발이 명중, 0발이 관통, 잔탄 1발"
+input = "FAR(45,70,98,-2,e)    극단적 난이도만으로 연사를 마치는 경우. 보너스 주사위 -2."
+output = "보너스, 페널티 주사위[-2]\n1번째: ＞ 55, 95, 5 ＞ 실패　（0발 명중, 0발 관통）\n【난이도를 어려운 성공으로 변경】\n2번째: ＞ 76, 86, 46 ＞ 실패　（0발 명중, 0발 관통）\n【난이도를 극단적 성공으로 변경】\n3번째: ＞ 43, 53, 33 ＞ 보통 성공　（0발 명중, 0발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 0발 명중, 0발 관통, 남은 탄환 24발"
 rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 7 },
   { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(45,70,100,-2,e)    극단적 난이도만으로 연사를 마치는 경우. 보너스 주사위 -2. 대실패."
+output = "보너스, 페널티 주사위[-2]\n1번째: ＞ 20, 100, 40 ＞ 대실패　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 45발"
+rands = [
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
   { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "FAR(3,98,5)    故障ナンバーが極端に低いありえない場合の処理"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 8 ＞ 대단한 성공 총알 걸림\n＞ 0발이 명중, 0발이 관통, 잔탄 3발"
+input = "FAR(45,70,96,-2,e)    극단적 난이도만으로 연사를 마치는 경우. 보너스 주사위 -2. 대실패　총알 걸림(고장)."
+output = "보너스, 페널티 주사위[-2]\n1번째: ＞ 12, 72, 22 ＞ 실패　（0발 명중, 0발 관통）\n【난이도를 어려운 성공으로 변경】\n2번째: ＞ 60, 30, 30 ＞ 보통 성공　（0발 명중, 0발 관통）\n【난이도를 극단적 성공으로 변경】\n3번째: ＞ 18, 98, 28 ＞ 대실패　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 31발"
 rands = [
-  { sides = 10, value = 8 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 6 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 3 },
   { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 8 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "FAR(1,98,5)    故障ナンバーが極端に低いありえない場合の処理"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 58 ＞ 보통 성공 총알 걸림\n＞ 0발이 명중, 0발이 관통, 잔탄 1발"
+input = "BMR"
+output = "狂気の発作（リアルタイム）(5) ＞ 重要な人々：探索者のバックストーリーの重要な人々を見直す。探索者はその場にいた人物を、自分にとっての重要な人々だと思い込む。人間関係の性質を考慮した上で、探索者はそれに従って行動する。1D10ラウンド続く。(1D10＞3ラウンド)"
 rands = [
-  { sides = 10, value = 8 },
   { sides = 10, value = 5 },
+  { sides = 10, value = 3 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "FAR(3,98,5)    故障ナンバーが極端に低いありえない場合の処理"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 58 ＞ 보통 성공 총알 걸림\n＞ 0발이 명중, 0발이 관통, 잔탄 3발"
+input = "PH"
+output = "恐怖症表(1) ＞ 入浴恐怖症：体、手、顔を洗うのが怖い。"
 rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "PH"
+output = "恐怖症表(36) ＞ ピン恐怖症：針やピンが怖い。"
+rands = [
+  { sides = 100, value = 36 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "PH"
+output = "恐怖症表(100) ＞ 動物恐怖症：動物が怖い。"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "MA"
+output = "マニア表(1) ＞ 洗浄マニア：自分の体を洗わずにはいられない。"
+rands = [
+  { sides = 100, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "MA"
+output = "マニア表(30) ＞ ピエロマニア：ピエロへの執着。"
+rands = [
+  { sides = 100, value = 30 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "MA"
+output = "マニア表(100) ＞ 動物マニア：動物への正気でない溺愛。"
+rands = [
+  { sides = 100, value = 100 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FCL"
+output = "キャスティング・ロール失敗(小)表(1) ＞ 視界がぼんやりするか、あるいは一時的な失明。"
+rands = [
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FCL"
+output = "キャスティング・ロール失敗(小)表(5) ＞ 奇妙な幻視と幻覚。"
+rands = [
+  { sides = 8, value = 5 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FCL"
+output = "キャスティング・ロール失敗(小)表(8) ＞ クトゥルフ神話の怪物が偶然召喚される。"
+rands = [
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FCM"
+output = "キャスティング・ロール失敗(大)表(1) ＞ 大地が震え、壁に亀裂が入って崩れる。"
+rands = [
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FCM"
+output = "キャスティング・ロール失敗(大)表(3) ＞ 血が空から降る。"
+rands = [
+  { sides = 8, value = 3 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FCM"
+output = "キャスティング・ロール失敗(大)表(8) ＞ クトゥルフ神話の神格が偶然招来される。"
+rands = [
+  { sides = 8, value = 8 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "cc    ccのみで可能に"
+output = "(1D100) ＞ 19"
+rands = [
+  { sides = 100, value = 19 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(60,50,99,1,r)    貫通時の処理のテストデータ抜けがあったので追加。"
+output = "보너스, 페널티 주사위[1]\n1번째: ＞ 94, 4 ＞ 극단적 성공　（3발 명중, 2발 관통）\n2번째: ＞ 19 ＞ 어려운 성공　（2발 명중, 0발 관통）\n3번째: ＞ 84, 44 ＞ 실패　（0발 명중, 0발 관통）\n4번째: ＞ 47, 97, 37 ＞ 실패　（0발 명중, 0발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 5발 명중, 2발 관통, 남은 탄환 40발"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
   { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(60,20,99,1,r)    最低のボレー数が3との記述を見逃してたので追加。"
+output = "보너스, 페널티 주사위[1]\n1번째: ＞ 94, 4 ＞ 극단적 성공　（2발 명중, 1발 관통）\n2번째: ＞ 19 ＞ 보통 성공　（1발 명중, 0발 관통）\n3번째: ＞ 84, 44 ＞ 실패　（0발 명중, 0발 관통）\n4번째: ＞ 47, 97, 37 ＞ 대실패　（0발 명중, 0발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 3발 명중, 1발 관통, 남은 탄환 48발"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 3 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(7,80,98) 通常命中する弾丸の数＝そのロールで判定する弾丸 of 数/2（※ボレー/2ではない）"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 19 ＞ 어려운 성공　（3발 명중, 0발 관통）\n＞ 3발 명중, 0발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(21,90,99,1,r)    2020/04/02修正内容の総合テスト1"
+output = "보너스, 페널티 주사위[1]\n1번째: ＞ 94, 4 ＞ 극단적 성공　（5발 명중, 4발 관통）\n2번째: ＞ 19 ＞ 어려운 성공　（4발 명중, 0발 관통）\n3번째: ＞ 84, 44 ＞ 보통 성공　（1발 명중, 0발 관통）\n＞ 10발 명중, 4발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 4 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(7,10,99,1,r)    2020/04/02修正内容の総合テスト2"
+output = "보너스, 페널티 주사위[1]\n1번째: ＞ 92, 2 ＞ 극단적 성공　（2발 명중, 1발 관통）\n2번째: ＞ 5 ＞ 어려운 성공　（1발 명중, 0발 관통）\n3번째: ＞ 1, 1 ＞ 대성공　（0발 명중, 1발 관통）\n＞ 3발 명중, 2발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 5 },
-]
-
-[[ test ]]
-game_system = "Cthulhu7th:Korean"
-input = "FAR(3,18,5)    故障ナンバーが極端に低いありえない場合の処理"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 18 ＞ 보통 성공 총알 걸림\n＞ 0발이 명중, 0발이 관통, 잔탄 3발"
-rands = [
-  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 1 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "FAR(3,8,5)    故障ナンバーが極端に低いありえない場合の処理"
-output = "보너스, 패널티 주사위 [0]\n1번째: ＞ 8 ＞ 보통 성공 총알 걸림\n＞ 0발이 명중, 0발이 관통, 잔탄 3발"
+input = "FAR(8,10,99,1,r)    2020/04/02修正内容の総合テスト3"
+output = "보너스, 페널티 주사위[1]\n1번째: ＞ 92, 2 ＞ 극단적 성공　（2발 명중, 1발 관통）\n2번째: ＞ 5 ＞ 어려운 성공　（1발 명중, 0발 관통）\n3번째: ＞ 1, 1 ＞ 대성공　（1발 명중, 1발 관통）\n＞ 4발 명중, 2발 관통, 남은 탄환 0발"
 rands = [
-  { sides = 10, value = 8 },
+  { sides = 10, value = 9 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 2 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 5 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(8,10,99,-2,r)    2020/07/11追加機能テスト1"
+output = "보너스, 페널티 주사위[-2]\n1번째: ＞ 100, 100, 100 ＞ 대실패　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 8발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "FAR(1,99,-98)    故障ナンバーにマイナスがついている場合、絶対値を付ける処理の確認"
-output = "\n고장 넘버는 1 이상입니다. 마이너스 기호를 제거합니다.\n보너스, 패널티 주사위 [0]\n1번째: ＞ 8 ＞ 대단한 성공\n＞ 0발이 명중, 1발이 관통, 잔탄 0발"
+input = "FAR(8,10,99,-2,r,)    2020/07/11追加機能テスト2"
+output = "보너스, 페널티 주사위[-2]\n1번째: ＞ 100, 100, 100 ＞ 대실패　총알 걸림(고장)\n＞ 0발 명중, 0발 관통, 남은 탄환 8발"
 rands = [
-  { sides = 10, value = 8 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
   { sides = 10, value = 10 },
 ]
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "FAR(-1,99,98)    弾数がマイナスの異常パターン。"
-output = "탄약은 1 이상입니다."
+input = "FAR(20,50,99,-2,r,5)    2020/07/11追加機能テスト3"
+output = "보너스, 페널티 주사위[-2]\n1번째: ＞ 67, 87, 87 ＞ 실패　（0발 명중, 0발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 0발 명중, 0발 관통, 남은 탄환 15발"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(20,50,99,-2,r,6)    2020/07/11追加機能テスト4"
+output = "연사할 탄환 수의 상한은 [기능치÷10(소수점 버림)]발이므로, 그보다 큰 수를 지정할 수 없습니다. 연사할 탄환 수를 5발로 변경합니다.\n보너스, 페널티 주사위[-2]\n1번째: ＞ 67, 87, 87 ＞ 실패　（0발 명중, 0발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 0발 명중, 0발 관통, 남은 탄환 15발"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(20,50,99,-2,r,4)    2020/07/11追加機能テスト5"
+output = "보너스, 페널티 주사위[-2]\n1번째: ＞ 67, 87, 87 ＞ 실패　（0발 명중, 0발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 0발 명중, 0발 관통, 남은 탄환 16발"
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 8 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(20,50,99,-2,r,5)    2020/07/11追加機能テスト6"
+output = "보너스, 페널티 주사위[-2]\n1번째: ＞ 7, 7, 7 ＞ 극단적 성공　（3발 명중, 2발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 3발 명중, 2발 관통, 남은 탄환 15발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(20,50,99,-2,r,4)    2020/07/11追加機能テスト7"
+output = "보너스, 페널티 주사위[-2]\n1번째: ＞ 7, 7, 7 ＞ 극단적 성공　（2발 명중, 2발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 2발 명중, 2발 관통, 남은 탄환 16발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(20,50,99,-2,r,3)    2020/07/11追加機能テスト8"
+output = "보너스, 페널티 주사위[-2]\n1번째: ＞ 7, 7, 7 ＞ 극단적 성공　（2발 명중, 1발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 2발 명중, 1발 관통, 남은 탄환 17발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(20,50,99,-2,r,2)    2020/07/11追加機能テスト9"
+output = "연사할 탄환 수의 하한은 3발입니다. 연사할 탄환 수를 3발로 변경합니다.\n보너스, 페널티 주사위[-2]\n1번째: ＞ 7, 7, 7 ＞ 극단적 성공　（2발 명중, 1발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 2발 명중, 1발 관통, 남은 탄환 17발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(20,50,99,-2,r,1)    2020/07/11追加機能テスト10"
+output = "연사할 탄환 수의 하한은 3발입니다. 연사할 탄환 수를 3발로 변경합니다.\n보너스, 페널티 주사위[-2]\n1번째: ＞ 7, 7, 7 ＞ 극단적 성공　（2발 명중, 1발 관통）\n【지정한 난이도가 되었으므로, 처리를 종료합니다.】\n＞ 2발 명중, 1발 관통, 남은 탄환 17발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(20,50,99,-2,r,0)    2020/07/11追加機能テスト11"
+output = "연사할 탄환 수는 양수여야 합니다."
 rands = []
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "FAR(1,-99,-98)    目標値がマイナスの異常パターン。"
-output = "목표치는 1 이상입니다."
+input = "FAR(20,50,99,-2,r,-1)    2020/07/11追加機能テスト12"
+output = "연사할 탄환 수는 양수여야 합니다."
 rands = []
 
 [[ test ]]
 game_system = "Cthulhu7th:Korean"
-input = "FAR(1,99,98,3)    ボーナスダイス異常パターン"
-output = "\n에러. 보너스, 패널티 주사위의 수치는 -2~2입니다."
-rands = []
+input = "FAR(6,50,99,,,1)    2020/07/11追加機能テスト13"
+output = "연사할 탄환 수의 하한은 3발입니다. 연사할 탄환 수를 3발로 변경합니다.\n보너스, 페널티 주사위[0]\n1번째: ＞ 7 ＞ 극단적 성공　（2발 명중, 1발 관통）\n2번째: ＞ 11, 1 ＞ 어려운 성공　（1발 명중, 0발 관통）\n＞ 3발 명중, 1발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(6,12,99,,,4)    2020/07/11追加機能テスト14"
+output = "기능치가 39 이하일 때 연사할 탄환 수의 상한 및 하한은 3발입니다. 연사할 탄환 수를 3발로 변경합니다.\n보너스, 페널티 주사위[0]\n1번째: ＞ 1 ＞ 대성공　（2발 명중, 1발 관통）\n2번째: ＞ 11, 1 ＞ 보통 성공　（1발 명중, 0발 관통）\n＞ 3발 명중, 1발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(6,12,99,,,3)    2020/07/11追加機能テスト15"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 1 ＞ 대성공　（2발 명중, 1발 관통）\n2번째: ＞ 11, 1 ＞ 보통 성공　（1발 명중, 0발 관통）\n＞ 3발 명중, 1발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(6,12,99,,,2)    2020/07/11追加機能テスト16"
+output = "연사할 탄환 수의 하한은 3발입니다. 연사할 탄환 수를 3발로 변경합니다.\n보너스, 페널티 주사위[0]\n1번째: ＞ 1 ＞ 대성공　（2발 명중, 1발 관통）\n2번째: ＞ 11, 1 ＞ 보통 성공　（1발 명중, 0발 관통）\n＞ 3발 명중, 1발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(6,12,99,,,)    2020/07/11追加機能テスト17"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 1 ＞ 대성공　（2발 명중, 1발 관통）\n2번째: ＞ 11, 1 ＞ 보통 성공　（1발 명중, 0발 관통）\n＞ 3발 명중, 1발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(6,39,99,,,1)    2020/07/11追加機能テスト18"
+output = "연사할 탄환 수의 하한은 3발입니다. 연사할 탄환 수를 3발로 변경합니다.\n보너스, 페널티 주사위[0]\n1번째: ＞ 7 ＞ 극단적 성공　（2발 명중, 1발 관통）\n2번째: ＞ 11, 1 ＞ 어려운 성공　（1발 명중, 0발 관통）\n＞ 3발 명중, 1발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(6,39,99,,,3)    2020/07/11追加機能テスト19"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 7 ＞ 극단적 성공　（2발 명중, 1발 관통）\n2번째: ＞ 11, 1 ＞ 어려운 성공　（1발 명중, 0발 관통）\n＞ 3발 명중, 1발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(6,39,99,,,4)    2020/07/11追加機能テスト20"
+output = "기능치가 39 이하일 때 연사할 탄환 수의 상한 및 하한은 3발입니다. 연사할 탄환 수를 3발로 변경합니다.\n보너스, 페널티 주사위[0]\n1번째: ＞ 7 ＞ 극단적 성공　（2발 명중, 1발 관통）\n2번째: ＞ 11, 1 ＞ 어려운 성공　（1발 명중, 0발 관통）\n＞ 3발 명중, 1발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(6,40,99,,,4)    2020/07/11追加機能テスト21"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 7 ＞ 극단적 성공　（2발 명중, 2발 관통）\n2번째: ＞ 11, 1 ＞ 어려운 성공　（1발 명중, 0발 관통）\n＞ 3발 명중, 2발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(6,40,99,,,5)    2020/07/11追加機能テスト22"
+output = "연사할 탄환 수의 상한은 [기능치÷10(소수점 버림)]발이므로, 그보다 큰 수를 지정할 수 없습니다. 연사할 탄환 수를 4발로 변경합니다.\n보너스, 페널티 주사위[0]\n1번째: ＞ 7 ＞ 극단적 성공　（2발 명중, 2발 관통）\n2번째: ＞ 11, 1 ＞ 어려운 성공　（1발 명중, 0발 관통）\n＞ 3발 명중, 2발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(6,40,99,,,3)    2020/07/11追加機能テスト23"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 7 ＞ 극단적 성공　（2발 명중, 1발 관통）\n2번째: ＞ 11, 1 ＞ 어려운 성공　（1발 명중, 0발 관통）\n＞ 3발 명중, 1발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Cthulhu7th:Korean"
+input = "FAR(6,40,99)    2020/07/11追加機能テスト24"
+output = "보너스, 페널티 주사위[0]\n1번째: ＞ 7 ＞ 극단적 성공　（2발 명중, 2발 관통）\n2번째: ＞ 11, 1 ＞ 어려운 성공　（1발 명중, 0발 관통）\n＞ 3발 명중, 2발 관통, 남은 탄환 0발"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+]

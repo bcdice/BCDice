@@ -45,76 +45,89 @@ module BCDice
       end
 
       def eval_game_system_specific_command(command)
-        # ALCコマンド：命中判定
-        # ALCコマンド：成功判定
-        if command =~ /(\d+)AL(C|G)?(\d+)?((x|\*)(\d+))?$/i
-          rapid = Regexp.last_match(1).to_i
-          isCritical = Regexp.last_match(2).nil?
-          if isCritical
-            criticalNumber = 1
-          else
-            if Regexp.last_match(2) == "G"
-              isCritical = true
-              criticalNumber = 2
-            else
-              criticalNumber = 0
-            end
-          end
-          target = (Regexp.last_match(3) || 3).to_i
-          damage = (Regexp.last_match(6) || 0).to_i
-          return checkRoll(rapid, target, damage, isCritical, criticalNumber)
-        end
-
-        return nil
+        check_roll(command)
       end
 
-      def checkRoll(rapid, target, damage, isCritical, criticalNumber)
-        totalSuccessCount = 0
-        totalCriticalCount = 0
+      private
+
+      def parse_check_roll(command)
+        m = /(\d+)AL(C|G)?(\d+)?((x|\*)(\d+))?$/i.match(command)
+        unless m
+          return nil
+        end
+
+        rapid = m[1].to_i
+        enable_critical = m[2].nil? || m[2] == "G"
+        critical_number =
+          case m[2]
+          when "G"
+            2
+          when "C"
+            0
+          else
+            1
+          end
+        target = m[3]&.to_i || 3
+        damage = m[6].to_i
+
+        return {
+          rapid: rapid,
+          enable_critical: enable_critical,
+          critical_number: critical_number,
+          target: target,
+          damage: damage,
+        }
+      end
+
+      def check_roll(command)
+        parsed = parse_check_roll(command)
+        unless parsed
+          return nil
+        end
+
+        rapid = parsed[:rapid]
+        enable_critical = parsed[:enable_critical]
+        critical_number = parsed[:critical_number]
+        target = parsed[:target]
+        damage = parsed[:damage]
+
+        total_success_count = 0
+        total_critical_count = 0
         text = ""
 
-        rollCount = rapid
+        roll_count = rapid
 
-        while rollCount > 0
-          diceArray = @randomizer.roll_barabara(rollCount, 6).sort
-          diceText = diceArray.join(",")
+        while roll_count > 0
+          dice_array = @randomizer.roll_barabara(roll_count, 6).sort
+          dice_text = dice_array.join(",")
 
-          successCount = 0
-          criticalCount = 0
-
-          diceArray.each do |i|
-            if i <= target
-              successCount += 1
-            end
-
-            if i <= criticalNumber
-              criticalCount += 1
-            end
-          end
-
-          totalSuccessCount += successCount
-          totalCriticalCount += 1 unless criticalCount == 0
+          success_count = dice_array.count { |v| v <= target }
+          critical_count = dice_array.count { |v| v <= critical_number }
+          total_success_count += success_count
+          total_critical_count += 1 if critical_count > 0
 
           text += "+" unless text.empty?
-          text += "#{successCount}[#{diceText}]"
+          text += "#{success_count}[#{dice_text}]"
 
-          break unless isCritical
+          break unless enable_critical
 
-          rollCount = criticalCount
+          roll_count = critical_count
         end
 
-        isDamage = (damage != 0)
+        is_damage = (damage != 0)
 
-        if isDamage
-          totalDamage = totalSuccessCount * damage
+        if is_damage
+          total_damage = total_success_count * damage
 
-          result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ Hits：#{totalSuccessCount}*#{damage} ＞ #{totalDamage}ダメージ"
+          damage_text = translate("Alsetto.damage", total_damage: total_damage)
+          result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ Hits：#{total_success_count}*#{damage} ＞ #{damage_text}"
         else
-          result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ 成功数：#{totalSuccessCount}"
+          success_text = translate("Alsetto.success_count", success_count: total_success_count)
+          result = "(#{rapid}D6\<\=#{target}) ＞ #{text} ＞ #{success_text}"
         end
 
-        if isCritical
-          result += " / #{totalCriticalCount}トライアンフ"
+        if enable_critical
+          result += translate("Alsetto.triumph", critical_count: total_critical_count)
         end
 
         return result

@@ -2,6 +2,7 @@
 
 require "bcdice/result"
 require "bcdice/translate"
+require "bcdice/game_system/SwordWorld"
 
 module BCDice
   module GameSystem

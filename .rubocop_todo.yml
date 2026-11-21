@@ -26,6 +26,8 @@ Metrics/BlockNesting:
 # Configuration parameters: CountComments, CountAsOne.
 Metrics/ClassLength:
   Max: 2103
+  Exclude:
+    - 'lib/bcdice/game_system/PastFutureParadox.rb'
 
 # Offense count: 180
 # Configuration parameters: AllowedMethods, AllowedPatterns, IgnoredMethods.
@@ -91,8 +93,6 @@ Naming/MethodName:
   Exclude:
     - 'lib/bcdice/base.rb'
     - 'lib/bcdice/deprecated/*.rb'
-    - 'lib/bcdice/game_system/Airgetlamh.rb'
-    - 'lib/bcdice/game_system/Alsetto.rb'
     - 'lib/bcdice/game_system/AlterRaise.rb'
     - 'lib/bcdice/game_system/Avandner.rb'
     - 'lib/bcdice/game_system/BadLife.rb'
@@ -141,7 +141,6 @@ Naming/MethodName:
     - 'lib/bcdice/game_system/Postman.rb'
     - 'lib/bcdice/game_system/Raisondetre.rb'
     - 'lib/bcdice/game_system/RecordOfSteam.rb'
-    - 'lib/bcdice/game_system/Ryutama.rb'
     - 'lib/bcdice/game_system/Satasupe.rb'
     - 'lib/bcdice/game_system/ShinMegamiTenseiKakuseihen.rb'
     - 'lib/bcdice/game_system/ShinkuuGakuen.rb'
@@ -172,8 +171,6 @@ Naming/MethodParameterName:
   MinNameLength: 1
   Exclude:
     - 'lib/bcdice/base.rb'
-    - 'lib/bcdice/game_system/Airgetlamh.rb'
-    - 'lib/bcdice/game_system/Alsetto.rb'
     - 'lib/bcdice/game_system/Avandner.rb'
     - 'lib/bcdice/game_system/BadLife.rb'
     - 'lib/bcdice/game_system/BarnaKronika.rb'
@@ -214,8 +211,6 @@ Naming/MethodParameterName:
 Naming/VariableName:
   Exclude:
     - 'lib/bcdice/base.rb'
-    - 'lib/bcdice/game_system/Airgetlamh.rb'
-    - 'lib/bcdice/game_system/Alsetto.rb'
     - 'lib/bcdice/game_system/AlterRaise.rb'
     - 'lib/bcdice/game_system/Avandner.rb'
     - 'lib/bcdice/game_system/BadLife.rb'
@@ -264,7 +259,6 @@ Naming/VariableName:
     - 'lib/bcdice/game_system/Raisondetre.rb'
     - 'lib/bcdice/game_system/RecordOfSteam.rb'
     - 'lib/bcdice/game_system/RokumonSekai2.rb'
-    - 'lib/bcdice/game_system/Ryutama.rb'
     - 'lib/bcdice/game_system/Satasupe.rb'
     - 'lib/bcdice/game_system/ShadowRun4.rb'
     - 'lib/bcdice/game_system/ShadowRun5.rb'

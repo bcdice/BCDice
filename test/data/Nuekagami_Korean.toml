@@ -1,0 +1,79 @@
+[[ test ]]
+game_system = "Nuekagami:Korean"
+input = "LR"
+output = "상실 회복표(1) ＞ 귀화. 집념이 모이면 귀신과 결실을 맺는다. 부족한 곳은 이미 없다. 귀신이여, 나의 허물에 보태 주소서. 그리하여 그 몸은, 더이상 인간이 아니게 되리."
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Nuekagami:Korean"
+input = "LR"
+output = "상실 회복표(20) ＞ 망월. 달이 허물어졌다가도 다시 차오르는 것처럼, 사라진 것이 갑자기 돌아오는도다. 어떤 까닭인지, 어떤 구절인지, 어떤 징조인지, 아는 자 없도다."
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami:Korean"
+input = "BL"
+output = "혈맥 상실표(20) ＞ 자신의 몸. 지금은 남의 몸을 빌려 쓰고 있다."
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami:Korean"
+input = "LL"
+output = "생기 상실표(20) ＞ 자유. 자유를 빼앗기고 묶여 누군가의 명령에 따를 수밖에 없다."
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami:Korean"
+input = "SL"
+output = "혼백 상실표(20) ＞ 자기 의지. 당신은 누군가의 인형, 도구에 불과하다."
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami:Korean"
+input = "FL"
+output = "인연표(20) ＞ 주군. 마음에 품은 주군. 목숨을 걸고 지키고 섬기겠다."
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami:Korean"
+input = "HG"
+output = "지옥문 통과 묘사표(20) ＞ 마음 속에 희미한 희망의 실타래가 보이나니, 나 신중히 그 실을 잡아올리려 하네."
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami:Korean"
+input = "RG"
+output = "나생문 통과 묘사표(20) ＞ 신, 부처와 닮은 꼴을 환시하오니. 그렇다면 어떤 몸에도 얼마든지, 신심 한 자락은 깃들지어다."
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami:Korean"
+input = "VG"
+output = "주작문 통과 묘사표(20) ＞ 머리 위로부터 누군가의 악기 소리 울려 퍼지네. 그 몸, 축복받은듯 기뻐하며 즐거워하네."
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Nuekagami:Korean"
+input = "OG"
+output = "응천문 통과 묘사표(20) ＞ 도시 안에 암운 있으나, 가끔 맑은 날도 찾아든다. 어찌하여 혼백 맑은 날이라고 없으랴."
+rands = [
+  { sides = 20, value = 20 },
+]

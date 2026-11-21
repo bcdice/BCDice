@@ -31,6 +31,8 @@ module BCDice
         　「絶対にクリティカルしない」状態は、@13など xを13以上に指定すること。
         ・xの先頭が「+」か「-」なら、計算したC値にその値を加算。例）@-1、@+2
         　この方法でC値をプラスする場合、上限は12となる。
+        ・クリティカル値は、ファンブル値より小さくならない
+        ・クリティカルとファンブルが同時成立する場合、クリティカル優先
         ＞#y、#Ay：ファンブル値修正。（加減式でも入力可能）
         ・yに直接数字を書くと、ファンブル値をその数字に設定。
         ・yの数字の先頭が「+」か「-」なら、ファンブル値=2にその数字を加算。例）#+2
@@ -87,10 +89,10 @@ module BCDice
           result.fumble = fumble?
 
           dice_status =
-            if result.fumble?
-              "ファンブル"
-            elsif result.critical?
+            if result.critical?
               "クリティカル"
+            elsif result.fumble?
+              "ファンブル"
             end
           result_str =
             if result.success?
@@ -124,11 +126,11 @@ module BCDice
           @dice_num = m[1].to_i
           @modify_number = m[2] ? ArithmeticEvaluator.eval(m[2]) : 0
 
-          @critical = parse_critical(m[3], m[4])
-
           @keep_value_on_fumble = !m[5].nil?
 
           @fumble = parse_fumble(m[6])
+
+          @critical = parse_critical(m[3], m[4], @fumble)
 
           @dice_pool = m[7] ? m[7].split("").map(&:to_i) : []
           @dice_pool.pop(@dice_pool.size - @dice_num) if @dice_pool.size > @dice_num
@@ -143,8 +145,9 @@ module BCDice
 
         # @param humanity [String, nil]
         # @param atmark [String, nil]
+        # @param fumble [Integer]
         # @return [Integer]
-        def parse_critical(humanity, atmark)
+        def parse_critical(humanity, atmark, fumble)
           humanity = humanity ? humanity.to_i : 99
           atmark_value = atmark ? ArithmeticEvaluator.eval(atmark) : 0
 
@@ -157,7 +160,7 @@ module BCDice
               critical_from_humanity(humanity)
             end
 
-          return critical
+          return [2, critical, fumble].max
         end
 
         def critical_from_humanity(humanity)
@@ -177,13 +180,16 @@ module BCDice
         def parse_fumble(sharp)
           sharp_value = sharp ? ArithmeticEvaluator.eval(sharp) : 0
 
-          if /^[+-]/.match(sharp)
-            2 + sharp_value
-          elsif sharp
-            sharp_value
-          else
-            2
-          end
+          fumble =
+            if /^[+-]/.match(sharp)
+              2 + sharp_value
+            elsif sharp
+              sharp_value
+            else
+              2
+            end
+
+          return fumble.clamp(2, 12)
         end
 
         def roll_with_dice_pool
@@ -206,7 +212,7 @@ module BCDice
         end
 
         def fumble?
-          @dice_total <= @fumble
+          @dice_total <= @fumble && !critical?
         end
 
         def critical?
@@ -215,10 +221,10 @@ module BCDice
 
         def calc_total
           total = @dice_total + @modify_number
-          if fumble?
-            total = 0 unless @keep_value_on_fumble
-          elsif critical?
+          if critical?
             total += 20
+          elsif fumble?
+            total = 0 unless @keep_value_on_fumble
           end
 
           if total < 0
@@ -259,7 +265,7 @@ module BCDice
             ['同志', '同志', '幼子', '幼子', '興味', '興味'],
             ['ビジネス', 'ビジネス', '師事', '師事', '好敵手', '好敵手'],
             ['友情', '友情', '忠誠', '忠誠', '恐怖', '恐怖'],
-            ['執着', '執着', '軽蔑', '軽蔑', '憎悪', '憎悪'],
+            ['執着', '執着', '軽蔑（基本表）／執着（追加表）', '軽蔑（基本表）／憎悪（追加表）', '憎悪', '憎悪'],
           ]
         ),
         'EXPO_A' => DiceTable::Table.new(

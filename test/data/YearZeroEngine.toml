@@ -169,6 +169,58 @@ rands = [
 
 [[ test ]]
 game_system = "YearZeroEngine"
+input = "YZE3+3+3+1 #修正+1"
+output = "(3D6)+(4D6)+(3D6) ＞ [2,5,6]+[1,4,6,5]+[3,1,6] 成功数:3"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZE3+3+3-1 #修正-1"
+output = "(3D6)+(2D6)+(3D6) ＞ [2,5,6]+[1,6]+[3,1,6] 成功数:3"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZE3+3+3-8 #修正順の確認1"
+output = "(1D6)+(0D6)+(0D6) ＞ [2]+[]+[] 成功数:0"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZE3+3+3-5 #修正順の確認2"
+output = "(3D6)+(0D6)+(1D6) ＞ [2,5,6]+[]+[1] 成功数:1"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+
+[[ test ]]
+game_system = "YearZeroEngine"
 input = "SYZE3"
 output = "(3D6) ＞ [2,5,3] 成功数:0"
 secret = true
@@ -1015,15 +1067,112 @@ rands = [
   { sides = 6, value = 2 },
 ]
 
+
 [[ test ]]
 game_system = "YearZeroEngine"
-input = "YZE3-3"
-output = "YZEコマンドでは技能ダイスをマイナス指定できません。"
+input = "YZS6 #最小コマンド"
+output = "(1D6) ＞ [2] 成功数:0\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=1ダイス"
 rands = [
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 6 },
-  { sides = 6, value = 1 },
-  { sides = 6, value = 6 },
   { sides = 6, value = 2 },
 ]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZS6+6 #Botch"
+output = "(1D6)+(1D6) ＞ [2]+[1] 成功数:0\n出目1：[能力：0,技能：1,アイテム：0) プッシュ可能=1ダイス"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZS6+6 #成功"
+output = "(1D6)+(1D6) ＞ [6]+[1] 成功数:1\n出目1：[能力：0,技能：1,アイテム：0) プッシュ可能=0ダイス"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZS6+10 #2成功"
+output = "(1D6)+(1D10) ＞ [5]+[10] 成功数:2\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=1ダイス"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZS6+6+1 #+1修正"
+output = "(1D6)+(1D8) ＞ [6]+[1] 成功数:1\n出目1：[能力：0,技能：1,アイテム：0) プッシュ可能=0ダイス"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 8, value = 1 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZS6+6-1 #-1修正"
+output = "(1D6) ＞ [6] 成功数:1\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
+rands = [
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "1YZS6+6 #難易度付き成功"
+output = "(1D6)+(1D6) ＞ [6]+[1] 成功数:1 難易度=1:判定成功！\n出目1：[能力：0,技能：1,アイテム：0) プッシュ可能=0ダイス"
+success = true
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "1YZS6+6 #難易度付き失敗"
+output = "(1D6)+(1D6) ＞ [5]+[1] 成功数:0 難易度=1:判定失敗！\n出目1：[能力：0,技能：1,アイテム：0) プッシュ可能=1ダイス"
+failure = true
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZS6+8A #有利"
+output = "(2D6)+(1D8) ＞ [6,1]+[6] 成功数:2\n出目1：[能力：1,技能：0,アイテム：0) プッシュ可能=0ダイス"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+  { sides = 8, value = 6 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZS8+6A #有利"
+output = "(1D8)+(2D6) ＞ [7]+[6,1] 成功数:2\n出目1：[能力：0,技能：1,アイテム：0) プッシュ可能=0ダイス"
+rands = [
+  { sides = 8, value = 7 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZS6+8D #不利"
+output = "(1D8) ＞ [6] 成功数:1\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
+rands = [
+  { sides = 8, value = 6 },
+]
+
+[[ test ]]
+game_system = "YearZeroEngine"
+input = "YZS8+6D #不利"
+output = "(1D8) ＞ [6] 成功数:1\n出目1：[能力：0,技能：0,アイテム：0) プッシュ可能=0ダイス"
+rands = [
+  { sides = 8, value = 6 },
+]
+

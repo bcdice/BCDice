@@ -34,23 +34,31 @@ module BCDice
 
         ・レーティング表の半減 (HKx, KxH+N)
         　レーティング表の先頭または末尾に"H"をつけると、レーティング表を振って最終結果を半減させます。
-        　末尾につけた場合、直後に修正ををつけることで、半減後の加減算を行うことができます。
+        　末尾につけた場合、直後に修正をつけることで、半減後の加減算を行うことができます。
         　この際、複数の項による修正にはカッコで囲うことが必要です（カッコがないとパースに失敗します）
         　クリティカル値を指定しない場合、クリティカルなしと扱われます。
         　例）HK20　　K20h　　HK10-5@9　　K10-5@9H　　K20gfH　　K20+8H+2　　K20+8H+(1+1)
 
         ・レーティング表の1.5倍 (OHKx, KxOH+N)
         　レーティング表の先頭または末尾に"OH"をつけると、レーティング表を振って最終結果を1.5倍します。
-        　末尾につけた場合、直後に修正ををつけることで、1.5倍後の加減算を行うことができます。
+        　末尾につけた場合、直後に修正をつけることで、1.5倍後の加減算を行うことができます。
         　この際、複数の項による修正にはカッコで囲うことが必要です（カッコがないとパースに失敗します）
         　クリティカル値を指定しない場合、クリティカルなしと扱われます。
         　例）OHK20　　K20oh　　OHK10-5@9　　K20+8OH+2　　K20+8OH+(1+1)
 
-        ・ダイス目の修正（運命変転やクリティカルレイ用）
+        ・レーティング表の2倍 (DBKx, KxDB+N)
+        　レーティング表の先頭または末尾に"DB"をつけると、レーティング表を振って最終結果を2倍します。
+        　末尾につけた場合、直後に修正をつけることで、2倍後の加減算を行うことができます。
+        　この際、複数の項による修正にはカッコで囲うことが必要です（カッコがないとパースに失敗します）
+        　クリティカル値を指定しない場合、クリティカル値10と扱われます。
+        　例）DBK20　　K20db　　DBK10-5@9　　K20+8DB+2　　K20+8DB+(1+1)
+
+        ・ダイス目の修正（運命変転やクリティカルレイ、魔女の火用）
         　末尾に「$修正値」でダイス目に修正がかかります。
         　$＋１と修正表記ならダイス目に＋修正、＄９のように固定値ならダイス目をその出目に差し替え。
+        　$~＋１とチルダを追加して記述することで、出目10以下の場合のみダイス目に＋修正（魔女の火用）
         　クリティカルした場合でも固定値や修正値の適用は最初の一回だけです。
-        　例）K20$+1　　　K10+5$9　　　k10-5@9$+2　　　k10[9]+10$9
+        　例）K20$+1　　　K10+5$9　　　k10-5@9$+2　　　k10[9]+10$9　　　k20+6$~+1
 
         ・ダイス目の修正（必殺攻撃用）
         　「＃修正値」でダイス目に修正がかかります。
@@ -60,6 +68,9 @@ module BCDice
         ・首切り刀用レーティング上昇 r5
         　例）K20r5　K30+24@8R5　K40+24@8$12r5
 
+        ・肉喰む顎用クリティカルごと追加ダメージ ad2
+        　例）K20ad2　K30+24@8D2　K40+24@8$12ad2
+
         ・グレイテストフォーチュンは末尾に gf
         　例）K20gf　K30+24@8GF　K40+24@8$12r5gf
 
@@ -68,6 +79,9 @@ module BCDice
 
         ・威力表を1d+tfで参照 クリティカル後は2dで参照 tf3
         　例）k10tf3　k0+5tf4@13　k70+26tf3@9
+
+        ・アビスカース「難しい」用に KxSZy 表記でy以下の出目の威力表を0に書き換え。
+        　例) k10SZ4　k0+5@13sz6　k40+26@9sz3
 
         ・超越判定用に2d6ロールに 2D6@10 書式でクリティカル値付与が可能に。
         　例）2D6@10　2D6@10+11>=30
@@ -85,11 +99,17 @@ module BCDice
         ・ドルイドの物理魔法用表　(Dru[2-6の値,7-9の値,10-12の値])
         　例）Dru[0,3,6]+10-3
 
+        ・ビブリオマンサーの応急行使判定用　(Bib[特殊失敗値])
+        　例）Bib[6]+8　Bib[9]+10-1>=17
+
         ・アビスカース表　(ABT)
         　アビスカース表を出すことができます。
+
+        ・追加アビスカース表(AABT)
+        　追加アビスカース表を出すことができます。
       INFO_MESSAGE_TEXT
 
-      register_prefix('H?K', 'OHK', 'Gr', '2D6?@\d+', 'FT', 'TT', 'Dru', 'ABT')
+      register_prefix('H?K', 'OHK', 'DBK', 'Gr', '2D6?@\d+', 'FT', 'TT', 'Dru', 'Bib', 'ABT', 'AABT')
 
       def eval_game_system_specific_command(command)
         case command
@@ -103,8 +123,24 @@ module BCDice
           end
 
           druid_dice(cmd, power_list)
+
+        when /^bib\[(\d+)\]/i
+          failure_num = Regexp.last_match(1).to_i
+          biblio_parser = Command::Parser.new(/^bib\[\d+\]/i, round_type: BCDice::RoundType::CEIL)
+          cmd = biblio_parser.parse(command)
+
+          if !cmd || !failure_num
+            return nil
+          end
+
+          biblio_emergency_dice(cmd, failure_num)
+
         when 'ABT'
           get_abyss_curse_table
+
+        when 'AABT'
+          get_additional_abyss_curse_table
+
         else
           super(command)
         end
@@ -138,6 +174,31 @@ module BCDice
         return sequence.join(" ＞ ")
       end
 
+      def biblio_emergency_dice(command, failure_num)
+        dice_list = @randomizer.roll_barabara(2, 6)
+        dice_total = dice_list.sum()
+        total = dice_total + command.modify_number
+
+        result =
+          if dice_total == failure_num
+            Result.fumble(translate('SwordWorld2_5.special_failure'))
+          else
+            result_2d6(total, dice_total, dice_list, command.cmp_op, command.target_number)
+          end
+
+        result ||= Result.new
+
+        sequence = [
+          "(#{command.command.capitalize}#{Format.modifier(command.modify_number)}#{command.cmp_op}#{command.target_number})",
+          "#{dice_total}[#{dice_list.join(',')}]#{Format.modifier(command.modify_number)}",
+          total,
+          result.text
+        ]
+
+        result.text = sequence.compact.join(" ＞ ")
+        return result
+      end
+
       def get_abyss_curse_table
         table_result = DiceTable::D66GridTable.from_i18n('SwordWorld2_5.AbyssCurseTable', @locale).roll(@randomizer)
         additional =
@@ -153,6 +214,10 @@ module BCDice
         ].compact
 
         return final_result.join("\n")
+      end
+
+      def get_additional_abyss_curse_table
+        return DiceTable::D66GridTable.from_i18n('SwordWorld2_5.AdditionalAbyssCurseTable', @locale).roll(@randomizer).to_s
       end
     end
   end

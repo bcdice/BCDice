@@ -177,7 +177,7 @@ rands = [
 [[ test ]]
 game_system = "GundogRevised"
 input = "VDPT"
-output = "車両ダメージペナルティー表[10] ＞ [乗員D]2D6/[操縦判定]-20%/[スピン判定]"
+output = "車両ダメージペナルティー表[10] ＞ [車両D]2D6/[操縦判定]-20%/[スピン判定]"
 rands = [
   { sides = 10, value = 5 },
   { sides = 10, value = 5 },

@@ -1225,3 +1225,285 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 4 },
 ]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "TOT"
+output = "お題決定表(1) ＞ [〇〇を見て一言表]を見て一言。\n〇〇を見て一言表(6) ＞ [単語表]で検索して出てくる６番目の画像\n単語表(6) ＞ 単語表C(場所)(66) ＞ 学校\n＞ 「学校」で検索して出てくる６番目の画像\n＞ 「学校」で検索して出てくる６番目の画像を見て一言。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "TOT"
+output = "お題決定表(2) ＞ この[単語表]、ひょっとして[単語表]かも、どうしてそう思った？\n単語表(6) ＞ 単語表C(場所)(66) ＞ 学校\n単語表(4) ＞ 単語表B(物)(66) ＞ 太陽\n＞ この学校、ひょっとして太陽かも、どうしてそう思った？"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "TOT"
+output = "お題決定表(3) ＞ [動詞表]した[単語表]が言いそうなこと。\n動詞表(66) ＞ 地獄落ちした\n単語表(6) ＞ 単語表C(場所)(66) ＞ 学校\n＞ 地獄落ちした学校が言いそうなこと"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "TOT"
+output = "お題決定表(4) ＞ [単語表]が[単語表]になった世界ではどんなことが起こる？\n単語表(6) ＞ 単語表C(場所)(66) ＞ 学校\n単語表(4) ＞ 単語表B(物)(66) ＞ 太陽\n＞ 学校が太陽になった世界ではどんなことが起こる？"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "TOT"
+output = "お題決定表(5) ＞ こんな[単語表]は嫌だ。どんなの？\n単語表(6) ＞ 単語表C(場所)(66) ＞ 学校\n＞ こんな学校は嫌だ。どんなの？"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "TOT"
+output = "お題決定表(6) ＞ [長め単語表]みたいなことを言って下さい。\n長め単語表(66) ＞ テーブルトークRPG\n＞ テーブルトークRPGみたいなことを言って下さい。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "OOT"
+output = "〇〇を見て一言表(2) ＞ ゲームマスターが最近撮ったor保存した写真"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "OOT"
+output = "〇〇を見て一言表(4) ＞ ゲームマスターが用意した本やCDの表紙"
+rands = [
+  { sides = 6, value = 4 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "OOT"
+output = "〇〇を見て一言表(6) ＞ [単語表]で検索して出てくる６番目の画像\n単語表(6) ＞ 単語表C(場所)(66) ＞ 学校\n＞ 「学校」で検索して出てくる６番目の画像"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "WOT"
+output = "単語表(2) ＞ 単語表A(人物)(66) ＞ ロボット"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "WOT"
+output = "単語表(4) ＞ 単語表B(物)(66) ＞ 太陽"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "WOT"
+output = "単語表(6) ＞ 単語表C(場所)(66) ＞ 学校"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "WOTA"
+output = "単語表A(人物)(66) ＞ ロボット"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "WOTB"
+output = "単語表B(物)(66) ＞ 太陽"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "WOTC"
+output = "単語表C(場所)(66) ＞ 学校"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "VOT"
+output = "動詞表(66) ＞ 地獄落ちした"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "LOT"
+output = "長め単語表(66) ＞ テーブルトークRPG"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "POT"
+output = "ヘル司会者 リアクション表(好印象ver)(1) ＞ 「良いセンスですねぇ。」\n会場に笑いが巻き起こる。\nうれしいね。座布団を6枚与える。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "POT"
+output = "ヘル司会者 リアクション表(好印象ver)(2) ＞ 「上手い！　一本取られました。」\n秀逸なジョークに視聴者たちの関心が深まったようだ。\n座布団を6枚与える。"
+rands = [
+  { sides = 6, value = 2 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "POT"
+output = "ヘル司会者 リアクション表(好印象ver)(3) ＞ 「案外こういう回答好きなんですよねぇ。ヘル山くん、座布団持って来て！」\nヘル司会者のツボにハマったようだ。\n座布団を12枚与える。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "POT"
+output = "ヘル司会者 リアクション表(好印象ver)(4) ＞ 「息ができない程笑っちゃいました、視聴者も何人か呼吸困難で倒れてます。\nウケ過ぎて大惨事になってしまった。\n座布団を12枚与える。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "POT"
+output = "ヘル司会者 リアクション表(好印象ver)(5) ＞ はっはっは！　……おや？　ヘル山くんの機嫌が悪そうですが。」\n会場ではウケたようだが、ヘル山くんは気に入らなかったようだ。\n座布団を1枚没収する。"
+rands = [
+  { sides = 6, value = 5 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "POT"
+output = "ヘル司会者 リアクション表(好印象ver)(6) ＞ 「いやぁ面白い回答でした！　座布団を差し上げます、いーちにーい……ところで今、視聴率何%でしたっけ？」\n視聴率の確認に乗じて座布団の枚数を誤魔化される。\n座布団の枚数を3枚増減させる。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "NOT"
+output = "ヘル司会者 リアクション表(不満ver)(1) ＞ 「は……は……はっくしょん！　あぁすみません、回答きいてませんでした。」\nどうやらくしゃみに気を取られてあなたの回答を聞いていなかったようだ。\n座布団の枚数に変化なし。"
+rands = [
+  { sides = 6, value = 1 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "NOT"
+output = "ヘル司会者 リアクション表(不満ver)(2) ＞ 「あなた普段から生真面目だって言われたりしません？」\n常識的すぎるあなたの言動はどうやらヘルピープルには響かなかったらしい。\n座布団を1枚没収する。"
+rands = [
+  { sides = 6, value = 2 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "NOT"
+output = "ヘル司会者 リアクション表(不満ver)(3) ＞ 「逆にこの空気感は面白いかも。」\nこれが滑り芸というやつか、一つ賢くなったぞ。\n座布団を6枚与える。"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "NOT"
+output = "ヘル司会者 リアクション表(不満ver)(4) ＞ 「ヘル級に面白くない回答をどうもありがとうございます。」\nヘル司会者からの皮肉だ、ヤな奴。\n座布団を6枚没収する。"
+rands = [
+  { sides = 6, value = 4 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "NOT"
+output = "ヘル司会者 リアクション表(不満ver)(5) ＞ 「冗談でもそういうのはちょっと……」\nどうやらヘル司会者の肌感覚に合わなかったようだ。うむむ……\n座布団を6枚没収する。"
+rands = [
+  { sides = 6, value = 5 },
+  { sides = 6, value = 6 },
+]
+
+[[ test ]]
+game_system = "KillDeathBusiness"
+input = "NOT"
+output = "ヘル司会者 リアクション表(不満ver)(6) ＞ 「つまらないですねー。　ヘル山くん、一枚持っていって下さい！　……おや？　バグっちゃいました？」\n座布団がオーバーフローしたようだ。\n現在の座布団の枚数が255枚になる。"
+rands = [
+  { sides = 6, value = 6 },
+]

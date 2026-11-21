@@ -1,0 +1,171 @@
+[[ test ]]
+game_system = "Lost"
+input = "exp10_de"
+output = "(exp10_de) ＞ [0] ＞ s10_th"
+failure = true
+rands = [
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "exp10_de"
+output = "(exp10_de) ＞ [0] ＞ s10_th"
+failure = true
+rands = [
+  { sides = 10, value = 6 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "exp10_de"
+output = "(exp10_de) ＞ [1] ＞ a11_0ut"
+success = true
+rands = [
+  { sides = 10, value = 5 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "exp10_de"
+output = "(exp10_de) ＞ [1] ＞ a11_0ut"
+success = true
+rands = [
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "exp10_de3"
+output = "(exp10_de3) ＞ [0,1,0] ＞ 1"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "exp10_de3"
+output = "(exp10_de3) ＞ [1,1,0] ＞ 2"
+rands = [
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 10 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "exp10_de3"
+output = "(exp10_de3) ＞ [0,1,1] ＞ 2"
+rands = [
+  { sides = 10, value = 10 },
+  { sides = 10, value = 1 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "exp10_de3"
+output = "(exp10_de3) ＞ [0,0,0] ＞ s10_th"
+failure = true
+rands = [
+  { sides = 10, value = 6 },
+  { sides = 10, value = 7 },
+  { sides = 10, value = 8 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "exp10_de3"
+output = "(exp10_de3) ＞ [1,1,1] ＞ a11_0ut"
+success = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "exp10_de7-5--1++3-3+2-2"
+output = "(exp10_de3) ＞ [1,1,1] ＞ a11_0ut"
+success = true
+rands = [
+  { sides = 10, value = 5 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 3 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "g01_den"
+output = "(g01_den) ＞ [0] ＞ 0_lation"
+failure = true
+rands = [
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "g01_den"
+output = "(g01_den) ＞ [0] ＞ 0_lation"
+failure = true
+rands = [
+  { sides = 20, value = 2 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "g01_den"
+output = "(g01_den) ＞ [1]"
+rands = [
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "g01_den4"
+output = "(g01_den4) ＞ [0,0,0,0] ＞ 0_lation"
+failure = true
+rands = [
+  { sides = 20, value = 2 },
+  { sides = 20, value = 4 },
+  { sides = 20, value = 10 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "g01_den4"
+output = "(g01_den4) ＞ [1,0,1,0]"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 4 },
+  { sides = 20, value = 1 },
+  { sides = 20, value = 20 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "g01_den4"
+output = "(g01_den4) ＞ [1,1,1,1]"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+[[ test ]]
+game_system = "Lost"
+input = "g01_den7-5--1++3-3+3-2"
+output = "(g01_den4) ＞ [1,1,1,1]"
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+

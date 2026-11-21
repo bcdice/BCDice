@@ -187,3 +187,20 @@ rands = [
   { sides = 6, value = 3 },
 ]
 
+[[ test ]]
+game_system = "FullFace"
+input = "JKT ジャンク表"
+output = "ジャンク表(2) ＞ 命欲しさに重要な情報を吐いた。セッションのボスに関する情報を得る。"
+rands = [
+  { sides = 6, value = 1 },
+  { sides = 6, value = 1 },
+]
+[[ test ]]
+game_system = "FullFace"
+input = "JKT ジャンク表"
+output = "ジャンク表(12) ＞ 大金を手に入れた。キャラクター全員、アフターフェイズに配布される経験点が3増加する。"
+rands = [
+  { sides = 6, value = 6 },
+  { sides = 6, value = 6 },
+]
+

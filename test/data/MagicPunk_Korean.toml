@@ -1,0 +1,186 @@
+# 1d Test
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "1MP15"
+output = "(1MP15C0) > [10] > 성공(10)"
+success = true
+critical = false
+failure = false
+fumble = false
+rands = [
+  { sides = 20, value = 10 },
+]
+
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "1MP15"
+output = "(1MP15C0) > [16] > 실패"
+success = false
+critical = false
+failure = true
+fumble = false
+rands = [
+  { sides = 20, value = 16 },
+]
+
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "MP15"
+output = "(1MP15C0) > [15] > 성공(JP)"
+success = true
+critical = true
+failure = false
+fumble = false
+rands = [
+  { sides = 20, value = 15 },
+]
+
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "MP15"
+output = "(1MP15C0) > [1] > 실패(BB)"
+success = false
+critical = false
+failure = true
+fumble = true
+rands = [
+  { sides = 20, value = 1 },
+]
+
+# Challenge Test
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "3MP15C5"
+output = "(3MP15C5) > [10,4,18] > 성공(10)"
+success = true
+critical = false
+failure = false
+fumble = false
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 4 },
+  { sides = 20, value = 18 },
+]
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "3MP15C10"
+output = "(3MP15C10) > [9,4,18] > 실패"
+success = false
+critical = false
+failure = true
+fumble = false
+rands = [
+  { sides = 20, value = 9 },
+  { sides = 20, value = 4 },
+  { sides = 20, value = 18 },
+]
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "3MP15C18"
+output = "(3MP15C18) > [9,15,18] > 성공(JP)"
+success = true
+critical = true
+failure = false
+fumble = false
+rands = [
+  { sides = 20, value = 9 },
+  { sides = 20, value = 15 },
+  { sides = 20, value = 18 },
+]
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "3MP15C1"
+output = "(3MP15C1) > [1,1,1] > 실패(BB)"
+success = false
+critical = false
+failure = true
+fumble = true
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+  { sides = 20, value = 1 },
+]
+
+# 0d Test
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "0MP15C5"
+output = "(0MP15C5) > [10,15] > 성공(10)"
+success = true
+critical = false
+failure = false
+fumble = false
+rands = [ 
+  { sides = 20, value = 10 },
+  { sides = 20, value = 15 },
+]
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "0MP15C5"
+output = "(0MP15C5) > [10,17] > 실패"
+success = false
+critical = false
+failure = true
+fumble = false
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 17 },
+]
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "0MP15C5"
+output = "(0MP15C5) > [10,4] > 실패"
+success = false
+critical = false
+failure = true
+fumble = false
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 4 },
+]
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "0MP15C5"
+output = "(0MP15C5) > [15,15] > 성공(JP)"
+success = true
+critical = true
+failure = false
+fumble = false
+rands = [
+  { sides = 20, value = 15 },
+  { sides = 20, value = 15 },
+]
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "0MP15C5"
+output = "(0MP15C5) > [1,15] > 실패(BB)"
+success = false
+critical = false
+failure = true
+fumble = true
+rands = [
+  { sides = 20, value = 1 },
+  { sides = 20, value = 15 },
+]
+
+# 10d Test
+[[test]]
+game_system = "MagicPunk:Korean"
+input = "10MP15C5"
+output = "(10MP15C5) > [10,13,10,18,4,5,8,12,17,2] > 성공(13)"
+success = true
+critical = false
+failure = false
+fumble = false
+rands = [
+  { sides = 20, value = 10 },
+  { sides = 20, value = 13 },
+  { sides = 20, value = 10 },
+  { sides = 20, value = 18 },
+  { sides = 20, value = 4 },
+  { sides = 20, value = 5 },
+  { sides = 20, value = 8 },
+  { sides = 20, value = 12 },
+  { sides = 20, value = 17 },
+  { sides = 20, value = 2 },
+]

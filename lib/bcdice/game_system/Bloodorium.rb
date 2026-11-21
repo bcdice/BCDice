@@ -47,7 +47,7 @@ module BCDice
         sequence = [
           "(#{parsed})",
           "[#{dice_list.join(',')}]#{Format.modifier(parsed.modify_number)}",
-          ("《トライアンフ》(*#{triumph})" if triumph > 1),
+          (translate('Bloodorium.triumph', triumph: triumph) if triumph > 1),
           (total_expr(dice_value, triumph, parsed.modify_number) if total != dice_value),
           total,
         ].compact

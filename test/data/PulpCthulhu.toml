@@ -182,7 +182,7 @@ rands = [
 [[ test ]]
 game_system = "PulpCthulhu"
 input = "cc"
-output = "1D100 ＞ 19"
+output = "(1D100) ＞ 19"
 rands = [
   { sides = 100, value = 19 },
 ]

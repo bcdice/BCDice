@@ -8,6 +8,7 @@ rands = [
   { sides = 6, value = 1 },
 ]
 
+
 [[ test ]]
 game_system = "NSSQ"
 input = "3SQ+1"
@@ -37,6 +38,8 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 }
 ]
+failure = true
+fumble = true
 
 [[ test ]]
 game_system = "NSSQ"
@@ -47,6 +50,8 @@ rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 }
 ]
+success = true
+critical = true
 
 [[ test ]]
 game_system = "NSSQ"
@@ -82,6 +87,8 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 }
 ]
+failure = true
+fumble = true
 
 [[ test ]]
 game_system = "NSSQ"
@@ -101,6 +108,7 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 }
 ]
+success = true
 
 [[ test ]]
 game_system = "NSSQ"
@@ -111,6 +119,7 @@ rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 3 }
 ]
+success = true
 
 [[ test ]]
 game_system = "NSSQ"
@@ -120,6 +129,7 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 }
 ]
+failure = true
 
 [[ test ]]
 game_system = "NSSQ"
@@ -130,6 +140,7 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 4 }
 ]
+failure = true
 
 [[ test ]]
 game_system = "NSSQ"
@@ -149,6 +160,7 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 }
 ]
+success = true
 
 [[ test ]]
 game_system = "NSSQ"
@@ -160,11 +172,12 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 }
 ]
+failure = true
 
 [[ test ]]
 game_system = "NSSQ"
 input = "4DR3 ダメージロールのクリティカルヒット処理確認（クリティカルヒットロールにクリティカルヒットが発生しないことも確認）"
-output = "(4DR3) ＞ [6,6,3,2]3 ＞ 2ダメージ クリティカルヒット！\n(4DR3) ＞ [6,6,3,2]3 ＞ 2ダメージ"
+output = "(4DR3) ＞ [6,6,3,2]3 ＞ クリティカルヒット！ ＞ (4DR3) ＞ [6,6,3,2]3 ＞ 4ダメージ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -175,6 +188,8 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 }
 ]
+success = true
+critical = true
 
 [[ test ]]
 game_system = "NSSQ"
@@ -186,11 +201,12 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 }
 ]
+success = true
 
 [[ test ]]
 game_system = "NSSQ"
 input = "4DR+4 クリティカルヒット時ダイスが8個になるか確認"
-output = "(4DR+4) ＞ [6,6,3,2]4 ＞ 2ダメージ クリティカルヒット！\n(8DR4) ＞ [6,6,3,2,1,1,1,1]4 ＞ 2ダメージ"
+output = "(4DR+4) ＞ [6,6,3,2]4 ＞ クリティカルヒット！ ＞ (8DR4) ＞ [6,6,3,2,1,1,1,1]4 ＞ 4ダメージ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -205,11 +221,13 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 }
 ]
+success = true
+critical = true
 
 [[ test ]]
 game_system = "NSSQ"
 input = "4DRC3 クリティカルアップ状態（6の数が1の数より1つでも多ければクリティカルヒット）の確認"
-output = "(4DRC3) ＞ [6,6,1,2]3 ＞ 2ダメージ クリティカルヒット！\n(4DR3) ＞ [6,6,3,2]3 ＞ 2ダメージ"
+output = "(4DRC3) ＞ [6,6,1,2]3 ＞ クリティカルヒット！ ＞ (4DR3) ＞ [6,6,3,2]3 ＞ 4ダメージ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -220,11 +238,13 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 }
 ]
+success = true
+critical = true
 
 [[ test ]]
 game_system = "NSSQ"
 input = "4DRC+4 クリティカルアップ状態とクリティカルヒット時のダイス数増加の両方の動作確認"
-output = "(4DRC+4) ＞ [6,6,1,2]4 ＞ 2ダメージ クリティカルヒット！\n(8DR4) ＞ [6,6,3,2,1,1,1,1]4 ＞ 2ダメージ"
+output = "(4DRC+4) ＞ [6,6,1,2]4 ＞ クリティカルヒット！ ＞ (8DR4) ＞ [6,6,3,2,1,1,1,1]4 ＞ 4ダメージ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -239,6 +259,8 @@ rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 }
 ]
+success = true
+critical = true
 
 [[ test ]]
 game_system = "NSSQ"
@@ -250,6 +272,19 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 }
 ]
+success = true
+
+[[ test ]]
+game_system = "NSSQ"
+input = "4HR 失敗時にfailureフラグが立つことを確認"
+output = "(4HR) ＞ [3,3,3,2]3 ＞ 0回復"
+rands = [
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 3 },
+  { sides = 6, value = 2 }
+]
+failure = true
 
 [[ test ]]
 game_system = "NSSQ"
@@ -261,6 +296,7 @@ rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 }
 ]
+success = true
 
 [[ test ]]
 game_system = "NSSQ"
@@ -284,7 +320,7 @@ rands = [
 
 [[ test ]]
 game_system = "NSSQ"
-input = "SC+1 ！ああっと！が発声することを確認"
+input = "SC+1 ！ああっと！が発生することを確認"
 output = "(SC+1) ＞ 5[1,4]: 成功\n(SC+1) ＞ 4[2,2]: ！ああっと！\n(SC+1) ＞ 3[1,2]: 成功（追加分）"
 rands = [
   { sides = 6, value = 1 },

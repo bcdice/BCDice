@@ -1,0 +1,772 @@
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "KA9"
+output = "(1D12<=9) ＞ 1 ＞ 성공（성공도+1）"
+success = true
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "KA8+1"
+output = "(1D12<=9) ＞ 9 ＞ 성공（성공도+1）"
+success = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "ka10"
+output = "(1D12<=10) ＞ 9 ＞ 성공（성공도+2）"
+success = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "KA18+2-1"
+output = "(1D12<=19) ＞ 9 ＞ 성공（성공도+2）"
+success = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "KA20"
+output = "(1D12<=20) ＞ 9 ＞ 성공（성공도+3）"
+success = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "KA9"
+output = "(1D12<=9) ＞ 10 ＞ 실패"
+failure = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "kA9"
+output = "(1D12<=9) ＞ 11 ＞ 대성공（성공도+1, 다음 지속 판정의 목표치를 10으로 변경）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "ka10"
+output = "(1D12<=10) ＞ 11 ＞ 대성공（성공도+2, 다음 지속 판정의 목표치를 10으로 변경）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "KA19"
+output = "(1D12<=19) ＞ 11 ＞ 대성공（성공도+2, 다음 지속 판정의 목표치를 10으로 변경）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SKa20"
+output = "(1D12<=20) ＞ 11 ＞ 대성공（성공도+3, 다음 지속 판정의 목표치를 10으로 변경）"
+success = true
+critical = true
+secret = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "KA12"
+output = "(1D12<=12) ＞ 12 ＞ 대실패"
+failure = true
+fumble = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "KC9"
+output = "(1D12<=9) ＞ 1 ＞ 성공（성공도+1）"
+success = true
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SKC8+1"
+output = "(1D12<=9) ＞ 9 ＞ 성공（성공도+1）"
+success = true
+secret = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "kc10"
+output = "(1D12<=10) ＞ 9 ＞ 성공（성공도+1）"
+success = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "KC18-1+2"
+output = "(1D12<=19) ＞ 9 ＞ 성공（성공도+1）"
+success = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "skc17+1+1+1"
+output = "(1D12<=20) ＞ 9 ＞ 성공（성공도+1）"
+success = true
+secret = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "kC9"
+output = "(1D12<=9) ＞ 10 ＞ 실패"
+failure = true
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "KC10"
+output = "(1D12<=10) ＞ 11 ＞ 대성공（성공도+1, 다음 지속 판정의 목표치를 10으로 변경）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "Kc20"
+output = "(1D12<=20) ＞ 11 ＞ 대성공（성공도+1, 다음 지속 판정의 목표치를 10으로 변경）"
+success = true
+critical = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "Skc12"
+output = "(1D12<=12) ＞ 12 ＞ 대실패"
+failure = true
+fumble = true
+secret = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "CTR"
+output = "함정 작동 체크(1D12) ＞ 1 ＞ 함정이 작동하지 않았다"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "ctr"
+output = "함정 작동 체크(1D12) ＞ 11 ＞ 함정이 작동하지 않았다"
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SCTR"
+output = "함정 작동 체크(1D12) ＞ 5 ＞ 함정이 작동하지 않았다"
+secret = true
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "CTR"
+output = "함정 작동 체크(1D12) ＞ 12 ＞ 함정이 작동했다！ ＞ 먹잇감표(1) ＞ 소형 동물이 함정에 걸려 있었다"
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "ctr"
+output = "함정 작동 체크(1D12) ＞ 12 ＞ 함정이 작동했다！ ＞ 먹잇감표(12) ＞ 인간 방랑자가 함정에 걸려 있었다"
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "sctr"
+output = "함정 작동 체크(1D12) ＞ 12 ＞ 함정이 작동했다！ ＞ 먹잇감표(5) ＞ 대형 동물이 함정에 걸려 있었다"
+secret = true
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "FT"
+output = "대실패표(9) ＞ 무작위 날씨표(RWT)를 사용하고, 결과를 턴 종료까지 적용한다"
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "ft"
+output = "대실패표(12) ＞ 준비 중인 무기가 파괴된다"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "sFT"
+output = "대실패표(6) ＞ 무작위 짐 1개가 파괴된다"
+secret = true
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "RST"
+output = "능력치 무작위 결정표(1) ＞ 【이동】"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "rst"
+output = "능력치 무작위 결정표(10) ＞ 【감지】"
+rands = [
+  { sides = 12, value = 10 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SRST"
+output = "능력치 무작위 결정표(12) ＞ 【자제】"
+secret = true
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "RTT"
+output = "무작위 소요 시간표(1) ＞ 2"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "rtt"
+output = "무작위 소요 시간표(12) ＞ 5"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SrTt"
+output = "무작위 소요 시간표(4) ＞ 3"
+secret = true
+rands = [
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "RET"
+output = "무작위 소모표(1) ＞ 0"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "ret"
+output = "무작위 소모표(12) ＞ 4"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SRET"
+output = "무작위 소모표(9) ＞ 2"
+secret = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "RWT"
+output = "무작위 날씨표(1) ＞ 짙은 안개"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "rwt"
+output = "무작위 날씨표(12) ＞ 혹한"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "srwt"
+output = "무작위 날씨표(3) ＞ 폭우"
+secret = true
+rands = [
+  { sides = 12, value = 3 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "RWDT"
+output = "무작위 날씨 지속표(1) ＞ 1턴"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "rwdt"
+output = "무작위 날씨 지속표(12) ＞ 156턴"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SRWDT"
+output = "무작위 날씨 지속표(5) ＞ 6턴"
+secret = true
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "ROMT"
+output = "무작위 엄폐물표（야외）(5) ＞ 【나무】내구도5, 경감치2, 특수효과: 컨택트 내 캐릭터에 대한 사격 공격 판정에 -1 수정 부가"
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "romt"
+output = "무작위 엄폐물표（야외）(12) ＞ 【암벽】내구도8, 경감치4, 특수효과: 컨택트 내 캐릭터에 대한 사격 공격 판정에 -2 수정 부가 / 컨택트 내에서 이루어지는 격투 공격의 대미지 +2"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "sromt"
+output = "무작위 엄폐물표（야외）(8) ＞ 【큰 나무】내구도7, 경감치3, 특수효과: 컨택트 내 캐릭터에 대한 사격 공격 판정에 -2 수정 부가"
+secret = true
+rands = [
+  { sides = 12, value = 8 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "RIMT"
+output = "무작위 엄폐물표（실내）(1) ＞ 【목재 벽】내구도4, 경감치2, 특수효과: 컨택트 내 캐릭터에 대한 사격 공격 판정에 -1 수정 부가"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "rimt"
+output = "무작위 엄폐물표（실내）(12) ＞ 【목제 가구】내구도3, 경감치2, 특수효과: 컨택트 내에서 이루어지는 격투 공격의 대미지 +1"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SRIMT"
+output = "무작위 엄폐물표（실내）(5) ＞ 【목재 문】내구도4, 경감치2, 특수효과: 컨택트 내 캐릭터에 대한 사격 공격 판정에 -1, 접촉 판정과 돌격 판정에 -2 수정 부가"
+secret = true
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "EET"
+output = "도주 체험표(5) ＞ 임의의 【유대】를 합계 2점 감소시킨다 (재등장: 12시간 후)"
+rands = [
+  { sides = 12, value = 5 },
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "eet"
+output = "도주 체험표(12) ＞ 모든 무기와 방어구와 소도구와 짐을 잃는다（도주한 구역에 배치되며, 조사로 발견 가능） (재등장: 1시간 후)"
+rands = [
+  { sides = 12, value = 12 },
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "sEET"
+output = "도주 체험표(2) ＞ 【여유】가 0이 된다 (재등장: 11시간 후)"
+secret = true
+rands = [
+  { sides = 12, value = 2 },
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "GFT"
+output = "식재료 채집표(1) ＞ 먹을 수 있는 뿌리（영양가:2）"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "gft"
+output = "식재료 채집표(12) ＞ 징그러운 벌레（영양가:1）"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "sgft"
+output = "식재료 채집표(3) ＞ 먹을 수 있는 풀（영양가:3）"
+secret = true
+rands = [
+  { sides = 12, value = 3 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "GWT"
+output = "물 채집표(1) ＞ 오염수"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "gwt"
+output = "물 채집표(12) ＞ 독수"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SGWT"
+output = "물 채집표(7) ＞ 음료수"
+secret = true
+rands = [
+  { sides = 12, value = 7 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "WST"
+output = "백색 마석 효과표(1) ＞ 도움이 안 되는 것의 색을 바꾼다"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "wst"
+output = "백색 마석 효과표(12) ＞ 대형 동물을 소환한다"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SwsT"
+output = "백색 마석 효과표(5) ＞ 도움이 안 되는 것을 복원한다"
+secret = true
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "HPT"
+output = "인간 부위표(1) ＞ 오른팔 부위"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "hpt"
+output = "인간 부위표(12) ＞ 머리 부위"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "sHpt"
+output = "인간 부위표(8) ＞ 왼쪽 다리 부위"
+secret = true
+rands = [
+  { sides = 12, value = 8 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "PDT"
+output = "부위 피해 단계표(1) ＞ 경상"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "pdt"
+output = "부위 피해 단계표(12) ＞ 상실"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "sPdt"
+output = "부위 피해 단계표(11) ＞ 파괴"
+secret = true
+rands = [
+  { sides = 12, value = 11 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "QPT"
+output = "네발 동물 부위표(1) ＞ 이형"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "qpt"
+output = "네발 동물 부위표(12) ＞ 머리 부위"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "sQpt"
+output = "네발 동물 부위표(5) ＞ 왼쪽 앞다리 부위"
+secret = true
+rands = [
+  { sides = 12, value = 5 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "APT"
+output = "무족류 부위표(1) ＞ 이형"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "apt"
+output = "무족류 부위표(12) ＞ 머리 부위"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SApt"
+output = "무족류 부위표(4) ＞ 무기"
+secret = true
+rands = [
+  { sides = 12, value = 4 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "TPT"
+output = "두발 동물 부위표(1) ＞ 이형"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "tpt"
+output = "두발 동물 부위표(12) ＞ 머리 부위"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "sTpt"
+output = "두발 동물 부위표(9) ＞ 몸통 부위"
+secret = true
+rands = [
+  { sides = 12, value = 9 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "BPT"
+output = "새 부위표(1) ＞ 이형"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "bpt"
+output = "새 부위표(12) ＞ 머리 부위"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SBpT"
+output = "새 부위표(6) ＞ 왼쪽 날개（왼팔 부위）"
+secret = true
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "CPT"
+output = "두족류 부위표(1) ＞ 이형"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "cpt"
+output = "두족류 부위표(12) ＞ 머리 부위"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "sCpt"
+output = "두족류 부위표(2) ＞ 무기"
+secret = true
+rands = [
+  { sides = 12, value = 2 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "IPT"
+output = "곤충 부위표(1) ＞ 이형"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "ipt"
+output = "곤충 부위표(12) ＞ 머리 부위"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SiPt"
+output = "곤충 부위표(6) ＞ 오른쪽 중간다리 부위"
+secret = true
+rands = [
+  { sides = 12, value = 6 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SPT"
+output = "거미 부위표(1) ＞ 이형"
+rands = [
+  { sides = 12, value = 1 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "spt"
+output = "거미 부위표(12) ＞ 머리 부위"
+rands = [
+  { sides = 12, value = 12 },
+]
+
+[[ test ]]
+game_system = "KemonoNoMori:Korean"
+input = "SspT"
+output = "거미 부위표(9) ＞ 오른쪽 네번째 다리 부위"
+secret = true
+rands = [
+  { sides = 12, value = 9 },
+]

@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
+require 'bcdice/base'
 require 'bcdice/dice_table/range_table'
+require 'bcdice/dice_table/table'
+require "bcdice/format"
 
 module BCDice
   module GameSystem
@@ -32,8 +35,15 @@ module BCDice
         ・サイドトラック・チャート（STC）
       INFO_MESSAGE_TEXT
 
+      register_prefix(
+        'BJ',
+        'DC[LSC]',
+        'CPC',
+        'STC'
+      )
+
       def eval_game_system_specific_command(command)
-        resolute_action(command) || roll_death_chart(command) || roll_tables(command, TABLES)
+        resolute_action(command) || roll_death_chart(command) || roll_tables(command, self.class::TABLES)
       end
 
       private
@@ -52,7 +62,7 @@ module BCDice
         result = action_result(roll_result, dice10, dice01, success_rate)
 
         sequence = [
-          "行為判定(成功率:#{success_rate}％)",
+          translate("BlackJacket.action_judge", rate: success_rate),
           "1D100[#{dice10},#{dice01}]=#{roll_result_text}",
           roll_result_text.to_s,
           result.text
@@ -62,29 +72,23 @@ module BCDice
         result
       end
 
-      SUCCESS_STR = "成功"
-      FAILURE_STR = "失敗"
-      CRITICAL_STR = (SUCCESS_STR + " ＞ クリティカル！ パワーの代償１／２").freeze
-      FUMBLE_STR = (FAILURE_STR + " ＞ ファンブル！ パワーの代償２倍＆振り直し不可").freeze
-      MISERY_STR = (FAILURE_STR + " ＞ ミザリー！ パワーの代償２倍＆振り直し不可").freeze
-
       def action_result(total, tens, ones, success_rate)
         if total == 100
-          Result.fumble(MISERY_STR)
+          Result.fumble(translate("BlackJacket.misery"))
         elsif success_rate <= 0
-          Result.fumble(FUMBLE_STR)
+          Result.fumble(translate("BlackJacket.fumble"))
         elsif total <= success_rate - 100
-          Result.critical(CRITICAL_STR)
+          Result.critical(translate("BlackJacket.critical"))
         elsif tens == ones
           if total <= success_rate
-            Result.critical(CRITICAL_STR)
+            Result.critical(translate("BlackJacket.critical"))
           else
-            Result.fumble(FUMBLE_STR)
+            Result.fumble(translate("BlackJacket.fumble"))
           end
         elsif total <= success_rate
-          Result.success(SUCCESS_STR)
+          Result.success(translate("success"))
         else
-          Result.failure(FAILURE_STR)
+          Result.failure(translate("failure"))
         end
       end
 
@@ -112,24 +116,25 @@ module BCDice
 
         # @param randomizer [Randomizer]
         # @param minus_score [Integer]
+        # @param locale [Symbol]
         # @return [String]
-        def roll(randomizer, minus_score)
+        def roll(randomizer, minus_score, locale)
           dice = randomizer.roll_once(10)
           key_number = dice + minus_score
 
-          key_text, chosen = at(key_number)
+          key_text, chosen = at(key_number, locale)
 
-          return "デスチャート（#{@name}）[マイナス値:#{minus_score} + 1D10(->#{dice}) = #{key_number}] ＞ #{key_text} ： #{chosen}"
+          return I18n.translate("BlackJacket.death_chart_result", locale: locale, name: @name, minus: minus_score, dice: dice, key: key_number, key_text: key_text, chosen: chosen)
         end
 
         private
 
         # key_numberの10から20がindexの0から10に対応する
-        def at(key_number)
+        def at(key_number, locale)
           if key_number < 10
-            ["10以下", @chart.first]
+            [I18n.translate("BlackJacket.death_chart_under", locale: locale), @chart.first]
           elsif key_number > 20
-            ["20以上", @chart.last]
+            [I18n.translate("BlackJacket.death_chart_over", locale: locale), @chart.last]
           else
             [key_number.to_s, @chart[key_number - 10]]
           end
@@ -142,103 +147,42 @@ module BCDice
           return m
         end
 
-        chart = DEATH_CHARTS[m[1]]
+        chart = self.class::DEATH_CHARTS[m[1]]
         minus_score = m[2].to_i
 
-        return chart.roll(@randomizer, minus_score)
+        return chart.roll(@randomizer, minus_score, @locale)
       end
 
-      DEATH_CHARTS = {
-        'L' => DeathChart.new(
-          '肉体',
-          [
-            "何も無し。キミは奇跡的に一命を取り留めた。闘いは続く。",
-            "激痛が走る。以後、イベント終了時まで、全ての判定の成功率－10％。",
-            "もう、体が動かない……。キミは［硬直２］を受ける。",
-            "渾身の一撃!!　キミは〈生存〉判定を行なう。失敗した場合、［死亡］する。",
-            "突然、目の前が真っ暗になった。キミは［気絶２］を受ける。",
-            "以後、イベント終了時まで、全ての判定の成功率－20％。",
-            "記録的一撃!!　キミは〈生存〉－20％の判定を行なう。失敗した場合、［死亡］する。",
-            "生きているのか死んでいるのか。キミは［瀕死２］を受ける。",
-            "叙事詩的一撃!!　キミは〈生存〉－30％の判定を行なう。失敗した場合、［死亡］する。",
-            "以後、イベント終了時まで、全ての判定の成功率－30％。",
-            "神話的一撃!!　キミは宙を舞って三回転ほどした後、地面に叩きつけられる。見るも無惨な姿。肉体は原型を留めていない（キミは［死亡］した）。",
-          ]
-        ),
-        'S' => DeathChart.new(
-          '精神',
-          [
-            "何も無し。キミは歯を食いしばってストレスに耐えた。",
-            "以後、イベント終了時まで、全ての判定の成功率－10％。",
-            "云い知れぬ恐怖がキミを襲う。キミは［恐怖２］を受ける。",
-            "とても傷ついた。キミは〈意思〉判定を行なう。失敗した場合、［絶望］してNPCとなる。",
-            "キミは意識を失った。キミは［気絶２］を受ける。",
-            "以後、イベント終了時まで、全ての判定の成功率－20％。",
-            "信じる者にだまされたような痛み。キミは〈意思〉－20％の判定を行なう。失敗した場合、［絶望］してＮＰＣとなる。",
-            "仲間に裏切られたのかも知れない。キミは［混乱２］を受ける。",
-            "あまりに残酷な現実。キミは〈意思〉－30％の判定を行なう。失敗した場合、［絶望］してＮＰＣとなる。",
-            "以後、イベント終了時まで、全ての判定の成功率－30％。",
-            "宇宙開闢の理に触れるも、それは人類の認識限界を超える何かであった。キミは［絶望］し、以後ＮＰＣとなる。",
-          ]
-        ),
-        'C' => DeathChart.new(
-          '環境',
-          [
-            "何も無し。キミは黒い噂を握りつぶした。",
-            "以後、イベント終了時まで、全ての判定の成功率－10％。",
-            "ピンチ！　以後、ラウンド終了時まで、キミはカルマを使用できない。",
-            "悪い噂が流れる。キミは〈交渉〉判定を行なう。失敗した場合、キミは仲間からの信頼を失って［無縁］され、ＮＰＣとなる。",
-            "以後、イベント終了時まで、代償にクレジットを消費するパワーを使用できない。",
-            "キミの悪評が世間に知れ渡る。協力者からの支援が打ち切られる。以後、シナリオ終了時まで、全ての判定の成功率－20％。",
-            "裏切り!!　キミは〈経済〉－20％の判定を行なう。失敗した場合、キミは周囲からの信頼を失い、［無縁］され、ＮＰＣとなる。",
-            "以後、シナリオ終了時まで、【環境】系の技能のレベルがすべて０となる。",
-            "捏造報道？　身に覚えのない背信行為がスクープとして報道される。キミは〈心理〉－30％の判定を行なう。失敗した場合、キミは人としての尊厳を失い、［無縁］を受ける。",
-            "以後、イベント終了時まで、全ての判定の成功率－30％。",
-            "キミの名は史上最悪の汚点として歴史に刻まれる。もはらキミを信じる仲間はなく、キミを助ける社会もない。キミは［無縁］され、以後ＮＰＣとなる。",
-          ]
-        )
-      }.freeze
+      class << self
+        private
 
-      TABLES = {
-        "CPC" => DiceTable::Table.new(
-          "チャレンジ・ペナルティ・チャート",
-          "1D10",
-          [
-            "逝去\n助けるべきＮＰＣ（ヒロインなど）が死亡する。",
-            "黒星\n敵が目的を成就し、事件はPCの敗北で終了する。そのまま余韻フェイズへ。",
-            "活性\n敵のボスのライフを２倍にしたうえで決戦フェイズを開始する。",
-            "攻勢\n敵ボスの与ダメージに＋２D6の修正を与えたうえで決戦フェイズを開始する。",
-            "大挙\n敵の数（ボス以外）を２倍にしたうえで決戦フェイズを開始する。",
-            "暗黒\nすべてのエリアを［暗闇］にしたうえで決戦フェイズを開始する。",
-            "猛火\n２つの戦場エリアを［ダメージゾーン２］にして、決戦フェイズを開始する。",
-            "伏兵\n敵の半分をエリア１とエリア２に移動させた状態で決戦フェイズを開始する。",
-            "満腹\nボス以外の敵のライフをすべて２倍にしたうえで決戦フェイズを開始する。",
-            "封印\n決戦フェイズの間、PCはカルマを使用できない。決戦フェイズを開始する。"
-          ]
-        ),
-        "STC" => DiceTable::Table.new(
-          "サイドトラック・チャート",
-          "1D10",
-          [
-            "邂逅\n偶然、ＮＰＣと出会う。どのＮＰＣが現れるかはGMが決定すること。",
-            "事故\n交通事故に出くわす。周囲ではパニックが起きているかも知れない。",
-            "午睡\n強烈な睡魔に襲われる。まさか、新手のヴィランの能力か？",
-            "告白\nＮＰＣのひとりから、今まで秘めていた思いを吐露される。",
-            "設定\n新たな設定が明かされる。実はＮＰＣの父だったとか、生来目が見えん、とか。",
-            "刺客\n何者かから攻撃を受ける。第３勢力か？",
-            "会敵\n偶然、仇敵のひとりと出くわす。追うべきか？　無視すべきか？",
-            "不審\n怪しい人物を見かける。追うべきか？　無視すべきか？",
-            "遭遇\nシナリオと関係のないヴィラン組織と遭遇する。",
-            "平和\n特に何も起きなかった。",
-          ]
-        ),
-      }.freeze
+        def translate_tables(locale)
+          {
+            "CPC" => DiceTable::Table.from_i18n("BlackJacket.table.CPC", locale),
+            "STC" => DiceTable::Table.from_i18n("BlackJacket.table.STC", locale),
+          }
+        end
 
-      register_prefix(
-        'BJ',
-        'DC[LSC]',
-        TABLES.keys
-      )
+        def translate_death_charts(locale)
+          {
+            'L' => DeathChart.new(
+              I18n.translate("BlackJacket.chart_name.physical", locale: locale),
+              I18n.translate("BlackJacket.death_charts.physical", locale: locale)
+            ),
+            'S' => DeathChart.new(
+              I18n.translate("BlackJacket.chart_name.mental", locale: locale),
+              I18n.translate("BlackJacket.death_charts.mental", locale: locale)
+            ),
+            'C' => DeathChart.new(
+              I18n.translate("BlackJacket.chart_name.social", locale: locale),
+              I18n.translate("BlackJacket.death_charts.social", locale: locale)
+            ),
+          }
+        end
+      end
+
+      TABLES       = translate_tables(:ja_jp).freeze
+      DEATH_CHARTS = translate_death_charts(:ja_jp).freeze
     end
   end
 end

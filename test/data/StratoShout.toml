@@ -109,7 +109,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout"
 input = "GAKKO"
-output = "学校シーン表(P199)(12) ＞ スピーカーから校内放送が聞こえた。誰かを呼んでいるようだが……？"
+output = "学校シーン表(P199)(12) ＞ スピーカーから校内放送が聞こえてきた。誰かを呼んでいるようだが……？"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -118,7 +118,7 @@ rands = [
 [[ test ]]
 game_system = "StratoShout"
 input = "BAND"
-output = "バンドシーン表(P199)(2) ＞ 音楽専門のニュースサイトをチェック。大小様々な記事が投稿されている。"
+output = "バンドシーン表(P199)(2) ＞ 音楽専門のネットニュースサイトをチェック。大小様々な記事が投稿されている。"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 1 },

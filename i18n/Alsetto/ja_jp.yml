@@ -1,0 +1,5 @@
+ja_jp:
+  Alsetto:
+    damage: "%{total_damage}ダメージ"
+    success_count: "成功数：%{success_count}"
+    triumph: " / %{critical_count}トライアンフ"

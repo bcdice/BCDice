@@ -446,7 +446,7 @@ rands = []
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NMT1"
-output = "原始時代名前表（男性名）(66) ＞ ドデカーン"
+output = "原始時代名前表／男性名(66) ＞ ドデカーン"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -455,7 +455,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NFT1"
-output = "原始時代名前表（女性名）(12) ＞ プシュ"
+output = "原始時代名前表／女性名(12) ＞ プシュ"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 2 },
@@ -464,7 +464,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NMT2"
-output = "古代名前表（男性名）(56) ＞ オーシャナス"
+output = "古代名前表／男性名(56) ＞ オーシャナス"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -473,7 +473,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NFT2"
-output = "古代名前表（女性名）(35) ＞ イシュチャック"
+output = "古代名前表／女性名(35) ＞ イシュチャック"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -482,7 +482,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NLT2"
-output = "古代名前表（姓）(16) ＞ なし"
+output = "古代名前表／姓(16) ＞ なし"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 1 },
@@ -491,7 +491,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NMT3"
-output = "中世時代（日本）名前表（男性名）(35) ＞ 鉄舟（てっしゅう）"
+output = "中世時代（日本）名前表／男性名(35) ＞ 鉄舟（てっしゅう）"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -500,7 +500,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NFT3"
-output = "中世時代（日本）名前表（女性名）(46) ＞ 千（せん）"
+output = "中世時代（日本）名前表／女性名(46) ＞ 千（せん）"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -509,7 +509,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NLT3"
-output = "中世時代（日本）名前表（姓）(26) ＞ 柳生"
+output = "中世時代（日本）名前表／姓(26) ＞ 柳生"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 2 },
@@ -518,7 +518,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NMT3W"
-output = "中世時代（西洋）名前表（男性名）(13) ＞ エイモン"
+output = "中世時代（西洋）名前表／男性名(13) ＞ エイモン"
 rands = [
   { sides = 6, value = 1 },
   { sides = 6, value = 3 },
@@ -527,7 +527,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NFT3W"
-output = "中世時代（西洋）名前表（女性名）(34) ＞ カサンドラ"
+output = "中世時代（西洋）名前表／女性名(34) ＞ カサンドラ"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 3 },
@@ -536,7 +536,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NLT3W"
-output = "中世時代（西洋）名前表（姓）(35) ＞ ストームダンサー"
+output = "中世時代（西洋）名前表／姓(35) ＞ ストームダンサー"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 5 },
@@ -545,7 +545,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NMT4"
-output = "現代（日本）名前表（男性名）(45) ＞ 大和"
+output = "現代（日本）名前表／男性名(45) ＞ 大和"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 5 },
@@ -554,7 +554,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NFT4"
-output = "現代（日本）名前表（女性名）(36) ＞ 美月"
+output = "現代（日本）名前表／女性名(36) ＞ 美月"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 6 },
@@ -563,7 +563,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NLT4"
-output = "現代（日本）名前表（姓）(23) ＞ 中村"
+output = "現代（日本）名前表／姓(23) ＞ 中村"
 rands = [
   { sides = 6, value = 2 },
   { sides = 6, value = 3 },
@@ -572,7 +572,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NMT4W"
-output = "現代（西洋）名前表（男性名）(14) ＞ マイケル"
+output = "現代（西洋）名前表／男性名(14) ＞ マイケル"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -581,7 +581,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NFT4W"
-output = "現代（西洋）名前表（女性名）(56) ＞ ミシェル"
+output = "現代（西洋）名前表／女性名(56) ＞ ミシェル"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 5 },
@@ -590,7 +590,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NLT4W"
-output = "現代（西洋）名前表（姓）(14) ＞ ブラウン"
+output = "現代（西洋）名前表／姓(14) ＞ ブラウン"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 1 },
@@ -599,7 +599,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NMT5"
-output = "超情報化時代名前表（男性名）(66) ＞ ヨリノブ"
+output = "超情報化時代名前表／男性名(66) ＞ ヨリノブ"
 rands = [
   { sides = 6, value = 6 },
   { sides = 6, value = 6 },
@@ -608,7 +608,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NFT5"
-output = "超情報化時代名前表（女性名）(33) ＞ サファイア"
+output = "超情報化時代名前表／女性名(33) ＞ サファイア"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 3 },
@@ -617,7 +617,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NLT5"
-output = "超情報化時代名前表（姓）(44) ＞ スズキ"
+output = "超情報化時代名前表／姓(44) ＞ スズキ"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 4 },
@@ -626,7 +626,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NMT6"
-output = "宇宙時代名前表（男性名）(23) ＞ ハイペリオン"
+output = "宇宙時代名前表／男性名(23) ＞ ハイペリオン"
 rands = [
   { sides = 6, value = 3 },
   { sides = 6, value = 2 },
@@ -635,7 +635,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NFT6"
-output = "宇宙時代名前表（女性名）(46) ＞ ミレニアム"
+output = "宇宙時代名前表／女性名(46) ＞ ミレニアム"
 rands = [
   { sides = 6, value = 4 },
   { sides = 6, value = 6 },
@@ -644,7 +644,7 @@ rands = [
 [[ test ]]
 game_system = "PastFutureParadox"
 input = "NLT6"
-output = "宇宙時代名前表（姓）(55) ＞ オメガ"
+output = "宇宙時代名前表／姓(55) ＞ オメガ"
 rands = [
   { sides = 6, value = 5 },
   { sides = 6, value = 5 },
@@ -670,7 +670,7 @@ rands = []
 
 [[ test ]]
 game_system = "PastFutureParadox"
-input = "CTT"
+input = "CCT"
 output = "因縁種別表（因縁種別／因縁強度）(34) ＞ クラスメイト／2"
 rands = [
   { sides = 6, value = 4 },
@@ -690,13 +690,14 @@ game_system = "PastFutureParadox"
 input = "CPT=1"
 output = "ポジティブ因縁内容表:1 ＞ 1:共存。一緒にいて自然な関係だ。"
 rands = []
-[[ test ]]
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "CPT=-5 0以下を指定しても最低の1の結果を表示"
 output = "ポジティブ因縁内容表:1 ＞ 1:共存。一緒にいて自然な関係だ。"
 rands = []
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "CPT=10 7以上を指定しても最高の6の結果を表示"
 output = "ポジティブ因縁内容表:6 ＞ 6:理解。何も言わなくても相手のことならなんでもわかる。"
@@ -747,13 +748,14 @@ game_system = "PastFutureParadox"
 input = "CNT=1"
 output = "ネガティブ因縁内容表:1 ＞ 1:邪魔。なぜかいつも視界の端にいる。"
 rands = []
-[[ test ]]
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "CNT=-5 0以下を指定しても最低の1の結果を表示"
 output = "ネガティブ因縁内容表:1 ＞ 1:邪魔。なぜかいつも視界の端にいる。"
 rands = []
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "CNT=10 7以上を指定しても最高の6の結果を表示"
 output = "ネガティブ因縁内容表:6 ＞ 6:天敵。不倶戴天の敵、いつでも対立して喧嘩ばかりしている。"
@@ -1176,13 +1178,14 @@ game_system = "PastFutureParadox"
 input = "RT=1"
 output = "帰還演出表:1 ＞ 1:この時代に来た方法と同じ演出で帰還できる。"
 rands = []
-[[ test ]]
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "RT=-5 0以下を指定しても最低の1の結果を表示"
 output = "帰還演出表:1 ＞ 1:この時代に来た方法と同じ演出で帰還できる。"
 rands = []
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "RT=10 7以上を指定しても最高の6の結果を表示"
 output = "帰還演出表:6 ＞ 6:天から神々しい光が降りそそぐ。宇宙開闢の女神が微笑みかけると、あなたは強い光に包まれる。その光はあなたを元の時代へと導く。"
@@ -1233,13 +1236,14 @@ game_system = "PastFutureParadox"
 input = "IT=1"
 output = "アイテム決定表:1 ＞ 1:癒しの品。いつでも使用可能。好きなキャラクター（自身含む）の［疲労度］を1D6点減少させることができる。使用すると失われる。"
 rands = []
-[[ test ]]
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "IT=-5 0以下を指定しても最低の1の結果を表示"
 output = "アイテム決定表:1 ＞ 1:癒しの品。いつでも使用可能。好きなキャラクター（自身含む）の［疲労度］を1D6点減少させることができる。使用すると失われる。"
 rands = []
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "IT=10 7以上を指定しても最高の6の結果を表示"
 output = "アイテム決定表:6 ＞ 6:運命の品。誰か（自身含む）がシステムおよびシナリオで用意された表を使用してダイスを振った直後に使用可能。ダイスの結果を±1ずらすことができる。ただしその表に設定されていない値にずらすことはできない。使用すると失われる。"
@@ -1290,13 +1294,14 @@ game_system = "PastFutureParadox"
 input = "AGT=1"
 output = "時代決定表:1 ＞ 1:原始時代／EL1"
 rands = []
-[[ test ]]
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "AGT=-5 0以下を指定しても最低の1の結果を表示"
 output = "時代決定表:1 ＞ 1:原始時代／EL1"
 rands = []
 
+[[ test ]]
 game_system = "PastFutureParadox"
 input = "AGT=10 7以上を指定しても最高の6の結果を表示"
 output = "時代決定表:6 ＞ 6:宇宙時代／EL6"

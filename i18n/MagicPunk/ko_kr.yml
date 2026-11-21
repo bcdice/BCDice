@@ -1,0 +1,5 @@
+ko_kr:
+  MagicPunk:
+      bad_beat: "실패(BB)"
+      jackpot: "성공(JP)"
+      success: "성공(%<value>d)"
