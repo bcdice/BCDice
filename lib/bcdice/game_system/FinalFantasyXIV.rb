@@ -41,6 +41,7 @@ module BCDice
         return nil unless cmd
 
         times = cmd.prefix_number || 1
+        return nil if times < 1 || times > Randomizer::UPPER_LIMIT_DICE_TIMES
 
         dice_list_full = @randomizer.roll_barabara(times, 20).sort
         dice_list_full_str = "[#{dice_list_full.join(',')}]" if times > 1
@@ -81,6 +82,7 @@ module BCDice
         return nil unless cmd
 
         times = cmd.prefix_number || 1
+        return nil if times < 1 || times > Randomizer::UPPER_LIMIT_DICE_TIMES
 
         dice_list_full = @randomizer.roll_barabara(times, 20).sort
         dice_list_full_str = "[#{dice_list_full.join(',')}]" if times > 1
